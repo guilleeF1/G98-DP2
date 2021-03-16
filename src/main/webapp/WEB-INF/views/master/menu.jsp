@@ -19,7 +19,13 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.arrans-favourite-link" action="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab"/>			
+			<acme:menu-suboption code="master.menu.anonymous.bejarano-favourite-link" action="https://www.estadiodeportivo.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.beltran-favourite-link" action="https://www.huelvainformacion.es/huelva/Colegio-Ferroviarios-Adios-decadencia_0_1467453460.html"/>
+			<acme:menu-suboption code="master.menu.anonymous.bwye-favourite-link" action="http://observatorio-us.appspot.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.colmenero-favourite-link" action="https://myanimelist.net/manga/91941/Made_in_Abyss?q=made&cat=manga"/>
+			<acme:menu-suboption code="master.menu.anonymous.lopez-favourite-link" action="https://www.amazon.es/Cola-Cao-Original-1600-gr/dp/B00OHSPWUY/ref=sr_1_1_sspa?adgrpid=111547091755&dchild=1&gclid=Cj0KCQjwi7yCBhDJARIsAMWFScPGwfuFshDdsypHMf31qa4I4pQpZnCbMy5TQQxNwyLVC-j-wlo987AaArJAEALw_wcB&hvadid=470896206949&hvdev=c&hvlocphy=9047036&hvnetw=g&hvqmt=b&hvrand=5533190105916645360&hvtargid=kwd-979551371260&hydadcr=11431_1828588&keywords=colacao+oferta&qid=1615830227&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUFIRFZaVjYxVkVZM0YmZW5jcnlwdGVkSWQ9QTAzOTc1MTFZTE9FQUtIVzhGVUcmZW5jcnlwdGVkQWRJZD1BMDcyNzEwODNDTjlYSjcxVFpNSFUmd2lkZ2V0TmFtZT1zcF9hdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl
+"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
