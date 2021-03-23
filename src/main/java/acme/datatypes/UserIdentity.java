@@ -1,7 +1,7 @@
 /*
  * UserIdentity.java
  *
- * Copyright (c) 2012-2021 Rafael Corchuelo.
+ * Copyright (C) 2012-2021 Rafael Corchuelo.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -15,6 +15,7 @@ package acme.datatypes;
 import java.beans.Transient;
 
 import javax.persistence.Embeddable;
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
@@ -44,6 +45,9 @@ public class UserIdentity extends DomainDatatype {
 	@NotBlank
 	@Email
 	protected String			email;
+
+	@Valid
+	protected Phone				phone;
 
 	// Derived attributes -----------------------------------------------------
 

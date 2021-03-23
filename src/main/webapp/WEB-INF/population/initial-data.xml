@@ -3,7 +3,7 @@
 <!--
 - initial-data.xml
 -
-- Copyright (c) 2012-2021 Rafael Corchuelo.
+- Copyright (C) 2012-2021 Rafael Corchuelo.
 -
 - In keeping with the traditional purpose of furthering education and research, it is
 - the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -31,6 +31,7 @@
 				<property name="name" value="John" />
 				<property name="surname" value="Doe" />
 				<property name="email" value="john.doe@acme.com" />
+				<property name="phone"><null/></property>
 			</bean>
 		</property>
 		<property name="roles">
@@ -54,7 +55,8 @@
 			<bean class="acme.datatypes.UserIdentity">
 				<property name="name" value="Administrator" />
 				<property name="surname" value="Acme.com" />
-				<property name="email" value="administrator@acme.com" />
+				<property name="email" value="admin@acme.com" />
+				<property name="phone" value="+1 (234) 567-890" />
 			</bean>
 		</property>
 		<property name="roles">
