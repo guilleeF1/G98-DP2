@@ -1,7 +1,7 @@
 /*
  * CustomCommand.java
  *
- * Copyright (c) 2012-2021 Rafael Corchuelo.
+ * Copyright (C) 2012-2021 Rafael Corchuelo.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -15,5 +15,5 @@ package acme.components;
 import acme.framework.components.Command;
 
 public enum CustomCommand implements Command {
-
+	LIST_RECENT, LIST_ALL, LIST_MINE, PUBLISH, APPLY
 }
