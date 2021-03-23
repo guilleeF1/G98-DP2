@@ -1,7 +1,7 @@
 /*
  * AnonymousUserAccountCreateService.java
  *
- * Copyright (c) 2012-2021 Rafael Corchuelo.
+ * Copyright (C) 2012-2021 Rafael Corchuelo.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -56,7 +56,7 @@ public class AnonymousUserAccountCreateService implements AbstractCreateService<
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "username", "identity.name", "identity.surname", "identity.email");
+		request.unbind(entity, model, "username", "identity.name", "identity.surname", "identity.email", "identity.phone");
 
 		if (request.isMethod(HttpMethod.GET)) {
 			model.setAttribute("password", "");

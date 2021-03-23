@@ -1,7 +1,7 @@
 <%--
 - form.jsp
 -
-- Copyright (c) 2012-2021 Rafael Corchuelo.
+- Copyright (C) 2012-2021 Rafael Corchuelo.
 -
 - In keeping with the traditional purpose of furthering education and research, it is
 - the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -23,6 +23,7 @@
 	<acme:form-textbox code="anonymous.user-account.label.name" path="identity.name"/>
 	<acme:form-textbox code="anonymous.user-account.label.surname" path="identity.surname"/>
 	<acme:form-textbox code="anonymous.user-account.label.email" path="identity.email"/>
+	<acme:form-textbox code="anonymous.user-account.label.phone" path="identity.phone"/>
 	 
 	<acme:form-checkbox code="anonymous.user-account.label.accept" path="accept"/>
 	
