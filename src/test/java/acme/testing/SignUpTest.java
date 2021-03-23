@@ -1,7 +1,7 @@
 /*
  * SignUpTest.java
  *
- * Copyright (c) 2012-2021 Rafael Corchuelo.
+ * Copyright (C) 2012-2021 Rafael Corchuelo.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -31,7 +31,7 @@ public class SignUpTest extends AbstractTest {
 	public void beforeAll() {
 		super.beforeAll();
 
-		super.setBaseCamp("http", "localhost", "8080", "/Starter-Project", "/master/welcome", "?language=en&debug=true");
+		super.setBaseCamp("http", "localhost", "8080", "/Acme-Jobs", "/master/welcome", "?language=en&debug=true");
 		super.setAutoPausing(true);
 
 		this.signIn("administrator", "administrator");
@@ -45,8 +45,8 @@ public class SignUpTest extends AbstractTest {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/sign-up/positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveSignUp(final String username, final String password, final String name, final String surname, final String email) {
-		this.signUp(username, password, name, surname, email);
+	public void positiveSignUp(final String username, final String password, final String name, final String surname, final String email, final String phone) {
+		this.signUp(username, password, name, surname, email, phone);
 		this.signIn(username, password);
 		assert super.exists(By.linkText("Account"));
 		this.signOut();
@@ -68,7 +68,7 @@ public class SignUpTest extends AbstractTest {
 		super.submit(By.linkText("Sign out"));
 	}
 
-	protected void signUp(final String username, final String password, final String name, final String surname, final String email) {
+	protected void signUp(final String username, final String password, final String name, final String surname, final String email, final String phone) {
 		super.navigateHome();
 		super.click(By.linkText("Sign up"));
 		super.fill(By.id("username"), username);
@@ -77,6 +77,7 @@ public class SignUpTest extends AbstractTest {
 		super.fill(By.id("identity.name"), name);
 		super.fill(By.id("identity.surname"), surname);
 		super.fill(By.id("identity.email"), email);
+		super.fill(By.id("identity.phone"), phone);
 		super.click(By.id("accept$proxy"));
 		super.submit(By.className("btn-primary"));
 	}
