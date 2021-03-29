@@ -1,3 +1,4 @@
+
 # i18n_en.messages
 #
 # Copyright (C) 2012-2021 Rafael Corchuelo.
@@ -14,9 +15,16 @@
 #anonymous.task.form.button.create = Shout!
 #anonymous.task.form.button.return = Return
  
-anonymous.task.list.label.titulo = Title
-anonymous.task.list.label.periodoEjecucionInicio = Initial execution time
-anonymous.task.list.label.periodoEjecucionFinal = Final execution time
-anonymous.task.list.label.cargaTrabajo = Workload
-anonymous.task.list.label.descripcion = Description
-anonymous.task.list.label.enlace = link
+
+
+anonymous.task.form.title = Task
+anonymous.task.form.title.show = task
+
+anonymous.task.form.label.titulo = Title 
+anonymous.task.form.label.periodoEjecucionInicio = Begining Execution Period
+anonymous.task.form.label.periodoEjecucionFinal = Final Execution Period
+anonymous.task.form.label.cargaTrabajo = Workload
+anonymous.task.form.label.descripcion = Description
+anonymous.task.form.label.enlace = Link
+
+anonymous.task.form.button.return = Return
