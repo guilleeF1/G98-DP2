@@ -1,0 +1,12 @@
+
+anonymous.task.form.title = Task
+anonymous.task.form.title.show = task
+
+anonymous.task.form.label.titulo = Title 
+anonymous.task.form.label.periodoEjecucionInicio = Begining Execution Period
+anonymous.task.form.label.periodoEjecucionFinal = Final Execution Period
+anonymous.task.form.label.cargaTrabajo = Workload
+anonymous.task.form.label.descripcion = Description
+anonymous.task.form.label.enlace = Link
+
+anonymous.task.form.button.return = Return
