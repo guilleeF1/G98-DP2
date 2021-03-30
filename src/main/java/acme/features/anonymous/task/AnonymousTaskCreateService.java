@@ -86,4 +86,5 @@ public abstract class AnonymousTaskCreateService implements AbstractCreateServic
 		
 		this.repository.save(entity);
 	}
+}
 
