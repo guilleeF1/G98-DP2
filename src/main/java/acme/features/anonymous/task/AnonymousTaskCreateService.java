@@ -14,7 +14,7 @@ import acme.framework.entities.Anonymous;
 import acme.framework.services.AbstractCreateService;
 
 @Service
-public abstract class AnonymousTaskCreateService implements AbstractCreateService<Anonymous, Task> {
+public class AnonymousTaskCreateService implements AbstractCreateService<Anonymous, Task> {
 
 	// Internal state ---------------------------------------------------------
 
