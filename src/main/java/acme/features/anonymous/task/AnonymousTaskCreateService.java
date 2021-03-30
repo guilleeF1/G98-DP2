@@ -78,19 +78,13 @@ public class AnonymousTaskCreateService implements AbstractCreateService<Anonymo
 		assert errors != null;
 
 	}
-
-//	··ESTE METODO ESTABA EN EL SHOUT NO SE SI ES IMPORTANTE··
 	
-//	@Override
-//	public void create(final Request<Task> request, final Task entity) {
-//		assert request != null;
-//		assert entity != null;
-//
-//		Date moment;
-//
-//		moment = new Date(System.currentTimeMillis() - 1);
-//		entity.setMoment(moment);
-//		this.repository.save(entity);
+	@Override
+	public void create(final Request<Task> request, final Task entity) {
+		assert request != null;
+		assert entity != null;
+		
+		this.repository.save(entity);
 	}
 
 }

@@ -12,7 +12,7 @@ anonymous.task.form.title = Tarea
 anonymous.task.form.title.show = Tarea
 
 anonymous.task.form.label.titulo = Titulo 
-anonymous.task.form.label.periodoEjecucionInicio = Periodo de Ejecucion Inicio"/>
+anonymous.task.form.label.periodoEjecucionInicio = Periodo de Ejecucion Inicio
 anonymous.task.form.label.periodoEjecucionFinal = Periodo de Ejecucion Final
 anonymous.task.form.label.cargaTrabajo = Carga de Trabajo
 anonymous.task.form.label.descripcion = Descripcion
