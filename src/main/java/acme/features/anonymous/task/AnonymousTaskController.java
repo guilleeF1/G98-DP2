@@ -16,9 +16,11 @@ public class AnonymousTaskController extends AbstractController<Anonymous,Task>{
 
 	// Internal state ---------------------------------------------------------
 
-	
+
 	@Autowired
 	protected AnonymousTaskCreateService	createService;
+	@Autowired
+	protected AnonymousTaskListService	listService;
 
 
 	// Constructors -----------------------------------------------------------
