@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="utf-8" ?>
 
 
@@ -9,9 +8,8 @@
 <tiles-definitions>
 
 	<definition name="anonymous/task/list" extends="master">
-		<put-attribute name="body" type="template" value="../anonymous/task/list.jsp" />
-       
-<tiles-definitions>
+		<put-attribute name="body" type="template" value="../anonymous/task/list.jsp" />		
+	</definition>
 	
 	<definition name="anonymous/task/form" extends="master">	
 		<put-attribute name="body" type="template" value="../anonymous/task/form.jsp" />			
