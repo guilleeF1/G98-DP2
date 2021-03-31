@@ -45,8 +45,8 @@ public class AnonymousTaskCreateService implements AbstractCreateService<Anonymo
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model,
-			"titulo", "periodoEjecucionInicio", "periodoEjecucionFinal", "cargaTrabajo", "descripcion", "enlace");
+		request.unbind(entity, model, 
+			"publica", "titulo", "periodoEjecucionInicio", "periodoEjecucionFinal", "cargaTrabajo", "descripcion", "enlace");
 	}
 
 	@Override
@@ -61,6 +61,7 @@ public class AnonymousTaskCreateService implements AbstractCreateService<Anonymo
 		fin = new Date(System.currentTimeMillis() - 1);
 
 		result = new Task();
+		result.setPublica(true);
 		result.setTitulo("Titulo");
 		result.setPeriodoEjecucionInicio(inicio);
 		result.setPeriodoEjecucionFinal(fin);
