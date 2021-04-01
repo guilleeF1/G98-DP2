@@ -397,6 +397,7 @@ Shout
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Task
 --
++ publica: Boolean {NotNull}
 + titulo: String {NotBlank}
 + periodoEjecucionInicio: Date{NotNull, Temporal(TIMESTAMP), Future}
 + periodoEjecucionFinal: Date {NotNull, Temporal(TIMESTAMP), Future}
