@@ -22,6 +22,9 @@ public class Task extends DomainEntity {
 	
 	protected static final long serialVersionUID = 1L;
 	
+	@NotNull
+	protected Boolean publica;
+	
 	@NotBlank
 	protected String titulo;
 	
