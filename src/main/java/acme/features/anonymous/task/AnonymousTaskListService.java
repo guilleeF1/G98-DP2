@@ -35,7 +35,7 @@ public class AnonymousTaskListService implements AbstractListService<Anonymous, 
 			assert entity != null;
 			assert model != null;
 
-			request.unbind(entity, model, "titulo", "periodoEjecucionInicio", "periodoEjecucionFinal","cargaTrabajo","descripcion","enlace");
+			request.unbind(entity, model, "publica", "titulo", "periodoEjecucionInicio", "periodoEjecucionFinal","cargaTrabajo","descripcion","enlace");
 		}
 
 		@Override
