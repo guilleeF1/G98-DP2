@@ -9,6 +9,7 @@ import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.entities.DomainEntity;
@@ -24,7 +25,8 @@ public class Task extends DomainEntity {
 	
 	@NotNull
 	protected Boolean publica;
-	
+
+	@Length(min = 1, max = 79)
 	@NotBlank
 	protected String titulo;
 	
@@ -42,6 +44,7 @@ public class Task extends DomainEntity {
 	protected Integer cargaTrabajo;
 	
 	@NotBlank
+	@Length(min = 1, max = 499)
 	protected String descripcion;
 	
 	@URL
