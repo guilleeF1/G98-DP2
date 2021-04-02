@@ -49,6 +49,48 @@
 		<property name="info" value="http://www.sample-app.com"/>
 	</bean>
 	
+	<!-- Tasks -->
+	
+	<bean id="task01" class="acme.entities.tasks.Task">
+		<property name="publica" value="false"/>
+		<property name="titulo" value="Implementación entidad task"/>
+		<property name="periodoEjecucionInicio" value="2021/09/13 10:39"/>
+		<property name="periodoEjecucionFinal" value="2021/09/13 16:23"/>
+		<property name="cargaTrabajo" value="6"/>
+		<property name="descripcion" value="implementar task con sus atributos"/>
+		<property name="enlace"><null/></property>	
+	</bean>
+	
+	<bean id="task02" class="acme.entities.tasks.Task">
+		<property name="publica" value="false"/>
+		<property name="titulo" value="Implementación entidad shout"/>
+		<property name="periodoEjecucionInicio" value="2021/07/18 18:56"/>
+		<property name="periodoEjecucionFinal" value="2021/07/18 22:23"/>
+		<property name="cargaTrabajo" value="4"/>
+		<property name="descripcion" value="implementar shout con sus atributos"/>
+		<property name="enlace" value="http://happybirthday.com"/>
+	</bean>
+	
+	<bean id="task03" class="acme.entities.tasks.Task">
+		<property name="publica" value="true"/>
+		<property name="titulo" value="Implementación entidad announcement"/>
+		<property name="periodoEjecucionInicio" value="2021/11/03 05:07"/>
+		<property name="periodoEjecucionFinal" value="2021/11/03 12:07"/>
+		<property name="cargaTrabajo" value="7"/>
+		<property name="descripcion" value="implementar announcement con sus atributos"/>
+		<property name="enlace"><null/></property>	
+	</bean>
+	
+	<bean id="task04" class="acme.entities.tasks.Task">
+		<property name="publica" value="true"/>
+		<property name="titulo" value="Implementación entidad employer"/>
+		<property name="periodoEjecucionInicio" value="2021/12/24 01:18"/>
+		<property name="periodoEjecucionFinal" value="2021/12/24 02:18"/>
+		<property name="cargaTrabajo" value="1"/>
+		<property name="descripcion" value="implementar employer con sus atributos"/>
+		<property name="enlace"><null/></property>	
+	</bean>
+	
 	<!-- Announcements-->
 	
 	<bean id="announcement01" class="acme.entities.announcements.Announcement">
