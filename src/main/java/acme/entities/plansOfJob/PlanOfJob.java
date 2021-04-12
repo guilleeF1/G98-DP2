@@ -1,38 +1,28 @@
-package acme.entities.tasks;
+package acme.entities.plansOfJob;
 
 import java.util.Collection;
 import java.util.Date;
 
-import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.Future;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.URL;
-
-import acme.entities.plansOfJob.PlanOfJob;
+import acme.entities.tasks.Task;
 import acme.framework.entities.DomainEntity;
-import lombok.Getter;
-import lombok.Setter;
 
-@Entity
-@Getter
-@Setter
-public class Task extends DomainEntity {
+public class PlanOfJob extends DomainEntity {
+
+	// Serialisation identifier -------------
 	
 	protected static final long serialVersionUID = 1L;
 	
+	// Attributes ----------------------
+	
 	@NotNull
-	protected Boolean publica;
-
-	@Length(min = 1, max = 79)
-	@NotBlank
-	protected String titulo;
+	protected Boolean publico;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Future
@@ -47,17 +37,11 @@ public class Task extends DomainEntity {
 	@NotNull
 	protected Integer cargaTrabajo;
 	
-	@NotBlank
-	@Length(min = 1, max = 499)
-	protected String descripcion;
-	
-	@URL
-	protected String enlace;
+	// Realtionships -----------------
 	
 	@NotNull
 	@Valid
-	@ManyToMany()
-	Collection<PlanOfJob> planOfJob;
+	@ManyToMany(mappedBy = "planOfJob")
+	Collection<Task> task;
 	
-
 }
