@@ -26,4 +26,7 @@ public interface AnonymousShoutRepository extends AbstractRepository {
 	@Query("select s from Shout s")
 	Collection<Shout> findMany();
 
+	@Query("select s from Shout s where s.moment >= ?1")
+	Collection<Shout> findRecentShouts(java.util.Date limitetiempo);
+
 }

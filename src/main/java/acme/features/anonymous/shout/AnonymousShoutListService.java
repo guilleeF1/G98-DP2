@@ -12,6 +12,7 @@
 
 package acme.features.anonymous.shout;
 
+import java.util.Calendar;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,13 +51,16 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 		request.unbind(entity, model, "author", "text", "moment");
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public Collection<Shout> findMany(final Request<Shout> request) {
 		assert request != null;
 
 		Collection<Shout> result;
-
-		result = this.repository.findMany();
+		final Calendar cal= Calendar.getInstance();
+		cal.add(Calendar.MONTH, -1);
+		final java.util.Date limitetiempo= cal.getTime();
+		result = this.repository.findRecentShouts(limitetiempo);
 
 		return result;
 	}
