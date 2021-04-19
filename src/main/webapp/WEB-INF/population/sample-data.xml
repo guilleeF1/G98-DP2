@@ -49,6 +49,13 @@
 		<property name="info" value="http://www.sample-app.com"/>
 	</bean>
 	
+	<bean id="shout05" class="acme.entities.shouts.Shout">
+		<property name="author" value="ElRubiusOMG"/>
+		<property name="text" value="Good Morning, lord's creatures!"/>
+		<property name="moment" value="2021/04/9 12:30"/>
+		<property name="info" value="http://www.sample-app.com"/>
+	</bean>
+	
 	<!-- Tasks -->
 	
 	<bean id="task01" class="acme.entities.tasks.Task">
@@ -88,6 +95,26 @@
 		<property name="periodoEjecucionFinal" value="2021/12/24 02:18"/>
 		<property name="cargaTrabajo" value="1"/>
 		<property name="descripcion" value="implementar employer con sus atributos"/>
+		<property name="enlace"><null/></property>	
+	</bean>
+	
+		<bean id="task05" class="acme.entities.tasks.Task">
+		<property name="publica" value="true"/>
+		<property name="titulo" value="Tarea que no debe mostarse para anon"/>
+		<property name="periodoEjecucionInicio" value="2020/12/20 01:18"/>
+		<property name="periodoEjecucionFinal" value="2020/12/24 02:18"/>
+		<property name="cargaTrabajo" value="5"/>
+		<property name="descripcion" value="es una tarea pasada"/>
+		<property name="enlace"><null/></property>	
+	</bean>
+	
+			<bean id="task06" class="acme.entities.tasks.Task">
+		<property name="publica" value="true"/>
+		<property name="titulo" value="Tarea antigua 2"/>
+		<property name="periodoEjecucionInicio" value="2018/12/20 01:18"/>
+		<property name="periodoEjecucionFinal" value="2018/12/24 02:18"/>
+		<property name="cargaTrabajo" value="4"/>
+		<property name="descripcion" value="es una tarea pasada 2"/>
 		<property name="enlace"><null/></property>	
 	</bean>
 	

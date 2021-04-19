@@ -1,6 +1,7 @@
 package acme.features.anonymous.task;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,6 @@ import acme.framework.repositories.AbstractRepository;
 public interface AnonymousTaskRepository extends AbstractRepository{
 
 
-	@Query("select s from Task s")
-	Collection<Task> findMany();
+	@Query("select s from Task s where s.periodoEjecucionFinal > ?1")
+	Collection<Task> findActiveTasks(Date hoy);
 }

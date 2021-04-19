@@ -51,7 +51,6 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 		request.unbind(entity, model, "author", "text", "moment");
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public Collection<Shout> findMany(final Request<Shout> request) {
 		assert request != null;
