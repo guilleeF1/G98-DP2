@@ -1,4 +1,4 @@
-package acme.features.anonymous.task;
+package acme.features.authenticated.task;
 
 import java.util.Collection;
 
@@ -9,7 +9,7 @@ import acme.entities.tasks.Task;
 import acme.framework.repositories.AbstractRepository;
 
 @Service
-public interface AnonymousTaskRepository extends AbstractRepository{
+public interface AuthenticatedTaskRepository extends AbstractRepository{
 
 
 	@Query("select s from Task s")
