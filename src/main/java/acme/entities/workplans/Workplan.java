@@ -1,8 +1,9 @@
-package acme.entities.plansOfJob;
+package acme.entities.workplans;
 
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -12,8 +13,13 @@ import javax.validation.constraints.NotNull;
 
 import acme.entities.tasks.Task;
 import acme.framework.entities.DomainEntity;
+import lombok.Getter;
+import lombok.Setter;
 
-public class PlanOfJob extends DomainEntity {
+@Entity
+@Getter
+@Setter
+public class Workplan extends DomainEntity {
 
 	// Serialisation identifier -------------
 	
@@ -34,14 +40,11 @@ public class PlanOfJob extends DomainEntity {
 	@NotNull
 	protected Date periodoEjecucionFinal;
 	
-	@NotNull
-	protected Integer cargaTrabajo;
-	
 	// Realtionships -----------------
 	
 	@NotNull
 	@Valid
-	@ManyToMany(mappedBy = "planOfJob")
-	Collection<Task> task;
+	@ManyToMany
+	Collection<Task> tasks;
 	
 }
