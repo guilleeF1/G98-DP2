@@ -331,4 +331,35 @@
 		<property name="target" value="https://www.afoprodei.com/"/>
 	</bean>
 	
+	
+	
+	<!-- Manager -->
+	
+	<bean name="managerUserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="manager1" />
+		<property name="password" value="manager1" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Manager" />
+				<property name="surname" value="Manager.com" />
+				<property name="email" value="manager@acme.com" />
+				<property name="phone" value="+1 (234) 567-890" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="managerManager" />
+				<ref bean="managerAuthenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="managerManager" class="acme.framework.entities.Manager">
+		<property name="userAccount" ref="managerUserAccount" />
+	</bean>
+	
+	<bean name="managerAuthenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="managerUserAccount" />
+	</bean>
 </beans>
