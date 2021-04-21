@@ -10,6 +10,9 @@
 
 anonymous.task.form.title = Tarea
 anonymous.task.form.title.show = Tarea
+anonymous.task.form.title.create = Crear tarea 
+anonymous.task.form.title.update = Actualizar tarea
+anonymous.task.form.title.delete = Borrar tarea
 
 anonymous.task.form.label.publica = Publica o No Publica 
 anonymous.task.form.label.titulo = Titulo 
@@ -19,4 +22,9 @@ anonymous.task.form.label.cargaTrabajo = Carga de Trabajo
 anonymous.task.form.label.descripcion = Descripcion
 anonymous.task.form.label.enlace = Enlace
 
+anonymous.task.form.button.update = Actualizar
+anonymous.task.form.button.delete = Borrar
+anonymous.task.form.button.create = Crear
 anonymous.task.form.button.return = Volver
+
+anonymous.task.form.error.length = El tamaño no es correcto

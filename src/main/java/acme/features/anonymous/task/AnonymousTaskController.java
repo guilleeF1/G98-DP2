@@ -21,12 +21,19 @@ public class AnonymousTaskController extends AbstractController<Anonymous,Task>{
 	protected AnonymousTaskCreateService	createService;
 	@Autowired
 	protected AnonymousTaskListService	listService;
+	@Autowired
+	protected AnonymousTaskUpdateService		updateService;
+	@Autowired
+	protected AnonymousTaskDeleteService		deleteService;
 
 
 	// Constructors -----------------------------------------------------------
 
 	@PostConstruct
 	protected void initialise() {
+		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
+		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
+		
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
 	}
