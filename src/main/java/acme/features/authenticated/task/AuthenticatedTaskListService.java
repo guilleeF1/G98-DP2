@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 import acme.entities.tasks.Task;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Anonymous;
+import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AuthenticatedTaskListService implements AbstractListService<Anonymous, Task>{
+public class AuthenticatedTaskListService implements AbstractListService<Authenticated, Task>{
 
 	// Internal state ---------------------------------------------------------
 

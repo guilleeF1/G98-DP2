@@ -10,10 +10,10 @@ import acme.components.CustomCommand;
 import acme.entities.tasks.Task;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
-import acme.framework.entities.Anonymous;
+import acme.framework.entities.Authenticated;
 @Controller
 @RequestMapping("/authenticated/task/")
-public class AuthenticatedTaskController extends AbstractController<Anonymous,Task>{
+public class AuthenticatedTaskController extends AbstractController<Authenticated,Task>{
 
 	// Internal state ---------------------------------------------------------
 
@@ -23,15 +23,18 @@ public class AuthenticatedTaskController extends AbstractController<Anonymous,Ta
 	@Autowired
 	protected AuthenticatedTaskListFinishedService	listFinishedService;
 	@Autowired
-	protected AuthenticatedTaskListService	listAllService;
+	protected AuthenticatedTaskListService	listService;
 
 
 	// Constructors -----------------------------------------------------------
 
 	@PostConstruct
 	protected void initialise() {
+		
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
-		super.addBasicCommand(BasicCommand.LIST, this.listAllService);
+		
+		super.addBasicCommand(BasicCommand.LIST, this.listService);
+		
 		super.addCustomCommand(CustomCommand.LIST_FINISHED, BasicCommand.LIST, this.listFinishedService);
 		
 	}
