@@ -77,7 +77,10 @@ public class AnonymousTaskCreateService implements AbstractCreateService<Anonymo
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
+		
+		if (!errors.hasErrors("workload minutes") && entity.getCargaTrabajoMinutos()!=null) {
+			errors.state(request, entity.getCargaTrabajoMinutos() > 0 && entity.getCargaTrabajoMinutos() < 60, "workload minutes", "anonymous.task.form.error.within-range");
+		}
 	}
 	
 	@Override
