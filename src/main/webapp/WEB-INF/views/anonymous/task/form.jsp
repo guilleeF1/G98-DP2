@@ -13,10 +13,14 @@
 	<acme:form-textarea code="anonymous.task.form.label.descripcion" path="descripcion"/>
 	<acme:form-url code="anonymous.task.form.label.enlace" path="enlace"/>
 	
-	
 	<jstl:if test="${!readonly}">
 		<acme:form-submit code="anonymous.task.form.button.create" action="/anonymous/task/create"/>
 	</jstl:if>
+	<acme:form-submit test="${command == 'show' && finalMode == 'false'}" code="anonymous.task.form.button.update" action="/anonymous/task/update"/>
+	<acme:form-submit test="${command == 'show' && finalMode == 'false'}" code="anonymous.task.form.button.delete" action="/anonymous/task/delete"/>
+	<acme:form-submit test="${command == 'create'}" code="anonymous.task.form.button.create" action="/anonymous/task/create"/>
+	<acme:form-submit test="${command == 'update'}" code="anonymous.task.form.button.update" action="/anonymous/task/update"/>
+	<acme:form-submit test="${command == 'delete'}" code="anonymous.task.form.button.delete" action="/anonymous/task/delete"/>
   	<acme:form-return code="anonymous.task.form.button.return"/>
 </acme:form>
 
