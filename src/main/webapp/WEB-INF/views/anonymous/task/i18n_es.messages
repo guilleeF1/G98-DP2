@@ -23,3 +23,4 @@ anonymous.task.form.label.enlace = Enlace
 anonymous.task.form.button.return = Volver
 
 anonymous.task.form.error.within-range = Los minutos deben estar entre 1 y 59
+anonymous.task.form.error.must-fit = La carga de trabajo debe ser menor que el tiempo total de la tarea
