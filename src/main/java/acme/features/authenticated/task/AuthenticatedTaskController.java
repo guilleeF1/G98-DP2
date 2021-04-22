@@ -1,4 +1,4 @@
-package acme.features.anonymous.task;
+package acme.features.authenticated.task;
 
 import javax.annotation.PostConstruct;
 
@@ -9,33 +9,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import acme.entities.tasks.Task;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
-import acme.framework.entities.Anonymous;
+import acme.framework.entities.Authenticated;
 @Controller
-@RequestMapping("/anonymous/task/")
-public class AnonymousTaskController extends AbstractController<Anonymous,Task>{
+@RequestMapping("/authenticated/task/")
+public class AuthenticatedTaskController extends AbstractController<Authenticated,Task>{
 
 	// Internal state ---------------------------------------------------------
 
 
 	@Autowired
-	protected AnonymousTaskCreateService	createService;
+	protected AuthenticatedTaskCreateService	createService;
 	@Autowired
-	protected AnonymousTaskListService	listService;
+	protected AuthenticatedTaskListService	listService;
 	@Autowired
-	protected AnonymousTaskShowService	showService;
-	@Autowired
-	protected AnonymousTaskUpdateService		updateService;
-	@Autowired
-	protected AnonymousTaskDeleteService		deleteService;
+	protected AuthenticatedTaskShowService	showService;
 
 
 	// Constructors -----------------------------------------------------------
 
 	@PostConstruct
 	protected void initialise() {
-		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
-		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
-		
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
