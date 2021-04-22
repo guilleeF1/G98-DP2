@@ -55,7 +55,7 @@ public class AnonymousTaskShowService implements AbstractShowService<Anonymous, 
 		request.unbind(entity, model, 
 			"publica", "titulo", "periodoEjecucionInicio", "periodoEjecucionFinal", "cargaTrabajo", "descripcion", "enlace");
 
-		model.setAttribute("readonly", true);
+//		model.setAttribute("readonly", true);
 	}
 
 	@Override

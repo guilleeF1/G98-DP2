@@ -8,7 +8,6 @@ import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Anonymous;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractUpdateService;
 
 @Service
@@ -29,14 +28,10 @@ public class AnonymousTaskUpdateService implements AbstractUpdateService<Anonymo
 			boolean result;
 			int taskId;
 			Task task;
-			Anonymous anonymous;
-			Principal principal;
 
 			taskId = request.getModel().getInteger("id");
 			task = this.repository.findOneTaskById(taskId);
-			anonymous = task.getAnonymous();
-			principal = request.getPrincipal();
-			result = !task.isFinalMode() && anonymous.getUserAccount().getId() == principal.getAccountId();
+			result = !task.isFinalMode();
 
 			return result;
 		}
@@ -48,17 +43,15 @@ public class AnonymousTaskUpdateService implements AbstractUpdateService<Anonymo
 			assert errors != null;
 
 			if (!errors.hasErrors("titulo")) {
-				final Task task = new Task();
-				final String descripcion = task.getDescripcion();
+				final String descripcion = entity.getDescripcion();
 				
-				errors.state(request, descripcion.isBlank() || descripcion.length()>499, "descripcion", "anonymous.task.form.error.length");
+				errors.state(request, descripcion.trim().isEmpty() || descripcion.length()<=499, "descripcion", "anonymous.task.form.error.length");
 			}
 
 			if (!errors.hasErrors("titulo")) {
-				final Task task = new Task();
-				final String titulo = task.getTitulo();
+				final String titulo = entity.getTitulo();
 				
-				errors.state(request, titulo.isBlank() || titulo.length()>79, "titulo", "anonymous.task.form.error.length");
+				errors.state(request, titulo.trim().isEmpty() || titulo.length()<=79, "titulo", "anonymous.task.form.error.length");
 			}		
 		}
 
