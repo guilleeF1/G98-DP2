@@ -1,5 +1,5 @@
 
-package acme.features.anonymous.task;
+package acme.features.authenticated.task;
 
 import java.util.Date;
 
@@ -10,16 +10,16 @@ import acme.entities.tasks.Task;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Anonymous;
+import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractCreateService;
 
 @Service
-public class AnonymousTaskCreateService implements AbstractCreateService<Anonymous, Task> {
+public class AuthenticatedTaskCreateService implements AbstractCreateService<Authenticated, Task> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnonymousTaskRepository repository;
+	protected AuthenticatedTaskRepository repository;
 
 	// AbstractCreateService<Administrator, Task> interface --------------
 
