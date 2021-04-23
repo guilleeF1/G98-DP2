@@ -40,6 +40,8 @@ master.menu.anonymous.list-tasks = List tasks
 master.menu.authenticated = Authenticated
 master.menu.authenticated.announcement.list = List announcements
 master.menu.authenticated.money-exchage = Money exchange
+master.menu.authenticated.list-tasks= List open task
+master.menu.authenticated.list-finished-tasks = List finished task
 
 # master.menu.administrator ###################################################
 
