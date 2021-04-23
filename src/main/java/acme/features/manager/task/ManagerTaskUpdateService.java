@@ -50,13 +50,13 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 			if (!errors.hasErrors("titulo")) {
 				final String descripcion = entity.getDescripcion();
 				
-				errors.state(request, descripcion.trim().isEmpty() || descripcion.length()<=499, "descripcion", "anonymous.task.form.error.length");
+				errors.state(request, !descripcion.trim().isEmpty() && descripcion.length()<=499, "descripcion", "anonymous.task.form.error.length");
 			}
 
 			if (!errors.hasErrors("titulo")) {
 				final String titulo = entity.getTitulo();
 				
-				errors.state(request, titulo.trim().isEmpty() || titulo.length()<=79, "titulo", "anonymous.task.form.error.length");
+				errors.state(request, !titulo.trim().isEmpty() && titulo.length()<=79, "titulo", "anonymous.task.form.error.length");
 			}		
 		}
 
