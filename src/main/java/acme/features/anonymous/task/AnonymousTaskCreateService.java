@@ -79,12 +79,12 @@ public class AnonymousTaskCreateService implements AbstractCreateService<Anonymo
 		assert errors != null;
 		
 		if (!errors.hasErrors("periodoEjecucionFinal")) {
-			errors.state(request, entity.getPeriodoEjecucionInicio().after(entity.getPeriodoEjecucionFinal()), "periodoEjecucionFinal", "anonymous.task.form.error.invalid-final");
+			errors.state(request, entity.getPeriodoEjecucionInicio().before(entity.getPeriodoEjecucionFinal()), "periodoEjecucionFinal", "anonymous.task.form.error.invalid-final");
 		}
 		
 		if (!errors.hasErrors("periodoEjecucionInicio")) {
 			final Date d = new Date(System.currentTimeMillis());
-			errors.state(request, entity.getPeriodoEjecucionInicio().after(d), "periodoEjecucionInicio", "anonymous.task.form.error.past");
+			errors.state(request, entity.getPeriodoEjecucionInicio().before(d), "periodoEjecucionInicio", "anonymous.task.form.error.past");
 		}
 
 	}
