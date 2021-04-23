@@ -8,7 +8,6 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-
 ##############################################################################################################list
 
 anonymous.task.list.title = Tarea
@@ -20,6 +19,7 @@ anonymous.task.list.label.periodoEjecucionInicio = Periodo de Ejecucion Inicio
 anonymous.task.list.label.periodoEjecucionFinal = Periodo de Ejecucion Final
 anonymous.task.list.label.cargaTrabajo = Carga de Trabajo
 anonymous.task.list.label.descripcion = Descripcion
+anonymous.task.list.label.link= Link
 
 
 anonymous.task.list.button.return = Volver
@@ -28,31 +28,13 @@ anonymous.task.list.button.return = Volver
 ##############################################################################################################form
 anonymous.task.form.title = Tarea
 anonymous.task.form.title.show = Tarea
-anonymous.task.form.title.create = Crear tarea 
-anonymous.task.form.title.update = Actualizar tarea
-anonymous.task.form.title.delete = Borrar tarea
-
-anonymous.task.form.error.invalid-final = Periodo invalido: la fecha final debe ser posterior a la fecha inicial.
-anonymous.task.form.error.past = Periodo invalido: la fecha inicial debe ser futura.
 
 anonymous.task.form.label.publica = Publica o No Publica 
 anonymous.task.form.label.titulo = Titulo 
 anonymous.task.form.label.periodoEjecucionInicio = Periodo de Ejecucion Inicio
 anonymous.task.form.label.periodoEjecucionFinal = Periodo de Ejecucion Final
 anonymous.task.form.label.cargaTrabajo = Carga de Trabajo
-anonymous.task.form.label.cargaTrabajoMinutos = Minutos de carga de trabajo
 anonymous.task.form.label.descripcion = Descripcion
 anonymous.task.form.label.enlace = Enlace
 
 anonymous.task.form.button.return = Volver
-
-anonymous.task.form.error.within-range = Los minutos deben estar entre 1 y 59
-
-anonymous.task.form.error.must-fit = La carga de trabajo debe ser menor que el tiempo total de la tarea
-
-anonymous.task.form.button.update = Actualizar
-anonymous.task.form.button.delete = Borrar
-anonymous.task.form.button.create = Crear
-anonymous.task.form.button.return = Volver
-
-anonymous.task.form.error.length = El tamaño no es correcto
