@@ -9,14 +9,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-#anonymous.task.form.label.author = Author:
-#anonymous.task.form.label.text = Text:
-#anonymous.task.form.label.info = Info:
-#anonymous.task.form.button.create = Shout!
-#anonymous.task.form.button.return = Return
- 
-anonymous.task.form.error.invalid-final = Invalid time period: ending date must be after starting date.
-anonymous.task.form.error.past = Invalid time period: starting date must be in the future.
+
+
 ##############################################################################################list
 
 anonymous.task.list.title = Task
@@ -28,7 +22,7 @@ anonymous.task.list.label.periodoEjecucionInicio = initial execution period
 anonymous.task.list.label.periodoEjecucionFinal = final execution period
 anonymous.task.list.label.cargaTrabajo = workload
 anonymous.task.list.label.descripcion = description
-
+anonymous.task.list.label.link= Link
 
 anonymous.task.list.button.return = return
 
@@ -37,23 +31,13 @@ anonymous.task.list.button.return = return
 #####################################################################################form
 anonymous.task.form.title = Task
 anonymous.task.form.title.show = task
-anonymous.task.form.title.create = Create task 
-anonymous.task.form.title.update = Update task
-anonymous.task.form.title.delete = Delete task
 
 anonymous.task.form.label.publica = Public or No Public 
 anonymous.task.form.label.titulo = Title 
 anonymous.task.form.label.periodoEjecucionInicio = Begining Execution Period
 anonymous.task.form.label.periodoEjecucionFinal = Final Execution Period
 anonymous.task.form.label.cargaTrabajo = Workload
-anonymous.task.form.label.cargaTrabajoMinutos = Workload minutes
 anonymous.task.form.label.descripcion = Description
 anonymous.task.form.label.enlace = Link
 
-anonymous.task.form.button.update = Update
-anonymous.task.form.button.delete = Delete
-anonymous.task.form.button.create = Create
 anonymous.task.form.button.return = Return
-
-anonymous.task.form.error.within-range = Minutes must be between 1 and 59
-anonymous.task.form.error.length = The length isn't correct
