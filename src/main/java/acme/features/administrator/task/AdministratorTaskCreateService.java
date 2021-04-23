@@ -1,5 +1,4 @@
-
-package acme.features.anonymous.task;
+package acme.features.administrator.task;
 
 import java.util.Date;
 
@@ -10,16 +9,16 @@ import acme.entities.tasks.Task;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Anonymous;
+import acme.framework.entities.Administrator;
 import acme.framework.services.AbstractCreateService;
 
 @Service
-public class AnonymousTaskCreateService implements AbstractCreateService<Anonymous, Task> {
+public class AdministratorTaskCreateService implements AbstractCreateService<Administrator, Task> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnonymousTaskRepository repository;
+	protected AdministratorTaskRepository repository;
 
 	// AbstractCreateService<Administrator, Task> interface --------------
 
@@ -77,15 +76,6 @@ public class AnonymousTaskCreateService implements AbstractCreateService<Anonymo
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
-		if (!errors.hasErrors("periodoEjecucionFinal")) {
-			errors.state(request, entity.getPeriodoEjecucionInicio().before(entity.getPeriodoEjecucionFinal()), "periodoEjecucionFinal", "anonymous.task.form.error.invalid-final");
-		}
-		
-		if (!errors.hasErrors("periodoEjecucionInicio")) {
-			final Date d = new Date(System.currentTimeMillis());
-			errors.state(request, entity.getPeriodoEjecucionInicio().before(d), "periodoEjecucionInicio", "anonymous.task.form.error.past");
-		}
 
 	}
 	

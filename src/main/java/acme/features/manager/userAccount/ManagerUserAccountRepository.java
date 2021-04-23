@@ -1,5 +1,5 @@
 /*
- * AnonymousShoutRepository.java
+ * AuthenticatedUserAccountRepository.java
  *
  * Copyright (C) 2012-2021 Rafael Corchuelo.
  *
@@ -10,24 +10,18 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.anonymous.shout;
-
-import java.util.Collection;
-import java.util.Date;
+package acme.features.manager.userAccount;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.shouts.Shout;
+import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AnonymousShoutRepository extends AbstractRepository {
+public interface ManagerUserAccountRepository extends AbstractRepository {
 
-	@Query("select s from Shout s")
-	Collection<Shout> findMany();
-
-	@Query("select s from Shout s where s.moment >= ?1 ORDER BY s.moment")
-	Collection<Shout> findRecentShouts(Date limitetiempo);
+	@Query("select ua from UserAccount ua where ua.id = ?1")
+	UserAccount findOneUserAccountById(int id);
 
 }
