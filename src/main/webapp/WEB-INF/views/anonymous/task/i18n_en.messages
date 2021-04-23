@@ -14,8 +14,9 @@
 #anonymous.task.form.label.info = Info:
 #anonymous.task.form.button.create = Shout!
 #anonymous.task.form.button.return = Return
-
-
+ 
+anonymous.task.form.error.invalid-final = Invalid time period: ending date must be after starting date.
+anonymous.task.form.error.past = Invalid time period: starting date must be in the future.
 ##############################################################################################list
 
 anonymous.task.list.title = Task
