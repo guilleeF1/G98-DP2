@@ -34,12 +34,12 @@ public class Task extends DomainEntity {
 	protected String titulo;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Future
+//	@Future
 	@NotNull
 	protected Date periodoEjecucionInicio;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Future
+//	@Future
 	@NotNull
 	protected Date periodoEjecucionFinal;
 	

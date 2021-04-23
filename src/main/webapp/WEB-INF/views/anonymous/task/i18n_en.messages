@@ -14,10 +14,26 @@
 #anonymous.task.form.label.info = Info:
 #anonymous.task.form.button.create = Shout!
 #anonymous.task.form.button.return = Return
- 
- 
 
 
+##############################################################################################list
+
+anonymous.task.list.title = Task
+anonymous.task.list.title.show = Task
+
+
+anonymous.task.list.label.titulo = Title 
+anonymous.task.list.label.periodoEjecucionInicio = initial execution period
+anonymous.task.list.label.periodoEjecucionFinal = final execution period
+anonymous.task.list.label.cargaTrabajo = workload
+anonymous.task.list.label.descripcion = description
+
+
+anonymous.task.list.button.return = return
+
+ 
+
+#####################################################################################form
 anonymous.task.form.title = Task
 anonymous.task.form.title.show = task
 anonymous.task.form.title.create = Create task 

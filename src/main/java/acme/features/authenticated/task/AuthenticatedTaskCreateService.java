@@ -47,8 +47,6 @@ public class AuthenticatedTaskCreateService implements AbstractCreateService<Aut
 
 		request.unbind(entity, model, 
 			"publica", "titulo", "periodoEjecucionInicio", "periodoEjecucionFinal", "cargaTrabajo", "descripcion", "enlace");
-
-		model.setAttribute("readonly", false);
 	}
 
 	@Override

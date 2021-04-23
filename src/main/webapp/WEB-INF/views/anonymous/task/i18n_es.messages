@@ -8,6 +8,24 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+
+##############################################################################################################list
+
+anonymous.task.list.title = Tarea
+anonymous.task.list.title.show = Tarea
+
+
+anonymous.task.list.label.titulo = Titulo 
+anonymous.task.list.label.periodoEjecucionInicio = Periodo de Ejecucion Inicio
+anonymous.task.list.label.periodoEjecucionFinal = Periodo de Ejecucion Final
+anonymous.task.list.label.cargaTrabajo = Carga de Trabajo
+anonymous.task.list.label.descripcion = Descripcion
+
+
+anonymous.task.list.button.return = Volver
+
+
+##############################################################################################################form
 anonymous.task.form.title = Tarea
 anonymous.task.form.title.show = Tarea
 anonymous.task.form.title.create = Crear tarea 

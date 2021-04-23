@@ -3,7 +3,6 @@
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
-
 <acme:form readonly="${readonly}">
 	<acme:form-textbox code="authenticated.task.form.label.publica" path="publica"/>
 	<acme:form-textbox code="authenticated.task.form.label.titulo" path="titulo"/>
