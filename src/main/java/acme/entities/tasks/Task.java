@@ -14,8 +14,8 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.framework.entities.Anonymous;
 import acme.framework.entities.DomainEntity;
+import acme.framework.entities.Manager;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -52,12 +52,14 @@ public class Task extends DomainEntity {
 	
 	@URL
 	protected String enlace;
-	
-	protected boolean			finalMode;
+
+
+	// Relationships ----------------------------------------------------------
+
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	protected Anonymous anonymous;
+	protected Manager manager;
 
 }

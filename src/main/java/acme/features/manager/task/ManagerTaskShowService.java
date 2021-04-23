@@ -1,8 +1,5 @@
 
-package acme.features.anonymous.task;
-
-import java.time.LocalDate;
-import java.time.ZoneId;
+package acme.features.manager.task;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,16 +7,17 @@ import org.springframework.stereotype.Service;
 import acme.entities.tasks.Task;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Anonymous;
+import acme.framework.entities.Manager;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class AnonymousTaskShowService implements AbstractShowService<Anonymous, Task> {
+public class ManagerTaskShowService implements AbstractShowService<Manager, Task> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnonymousTaskRepository repository;
+	protected ManagerTaskRepository repository;
 
 	// AbstractShowService<Administrator, Task> interface --------------
 
@@ -29,19 +27,19 @@ public class AnonymousTaskShowService implements AbstractShowService<Anonymous, 
 		
 		boolean result;
 		boolean isPublic;
-		boolean isFinished;
 		int id;
 		Task task;
+		Manager manager;
+		Principal principal;
 		
 		id = request.getModel().getInteger("id");
 		task = this.repository.findOneTaskById(id);
 		isPublic = task.getPublica();
-		isFinished = LocalDate.now().isAfter(task.getPeriodoEjecucionFinal().toInstant()
-		      .atZone(ZoneId.systemDefault())
-		      .toLocalDate());
+		manager = task.getManager();
+		principal = request.getPrincipal();
 		
 
-		result = isPublic && !isFinished;
+		result = (manager.getUserAccount().getId() == principal.getAccountId()) || isPublic;
 		
 		return result;
 	}
@@ -55,7 +53,16 @@ public class AnonymousTaskShowService implements AbstractShowService<Anonymous, 
 		request.unbind(entity, model, 
 			"publica", "titulo", "periodoEjecucionInicio", "periodoEjecucionFinal", "cargaTrabajo", "descripcion", "enlace");
 
-//		model.setAttribute("readonly", true);
+
+		Manager manager;
+		Principal principal;
+		
+		manager = entity.getManager();
+		principal = request.getPrincipal();
+		
+		if (manager.getUserAccount().getId() != principal.getAccountId()) {
+			model.setAttribute("readonly", true);
+		}
 	}
 
 	@Override

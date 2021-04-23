@@ -59,8 +59,7 @@
 		<property name="cargaTrabajo" value="6"/>
 		<property name="descripcion" value="implementar task con sus atributos"/>
 		<property name="enlace"><null/></property>	
-		<property name="finalMode" value="true"/>
-		<property name="anonymous" ref="anonymous1Anonymous"/>
+		<property name="manager" ref="managerManager"/>
 	</bean>
 	
 	<bean id="task02" class="acme.entities.tasks.Task">
@@ -71,8 +70,7 @@
 		<property name="cargaTrabajo" value="4"/>
 		<property name="descripcion" value="implementar shout con sus atributos"/>
 		<property name="enlace" value="http://happybirthday.com"/>
-		<property name="finalMode" value="true"/>
-		<property name="anonymous" ref="anonymous1Anonymous"/>
+		<property name="manager" ref="managerManager"/>
 	</bean>
 	
 	<bean id="task03" class="acme.entities.tasks.Task">
@@ -82,9 +80,8 @@
 		<property name="periodoEjecucionFinal" value="2021/11/03 12:07"/>
 		<property name="cargaTrabajo" value="7"/>
 		<property name="descripcion" value="implementar announcement con sus atributos"/>
-		<property name="enlace"><null/></property>	
-		<property name="finalMode" value="false"/>
-		<property name="anonymous" ref="anonymous1Anonymous"/>
+		<property name="enlace"><null/></property>
+		<property name="manager" ref="managerManager"/>
 	</bean>
 	
 	<bean id="task04" class="acme.entities.tasks.Task">
@@ -95,8 +92,7 @@
 		<property name="cargaTrabajo" value="1"/>
 		<property name="descripcion" value="implementar employer con sus atributos"/>
 		<property name="enlace"><null/></property>	
-		<property name="finalMode" value="false"/>
-		<property name="anonymous" ref="anonymous1Anonymous"/>
+		<property name="manager" ref="managerManager"/>
 	</bean>
 	
 	<!-- Announcements-->
@@ -147,36 +143,6 @@
 		<property name="status" value="INFO"/>
 		<property name="text" value="This message was published long ago on the creator's birthday."/>
 		<property name="info" value="https://www.kidscanfly.ca/wp-content/uploads/2020/08/happy-birthday.jpeg"/>
-	</bean>
-	
-	<!-- Anonymous -->
-
-	<bean name="anonymous1UserAccount" class="acme.framework.entities.UserAccount">
-		<property name="username" value="anonymous1"/>
-		<property name="password" value="anonymous1"/>
-		<property name="identity">
-			<bean class="acme.datatypes.UserIdentity">
-				<property name="name" value="Anonymous"/>
-				<property name="surname" value="Anonymous"/>
-				<property name="email" value="anonymous1@mail.com"/>
-				<property name="phone" value="+44 123-476-789"/>
-			</bean>
-		</property>
-		<property name="enabled" value="true"/>		
-		<property name="roles">
-			<list>
-				<ref bean="anonymous1Anonymous"/>
-				<ref bean="anonymous1Authenticated"/>
-			</list>
-		</property>
-	</bean>
-
-	<bean name="anonymous1Anonymous" class="acme.framework.entities.Anonymous">
-		<property name="userAccount" ref="anonymousUserAccount" />
-	</bean>
-	
-	<bean name="anonymousAuthenticated" class="acme.framework.entities.Authenticated">
-		<property name="userAccount" ref="anonymousUserAccount" />
 	</bean>
 	
 	<!-- Employers -->
@@ -399,5 +365,33 @@
 	
 	<bean name="managerAuthenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="managerUserAccount" />
+	</bean>
+	
+	<bean name="manager2UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="manager2" />
+		<property name="password" value="manager2" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Manager" />
+				<property name="surname" value="Manager.com" />
+				<property name="email" value="manager@acme.com" />
+				<property name="phone" value="+1 (234) 567-890" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="manager2Manager" />
+				<ref bean="manager2Authenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="manager2Manager" class="acme.framework.entities.Manager">
+		<property name="userAccount" ref="manager2UserAccount" />
+	</bean>
+	
+	<bean name="manager2Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="manager2UserAccount" />
 	</bean>
 </beans>
