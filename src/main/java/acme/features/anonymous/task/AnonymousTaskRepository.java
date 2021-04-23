@@ -13,6 +13,6 @@ import acme.framework.repositories.AbstractRepository;
 public interface AnonymousTaskRepository extends AbstractRepository{
 
 
-	@Query("select s from Task s where s.periodoEjecucionFinal > ?1")
+	@Query("select s from Task s where s.periodoEjecucionFinal > ?1 and s.publica = TRUE")
 	Collection<Task> findActiveTasks(Date hoy);
 }

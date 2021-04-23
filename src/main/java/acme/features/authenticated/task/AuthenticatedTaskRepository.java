@@ -13,9 +13,9 @@ import acme.framework.repositories.AbstractRepository;
 public interface AuthenticatedTaskRepository extends AbstractRepository{
 
 
-	@Query("select s from Task s where s.periodoEjecucionFinal < ?1")
+	@Query("select s from Task s where s.periodoEjecucionFinal < ?1 and s.publica = TRUE")
 	Collection<Task> findClosedTasks(Date hoy);
 	
-	@Query("select s from Task s")
-	Collection<Task> findAllTasks();
+	@Query("select s from Task s where s.publica = TRUE and  s.periodoEjecucionFinal > ?1")
+	Collection<Task> findOpenTasks(Date hoy);
 }

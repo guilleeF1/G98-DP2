@@ -99,8 +99,8 @@
 	</bean>
 	
 		<bean id="task05" class="acme.entities.tasks.Task">
-		<property name="publica" value="true"/>
-		<property name="titulo" value="Tarea que no debe mostarse para anon"/>
+		<property name="publica" value="false"/>
+		<property name="titulo" value="Tarea que no debe ni anon ni aunth"/>
 		<property name="periodoEjecucionInicio" value="2020/12/20 01:18"/>
 		<property name="periodoEjecucionFinal" value="2020/12/24 02:18"/>
 		<property name="cargaTrabajo" value="5"/>

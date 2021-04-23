@@ -33,6 +33,7 @@
 			<acme:menu-suboption code="master.menu.authenticated.money-exchage" action="/authenticated/money-exchange/perform"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.list-tasks" action="/authenticated/task/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.list-finished-tasks" action="/authenticated/task/list-finished"/>
 		</acme:menu-option> 
 		
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">			

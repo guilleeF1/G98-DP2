@@ -40,7 +40,8 @@ master.menu.anonymous.list-tasks = Ver tareas
 master.menu.authenticated = Autentificado
 master.menu.authenticated.announcement.list = Ver anuncios
 master.menu.authenticated.money-exchage = Cambio de dinero
-master.menu.authenticated.list-tasks= Ver tareas
+master.menu.authenticated.list-tasks= Ver tareas abiertas
+master.menu.authenticated.list-finished-tasks = Ver tareas terminadas
 
 # master.menu.administrator ###################################################
 

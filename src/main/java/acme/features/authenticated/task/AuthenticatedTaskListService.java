@@ -1,5 +1,6 @@
 package acme.features.authenticated.task;
 
+import java.util.Calendar;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,9 @@ public class AuthenticatedTaskListService implements AbstractListService<Authent
 			assert request != null;
 
 			Collection<Task> result;
-			result = this.repository.findAllTasks();
+			final Calendar cal= Calendar.getInstance();
+			final java.util.Date hoy= cal.getTime();
+			result = this.repository.findOpenTasks(hoy);
 
 			return result;
 		}

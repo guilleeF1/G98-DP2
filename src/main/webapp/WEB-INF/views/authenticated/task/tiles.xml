@@ -25,5 +25,9 @@
 	<definition name="authenticated/task/list" extends="master">
 		<put-attribute name="body" type="template" value="../authenticated/task/list.jsp" />		
 	</definition>
+	
+	<definition name="authenticated/task/listFinished" extends="master">
+		<put-attribute name="body" type="template" value="../authenticated/task/list.jsp" />		
+	</definition>
 
 </tiles-definitions>

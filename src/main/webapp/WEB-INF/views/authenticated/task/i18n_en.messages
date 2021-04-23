@@ -21,13 +21,13 @@
 anonymous.task.list.title = Task
 anonymous.task.list.title.show = Task
 
-anonymous.task.list.label.publica = Public?
+
 anonymous.task.list.label.titulo = Title 
 anonymous.task.list.label.periodoEjecucionInicio = initial execution period
 anonymous.task.list.label.periodoEjecucionFinal = final execution period
 anonymous.task.list.label.cargaTrabajo = workload
 anonymous.task.list.label.descripcion = description
-anonymous.task.list.label.enlace = link
+anonymous.task.list.label.link= Link
 
 anonymous.task.list.button.return = return
 
