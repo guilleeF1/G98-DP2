@@ -16,9 +16,9 @@ master.banner.background = #C997D5
 
 master.welcome.title = ¡Bienvenidos!
 master.welcome.text = \
-	Bienvenidos a Acme Jobs, tu compañero de trabajo!  Da igual que seas un \
-	empleador o un trabajador: nuestro sistema de dará las opotunidades que \
-	necesitas.  ¡Te deseamos los mayores logros profesionales!
+	Bienvenidos a Acme Planner, tu planeador!  Da igual que seas un \
+	empleador o un gestor: nuestro sistema de dará la gestión que \
+	necesitas.  ¡Te deseamos los mayores planes profesionales!
 
 # master.menu #################################################################
 
@@ -95,7 +95,7 @@ master.company.text = \
 	Acme, Inc. hace referencia a un holding de empresas ficticias que se usan \
 	en la asignatura Diseño y Pruebas de los estudios de Ingeniería Inforática \
 	de la Universidad de Sevilla.
-master.company.name = Acme Jobs, Inc.
+master.company.name = Acme Planner, Inc.
 master.company.address = ETSI Informática, Avda. Reina Mercedes, s/n, Sevilla 41012, Spain
 master.company.phone = +34 123 456
 master.company.email = contact@acme.com
