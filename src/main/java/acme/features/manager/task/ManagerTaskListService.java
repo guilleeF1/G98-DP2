@@ -1,6 +1,5 @@
-package acme.features.authenticated.task;
+package acme.features.manager.task;
 
-import java.util.Calendar;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,16 +8,16 @@ import org.springframework.stereotype.Service;
 import acme.entities.tasks.Task;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Authenticated;
+import acme.framework.entities.Manager;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AuthenticatedTaskListService implements AbstractListService<Authenticated, Task>{
+public class ManagerTaskListService implements AbstractListService<Manager, Task>{
 
 	// Internal state ---------------------------------------------------------
 
 		@Autowired
-		protected AuthenticatedTaskRepository repository;
+		protected ManagerTaskRepository repository;
 
 
 		// AbstractListService<Administrator, Shout> interface --------------
@@ -44,9 +43,6 @@ public class AuthenticatedTaskListService implements AbstractListService<Authent
 			assert request != null;
 
 			Collection<Task> result;
-			final Calendar cal= Calendar.getInstance();
-			final java.util.Date hoy= cal.getTime();
-			result = this.repository.findOpenTasks(hoy);
 
 			result = this.repository.findMany();
 

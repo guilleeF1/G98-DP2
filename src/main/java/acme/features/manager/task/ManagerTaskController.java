@@ -1,4 +1,4 @@
-package acme.features.authenticated.task;
+package acme.features.manager.task;
 
 import javax.annotation.PostConstruct;
 
@@ -6,48 +6,38 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import acme.components.CustomCommand;
 import acme.entities.tasks.Task;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
-import acme.framework.entities.Authenticated;
+import acme.framework.entities.Manager;
 @Controller
-@RequestMapping("/authenticated/task/")
-public class AuthenticatedTaskController extends AbstractController<Authenticated,Task>{
+@RequestMapping("/manager/task/")
+public class ManagerTaskController extends AbstractController<Manager,Task>{
 
 	// Internal state ---------------------------------------------------------
 
 
 	@Autowired
-	protected AuthenticatedTaskCreateService	createService;
+	protected ManagerTaskCreateService	createService;
 	@Autowired
-  
-	protected AuthenticatedTaskListFinishedService	listFinishedService;
+	protected ManagerTaskListService	listService;
 	@Autowired
-	protected AuthenticatedTaskListService	listService;
-
-	protected AuthenticatedTaskListService	listService;
+	protected ManagerTaskShowService	showService;
 	@Autowired
-	protected AuthenticatedTaskShowService	showService;
-
+	protected ManagerTaskUpdateService		updateService;
+	@Autowired
+	protected ManagerTaskDeleteService		deleteService;
 
 
 	// Constructors -----------------------------------------------------------
 
 	@PostConstruct
 	protected void initialise() {
-    
+		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
+		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
 		
-		super.addBasicCommand(BasicCommand.CREATE, this.createService);
-		
-		super.addBasicCommand(BasicCommand.LIST, this.listService);
-		
-		super.addCustomCommand(CustomCommand.LIST_FINISHED, BasicCommand.LIST, this.listFinishedService);
-		
-    
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
-
 	}
 }
