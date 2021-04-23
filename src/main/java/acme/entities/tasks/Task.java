@@ -9,7 +9,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -47,6 +46,8 @@ public class Task extends DomainEntity {
 	
 	@NotNull
 	protected Integer cargaTrabajo;
+	
+	protected Integer cargaTrabajoMinutos;
 	
 	@NotBlank
 	@Length(min = 1, max = 499)
