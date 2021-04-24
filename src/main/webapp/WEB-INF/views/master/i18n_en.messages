@@ -16,9 +16,9 @@ master.banner.background = #C997D5
 
 master.welcome.title = Welcome!
 master.welcome.text = \
-	Welcome to Acme Jobs, your work mate! It does not matter whether you are \
-	an employer or a worker: our system will bring you the opportunities you \
-	are seeking for.  We wish you great professional achievements!
+	Welcome to Acme Planner, your work mate! It does not matter whether you are \
+	an manager our worker: our system will bring you the managing you \
+	are seeking for.  We wish you great work plans!
 
 # master.menu #################################################################
 
@@ -40,6 +40,8 @@ master.menu.anonymous.list-tasks = List tasks
 master.menu.authenticated = Authenticated
 master.menu.authenticated.announcement.list = List announcements
 master.menu.authenticated.money-exchage = Money exchange
+master.menu.authenticated.list-tasks= List open task
+master.menu.authenticated.list-finished-tasks = List finished task
 
 # master.menu.administrator ###################################################
 
@@ -95,7 +97,7 @@ master.company.text = \
 	Acme, Inc. refers to a holding that is composed of many fictitious companies \
 	that are used in the Design and Testing subject of the Software Engineering \
 	Curriculum of the University of Sevilla.
-master.company.name = Acme Jobs, Inc.
+master.company.name = Acme Panner, Inc.
 master.company.address = ETSI Informática, Avda. Reina Mercedes, s/n, Sevilla 41012, Spain
 master.company.phone = +34 123 456
 master.company.email = contact@acme.com

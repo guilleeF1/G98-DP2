@@ -1,7 +1,7 @@
-
-package acme.features.anonymous.task;
+package acme.features.administrator.task;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,16 +10,16 @@ import acme.entities.tasks.Task;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Anonymous;
+import acme.framework.entities.Administrator;
 import acme.framework.services.AbstractCreateService;
 
 @Service
-public class AnonymousTaskCreateService implements AbstractCreateService<Anonymous, Task> {
+public class AdministratorTaskCreateService implements AbstractCreateService<Administrator, Task> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnonymousTaskRepository repository;
+	protected AdministratorTaskRepository repository;
 
 	// AbstractCreateService<Administrator, Task> interface --------------
 
@@ -77,7 +77,27 @@ public class AnonymousTaskCreateService implements AbstractCreateService<Anonymo
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
+		
+		if (!errors.hasErrors("cargaTrabajoMinutos") && entity.getCargaTrabajoMinutos()!=null) {
+			errors.state(request, entity.getCargaTrabajoMinutos() > 0 && entity.getCargaTrabajoMinutos() < 60, "cargaTrabajoMinutos", "anonymous.task.form.error.within-range");
+		}
+		
+		if (!errors.hasErrors("cargaTrabajo")) {
+			final Date date1 = entity.getPeriodoEjecucionInicio();
+			final Date date2 = entity.getPeriodoEjecucionFinal();
+			final long diffInMilliseconds = date2.getTime() - date1.getTime();
+			final long timeElapsed = TimeUnit.MINUTES.convert(diffInMilliseconds,TimeUnit.MILLISECONDS);
+			final long workloadTime;
+			if (entity.getCargaTrabajoMinutos()!=null) {
+				workloadTime = (entity.getCargaTrabajo() * 60) + entity.getCargaTrabajoMinutos();
+			}
+			else {
+				workloadTime = (entity.getCargaTrabajo() * 60);
+			}
+			System.out.println(timeElapsed);
+			System.out.println(workloadTime);
+			errors.state(request, workloadTime <= timeElapsed, "cargaTrabajo", "anonymous.task.form.error.must-fit");
+		}
 	}
 	
 	@Override

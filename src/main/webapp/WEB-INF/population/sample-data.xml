@@ -22,7 +22,7 @@
 	<!-- Shouts -->
 	
 	<bean id="shout01" class="acme.entities.shouts.Shout">
-		<property name="moment" value="2021/02/13 19:39"/>
+		<property name="moment" value="2021/04/1 19:39"/>
 		<property name="author" value="John Doe"/>
 		<property name="text" value="I'm happy!"/>
 		<property name="info"><null/></property>	
@@ -45,7 +45,14 @@
 	<bean id="shout04" class="acme.entities.shouts.Shout">
 		<property name="author" value="Leslie Design-Testing"/>
 		<property name="text" value="Woa! This app's so cool!"/>
-		<property name="moment" value="2021/02/13 12:30"/>
+		<property name="moment" value="2021/04/13 12:30"/>
+		<property name="info" value="http://www.sample-app.com"/>
+	</bean>
+	
+	<bean id="shout05" class="acme.entities.shouts.Shout">
+		<property name="author" value="ElRubiusOMG"/>
+		<property name="text" value="Good Morning, lord's creatures!"/>
+		<property name="moment" value="2021/04/9 12:30"/>
 		<property name="info" value="http://www.sample-app.com"/>
 	</bean>
 	
@@ -59,6 +66,7 @@
 		<property name="cargaTrabajo" value="6"/>
 		<property name="descripcion" value="implementar task con sus atributos"/>
 		<property name="enlace"><null/></property>	
+		<property name="manager" ref="managerManager"/>
 	</bean>
 	
 	<bean id="task02" class="acme.entities.tasks.Task">
@@ -69,6 +77,7 @@
 		<property name="cargaTrabajo" value="4"/>
 		<property name="descripcion" value="implementar shout con sus atributos"/>
 		<property name="enlace" value="http://happybirthday.com"/>
+		<property name="manager" ref="managerManager"/>
 	</bean>
 	
 	<bean id="task03" class="acme.entities.tasks.Task">
@@ -78,7 +87,8 @@
 		<property name="periodoEjecucionFinal" value="2021/11/03 12:07"/>
 		<property name="cargaTrabajo" value="7"/>
 		<property name="descripcion" value="implementar announcement con sus atributos"/>
-		<property name="enlace"><null/></property>	
+		<property name="enlace"><null/></property>
+		<property name="manager" ref="managerManager"/>
 	</bean>
 	
 	<bean id="task04" class="acme.entities.tasks.Task">
@@ -88,6 +98,27 @@
 		<property name="periodoEjecucionFinal" value="2021/12/24 02:18"/>
 		<property name="cargaTrabajo" value="1"/>
 		<property name="descripcion" value="implementar employer con sus atributos"/>
+		<property name="enlace"><null/></property>	
+		<property name="manager" ref="managerManager"/>
+	</bean>
+	
+		<bean id="task05" class="acme.entities.tasks.Task">
+		<property name="publica" value="false"/>
+		<property name="titulo" value="Tarea que no debe ni anon ni aunth"/>
+		<property name="periodoEjecucionInicio" value="2020/12/20 01:18"/>
+		<property name="periodoEjecucionFinal" value="2020/12/24 02:18"/>
+		<property name="cargaTrabajo" value="5"/>
+		<property name="descripcion" value="es una tarea pasada"/>
+		<property name="enlace"><null/></property>	
+	</bean>
+	
+			<bean id="task06" class="acme.entities.tasks.Task">
+		<property name="publica" value="true"/>
+		<property name="titulo" value="Tarea antigua 2"/>
+		<property name="periodoEjecucionInicio" value="2018/12/20 01:18"/>
+		<property name="periodoEjecucionFinal" value="2018/12/24 02:18"/>
+		<property name="cargaTrabajo" value="4"/>
+		<property name="descripcion" value="es una tarea pasada 2"/>
 		<property name="enlace"><null/></property>	
 	</bean>
 	
@@ -172,6 +203,8 @@
 	<bean name="employer1Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="employer1UserAccount"/>
 	</bean>
+	
+	
 	
 	<bean name="employer2UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="employer2"/>
@@ -331,4 +364,63 @@
 		<property name="target" value="https://www.afoprodei.com/"/>
 	</bean>
 	
+	
+	
+	<!-- Manager -->
+	
+	<bean name="managerUserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="manager1" />
+		<property name="password" value="manager1" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Manager" />
+				<property name="surname" value="Manager.com" />
+				<property name="email" value="manager@acme.com" />
+				<property name="phone" value="+1 (234) 567-890" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="managerManager" />
+				<ref bean="managerAuthenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="managerManager" class="acme.framework.entities.Manager">
+		<property name="userAccount" ref="managerUserAccount" />
+	</bean>
+	
+	<bean name="managerAuthenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="managerUserAccount" />
+	</bean>
+	
+	<bean name="manager2UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="manager2" />
+		<property name="password" value="manager2" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Manager" />
+				<property name="surname" value="Manager.com" />
+				<property name="email" value="manager@acme.com" />
+				<property name="phone" value="+1 (234) 567-890" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="manager2Manager" />
+				<ref bean="manager2Authenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="manager2Manager" class="acme.framework.entities.Manager">
+		<property name="userAccount" ref="manager2UserAccount" />
+	</bean>
+	
+	<bean name="manager2Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="manager2UserAccount" />
+	</bean>
 </beans>
