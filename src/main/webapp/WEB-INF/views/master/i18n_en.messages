@@ -10,7 +10,7 @@
 
 # master.banner.welcome #######################################################
 
-master.banner.background = #C997D5
+master.banner.background = #FFE97F
 
 # master.welcome ##############################################################
 
@@ -30,25 +30,15 @@ master.menu.sign-out = Sign out
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anonymous
-master.menu.anonymous.all-jobs = List all jobs
 master.menu.anonymous.list-shouts = List shouts
 master.menu.anonymous.create-shout = Shout!
-master.menu.anonymous.list-tasks = List tasks
-
-# master.menu.authenticated #######################################################
-
 master.menu.authenticated = Authenticated
-master.menu.authenticated.announcement.list = List announcements
-master.menu.authenticated.money-exchage = Money exchange
 master.menu.authenticated.list-tasks= List open task
 master.menu.authenticated.list-finished-tasks = List finished task
 
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
-master.menu.administrator.announcement.list-all = List all announcements
-master.menu.administrator.announcement.list-recent = List recent announcements
-master.menu.administrator.announcement.create = Create announcement
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
@@ -58,16 +48,10 @@ master.menu.administrator.shutdown = Shut down
 # master.menu.employer ########################################################
 
 master.menu.employer = Employer
-master.menu.employer.create-job = Create a job
-master.menu.employer.all-jobs = List all jobs
-master.menu.employer.my-jobs = List my jobs
-master.menu.employer.my-applications = List my applications
 
 # master.menu.worker ##########################################################
 
 master.menu.worker = Worker
-master.menu.worker.all-jobs = List all jobs
-master.menu.worker.my-applications = List my applications
 
 # master.menu.user-account ####################################################
 

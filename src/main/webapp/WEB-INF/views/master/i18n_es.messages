@@ -10,7 +10,7 @@
 
 # master.banner.welcome #######################################################
 
-master.banner.background = #C997D5
+master.banner.background = #FFE97F
 
 ﻿# master.welcome ##############################################################
 
@@ -30,7 +30,6 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
-master.menu.anonymous.all-jobs = Ver todos los trabajos
 master.menu.anonymous.list-shouts = Ver gritos
 master.menu.anonymous.create-shout = ¡Dar un grito!
 master.menu.anonymous.list-tasks = Ver tareas
@@ -38,17 +37,12 @@ master.menu.anonymous.list-tasks = Ver tareas
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Autentificado
-master.menu.authenticated.announcement.list = Ver anuncios
-master.menu.authenticated.money-exchage = Cambio de dinero
 master.menu.authenticated.list-tasks= Ver tareas abiertas
 master.menu.authenticated.list-finished-tasks = Ver tareas terminadas
 
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
-master.menu.administrator.announcement.list-all = Ver todos los anuncios
-master.menu.administrator.announcement.list-recent = Ver anuncios recientes
-master.menu.administrator.announcement.create = Crear anuncio
 master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
@@ -58,16 +52,10 @@ master.menu.administrator.shutdown = Parar el sistema
 # master.menu.employer ########################################################
 
 master.menu.employer = Empleador
-master.menu.employer.create-job = Crear un trabajo
-master.menu.employer.all-jobs = Ver todos los trabajos
-master.menu.employer.my-jobs = Ver mis trabajos
-master.menu.employer.my-applications = Ver mis solicitudes
 
 # master.menu.worker ##########################################################
 
 master.menu.worker = Trabajador
-master.menu.worker.all-jobs = Ver todos los trabajos
-master.menu.worker.my-applications = Ver mis solicitudes
 
 # master.menu.user-account ####################################################
 
