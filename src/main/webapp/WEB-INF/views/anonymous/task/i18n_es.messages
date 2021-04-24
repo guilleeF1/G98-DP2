@@ -35,7 +35,7 @@ anonymous.task.form.title.delete = Borrar tarea
 anonymous.task.form.error.invalid-final = Periodo invalido: la fecha final debe ser posterior a la fecha inicial.
 anonymous.task.form.error.past = Periodo invalido: la fecha inicial debe ser futura.
 
-anonymous.task.form.label.publica = Publica o No Publica 
+anonymous.task.form.label.publica = Pública
 anonymous.task.form.label.titulo = Titulo 
 anonymous.task.form.label.periodoEjecucionInicio = Periodo de Ejecucion Inicio
 anonymous.task.form.label.periodoEjecucionFinal = Periodo de Ejecucion Final

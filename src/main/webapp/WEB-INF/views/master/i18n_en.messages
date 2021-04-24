@@ -46,28 +46,17 @@ master.menu.authenticated.list-finished-tasks = List finished task
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
-master.menu.administrator.announcement.list-all = List all announcements
-master.menu.administrator.announcement.list-recent = List recent announcements
-master.menu.administrator.announcement.create = Create announcement
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shutdown = Shut down
 
-# master.menu.employer ########################################################
+# master.menu.administrator ###################################################
 
-master.menu.employer = Employer
-master.menu.employer.create-job = Create a job
-master.menu.employer.all-jobs = List all jobs
-master.menu.employer.my-jobs = List my jobs
-master.menu.employer.my-applications = List my applications
-
-# master.menu.worker ##########################################################
-
-master.menu.worker = Worker
-master.menu.worker.all-jobs = List all jobs
-master.menu.worker.my-applications = List my applications
+master.menu.manager = Manager
+master.menu.manager.task.list = My tasks
+master.menu.manager.task.create = Create a task
 
 # master.menu.user-account ####################################################
 
@@ -77,6 +66,7 @@ master.menu.user-account.employer = Employer data
 master.menu.user-account.become-employer = Become an employer
 master.menu.user-account.worker = Worker data
 master.menu.user-account.become-worker = Become a worker
+master.menu.user-account.become-manager = Become a manager
 
 # master.footer ###############################################################
 

@@ -28,13 +28,9 @@
 		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
 			<acme:menu-suboption code="master.menu.authenticated.list-tasks" action="/authenticated/task/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-finished-tasks" action="/authenticated/task/list-finished"/>
-		</acme:menu-option> 
+		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">			
-			<acme:menu-suboption code="master.menu.administrator.announcement.list-all" action="/administrator/announcement/list-all"/>
-			<acme:menu-suboption code="master.menu.administrator.announcement.list-recent" action="/administrator/announcement/list-recent"/>
-			<acme:menu-suboption code="master.menu.administrator.announcement.create" action="/administrator/announcement/create"/>
-			<acme:menu-separator/>
+		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/dashboard/show"/>
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
@@ -42,19 +38,14 @@
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/master/populate-sample"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shutdown" action="/master/shutdown"/>
-		</acme:menu-option>
+		</acme:menu-option> 
+		
+		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">
+			<acme:menu-suboption code="master.menu.manager.task.list" action="/manager/task/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.manager.task.create" action="/manager/task/create"/>
+		</acme:menu-option> 
 
-		<acme:menu-option code="master.menu.employer" access="hasRole('Employer')">
-			<acme:menu-suboption code="master.menu.employer.create-job" action="/employer/job/create"/>
-			<acme:menu-suboption code="master.menu.employer.all-jobs" action="/employer/job/list-all"/>
-			<acme:menu-suboption code="master.menu.employer.my-jobs" action="/employer/job/list-mine"/>			
-			<acme:menu-suboption code="master.menu.employer.my-applications" action="/employer/application/list"/>			
-		</acme:menu-option>
-
-		<acme:menu-option code="master.menu.worker" access="hasRole('Worker')">
-			<acme:menu-suboption code="master.menu.worker.all-jobs" action="/worker/job/list-all"/>	
-			<acme:menu-suboption code="master.menu.worker.my-applications" action="/worker/application/list"/>
-		</acme:menu-option>
 	</acme:menu-left>
 
 	<acme:menu-right>
@@ -63,10 +54,7 @@
 
 		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
-			<acme:menu-suboption code="master.menu.user-account.become-employer" action="/authenticated/employer/create" access="!hasRole('Employer')"/>
-			<acme:menu-suboption code="master.menu.user-account.employer" action="/authenticated/employer/update" access="hasRole('Employer')"/>
-			<acme:menu-suboption code="master.menu.user-account.become-worker" action="/authenticated/worker/create" access="!hasRole('Worker')"/>
-			<acme:menu-suboption code="master.menu.user-account.worker" action="/authenticated/worker/update" access="hasRole('Worker')"/>
+			<acme:menu-suboption code="master.menu.user-account.become-manager" action="/authenticated/manager/create" access="!hasRole('Manager')"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>
