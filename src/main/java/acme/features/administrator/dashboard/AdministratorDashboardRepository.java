@@ -12,6 +12,9 @@
 
 package acme.features.administrator.dashboard;
 
+import java.util.Collection;
+import java.util.Date;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -20,22 +23,47 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AdministratorDashboardRepository extends AbstractRepository {
 
-	@Query("select avg(select count(j) from Job j where j.employer.id = e.id) from Employer e")
-	Double averageNumberOfJobsPerEmployer();
-
-	@Query("select avg(select count(a) from Application a where a.worker.id = w.id) from Worker w")
-	Double averageNumberOfApplicationsPerWorker();
-
-	@Query("select avg(select count(a) from Application a where exists(select j from Job j where j.employer.id = e.id and a.job.id = j.id)) from Employer e")
-	Double averageNumberOfApplicationsPerEmployer();
-
-	@Query("select 1.0 * count(a) / (select count(b) from Application b) from Application a where a.status = acme.entities.jobs.ApplicationStatus.PENDING")
-	Double ratioOfPendingApplications();
-
-	@Query("select 1.0 * count(a) / (select count(b) from Application b) from Application a where a.status = acme.entities.jobs.ApplicationStatus.ACCEPTED")
-	Double ratioOfAcceptedApplications();
-
-	@Query("select 1.0 * count(a) / (select count(b) from Application b) from Application a where a.status = acme.entities.jobs.ApplicationStatus.REJECTED")
-	Double ratioOfRejectedApplications();
+	
+	@Query("select count(t) from Task t where t.publica = TRUE")
+	Integer countTaskPublic();
+	
+	@Query("select count(t.id) from Task t where t.publica = FALSE")
+	Integer countTaskPrivate();
+	
+	@Query("select count(t.id) from Task t where ?1 > t.periodoEjecucionFinal")
+	Integer countTaskFinished(Date today);
+	
+	@Query("select count(t.id) from Task t where ?1 < t.periodoEjecucionFinal")
+	Integer countTaskNotFinished(Date today);
+	
+	@Query("select avg(t.cargaTrabajo) from Task t")
+	Double workloadAverage();
+	
+	@Query("select max(t.cargaTrabajo) from Task t")
+	Integer workloadMax();
+	
+	@Query("select min(t.cargaTrabajo) from Task t")
+	Integer workloadMin();
+	
+	@Query("select t.cargaTrabajo from Task t")
+	Collection<Integer> getWorkload();
+	
+	@Query("select avg(t.periodoEjecucionInicio) from Task t")
+	Double getStartPeriodAverage();
+	
+	@Query("select avg(t.periodoEjecucionFinal) from Task t")
+	Double getFinalPeriodAverage();
+	
+	@Query("select min(t.periodoEjecucionInicio) from Task t")
+	Date startPeriodMin();
+	
+	@Query("select min(t.periodoEjecucionFinal) from Task t")
+	Date finalPeriodMin();
+	
+	@Query("select max(t.periodoEjecucionInicio) from Task t")
+	Date startPeriodMax();
+	
+	@Query("select max(t.periodoEjecucionFinal) from Task t")
+	Date finalPeriodMax();
 
 }
