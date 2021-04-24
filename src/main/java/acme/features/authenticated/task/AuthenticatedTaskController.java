@@ -42,9 +42,6 @@ public class AuthenticatedTaskController extends AbstractController<Authenticate
 		
 		super.addCustomCommand(CustomCommand.LIST_FINISHED, BasicCommand.LIST, this.listFinishedService);
 		
-    
-		super.addBasicCommand(BasicCommand.CREATE, this.createService);
-		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 
 	}
