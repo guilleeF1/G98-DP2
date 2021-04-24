@@ -285,15 +285,61 @@ UserAccount
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>595</x>
-      <y>84</y>
-      <w>49</w>
-      <h>98</h>
+      <x>357</x>
+      <y>0</y>
+      <w>329</w>
+      <h>112</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-&gt;
-m1=1
-m2=*
-has v</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Task
+--
++ publica: Boolean {NotNull}
++ titulo: String {NotBlank}
++ periodoEjecucionInicio: Date{NotNull, Temporal(TIMESTAMP), Future}
++ periodoEjecucionFinal: Date {NotNull, Temporal(TIMESTAMP), Future}
++ cargaTrabajo: Integer {NotNull}
++ descripcion: String {NotBlank}
++ enlace: String {URL}
++ finalMode: boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>735</x>
+      <y>231</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>Manager
+--
+
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>679</x>
+      <y>238</y>
+      <w>70</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;90.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>679</x>
+      <y>77</y>
+      <w>287</w>
+      <h>217</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=*
+m2=1
+Created by &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;310.0;10.0;310.0;280.0;180.0;280.0</additional_attributes>
   </element>
 </diagram>

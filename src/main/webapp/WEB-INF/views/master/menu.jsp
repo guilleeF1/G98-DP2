@@ -26,6 +26,8 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
+			<acme:menu-suboption code="master.menu.authenticated.list-tasks" action="/authenticated/task/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.list-finished-tasks" action="/authenticated/task/list-finished"/>
 		</acme:menu-option> 
 		
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">	

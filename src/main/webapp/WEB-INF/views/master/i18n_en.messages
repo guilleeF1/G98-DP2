@@ -16,8 +16,9 @@ master.banner.background = #FFE97F
 
 master.welcome.title = Welcome!
 master.welcome.text = \
-	Welcome to Starter Project! Never before has it bee easier to get your \
-	project up and running!
+	Welcome to Acme Planner, your work mate! It does not matter whether you are \
+	an manager our worker: our system will bring you the managing you \
+	are seeking for.  We wish you great work plans!
 
 # master.menu #################################################################
 
@@ -32,7 +33,8 @@ master.menu.anonymous = Anonymous
 master.menu.anonymous.list-shouts = List shouts
 master.menu.anonymous.create-shout = Shout!
 master.menu.authenticated = Authenticated
- master.menu.anonymous.favourite-link = Favourite link
+master.menu.authenticated.list-tasks= List open task
+master.menu.authenticated.list-finished-tasks = List finished task
 
 # master.menu.administrator ###################################################
 
@@ -76,12 +78,12 @@ master.footer.label.spanish = Spanish
 
 master.company.title = La compañía
 master.company.text = \
-	Starter Project, Inc. is a fictitious fictitious company that provides a \
-	starter project for the students of the Design and Testing subject of the \
-	Software Engineering Curriculum of the University of Sevilla.
-master.company.name = Starter Project, Inc.
-master.company.address = Number Street, City, State, Country
-master.company.phone = +000 123 456
+	Acme, Inc. refers to a holding that is composed of many fictitious companies \
+	that are used in the Design and Testing subject of the Software Engineering \
+	Curriculum of the University of Sevilla.
+master.company.name = Acme Panner, Inc.
+master.company.address = ETSI Informática, Avda. Reina Mercedes, s/n, Sevilla 41012, Spain
+master.company.phone = +34 123 456
 master.company.email = contact@acme.com
 
 # master.license ##############################################################
