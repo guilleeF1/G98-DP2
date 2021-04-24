@@ -9,6 +9,7 @@ import acme.entities.tasks.Task;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Manager;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
@@ -43,8 +44,10 @@ public class ManagerTaskListService implements AbstractListService<Manager, Task
 			assert request != null;
 
 			Collection<Task> result;
+			Principal principal;
 
-			result = this.repository.findMany();
+			principal = request.getPrincipal();
+			result = this.repository.findManyByManagerId(principal.getAccountId());
 
 			return result;
 		}
