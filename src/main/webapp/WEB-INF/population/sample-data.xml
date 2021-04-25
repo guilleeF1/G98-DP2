@@ -110,6 +110,7 @@
 		<property name="cargaTrabajo" value="5"/>
 		<property name="descripcion" value="es una tarea pasada"/>
 		<property name="enlace"><null/></property>	
+		<property name="manager" ref="manager2Manager"/>
 	</bean>
 	
 			<bean id="task06" class="acme.entities.tasks.Task">
@@ -120,6 +121,7 @@
 		<property name="cargaTrabajo" value="4"/>
 		<property name="descripcion" value="es una tarea pasada 2"/>
 		<property name="enlace"><null/></property>	
+		<property name="manager" ref="manager2Manager"/>
 	</bean>
 	
 	
@@ -134,7 +136,6 @@
 				<property name="name" value="Manager" />
 				<property name="surname" value="Manager.com" />
 				<property name="email" value="manager@acme.com" />
-				<property name="phone" value="+1 (234) 567-890" />
 			</bean>
 		</property>
 		<property name="roles">
@@ -162,7 +163,6 @@
 				<property name="name" value="Manager" />
 				<property name="surname" value="Manager.com" />
 				<property name="email" value="manager@acme.com" />
-				<property name="phone" value="+1 (234) 567-890" />
 			</bean>
 		</property>
 		<property name="roles">
