@@ -26,6 +26,9 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
+			<acme:menu-suboption code="master.menu.authenticated.list-shouts" action="/authenticated/shout/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.create-shout" action="/authenticated/shout/create"/>
+			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.list-tasks" action="/authenticated/task/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-finished-tasks" action="/authenticated/task/list-finished"/>
 		</acme:menu-option>
@@ -60,4 +63,3 @@
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>
 	</acme:menu-right>
 </acme:menu-bar>
-

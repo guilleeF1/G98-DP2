@@ -389,10 +389,10 @@ Shout
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>357</x>
+      <x>364</x>
       <y>0</y>
       <w>329</w>
-      <h>112</h>
+      <h>133</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Task
@@ -402,6 +402,7 @@ Task
 + periodoEjecucionInicio: Date{NotNull, Temporal(TIMESTAMP), Future}
 + periodoEjecucionFinal: Date {NotNull, Temporal(TIMESTAMP), Future}
 + cargaTrabajo: Integer {NotNull}
++ cargaTrabajoMinutos: Integer
 + descripcion: String {NotBlank}
 + enlace: String {URL}
 + finalMode: boolean</panel_attributes>
@@ -435,15 +436,15 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>679</x>
+      <x>686</x>
       <y>77</y>
-      <w>287</w>
-      <h>217</h>
+      <w>280</w>
+      <h>182</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 m1=*
 m2=1
 Created by &gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;310.0;10.0;310.0;280.0;180.0;280.0</additional_attributes>
+    <additional_attributes>10.0;10.0;300.0;10.0;300.0;230.0;170.0;230.0</additional_attributes>
   </element>
 </diagram>
