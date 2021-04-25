@@ -1,0 +1,44 @@
+
+# i18n_en.messages
+#
+# Copyright (C) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+
+
+##############################################################################################list
+
+authenticated.task.list.title = Task
+authenticated.task.list.title.show = Task
+
+
+authenticated.task.list.label.titulo = Title 
+authenticated.task.list.label.periodoEjecucionInicio = initial execution period
+authenticated.task.list.label.periodoEjecucionFinal = final execution period
+authenticated.task.list.label.cargaTrabajo = workload
+authenticated.task.list.label.descripcion = description
+authenticated.task.list.label.link= Link
+
+authenticated.task.list.button.return = return
+
+ 
+
+#####################################################################################form
+authenticated.task.form.title = Task
+authenticated.task.form.title.show = task
+
+authenticated.task.form.label.publica = Public
+authenticated.task.form.label.titulo = Title 
+authenticated.task.form.label.periodoEjecucionInicio = Begining Execution Period
+authenticated.task.form.label.periodoEjecucionFinal = Final Execution Period
+authenticated.task.form.label.cargaTrabajo = Workload
+authenticated.task.form.label.cargaTrabajoMinutos = Workload minutes
+authenticated.task.form.label.descripcion = Description
+authenticated.task.form.label.enlace = Link
+
+authenticated.task.form.button.return = Return

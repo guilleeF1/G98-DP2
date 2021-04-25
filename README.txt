@@ -8,10 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-This is Aleatorio-Us, our project of D&T.
 
-En la personalización del proyecto ofrecido estamos usando imágenes e iconos propios, 
-al igual que el nombre del banner
+This is Acme-Planner, our project of D&T.
 
 Cuando comenzamos la segunda entrega del proyecto, empezamos a trabajar sobre el mismo repositorio con el que habíamos realizado
 la primera entrega. Tras unas semanas de estar trabajando sobre este repositorio, se nos informó en clase que deberíamos haber
