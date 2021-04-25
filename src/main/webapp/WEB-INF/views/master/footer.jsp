@@ -23,8 +23,8 @@
 	</acme:footer-subpanel>
 
 	<acme:footer-subpanel code="master.footer.title.social">
-		<acme:footer-option icon="fab fa-linkedin" code="master.footer.label.linked-in" action="http://www.linkedin.com/company/acme" newTab="true"/>
-		<acme:footer-option icon="fab fa-twitter" code="master.footer.label.twitter" action="https://twitter.com/acme" newTab="true"/>
+		<acme:footer-option icon="fab fa-linkedin" code="master.footer.label.linked-in" action="http://www.linkedin.com/" newTab="true"/>
+		<acme:footer-option icon="fab fa-twitter" code="master.footer.label.twitter" action="https://twitter.com/" newTab="true"/>
 	</acme:footer-subpanel>
 
 	<acme:footer-subpanel code="master.footer.title.languages">
@@ -37,11 +37,3 @@
 	</acme:footer-logo>		
 
 </acme:footer-panel>
-
-<jstl:if test="${banner != null}">
-	<div class="panel-body" style="margin: 1em 0em 1em 0em; text-align: center;">	
-		<a href="${banner.target}" target="_blank">
-			<img src="${banner.picture}" alt="${banner.slogan}" class="img-fluid rounded" style="border-style: solid;"/>
-		</a>
-	</div>
-</jstl:if>
