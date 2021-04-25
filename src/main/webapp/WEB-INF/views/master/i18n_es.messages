@@ -1,4 +1,3 @@
-
 # i18n_es.messages
 #
 # Copyright (C) 2012-2021 Rafael Corchuelo.
@@ -119,3 +118,4 @@ master.panic.label.request = Petición:
 master.panic.label.status = Estado:
 master.panic.label.exceptions = Excepciones:
 master.panic.text.consult-log = Por favor, consulte el log para ver más detalles.
+
