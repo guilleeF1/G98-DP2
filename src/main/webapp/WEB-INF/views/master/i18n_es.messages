@@ -42,6 +42,8 @@ master.menu.authenticated.announcement.list = Ver anuncios
 master.menu.authenticated.money-exchage = Cambio de dinero
 master.menu.authenticated.list-tasks= Ver tareas abiertas
 master.menu.authenticated.list-finished-tasks = Ver tareas terminadas
+master.menu.authenticated.list-shouts = Ver gritos
+master.menu.authenticated.create-shout = gritar
 
 # master.menu.administrator ###################################################
 

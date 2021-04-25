@@ -43,6 +43,9 @@ master.menu.authenticated.money-exchage = Money exchange
 master.menu.authenticated.list-tasks= List open task
 master.menu.authenticated.list-finished-tasks = List finished task
 
+master.menu.authenticated.list-shouts = List shouts
+master.menu.authenticated.create-shout = Shout!
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
