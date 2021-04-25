@@ -11,6 +11,7 @@ import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Manager;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -20,8 +21,6 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 
 	@Autowired
 	protected ManagerTaskRepository repository;
-
-	// AbstractCreateService<Administrator, Task> interface --------------
 
 	@Override
 	public boolean authorise(final Request<Task> request) {
@@ -47,8 +46,6 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 
 		request.unbind(entity, model, 
 			"publica", "titulo", "periodoEjecucionInicio", "periodoEjecucionFinal", "cargaTrabajo", "descripcion", "enlace");
-
-		model.setAttribute("readonly", false);
 	}
 
 	@Override
@@ -71,6 +68,11 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		result.setDescripcion("Descripcion");
 		result.setEnlace("https://clockify.me/tracker");
 
+		Principal principal;
+		principal = request.getPrincipal();
+		
+		result.setManager(this.repository.findOneManagerById(principal.getActiveRoleId()));
+
 		return result;
 	}
 
@@ -79,6 +81,15 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		
+		if (!errors.hasErrors("periodoEjecucionFinal")) {
+			errors.state(request, entity.getPeriodoEjecucionInicio().before(entity.getPeriodoEjecucionFinal()), "periodoEjecucionFinal", "anonymous.task.form.error.invalid-final");
+		}
+		
+		if (!errors.hasErrors("periodoEjecucionInicio")) {
+			final Date d = new Date(System.currentTimeMillis());
+			errors.state(request, entity.getPeriodoEjecucionInicio().after(d), "periodoEjecucionInicio", "anonymous.task.form.error.past");
+		}
 
 	}
 	
@@ -86,6 +97,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 	public void create(final Request<Task> request, final Task entity) {
 		assert request != null;
 		assert entity != null;
+		
 		
 		this.repository.save(entity);
 	}

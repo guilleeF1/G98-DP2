@@ -9,7 +9,7 @@
 	<acme:list-column code="anonymous.task.list.label.periodoEjecucionFinal" path="periodoEjecucionFinal" width="10%"/>
 	<acme:list-column code="anonymous.task.list.label.cargaTrabajo" path="cargaTrabajo" width="10%"/>
 	<acme:list-column code="anonymous.task.list.label.descripcion" path="descripcion" width="10%"/>
-	<acme:list-column code="anonymous.task.list.label.link" path="link" width="10%"/>
+	<acme:list-column code="anonymous.task.list.label.enlace" path="enlace" width="10%"/>
 </acme:list>
 
 
