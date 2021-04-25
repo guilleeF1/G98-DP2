@@ -1,3 +1,4 @@
+
 # i18n_es.messages
 #
 # Copyright (C) 2012-2021 Rafael Corchuelo.
@@ -10,7 +11,7 @@
 
 # master.banner.welcome #######################################################
 
-master.banner.background = #FFE97F
+master.banner.background = #C997D5
 
 ﻿# master.welcome ##############################################################
 
@@ -30,6 +31,7 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
+master.menu.anonymous.all-jobs = Ver todos los trabajos
 master.menu.anonymous.list-shouts = Ver gritos
 master.menu.anonymous.create-shout = ¡Dar un grito!
 master.menu.anonymous.list-tasks = Ver tareas
@@ -37,8 +39,12 @@ master.menu.anonymous.list-tasks = Ver tareas
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Autentificado
+master.menu.authenticated.announcement.list = Ver anuncios
+master.menu.authenticated.money-exchage = Cambio de dinero
 master.menu.authenticated.list-tasks= Ver tareas abiertas
 master.menu.authenticated.list-finished-tasks = Ver tareas terminadas
+master.menu.authenticated.list-shouts = Ver gritos
+master.menu.authenticated.create-shout = gritar
 
 # master.menu.administrator ###################################################
 
@@ -49,13 +55,11 @@ master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shutdown = Parar el sistema
 
-# master.menu.employer ########################################################
+# master.menu.administrator ###################################################
 
-master.menu.employer = Empleador
-
-# master.menu.worker ##########################################################
-
-master.menu.worker = Trabajador
+master.menu.manager = Manager
+master.menu.manager.task.list = Mis tareas
+master.menu.manager.task.create = Crear una tarea
 
 # master.menu.user-account ####################################################
 
@@ -65,6 +69,7 @@ master.menu.user-account.employer = Datos de empleado
 master.menu.user-account.become-employer = Hazte empleador
 master.menu.user-account.worker = Datos de trabajador
 master.menu.user-account.become-worker = Hazte trabajador
+master.menu.user-account.become-manager = Hazte manager
 
 ﻿# master.footer ###############################################################
 
@@ -114,4 +119,3 @@ master.panic.label.request = Petición:
 master.panic.label.status = Estado:
 master.panic.label.exceptions = Excepciones:
 master.panic.text.consult-log = Por favor, consulte el log para ver más detalles.
-

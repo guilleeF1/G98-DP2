@@ -18,8 +18,6 @@ public interface AuthenticatedTaskRepository extends AbstractRepository{
 	
 	@Query("select s from Task s where s.publica = TRUE and  s.periodoEjecucionFinal > ?1")
 	Collection<Task> findOpenTasks(Date hoy);
-	@Query("select s from Task s")
-	Collection<Task> findMany();
 	
 	@Query("select t from Task t where t.id = ?1")
 	Task findOneTaskById(int id);

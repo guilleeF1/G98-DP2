@@ -48,8 +48,6 @@ public class AuthenticatedTaskListService implements AbstractListService<Authent
 			final java.util.Date hoy= cal.getTime();
 			result = this.repository.findOpenTasks(hoy);
 
-			result = this.repository.findMany();
-
 			return result;
 		}
 }

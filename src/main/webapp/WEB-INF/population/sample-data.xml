@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
@@ -124,6 +125,16 @@
 		<property name="manager" ref="manager2Manager"/>
 	</bean>
 	
+	<bean id="task07" class="acme.entities.tasks.Task">
+		<property name="publica" value="true"/>
+		<property name="titulo" value="Tarea antigua pub 2"/>
+		<property name="periodoEjecucionInicio" value="2018/12/21 01:45"/>
+		<property name="periodoEjecucionFinal" value="2018/12/24 02:18"/>
+		<property name="cargaTrabajo" value="5"/>
+		<property name="descripcion" value="es una tarea pasada y pública"/>
+		<property name="enlace"><null/></property>	
+		<property name="manager" ref="manager2Manager"/>
+	</bean>
 	
 	<!-- Manager -->
 	

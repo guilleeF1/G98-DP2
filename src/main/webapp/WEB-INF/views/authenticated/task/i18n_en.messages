@@ -13,31 +13,32 @@
 
 ##############################################################################################list
 
-anonymous.task.list.title = Task
-anonymous.task.list.title.show = Task
+authenticated.task.list.title = Task
+authenticated.task.list.title.show = Task
 
 
-anonymous.task.list.label.titulo = Title 
-anonymous.task.list.label.periodoEjecucionInicio = initial execution period
-anonymous.task.list.label.periodoEjecucionFinal = final execution period
-anonymous.task.list.label.cargaTrabajo = workload
-anonymous.task.list.label.descripcion = description
-anonymous.task.list.label.link= Link
+authenticated.task.list.label.titulo = Title 
+authenticated.task.list.label.periodoEjecucionInicio = initial execution period
+authenticated.task.list.label.periodoEjecucionFinal = final execution period
+authenticated.task.list.label.cargaTrabajo = workload
+authenticated.task.list.label.descripcion = description
+authenticated.task.list.label.link= Link
 
-anonymous.task.list.button.return = return
+authenticated.task.list.button.return = return
 
  
 
 #####################################################################################form
-anonymous.task.form.title = Task
-anonymous.task.form.title.show = task
+authenticated.task.form.title = Task
+authenticated.task.form.title.show = task
 
-anonymous.task.form.label.publica = Public or No Public 
-anonymous.task.form.label.titulo = Title 
-anonymous.task.form.label.periodoEjecucionInicio = Begining Execution Period
-anonymous.task.form.label.periodoEjecucionFinal = Final Execution Period
-anonymous.task.form.label.cargaTrabajo = Workload
-anonymous.task.form.label.descripcion = Description
-anonymous.task.form.label.enlace = Link
+authenticated.task.form.label.publica = Public
+authenticated.task.form.label.titulo = Title 
+authenticated.task.form.label.periodoEjecucionInicio = Begining Execution Period
+authenticated.task.form.label.periodoEjecucionFinal = Final Execution Period
+authenticated.task.form.label.cargaTrabajo = Workload
+authenticated.task.form.label.cargaTrabajoMinutos = Workload minutes
+authenticated.task.form.label.descripcion = Description
+authenticated.task.form.label.enlace = Link
 
-anonymous.task.form.button.return = Return
+authenticated.task.form.button.return = Return

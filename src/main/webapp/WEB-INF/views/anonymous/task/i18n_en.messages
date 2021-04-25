@@ -41,7 +41,7 @@ anonymous.task.form.title.create = Create task
 anonymous.task.form.title.update = Update task
 anonymous.task.form.title.delete = Delete task
 
-anonymous.task.form.label.publica = Public or No Public 
+anonymous.task.form.label.publica = Public
 anonymous.task.form.label.titulo = Title 
 anonymous.task.form.label.periodoEjecucionInicio = Begining Execution Period
 anonymous.task.form.label.periodoEjecucionFinal = Final Execution Period

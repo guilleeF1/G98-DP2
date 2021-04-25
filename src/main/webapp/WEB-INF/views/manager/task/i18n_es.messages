@@ -14,15 +14,16 @@ manager.task.form.title.create = Crear tarea
 manager.task.form.title.update = Actualizar tarea
 manager.task.form.title.delete = Borrar tarea
 
-manager.task.form.label.publica = Publica o No Publica 
+manager.task.form.label.publica = Pública
 manager.task.form.label.titulo = Titulo 
 manager.task.form.label.periodoEjecucionInicio = Periodo de Ejecucion Inicio
 manager.task.form.label.periodoEjecucionFinal = Periodo de Ejecucion Final
 manager.task.form.label.cargaTrabajo = Carga de Trabajo
+manager.task.form.label.cargaTrabajoMinutos = Minutos de carga de trabajo
 manager.task.form.label.descripcion = Descripcion
 manager.task.form.label.enlace = Enlace
 
-manager.task.list.label.publica = Publica o No Publica 
+manager.task.list.label.publica = Pública 
 manager.task.list.label.titulo = Titulo 
 manager.task.list.label.periodoEjecucionInicio = Periodo de Ejecucion Inicio
 manager.task.list.label.periodoEjecucionFinal = Periodo de Ejecucion Final
