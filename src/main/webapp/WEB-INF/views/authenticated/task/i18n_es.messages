@@ -1,0 +1,41 @@
+# i18n_es.messages
+#
+# Copyright (C) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+##############################################################################################################list
+
+authenticated.task.list.title = Tarea
+authenticated.task.list.title.show = Tarea
+
+
+authenticated.task.list.label.titulo = Titulo 
+authenticated.task.list.label.periodoEjecucionInicio = Periodo de Ejecucion Inicio
+authenticated.task.list.label.periodoEjecucionFinal = Periodo de Ejecucion Final
+authenticated.task.list.label.cargaTrabajo = Carga de Trabajo
+authenticated.task.list.label.descripcion = Descripcion
+authenticated.task.list.label.enlace= Link
+
+
+authenticated.task.list.button.return = Volver
+
+
+##############################################################################################################form
+authenticated.task.form.title = Tarea
+authenticated.task.form.title.show = Tarea
+
+authenticated.task.form.label.publica = Pública 
+authenticated.task.form.label.titulo = Titulo 
+authenticated.task.form.label.periodoEjecucionInicio = Periodo de Ejecucion Inicio
+authenticated.task.form.label.periodoEjecucionFinal = Periodo de Ejecucion Final
+authenticated.task.form.label.cargaTrabajo = Carga de Trabajo
+authenticated.task.form.label.cargaTrabajoMinutos = Minutos de carga de trabajo
+authenticated.task.form.label.descripcion = Descripcion
+authenticated.task.form.label.enlace = Enlace
+
+authenticated.task.form.button.return = Volver

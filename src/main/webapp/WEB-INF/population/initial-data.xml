@@ -31,7 +31,6 @@
 				<property name="name" value="John" />
 				<property name="surname" value="Doe" />
 				<property name="email" value="john.doe@acme.com" />
-				<property name="phone"><null/></property>
 			</bean>
 		</property>
 		<property name="roles">
@@ -56,7 +55,6 @@
 				<property name="name" value="Administrator" />
 				<property name="surname" value="Acme.com" />
 				<property name="email" value="admin@acme.com" />
-				<property name="phone" value="+1 (234) 567-890" />
 			</bean>
 		</property>
 		<property name="roles">

@@ -1,5 +1,6 @@
 package acme.features.anonymous.task;
 
+import java.util.Calendar;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,8 +44,9 @@ public class AnonymousTaskListService implements AbstractListService<Anonymous, 
 			assert request != null;
 
 			Collection<Task> result;
-
-			result = this.repository.findMany();
+			final Calendar cal= Calendar.getInstance();
+			final java.util.Date hoy= cal.getTime();
+			result = this.repository.findActiveTasks(hoy);
 
 			return result;
 		}
