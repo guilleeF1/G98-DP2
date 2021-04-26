@@ -190,3 +190,4 @@
 	<bean name="manager2Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="manager2UserAccount" />
 	</bean>
+</beans>
