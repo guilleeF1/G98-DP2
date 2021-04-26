@@ -28,6 +28,7 @@ anonymous.task.list.label.periodoEjecucionInicio = initial execution period
 anonymous.task.list.label.periodoEjecucionFinal = final execution period
 anonymous.task.list.label.cargaTrabajo = workload
 anonymous.task.list.label.descripcion = description
+anonymous.task.list.label.enlace = Link
 
 
 anonymous.task.list.button.return = return
