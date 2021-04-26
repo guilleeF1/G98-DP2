@@ -13,6 +13,7 @@
 package acme.forms;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -27,12 +28,20 @@ public class Dashboard implements Serializable {
 
 	// Attributes -------------------------------------------------------------
 
-	Double						averageNumberOfJobsPerEmployer;
-	Double						averageNumberOfApplicationsPerWorker;
-	Double						avegageNumberOfApplicationsPerEmployer;
-	Double						ratioOfPendingApplications;
-	Double						ratioOfAcceptedApplications;
-	Double						ratioOfRejectedApplications;
+	Integer						numberOfTaskPublic;
+	Integer						numberOfTaskPrivate;
+	Integer						numberOfTaskFinished;
+	Integer						numberOfTaskNotFinished;
+	Double                      workloadAverage;
+	Integer						workloadMin;
+	Integer						workloadMax;
+	Double 						workloadDeviation;
+	Double                      startPeriodAverage;
+	Double                      finalPeriodAverage;
+	Date 						startPeriodMin;
+	Date 						finalPeriodMin;
+	Date 						startPeriodMax;
+	Date 						finalPeriodMax;
 
 	// Derived attributes -----------------------------------------------------
 

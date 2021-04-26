@@ -16,9 +16,9 @@ master.banner.background = #C997D5
 
 master.welcome.title = Welcome!
 master.welcome.text = \
-	Welcome to Acme Jobs, your work mate! It does not matter whether you are \
-	an employer or a worker: our system will bring you the opportunities you \
-	are seeking for.  We wish you great professional achievements!
+	Welcome to Acme Planner, your work mate! It does not matter whether you are \
+	an manager our worker: our system will bring you the managing you \
+	are seeking for.  We wish you great work plans!
 
 # master.menu #################################################################
 
@@ -40,32 +40,26 @@ master.menu.anonymous.list-tasks = List tasks
 master.menu.authenticated = Authenticated
 master.menu.authenticated.announcement.list = List announcements
 master.menu.authenticated.money-exchage = Money exchange
+master.menu.authenticated.list-tasks= List open task
+master.menu.authenticated.list-finished-tasks = List finished task
+
+master.menu.authenticated.list-shouts = List shouts
+master.menu.authenticated.create-shout = Shout!
 
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
-master.menu.administrator.announcement.list-all = List all announcements
-master.menu.administrator.announcement.list-recent = List recent announcements
-master.menu.administrator.announcement.create = Create announcement
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shutdown = Shut down
 
-# master.menu.employer ########################################################
+# master.menu.administrator ###################################################
 
-master.menu.employer = Employer
-master.menu.employer.create-job = Create a job
-master.menu.employer.all-jobs = List all jobs
-master.menu.employer.my-jobs = List my jobs
-master.menu.employer.my-applications = List my applications
-
-# master.menu.worker ##########################################################
-
-master.menu.worker = Worker
-master.menu.worker.all-jobs = List all jobs
-master.menu.worker.my-applications = List my applications
+master.menu.manager = Manager
+master.menu.manager.task.list = My tasks
+master.menu.manager.task.create = Create a task
 
 # master.menu.user-account ####################################################
 
@@ -75,6 +69,7 @@ master.menu.user-account.employer = Employer data
 master.menu.user-account.become-employer = Become an employer
 master.menu.user-account.worker = Worker data
 master.menu.user-account.become-worker = Become a worker
+master.menu.user-account.become-manager = Become a manager
 
 # master.footer ###############################################################
 
@@ -95,7 +90,7 @@ master.company.text = \
 	Acme, Inc. refers to a holding that is composed of many fictitious companies \
 	that are used in the Design and Testing subject of the Software Engineering \
 	Curriculum of the University of Sevilla.
-master.company.name = Acme Jobs, Inc.
+master.company.name = Acme Planner, Inc.
 master.company.address = ETSI Informática, Avda. Reina Mercedes, s/n, Sevilla 41012, Spain
 master.company.phone = +34 123 456
 master.company.email = contact@acme.com
@@ -122,4 +117,3 @@ master.panic.label.request = Request:
 master.panic.label.status = Status:
 master.panic.label.exceptions = Exceptions:
 master.panic.text.consult-log = Please, consult the log to see them full stack trace.
-
