@@ -20,6 +20,6 @@
 	<acme:form-textarea code="authenticated.shout.form.label.text" path="text"/>
 	<acme:form-textbox code="authenticated.shout.form.label.info" path="info"/>
 	
-	<acme:form-submit code="authenticated.shout.form.button.create" action="/authenticated/shout/create"/>
+	<%--<acme:form-submit code="authenticated.shout.form.button.create" action="/authenticated/shout/create"/>--%>
   	<acme:form-return code="authenticated.shout.form.button.return"/>
 </acme:form>
