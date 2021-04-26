@@ -1,0 +1,49 @@
+
+# i18n_en.messages
+#
+# Copyright (C) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+#manager.task.form.label.author = Author:
+#manager.task.form.label.text = Text:
+#manager.task.form.label.info = Info:
+#manager.task.form.button.create = Shout!
+#manager.task.form.button.return = Return
+ 
+ 
+
+
+manager.task.form.title = Task
+manager.task.form.title.show = task
+manager.task.form.title.create = Create task 
+manager.task.form.title.update = Update task
+manager.task.form.title.delete = Delete task
+
+manager.task.form.label.publica = Public
+manager.task.form.label.titulo = Title 
+manager.task.form.label.periodoEjecucionInicio = Begining Execution Period
+manager.task.form.label.periodoEjecucionFinal = Final Execution Period
+manager.task.form.label.cargaTrabajo = Workload
+manager.task.form.label.cargaTrabajoMinutos = Workload minutes
+manager.task.form.label.descripcion = Description
+manager.task.form.label.enlace = Link
+
+manager.task.list.label.publica = Public 
+manager.task.list.label.titulo = Title 
+manager.task.list.label.periodoEjecucionInicio = Begining Execution Period
+manager.task.list.label.periodoEjecucionFinal = Final Execution Period
+manager.task.list.label.cargaTrabajo = Workload
+manager.task.list.label.descripcion = Description
+manager.task.list.label.enlace = Link
+
+manager.task.form.button.update = Update
+manager.task.form.button.delete = Delete
+manager.task.form.button.create = Create
+manager.task.form.button.return = Return
+
+manager.task.form.error.length = The length isn't correct
