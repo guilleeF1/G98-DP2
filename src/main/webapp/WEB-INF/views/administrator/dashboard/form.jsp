@@ -25,28 +25,117 @@
 	</caption>	
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.average-number-jobs-employer"/>
+			Total number of public tasks
 		</th>
 		<td>
-			<acme:print value="${averageNumberOfJobsPerEmployer}"/>
+			<acme:print value="${numberOfTaskPublic}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.average-number-applications-worker"/>
+			Total number of private tasks
 		</th>
 		<td>
-			<acme:print value="${averageNumberOfApplicationsPerWorker}"/>
+			<acme:print value="${numberOfTaskPrivate}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.average-number-applications-employer"/>
+			Total number of finished tasks
 		</th>
 		<td>
-			<acme:print value="${avegageNumberOfApplicationsPerEmployer}"/>
+			<acme:print value="${numberOfTaskFinished}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Total number of not finished tasks
+		</th>
+		<td>
+			<acme:print value="${numberOfTaskNotFinished}"/>
 		</td>
 	</tr>	
+		<tr>
+		<th scope="row">
+			Workload Average
+		</th>
+		<td>
+			<acme:print value="${workloadAverage}"/>
+		</td>
+	</tr>	
+	<tr>
+		<th scope="row">
+			Workload Max
+		</th>
+		<td>
+			<acme:print value="${workloadMin}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Workload Min
+		</th>
+		<td>
+			<acme:print value="${workloadMax}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Workload Deviation
+		</th>
+		<td>
+			<acme:print value="${workloadDeviation}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Start Period Average
+		</th>
+		<td>
+			<acme:print value="${startPeriodAverage}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Final Period Average
+		</th>
+		<td>
+			<acme:print value="${finalPeriodAverage}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Start Period Min
+		</th>
+		<td>
+			<acme:print value="${startPeriodMin}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Final Period Min
+		</th>
+		<td>
+			<acme:print value="${finalPeriodMin}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Start Period Max
+		</th>
+		<td>
+			<acme:print value="${startPeriodMax}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Final Period Max
+		</th>
+		<td>
+			<acme:print value="${finalPeriodMax}"/>
+		</td>
+	</tr>
+	
 </table>
 
 <h2>
