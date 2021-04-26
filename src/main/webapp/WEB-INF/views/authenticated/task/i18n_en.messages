@@ -22,7 +22,7 @@ authenticated.task.list.label.periodoEjecucionInicio = initial execution period
 authenticated.task.list.label.periodoEjecucionFinal = final execution period
 authenticated.task.list.label.cargaTrabajo = workload
 authenticated.task.list.label.descripcion = description
-authenticated.task.list.label.link= Link
+authenticated.task.list.label.enlace= Link
 
 authenticated.task.list.button.return = return
 
