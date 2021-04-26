@@ -60,6 +60,8 @@ master.menu.administrator.shutdown = Shut down
 master.menu.manager = Manager
 master.menu.manager.task.list = My tasks
 master.menu.manager.task.create = Create a task
+master.menu.manager.workplan.list = My workplans
+master.menu.manager.workplan.create = Create a workplan
 
 # master.menu.user-account ####################################################
 

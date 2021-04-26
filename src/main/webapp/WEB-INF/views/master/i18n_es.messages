@@ -59,6 +59,8 @@ master.menu.administrator.shutdown = Parar el sistema
 master.menu.manager = Manager
 master.menu.manager.task.list = Mis tareas
 master.menu.manager.task.create = Crear una tarea
+master.menu.manager.workplan.list = Mis planes de trabajo
+master.menu.manager.workplan.create = Crear un plan de trabajo
 
 # master.menu.user-account ####################################################
 
