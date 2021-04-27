@@ -135,6 +135,13 @@
 		<property name="manager" ref="manager2Manager"/>
 	</bean>
 	
+	<!-- Treshold -->
+	<!--
+	<bean id="treshold" class="acme.entities.treshold.SpamWordTreshold">
+		<property name="umbral" value="45.0"/>
+	</bean>
+	-->
+	
 	<!-- Manager -->
 	
 	<bean name="managerUserAccount" class="acme.framework.entities.UserAccount">
