@@ -1,7 +1,5 @@
 package acme.entities.spamWord;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 
@@ -18,6 +16,6 @@ public class SpamWord extends DomainEntity {
 	
 
 	@NotNull
-	protected List<String> palabras;
+	protected String word;
 
 }
