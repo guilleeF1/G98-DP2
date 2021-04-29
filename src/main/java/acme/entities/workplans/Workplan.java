@@ -47,4 +47,7 @@ public class Workplan extends DomainEntity {
 	@ManyToMany
 	Collection<Task> tasks;
 	
+
+
+	
 }

@@ -32,16 +32,34 @@ public class Dashboard implements Serializable {
 	Integer						numberOfTaskPrivate;
 	Integer						numberOfTaskFinished;
 	Integer						numberOfTaskNotFinished;
+	Integer						numberOfWorkPlanPublic;
+	Integer						numberOfWorkPlanPrivate;
+	Integer						numberOfWorkPlanFinished;
+	Integer						numberOfWorkPlanNotFinished;
 	Double                      workloadAverage;
 	Integer						workloadMin;
 	Integer						workloadMax;
 	Double 						workloadDeviation;
 	Double                      startPeriodAverage;
+	Double                      startPeriodDeviation;
+	Double                      finalPeriodDeviation;
 	Double                      finalPeriodAverage;
 	Date 						startPeriodMin;
 	Date 						finalPeriodMin;
 	Date 						startPeriodMax;
 	Date 						finalPeriodMax;
+	Double                      workloadAverage1;
+	Integer						workloadMin1;
+	Integer						workloadMax1;
+	Double 						workloadDeviation1;
+	Double                      startPeriodAverage1;
+	Double                      startPeriodDeviation1;
+	Double                      finalPeriodDeviation1;
+	Double                      finalPeriodAverage1;
+	Date 						startPeriodMin1;
+	Date 						finalPeriodMin1;
+	Date 						startPeriodMax1;
+	Date 						finalPeriodMax1;
 
 	// Derived attributes -----------------------------------------------------
 
