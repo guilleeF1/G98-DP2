@@ -8,7 +8,9 @@
 	<acme:form-checkbox code="manager.workplan.form.label.publico" path="publico"/>
 	<acme:form-moment code="manager.workplan.form.label.periodoEjecucionInicio" path="periodoEjecucionInicio"/>
 	<acme:form-moment code="manager.workplan.form.label.periodoEjecucionFinal" path="periodoEjecucionFinal"/>
-	<acme:form-integer readonly="true" code="manager.workplan.form.label.cargaTrabajo" path="cargaTrabajo"/>
+	<jstl:if test="${command != 'create'}">
+		<acme:form-integer readonly="true" code="manager.workplan.form.label.cargaTrabajo" path="cargaTrabajo"/>
+	</jstl:if>
 	
 	<acme:form-submit test="${command == 'show'}" code="manager.workplan.form.button.update" action="/manager/workplan/update"/>
 	<acme:form-submit test="${command == 'show'}" code="manager.workplan.form.button.delete" action="/manager/workplan/delete"/>

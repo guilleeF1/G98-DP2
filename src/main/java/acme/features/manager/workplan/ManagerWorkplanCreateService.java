@@ -93,7 +93,6 @@ public class ManagerWorkplanCreateService implements AbstractCreateService<Manag
 		assert request != null;
 		assert entity != null;
 		
-		
 		this.repository.save(entity);
 	}
 }
