@@ -48,6 +48,12 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select t.cargaTrabajo from Task t")
 	Collection<Integer> getWorkload();
 	
+	@Query("select t.periodoEjecucionInicio from Task t")
+	Collection<Date> getStartPeriod();
+	
+	@Query("select t.periodoEjecucionFinal from Task t")
+	Collection<Date> getFinalPeriod();
+	
 	@Query("select avg(t.periodoEjecucionInicio) from Task t")
 	Double getStartPeriodAverage();
 	

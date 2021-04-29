@@ -12,9 +12,11 @@
 
 package acme.features.administrator.dashboard;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -53,7 +55,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 			"numberOfTaskPublic", "numberOfTaskPrivate",
 			"numberOfTaskFinished","numberOfTaskNotFinished", "workloadAverage","workloadMin", "workloadMax",
 			"workloadDeviation", "startPeriodAverage", "finalPeriodAverage", "startPeriodMin", "finalPeriodMin",
-			"startPeriodMax", "finalPeriodMax");
+			"startPeriodMax", "finalPeriodMax", "startPeriodDeviation","finalPeriodDeviation");
 	}
 
 	@Override
@@ -76,6 +78,8 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Date finalPeriodMin;
 		Date startPeriodMax;
 		Date finalPeriodMax;
+		Double startPeriodDeviation;
+		Double finalPeriodDeviation;
 		
 		
 		numberOfTaskPublic = this.repository.countTaskPublic();
@@ -92,6 +96,18 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		finalPeriodMin = this.repository.finalPeriodMin();
 		startPeriodMax = this.repository.startPeriodMax();
 		finalPeriodMax = this.repository.finalPeriodMax();
+		final Collection<Date> periodosI = this.repository.getStartPeriod();
+		final List<Integer> pI = new ArrayList<>();
+		for(final Date d: periodosI) {
+			pI.add(d.getHours());
+		}
+		final Collection<Date> periodosF = this.repository.getFinalPeriod();
+		final List<Integer> pF = new ArrayList<>();
+		for(final Date d: periodosF) {
+			pF.add(d.getHours());
+		}
+		startPeriodDeviation = AdministratorDashboardShowService.calculateSD(pI);
+		finalPeriodDeviation = AdministratorDashboardShowService.calculateSD(pF);
 
 		result = new Dashboard();
 		result.setNumberOfTaskPublic(numberOfTaskPublic);
@@ -108,6 +124,8 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setFinalPeriodMin(finalPeriodMin);
 		result.setStartPeriodMax(startPeriodMax);
 		result.setStartPeriodMin(startPeriodMin);
+		result.setFinalPeriodDeviation(finalPeriodDeviation);
+		result.setStartPeriodDeviation(startPeriodDeviation);
 
 		return result;
 	}
