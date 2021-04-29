@@ -6,20 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import acme.entities.treshold.SpamWordTreshold;
+import acme.entities.treshold.Treshold;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Administrator;
 
 @Controller
 @RequestMapping("/administrator/treshold/")
-public class AdministratorTresholdController extends AbstractController<Administrator,SpamWordTreshold>{
+public class AdministratorTresholdController extends AbstractController<Administrator,Treshold>{
 
 	// Internal state ---------------------------------------------------------
 
 
 	@Autowired
-	protected AdministratorTresholdService	tresholdService;
+	protected AdministratorTresholdUpdateService	tresholdUpdateService;
+	@Autowired
+	protected AdministratorTresholdShowService	tresholdShowService;
 	
 
 
@@ -27,6 +29,7 @@ public class AdministratorTresholdController extends AbstractController<Administ
 
 	@PostConstruct
 	protected void initialise() {
-		super.addBasicCommand(BasicCommand.CREATE, this.tresholdService);
+		super.addBasicCommand(BasicCommand.UPDATE, this.tresholdUpdateService);
+		super.addBasicCommand(BasicCommand.SHOW, this.tresholdShowService);
 	}
 }

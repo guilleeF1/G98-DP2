@@ -17,13 +17,13 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.treshold.SpamWordTreshold;
+import acme.entities.treshold.Treshold;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
 public interface AdministratorTresholdRepository extends AbstractRepository {
 
-	@Query("select s from SpamWordTreshold s")
-	Collection<SpamWordTreshold> findMany();
+	@Query("select s from Treshold s")
+	Collection<Treshold> findMany();
 
 }

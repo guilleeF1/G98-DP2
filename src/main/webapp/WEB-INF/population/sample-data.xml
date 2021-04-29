@@ -136,11 +136,9 @@
 	</bean>
 	
 	<!-- Treshold -->
-	<!--
-	<bean id="treshold" class="acme.entities.treshold.SpamWordTreshold">
-		<property name="umbral" value="45.0"/>
+	<bean id="treshold" class="acme.entities.treshold.Treshold">
+		<property name="umbral" value="10.0"/>
 	</bean>
-	-->
 	
 	<!-- Manager -->
 	

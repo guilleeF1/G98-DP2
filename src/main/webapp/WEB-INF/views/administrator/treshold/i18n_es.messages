@@ -9,3 +9,5 @@
 # they accept any liabilities with respect to them.
 
 administrator.treshold.form.label.umbral = Umbral:
+administrator.treshold.form.button.update = Actualizar
+administrator.treshold.form.button.return = Volver

@@ -18,6 +18,6 @@
 <acme:form>
 	<acme:form-textbox code="administrator.treshold.form.label.umbral" path="umbral"/>
 	
-	<acme:form-submit code="administrator.treshold.form.button.create" action="/administrator/treshold/update"/>
+	<acme:form-submit code="administrator.treshold.form.button.update" action="/administrator/treshold/update"/>
   	<acme:form-return code="administrator.treshold.form.button.return"/>
 </acme:form>

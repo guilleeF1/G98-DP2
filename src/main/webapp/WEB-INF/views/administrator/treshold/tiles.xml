@@ -21,10 +21,5 @@
 	<definition name="administrator/treshold/form" extends="master">
 		<put-attribute name="body" type="template" value="../administrator/treshold/form.jsp" />
 	</definition>
-	
-	<!--
-	<definition name="administrator/shout/list" extends="master">
-		<put-attribute name="body" type="template" value="../administrator/shout/list.jsp" />
-	</definition>-->
 
 </tiles-definitions>
