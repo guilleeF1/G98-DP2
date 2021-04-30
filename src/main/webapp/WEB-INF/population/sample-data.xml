@@ -135,6 +135,47 @@
 		<property name="manager" ref="manager2Manager"/>
 	</bean>
 	
+	<!-- Spamword -->
+	
+	<bean id="spamword01" class="acme.entities.spamword.Spamword">
+		<property name="word" value="sex"/>
+	</bean>
+	
+	<bean id="spamword02" class="acme.entities.spamword.Spamword">
+		<property name="word" value="hard core"/>
+	</bean>
+	
+	<bean id="spamword03" class="acme.entities.spamword.Spamword">
+		<property name="word" value="viagra"/>
+	</bean>
+	
+	<bean id="spamword04" class="acme.entities.spamword.Spamword">
+		<property name="word" value="cialis"/>
+	</bean>
+	
+	<bean id="spamword05" class="acme.entities.spamword.Spamword">
+		<property name="word" value="nigeria"/>
+	</bean>
+	
+	<bean id="spamword06" class="acme.entities.spamword.Spamword">
+		<property name="word" value="you've won"/>
+	</bean>
+	
+	<bean id="spamword07" class="acme.entities.spamword.Spamword">
+		<property name="word" value="million dollar"/>
+	</bean>
+	
+	<bean id="spamword08" class="acme.entities.spamword.Spamword">
+		<property name="word" value="sexo"/>
+	</bean>
+	
+	<bean id="spamword09" class="acme.entities.spamword.Spamword">
+		<property name="word" value="has ganado"/>
+	</bean>
+	
+	<bean id="spamword10" class="acme.entities.spamword.Spamword">
+		<property name="word" value="millón de dólares"/>
+  </bean>
 	<!-- Treshold -->
 	<bean id="treshold" class="acme.entities.treshold.Treshold">
 		<property name="umbral" value="10.0"/>
