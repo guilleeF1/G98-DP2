@@ -34,6 +34,7 @@ master.menu.anonymous.all-jobs = List all jobs
 master.menu.anonymous.list-shouts = List shouts
 master.menu.anonymous.create-shout = Shout!
 master.menu.anonymous.list-tasks = List tasks
+master.menu.anonymous.list-workplans = List workplans
 
 # master.menu.authenticated #######################################################
 

@@ -191,7 +191,6 @@
 		<property name="userAccount" ref="manager2UserAccount" />
 	</bean>
 	
-
 	<!-- Workplans -->
 
 	<bean id="workplan01" class="acme.entities.workplans.Workplan">
@@ -204,6 +203,7 @@
 			</list>
 		</property>
 		<property name="manager" ref="managerManager"/>
+    
 	</bean>
 
 	<bean id="workplan02" class="acme.entities.workplans.Workplan">
@@ -232,6 +232,7 @@
 			</list>
 		</property>
 		<property name="manager" ref="managerManager"/>
+    
 	</bean>
 
 	<bean id="workplan04" class="acme.entities.workplans.Workplan">
@@ -247,4 +248,18 @@
 		<property name="manager" ref="managerManager"/>
 	</bean>
 	
+	</bean>
+	
+		<bean id="workplan05" class="acme.entities.workplans.Workplan">
+		<property name="publico" value="true"/>
+		<property name="periodoEjecucionInicio" value="2020/12/28 19:21"/>
+		<property name="periodoEjecucionFinal" value="2020/12/29 11:21"/>
+		<property name="tasks">
+			<list>
+				<ref bean="task01"/>
+				<ref bean="task04"/>
+			</list>
+		</property>
+	</bean>
+
 </beans>

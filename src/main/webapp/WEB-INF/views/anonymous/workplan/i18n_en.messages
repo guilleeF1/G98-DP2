@@ -1,0 +1,61 @@
+
+# i18n_en.messages
+#
+# Copyright (C) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+#anonymous.workplan.form.label.author = Author:
+#anonymous.workplan.form.label.text = Text:
+#anonymous.workplan.form.label.info = Info:
+#anonymous.workplan.form.button.create = Shout!
+#anonymous.workplan.form.button.return = Return
+ 
+anonymous.workplan.form.error.invalid-final = Invalid time period: ending date must be after starting date.
+anonymous.workplan.form.error.past = Invalid time period: starting date must be in the future.
+##############################################################################################list
+
+anonymous.workplan.list.title = workplan
+anonymous.workplan.list.title.show = workplan
+
+
+anonymous.workplan.list.label.titulo = Title 
+anonymous.workplan.list.label.periodoEjecucionInicio = initial execution period
+anonymous.workplan.list.label.periodoEjecucionFinal = final execution period
+anonymous.workplan.list.label.cargaTrabajo = workload
+anonymous.workplan.list.label.descripcion = description
+anonymous.workplan.list.label.enlace = Link
+
+
+anonymous.workplan.list.button.return = return
+
+ 
+
+#####################################################################################form
+anonymous.workplan.form.title = workplan
+anonymous.workplan.form.title.show = workplan
+anonymous.workplan.form.title.create = Create workplan 
+anonymous.workplan.form.title.update = Update workplan
+anonymous.workplan.form.title.delete = Delete workplan
+
+anonymous.workplan.form.label.publica = Public
+anonymous.workplan.form.label.titulo = Title 
+anonymous.workplan.form.label.periodoEjecucionInicio = Begining Execution Period
+anonymous.workplan.form.label.periodoEjecucionFinal = Final Execution Period
+anonymous.workplan.form.label.cargaTrabajo = Workload
+anonymous.workplan.form.label.cargaTrabajoMinutos = Workload minutes
+anonymous.workplan.form.label.descripcion = Description
+anonymous.workplan.form.label.enlace = Link
+
+anonymous.workplan.form.button.update = Update
+anonymous.workplan.form.button.delete = Delete
+anonymous.workplan.form.button.create = Create
+anonymous.workplan.form.button.return = Return
+
+anonymous.workplan.form.error.within-range = Minutes must be between 1 and 59
+anonymous.workplan.form.error.must-fit = The workload total time must fit within the indicated dates
+anonymous.workplan.form.error.length = The length isn't correct
