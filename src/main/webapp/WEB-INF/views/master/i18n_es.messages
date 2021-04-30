@@ -49,6 +49,7 @@ master.menu.authenticated.create-shout = gritar
 
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
+master.menu.administrator.treshold = Umbral de spam
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)

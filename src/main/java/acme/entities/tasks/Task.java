@@ -1,5 +1,3 @@
-
-
 package acme.entities.tasks;
 
 import java.util.Date;
@@ -15,8 +13,8 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.roles.Manager;
 import acme.framework.entities.DomainEntity;
-import acme.framework.entities.Manager;
 import lombok.Getter;
 import lombok.Setter;
 
