@@ -1,0 +1,56 @@
+# i18n_es.messages
+#
+# Copyright (C) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+
+##############################################################################################################list
+
+anonymous.workplan.list.title = plan de trabajo
+anonymous.workplan.list.title.show = plan de trabajo
+
+
+anonymous.workplan.list.label.periodoEjecucionInicio = Periodo de Ejecucion Inicio
+anonymous.workplan.list.label.periodoEjecucionFinal = Periodo de Ejecucion Final
+anonymous.workplan.list.label.tasks = Tareas
+
+
+anonymous.workplan.list.button.return = Volver
+
+
+##############################################################################################################form
+anonymous.workplan.form.title = plan de trabajo
+anonymous.workplan.form.title.show = plan de trabajo
+anonymous.workplan.form.title.create = Crear plan de trabajo 
+anonymous.workplan.form.title.update = Actualizar plan de trabajo
+anonymous.workplan.form.title.delete = Borrar plan de trabajo
+
+anonymous.workplan.form.error.invalid-final = Periodo invalido: la fecha final debe ser posterior a la fecha inicial.
+anonymous.workplan.form.error.past = Periodo invalido: la fecha inicial debe ser futura.
+
+anonymous.workplan.form.label.publica = Pública
+anonymous.workplan.form.label.titulo = Titulo 
+anonymous.workplan.form.label.periodoEjecucionInicio = Periodo de Ejecucion Inicio
+anonymous.workplan.form.label.periodoEjecucionFinal = Periodo de Ejecucion Final
+anonymous.workplan.form.label.cargaTrabajo = Carga de Trabajo
+anonymous.workplan.form.label.cargaTrabajoMinutos = Minutos de carga de trabajo
+anonymous.workplan.form.label.descripcion = Descripcion
+anonymous.workplan.form.label.enlace = Enlace
+
+anonymous.workplan.form.button.return = Volver
+
+anonymous.workplan.form.error.within-range = Los minutos deben estar entre 1 y 59
+
+anonymous.workplan.form.error.must-fit = La carga de trabajo debe ser menor que el tiempo total de la plan de trabajo
+
+anonymous.workplan.form.button.update = Actualizar
+anonymous.workplan.form.button.delete = Borrar
+anonymous.workplan.form.button.create = Crear
+anonymous.workplan.form.button.return = Volver
+
+anonymous.workplan.form.error.length = El tamaño no es correcto
