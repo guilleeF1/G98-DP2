@@ -1,5 +1,5 @@
 /*
- * AuthenticatedManagerRepository.java
+ * AnonymousShoutRepository.java
  *
  * Copyright (C) 2012-2021 Rafael Corchuelo.
  *
@@ -10,22 +10,20 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.manager;
+package acme.features.administrator.treshold;
+
+import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.roles.Manager;
-import acme.framework.entities.UserAccount;
+import acme.entities.treshold.Treshold;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AuthenticatedManagerRepository extends AbstractRepository {
+public interface AdministratorTresholdRepository extends AbstractRepository {
 
-	@Query("select e from Manager e where e.userAccount.id = ?1")
-	Manager findOneManagerByUserAccountId(int id);
-
-	@Query("select ua from UserAccount ua where ua.id = ?1")
-	UserAccount findOneUserAccountById(int id);
+	@Query("select s from Treshold s")
+	Collection<Treshold> findMany();
 
 }

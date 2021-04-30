@@ -26,16 +26,18 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
-			<acme:menu-suboption code="master.menu.authenticated.list-shouts" action="/authenticated/shout/list"/>
-			<acme:menu-suboption code="master.menu.authenticated.create-shout" action="/authenticated/shout/create"/>
+			<%--<acme:menu-suboption code="master.menu.authenticated.list-shouts" action="/authenticated/shout/list"/>--%>
+			<%--<acme:menu-suboption code="master.menu.authenticated.create-shout" action="/authenticated/shout/create"/>--%>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.authenticated.list-tasks" action="/authenticated/task/list"/>
+			<%--<acme:menu-suboption code="master.menu.authenticated.list-tasks" action="/authenticated/task/list"/>--%>
 			<acme:menu-suboption code="master.menu.authenticated.list-finished-tasks" action="/authenticated/task/list-finished"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/dashboard/show"/>
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.treshold" action="/administrator/treshold/show"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/master/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/master/populate-sample"/>

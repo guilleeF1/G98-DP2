@@ -10,16 +10,19 @@
 - they accept any liabilities with respect to them.
 --%>
 
+
 <%@page language="java"%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="authenticated.shout.form.label.author" path="author"/>
-	<acme:form-textarea code="authenticated.shout.form.label.text" path="text"/>
-	<acme:form-textbox code="authenticated.shout.form.label.info" path="info"/>
+	<acme:form-textbox code="anonymous.planOfJob.form.label.publica" path="publico"/>
+	<acme:form-moment code="anonymous.planOfJob.form.label.periodoEjecucionInicio" path="periodoEjecucionInicio"/>
+	<acme:form-money code="anonymous.planOfJob.form.label.periodoEjecucionFinal" path="periodoEjecucionFinal"/>
+	<acme:form-money code="anonymous.planOfJob.form.label.cargaTrabajo" path="cargaTrabajo"/>
 	
-	<%--<acme:form-submit code="authenticated.shout.form.button.create" action="/authenticated/shout/create"/>--%>
-  	<acme:form-return code="authenticated.shout.form.button.return"/>
+	<acme:form-submit code="anonymous.planOfJob.form.button.create" action="/anonymous/planOfJob/create"/>
+  	<acme:form-return code="anonymous.planOfJob.form.button.return"/>
 </acme:form>
+
