@@ -37,6 +37,8 @@ public class Dashboard implements Serializable {
 	Integer						workloadMax;
 	Double 						workloadDeviation;
 	Double                      startPeriodAverage;
+	Double                      startPeriodDeviation;
+	Double                      finalPeriodDeviation;
 	Double                      finalPeriodAverage;
 	Date 						startPeriodMin;
 	Date 						finalPeriodMin;

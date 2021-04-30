@@ -20,8 +20,7 @@ public class AuthenticatedTaskController extends AbstractController<Authenticate
 
 	@Autowired
 	protected AuthenticatedTaskCreateService	createService;
-	@Autowired
-  
+	@Autowired  
 	protected AuthenticatedTaskListFinishedService	listFinishedService;
 	@Autowired
 	protected AuthenticatedTaskListService	listService;
@@ -35,10 +34,6 @@ public class AuthenticatedTaskController extends AbstractController<Authenticate
 	@PostConstruct
 	protected void initialise() {
     
-		
-		super.addBasicCommand(BasicCommand.CREATE, this.createService);
-		
-		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		
 		super.addCustomCommand(CustomCommand.LIST_FINISHED, BasicCommand.LIST, this.listFinishedService);
 		
