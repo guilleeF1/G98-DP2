@@ -16,10 +16,8 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="authenticated.shout.form.label.author" path="author"/>
-	<acme:form-textarea code="authenticated.shout.form.label.text" path="text"/>
-	<acme:form-textbox code="authenticated.shout.form.label.info" path="info"/>
+	<acme:form-textbox code="administrator.treshold.form.label.umbral" path="umbral"/>
 	
-	<%--<acme:form-submit code="authenticated.shout.form.button.create" action="/authenticated/shout/create"/>--%>
-  	<acme:form-return code="authenticated.shout.form.button.return"/>
+	<acme:form-submit code="administrator.treshold.form.button.update" action="/administrator/treshold/update"/>
+  	<acme:form-return code="administrator.treshold.form.button.return"/>
 </acme:form>

@@ -175,6 +175,10 @@
 	
 	<bean id="spamword10" class="acme.entities.spamword.Spamword">
 		<property name="word" value="millón de dólares"/>
+  </bean>
+	<!-- Treshold -->
+	<bean id="treshold" class="acme.entities.treshold.Treshold">
+		<property name="umbral" value="10.0"/>
 	</bean>
 	
 	<!-- Manager -->
