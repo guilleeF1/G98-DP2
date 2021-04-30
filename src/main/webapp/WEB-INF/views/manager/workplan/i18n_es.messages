@@ -1,0 +1,32 @@
+# i18n_es.messages
+#
+# Copyright (C) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+manager.workplan.form.title = Plan de trabajo
+manager.workplan.form.title.show = Plan de trabajo
+manager.workplan.form.title.create = Crear plan de trabajo 
+manager.workplan.form.title.update = Actualizar plan de trabajo
+manager.workplan.form.title.delete = Borrar plan de trabajo
+
+manager.workplan.form.label.publico = Público
+manager.workplan.form.label.periodoEjecucionInicio = Periodo de Ejecucion Inicio
+manager.workplan.form.label.periodoEjecucionFinal = Periodo de Ejecucion Final
+manager.workplan.form.label.cargaTrabajo = Carga de Trabajo
+
+manager.workplan.list.label.publico = Público 
+manager.workplan.list.label.periodoEjecucionInicio = Periodo de Ejecucion Inicio
+manager.workplan.list.label.periodoEjecucionFinal = Periodo de Ejecucion Final
+manager.workplan.list.label.cargaTrabajo = Carga de Trabajo
+
+manager.workplan.form.button.update = Actualizar
+manager.workplan.form.button.delete = Borrar
+manager.workplan.form.button.create = Crear
+manager.workplan.form.button.return = Volver
+
+manager.workplan.form.error.length = El tamaño no es correcto

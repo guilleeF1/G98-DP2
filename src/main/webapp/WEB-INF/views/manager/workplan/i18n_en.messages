@@ -1,0 +1,34 @@
+
+# i18n_en.messages
+#
+# Copyright (C) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+
+manager.workplan.form.title = Workplan
+manager.workplan.form.title.show = workplan
+manager.workplan.form.title.create = Create workplan 
+manager.workplan.form.title.update = Update workplan
+manager.workplan.form.title.delete = Delete workplan
+
+manager.workplan.form.label.publico = Public 
+manager.workplan.form.label.periodoEjecucionInicio = Begining Execution Period
+manager.workplan.form.label.periodoEjecucionFinal = Final Execution Period
+manager.workplan.form.label.cargaTrabajo = Workload
+
+manager.workplan.list.label.publico = Public 
+manager.workplan.list.label.periodoEjecucionInicio = Begining Execution Period
+manager.workplan.list.label.periodoEjecucionFinal = Final Execution Period
+manager.workplan.list.label.cargaTrabajo = Workload
+
+manager.workplan.form.button.update = Update
+manager.workplan.form.button.delete = Delete
+manager.workplan.form.button.create = Create
+manager.workplan.form.button.return = Return
+
+manager.workplan.form.error.length = The length isn't correct

@@ -202,6 +202,8 @@
 				<ref bean="task04"/>
 			</list>
 		</property>
+		<property name="manager" ref="managerManager"/>
+    
 	</bean>
 
 	<bean id="workplan02" class="acme.entities.workplans.Workplan">
@@ -216,7 +218,7 @@
 				<ref bean="task04"/>
 			</list>
 		</property>
-
+		<property name="manager" ref="managerManager"/>
 	</bean>
 
 	<bean id="workplan03" class="acme.entities.workplans.Workplan">
@@ -229,7 +231,8 @@
 				<ref bean="task03"/>
 			</list>
 		</property>
-
+		<property name="manager" ref="managerManager"/>
+    
 	</bean>
 
 	<bean id="workplan04" class="acme.entities.workplans.Workplan">
@@ -242,6 +245,9 @@
 				<ref bean="task04"/>
 			</list>
 		</property>
+		<property name="manager" ref="managerManager"/>
+	</bean>
+	
 	</bean>
 	
 		<bean id="workplan05" class="acme.entities.workplans.Workplan">
@@ -255,7 +261,5 @@
 			</list>
 		</property>
 	</bean>
-	
-	
-	
+
 </beans>
