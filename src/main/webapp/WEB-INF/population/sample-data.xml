@@ -202,7 +202,7 @@
 		</property>
 	</bean>
 
-	<bean name="managerManager" class="acme.framework.entities.Manager">
+	<bean name="managerManager" class="acme.entities.roles.Manager">
 		<property name="userAccount" ref="managerUserAccount" />
 	</bean>
 	
@@ -229,7 +229,7 @@
 		</property>
 	</bean>
 
-	<bean name="manager2Manager" class="acme.framework.entities.Manager">
+	<bean name="manager2Manager" class="acme.entities.roles.Manager">
 		<property name="userAccount" ref="manager2UserAccount" />
 	</bean>
 	
