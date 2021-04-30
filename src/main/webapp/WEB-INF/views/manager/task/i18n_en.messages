@@ -47,3 +47,5 @@ manager.task.form.button.create = Create
 manager.task.form.button.return = Return
 
 manager.task.form.error.length = The length isn't correct
+manager.task.form.error.title-spam = The title contains spam
+manager.task.form.error.description-spam = The description contains spam
