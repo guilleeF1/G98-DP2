@@ -135,6 +135,22 @@
 			<acme:print value="${finalPeriodMax}"/>
 		</td>
 	</tr>
+	<tr>
+		<th scope="row">
+			Start Period Deviation
+		</th>
+		<td>
+			<acme:print value="${startPeriodDeviation}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Final Period Deviation
+		</th>
+		<td>
+			<acme:print value="${finalPeriodDeviation}"/>
+		</td>
+	</tr>
 	
 </table>
 
