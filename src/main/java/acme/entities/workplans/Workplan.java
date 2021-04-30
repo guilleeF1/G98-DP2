@@ -8,7 +8,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 
 import acme.entities.tasks.Task;
@@ -31,12 +30,10 @@ public class Workplan extends DomainEntity {
 	protected Boolean publico;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Future
 	@NotNull
 	protected Date periodoEjecucionInicio;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Future
 	@NotNull
 	protected Date periodoEjecucionFinal;
 	
