@@ -15,7 +15,6 @@ anonymous.shout.form.button.create = Shout!
 anonymous.shout.form.button.return = Return
 
 anonymous.shout.form.error.spam = The text contains spam 
-
  
 anonymous.shout.list.label.moment = Moment
 anonymous.shout.list.label.author = Author
