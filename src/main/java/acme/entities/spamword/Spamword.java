@@ -1,4 +1,4 @@
-package acme.entities.spamWord;
+package acme.entities.spamword;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
@@ -10,7 +10,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class SpamWord extends DomainEntity {
+public class Spamword extends DomainEntity {
 	
 	protected static final long serialVersionUID = 1L;
 	

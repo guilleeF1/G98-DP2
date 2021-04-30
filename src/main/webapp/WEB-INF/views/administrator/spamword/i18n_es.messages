@@ -9,7 +9,7 @@
 # they accept any liabilities with respect to them.
 
 administrator.spamword.form.label.word = Palabra:
-administrator.spamword.form.button.create = Crear
+administrator.spamword.form.button.update = Actualizar
 administrator.spamword.form.button.return = Volver
  
 administrator.spamword.list.label.word = Palabra

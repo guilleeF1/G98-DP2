@@ -18,6 +18,6 @@
 <acme:form>
 	<acme:form-textbox code="administrator.spamword.form.label.word" path="word"/>
 	
-	<acme:form-submit code="administrator.spamword.form.button.create" action="/administrator/spamword/create"/>
+	<acme:form-submit code="administrator.spamword.form.button.update" action="/administrator/spamword/update"/>
   	<acme:form-return code="administrator.spamword.form.button.return"/>
 </acme:form>
