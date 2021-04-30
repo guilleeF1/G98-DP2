@@ -36,6 +36,7 @@
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/dashboard/show"/>
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
+			<acme:menu-suboption code="master.menu.administrator.spamword" action="/administrator/spamword/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.treshold" action="/administrator/treshold/show"/>
 			<acme:menu-separator/>

@@ -1,13 +1,20 @@
 
 package acme.features.manager.task;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.roles.Manager;
+import acme.entities.spamword.Spamword;
 import acme.entities.tasks.Task;
+import acme.entities.treshold.Treshold;
+import acme.features.administrator.spamword.AdministratorSpamwordRepository;
+import acme.features.administrator.treshold.AdministratorTresholdRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -21,6 +28,10 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 
 	@Autowired
 	protected ManagerTaskRepository repository;
+	@Autowired
+	protected AdministratorSpamwordRepository	spamRepository;
+	@Autowired
+	protected AdministratorTresholdRepository	tresholdRepository;
 
 	@Override
 	public boolean authorise(final Request<Task> request) {
@@ -90,7 +101,32 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 			final Date d = new Date(System.currentTimeMillis());
 			errors.state(request, entity.getPeriodoEjecucionInicio().after(d), "periodoEjecucionInicio", "anonymous.task.form.error.past");
 		}
+		
+		if (!errors.hasErrors("description")) {
+			errors.state(request, !this.isSpam(entity.getDescripcion()), "description", "manager.task.form.error.description-spam");
+		}
+		
+		if (!errors.hasErrors("title")) {
+			errors.state(request, !this.isSpam(entity.getTitulo()), "title", "manager.task.form.error.title-spam");
+		}
+	}
+	
+	private Boolean isSpam(final String texto) {
+		Boolean b = false;
+		Integer n = 0;
+		final Collection<Spamword> cs = this.spamRepository.findMany();
+		for (final Spamword s : cs) {
+			b = texto.trim().contains(s.getWord().trim());
+			if (b) {
+				n += s.getWord().trim().length();
+			}
+		}
+		final Collection<Treshold> ct = this.tresholdRepository.findMany();
+		final List<Treshold> l = new ArrayList<>();
+		l.addAll(ct);
+		final Treshold t = l.get(0);
 
+		return n != 0 && t.getUmbral() > texto.trim().length() / n;
 	}
 	
 	@Override

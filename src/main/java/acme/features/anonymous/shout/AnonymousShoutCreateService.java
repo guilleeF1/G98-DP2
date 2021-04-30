@@ -12,12 +12,19 @@
 
 package acme.features.anonymous.shout;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.shouts.Shout;
+import acme.entities.spamword.Spamword;
+import acme.entities.treshold.Treshold;
+import acme.features.administrator.spamword.AdministratorSpamwordRepository;
+import acme.features.administrator.treshold.AdministratorTresholdRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -30,9 +37,14 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnonymousShoutRepository repository;
+	protected AnonymousShoutRepository			repository;
+	@Autowired
+	protected AdministratorSpamwordRepository	spamRepository;
+	@Autowired
+	protected AdministratorTresholdRepository	tresholdRepository;
 
 	// AbstractCreateService<Administrator, Shout> interface --------------
+
 
 	@Override
 	public boolean authorise(final Request<Shout> request) {
@@ -83,6 +95,27 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert entity != null;
 		assert errors != null;
 
+		if (!errors.hasErrors("text")) {
+			errors.state(request, !this.isSpam(entity.getText()), "text", "anonymous.shout.form.error.spam");
+		}
+	}
+
+	private Boolean isSpam(final String texto) {
+		Boolean b = false;
+		Integer n = 0;
+		final Collection<Spamword> cs = this.spamRepository.findMany();
+		for (final Spamword s : cs) {
+			b = texto.trim().contains(s.getWord().trim());
+			if (b) {
+				n += s.getWord().trim().length();
+			}
+		}
+		final Collection<Treshold> ct = this.tresholdRepository.findMany();
+		final List<Treshold> l = new ArrayList<>();
+		l.addAll(ct);
+		final Treshold t = l.get(0);
+
+		return n != 0 && t.getUmbral() > texto.trim().length() / n;
 	}
 
 	@Override
