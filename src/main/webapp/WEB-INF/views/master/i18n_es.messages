@@ -34,6 +34,7 @@ master.menu.anonymous.all-jobs = Ver todos los trabajos
 master.menu.anonymous.list-shouts = Ver gritos
 master.menu.anonymous.create-shout = ¡Dar un grito!
 master.menu.anonymous.list-tasks = Ver tareas
+master.menu.anonymous.list-workplans = Ver planes de trabajo
 
 # master.menu.authenticated #######################################################
 

@@ -190,4 +190,72 @@
 	<bean name="manager2Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="manager2UserAccount" />
 	</bean>
+	
+	<!-- Workplans -->
+
+	<bean id="workplan01" class="acme.entities.workplans.Workplan">
+		<property name="publico" value="false"/>
+		<property name="periodoEjecucionInicio" value="2025/07/17 00:39"/>
+		<property name="periodoEjecucionFinal" value="2025/07/18 03:39"/>
+		<property name="tasks">
+			<list>
+				<ref bean="task04"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="workplan02" class="acme.entities.workplans.Workplan">
+		<property name="publico" value="true"/>
+		<property name="periodoEjecucionInicio" value="2027/03/05 09:48"/>
+		<property name="periodoEjecucionFinal" value="2027/03/06 06:48"/>
+		<property name="tasks">
+			<list>
+				<ref bean="task01"/>
+				<ref bean="task02"/>
+				<ref bean="task03"/>
+				<ref bean="task04"/>
+			</list>
+		</property>
+
+	</bean>
+
+	<bean id="workplan03" class="acme.entities.workplans.Workplan">
+		<property name="publico" value="true"/>
+		<property name="periodoEjecucionInicio" value="2023/09/25 17:30"/>
+		<property name="periodoEjecucionFinal" value="2023/09/26 04:30"/>
+		<property name="tasks">
+			<list>
+				<ref bean="task02"/>
+				<ref bean="task03"/>
+			</list>
+		</property>
+
+	</bean>
+
+	<bean id="workplan04" class="acme.entities.workplans.Workplan">
+		<property name="publico" value="false"/>
+		<property name="periodoEjecucionInicio" value="2022/12/28 19:21"/>
+		<property name="periodoEjecucionFinal" value="2022/12/29 11:21"/>
+		<property name="tasks">
+			<list>
+				<ref bean="task01"/>
+				<ref bean="task04"/>
+			</list>
+		</property>
+	</bean>
+	
+		<bean id="workplan05" class="acme.entities.workplans.Workplan">
+		<property name="publico" value="true"/>
+		<property name="periodoEjecucionInicio" value="2020/12/28 19:21"/>
+		<property name="periodoEjecucionFinal" value="2020/12/29 11:21"/>
+		<property name="tasks">
+			<list>
+				<ref bean="task01"/>
+				<ref bean="task04"/>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
 </beans>
