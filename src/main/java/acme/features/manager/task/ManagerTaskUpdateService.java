@@ -1,10 +1,18 @@
 package acme.features.manager.task;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.roles.Manager;
+import acme.entities.spamword.Spamword;
 import acme.entities.tasks.Task;
+import acme.entities.treshold.Treshold;
+import acme.features.administrator.spamword.AdministratorSpamwordRepository;
+import acme.features.administrator.treshold.AdministratorTresholdRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -18,6 +26,10 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 
 		@Autowired
 		protected ManagerTaskRepository repository;
+		@Autowired
+		protected AdministratorSpamwordRepository	spamRepository;
+		@Autowired
+		protected AdministratorTresholdRepository	tresholdRepository;
 
 		// AbstractListService<Employer, Job> -------------------------------------
 
@@ -57,7 +69,15 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 				final String titulo = entity.getTitulo();
 				
 				errors.state(request, !titulo.trim().isEmpty() && titulo.length()<=79, "titulo", "anonymous.task.form.error.length");
-			}		
+			}	
+			
+			if (!errors.hasErrors("descripcion")) {
+				errors.state(request, !this.isSpam(entity.getDescripcion()), "descripcion", "manager.task.form.error.description-spam");
+			}
+			
+			if (!errors.hasErrors("titulo")) {
+				errors.state(request, !this.isSpam(entity.getTitulo()), "titulo", "manager.task.form.error.title-spam");
+			}
 		}
 
 		@Override
@@ -98,6 +118,22 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 			assert entity != null;
 
 			this.repository.save(entity);
+		}
+		
+
+		
+		private Boolean isSpam(final String texto) {
+			
+			final Collection<Spamword> cs = this.spamRepository.findMany();
+			final List<Spamword> cs2 = new ArrayList<>();
+			cs2.addAll(cs);
+			
+			final Collection<Treshold> ct = this.tresholdRepository.findMany();
+			final List<Treshold> l = new ArrayList<>();
+			l.addAll(ct);
+			final Treshold t = l.get(0);
+
+			return Spamword.isSpam(texto, cs2, t);
 		}
 
 }

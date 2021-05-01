@@ -95,27 +95,13 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert entity != null;
 		assert errors != null;
 
+		if (!errors.hasErrors("author")) {
+			errors.state(request, !this.isSpam(entity.getAuthor()), "author", "anonymous.shout.form.error.spam");
+		}
+
 		if (!errors.hasErrors("text")) {
 			errors.state(request, !this.isSpam(entity.getText()), "text", "anonymous.shout.form.error.spam");
 		}
-	}
-
-	private Boolean isSpam(final String texto) {
-		Boolean b = false;
-		Integer n = 0;
-		final Collection<Spamword> cs = this.spamRepository.findMany();
-		for (final Spamword s : cs) {
-			b = texto.trim().contains(s.getWord().trim());
-			if (b) {
-				n += s.getWord().trim().length();
-			}
-		}
-		final Collection<Treshold> ct = this.tresholdRepository.findMany();
-		final List<Treshold> l = new ArrayList<>();
-		l.addAll(ct);
-		final Treshold t = l.get(0);
-
-		return n != 0 && t.getUmbral() > texto.trim().length() / n;
 	}
 
 	@Override
@@ -128,6 +114,24 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		moment = new Date(System.currentTimeMillis() - 1);
 		entity.setMoment(moment);
 		this.repository.save(entity);
+	}
+	
+	
+	
+	
+	
+	private Boolean isSpam(final String texto) {
+		
+		final Collection<Spamword> cs = this.spamRepository.findMany();
+		final List<Spamword> cs2 = new ArrayList<>();
+		cs2.addAll(cs);
+		
+		final Collection<Treshold> ct = this.tresholdRepository.findMany();
+		final List<Treshold> l = new ArrayList<>();
+		l.addAll(ct);
+		final Treshold t = l.get(0);
+
+		return Spamword.isSpam(texto, cs2, t);
 	}
 
 }
