@@ -92,6 +92,18 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		if (!errors.hasErrors("descripcion")) {
+			final String descripcion = entity.getDescripcion();
+			
+			errors.state(request, !descripcion.trim().isEmpty() && descripcion.length()<=499, "descripcion", "anonymous.task.form.error.length");
+		}
+
+		if (!errors.hasErrors("titulo")) {
+			final String titulo = entity.getTitulo();
+			
+			errors.state(request, !titulo.trim().isEmpty() && titulo.length()<=79, "titulo", "anonymous.task.form.error.length");
+		}		
 		
 		if (!errors.hasErrors("periodoEjecucionFinal")) {
 			errors.state(request, entity.getPeriodoEjecucionInicio().before(entity.getPeriodoEjecucionFinal()), "periodoEjecucionFinal", "anonymous.task.form.error.invalid-final");
@@ -102,31 +114,13 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 			errors.state(request, entity.getPeriodoEjecucionInicio().after(d), "periodoEjecucionInicio", "anonymous.task.form.error.past");
 		}
 		
-		if (!errors.hasErrors("description")) {
-			errors.state(request, !this.isSpam(entity.getDescripcion()), "description", "manager.task.form.error.description-spam");
+		if (!errors.hasErrors("descripcion")) {
+			errors.state(request, !this.isSpam(entity.getDescripcion()), "descripcion", "manager.task.form.error.description-spam");
 		}
 		
-		if (!errors.hasErrors("title")) {
-			errors.state(request, !this.isSpam(entity.getTitulo()), "title", "manager.task.form.error.title-spam");
+		if (!errors.hasErrors("titulo")) {
+			errors.state(request, !this.isSpam(entity.getTitulo()), "titulo", "manager.task.form.error.title-spam");
 		}
-	}
-	
-	private Boolean isSpam(final String texto) {
-		Boolean b = false;
-		Integer n = 0;
-		final Collection<Spamword> cs = this.spamRepository.findMany();
-		for (final Spamword s : cs) {
-			b = texto.trim().contains(s.getWord().trim());
-			if (b) {
-				n += s.getWord().trim().length();
-			}
-		}
-		final Collection<Treshold> ct = this.tresholdRepository.findMany();
-		final List<Treshold> l = new ArrayList<>();
-		l.addAll(ct);
-		final Treshold t = l.get(0);
-
-		return n != 0 && t.getUmbral() > texto.trim().length() / n;
 	}
 	
 	@Override
@@ -136,6 +130,22 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		
 		
 		this.repository.save(entity);
+	}
+	
+
+	
+	private Boolean isSpam(final String texto) {
+		
+		final Collection<Spamword> cs = this.spamRepository.findMany();
+		final List<Spamword> cs2 = new ArrayList<>();
+		cs2.addAll(cs);
+		
+		final Collection<Treshold> ct = this.tresholdRepository.findMany();
+		final List<Treshold> l = new ArrayList<>();
+		l.addAll(ct);
+		final Treshold t = l.get(0);
+
+		return Spamword.isSpam(texto, cs2, t);
 	}
 }
 
