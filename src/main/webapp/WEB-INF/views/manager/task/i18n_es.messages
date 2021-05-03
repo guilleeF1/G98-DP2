@@ -37,5 +37,8 @@ manager.task.form.button.create = Crear
 manager.task.form.button.return = Volver
 
 manager.task.form.error.length = El tamaño no es correcto
+manager.task.form.error.negative = El valor de la carga de trabajo debe ser superior a 0
+manager.task.form.error.equals = El valor de la carga de trabajo debe tener sentido dadas las fechas de inicio y fin
+manager.task.form.error.minutes = El valor de la carga de trabajo en minutos debe coincidir con el valor superior expresado en horas
 manager.task.form.error.title-spam = El titulo contiene spam
 manager.task.form.error.description-spam = La descripción contiene spam
