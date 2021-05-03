@@ -62,6 +62,8 @@ public class ManagerTaskShowService implements AbstractShowService<Manager, Task
 		
 		if (manager.getUserAccount().getId() != principal.getAccountId()) {
 			model.setAttribute("readonly", true);
+		}else {
+			model.setAttribute("readonly", false);
 		}
 	}
 
