@@ -14,8 +14,10 @@
 	<acme:form-textarea code="manager.task.form.label.descripcion" path="descripcion"/>
 	<acme:form-url code="manager.task.form.label.enlace" path="enlace"/>
 	
+	<jstl:if test="${readonly == 'false'}">
 	<acme:form-submit test="${command == 'show'}" code="manager.task.form.button.update" action="/manager/task/update"/>
 	<acme:form-submit test="${command == 'show'}" code="manager.task.form.button.delete" action="/manager/task/delete"/>
+	</jstl:if>
 	<acme:form-submit test="${command == 'create'}" code="manager.task.form.button.create" action="/manager/task/create"/>
 	<acme:form-submit test="${command == 'update'}" code="manager.task.form.button.update" action="/manager/task/update"/>
 	<acme:form-submit test="${command == 'delete'}" code="manager.task.form.button.delete" action="/manager/task/delete"/>
