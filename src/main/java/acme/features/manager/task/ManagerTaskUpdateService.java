@@ -73,25 +73,21 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 			errors.state(request, !titulo.trim().isEmpty() && titulo.length() <= 79, "titulo", "anonymous.task.form.error.length");
 		}
 
-		if (!errors.hasErrors("periodoEjecucionFinal")) {
-			errors.state(request, entity.getPeriodoEjecucionInicio().before(entity.getPeriodoEjecucionFinal()), "periodoEjecucionFinal", "anonymous.task.form.error.invalid-final");
-		}
-
-		if (!errors.hasErrors("periodoEjecucionInicio")) {
-			final Date d = new Date(System.currentTimeMillis());
-			errors.state(request, entity.getPeriodoEjecucionInicio().after(d), "periodoEjecucionInicio", "anonymous.task.form.error.past");
+		if (!errors.hasErrors("cargaTrabajo")) {
+			errors.state(request, entity.getCargaTrabajo() > 0, "cargaTrabajo", "manager.task.form.error.negative");
 		}
 
 		if (!errors.hasErrors("cargaTrabajo")) {
-			errors.state(request, entity.getCargaTrabajo() < 0, "cargaTrabajo", "manager.task.form.error.negative");
+			if (entity.getCargaTrabajoMinutos() != null) {
+				errors.state(request, entity.getCargaTrabajo() * 60 + entity.getCargaTrabajoMinutos() <= (this.minutesBetween(entity.getPeriodoEjecucionInicio(), entity.getPeriodoEjecucionFinal())), "cargaTrabajo", "manager.task.form.error.equals");
+			}
+			else {
+				errors.state(request, entity.getCargaTrabajo() * 60 <= (this.minutesBetween(entity.getPeriodoEjecucionInicio(), entity.getPeriodoEjecucionFinal())), "cargaTrabajo", "manager.task.form.error.equals");
+			}
 		}
 
-		if (!errors.hasErrors("cargaTrabajo")) {
-			errors.state(request, entity.getCargaTrabajo() <= (this.hoursBetween(entity.getPeriodoEjecucionInicio(), entity.getPeriodoEjecucionFinal())), "cargaTrabajo", "manager.task.form.error.equals");
-		}
-
-		if (!errors.hasErrors("cargaTrabajoMinutos")) {
-			errors.state(request, entity.getCargaTrabajoMinutos().equals(entity.getCargaTrabajo() * 60), "cargaTrabajoMinutos", "manager.task.form.error.minutes");
+		if (!errors.hasErrors("cargaTrabajoMinutos") && entity.getCargaTrabajoMinutos() != null) {
+			errors.state(request, entity.getCargaTrabajoMinutos() >= 1 && entity.getCargaTrabajoMinutos() <= 59, "cargaTrabajoMinutos", "manager.task.form.error.minutes");
 		}
 
 		if (!errors.hasErrors("descripcion")) {
@@ -157,8 +153,8 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		return Spamword.isSpam(texto, cs2, t);
 	}
 
-	private Integer hoursBetween(final Date i, final Date f) {
-		final Long l = (f.getTime() - i.getTime()) / (60 * 60 * 1000);
+	private Integer minutesBetween(final Date i, final Date f) {
+		final Long l = (f.getTime() - i.getTime()) / (60 * 1000);
 		return l.intValue();
 	}
 

@@ -113,15 +113,20 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		}
 
 		if (!errors.hasErrors("cargaTrabajo")) {
-			errors.state(request, entity.getCargaTrabajo() < 0, "cargaTrabajo", "manager.task.form.error.negative");
+			errors.state(request, entity.getCargaTrabajo() > 0, "cargaTrabajo", "manager.task.form.error.negative");
 		}
 
 		if (!errors.hasErrors("cargaTrabajo")) {
-			errors.state(request, entity.getCargaTrabajo() <= (this.hoursBetween(entity.getPeriodoEjecucionInicio(), entity.getPeriodoEjecucionFinal())), "cargaTrabajo", "manager.task.form.error.equals");
+			if (entity.getCargaTrabajoMinutos() != null) {
+				errors.state(request, entity.getCargaTrabajo() * 60 + entity.getCargaTrabajoMinutos() <= (this.minutesBetween(entity.getPeriodoEjecucionInicio(), entity.getPeriodoEjecucionFinal())), "cargaTrabajo", "manager.task.form.error.equals");
+			}
+			else {
+				errors.state(request, entity.getCargaTrabajo() * 60 <= (this.minutesBetween(entity.getPeriodoEjecucionInicio(), entity.getPeriodoEjecucionFinal())), "cargaTrabajo", "manager.task.form.error.equals");
+			}
 		}
 
-		if (!errors.hasErrors("cargaTrabajoMinutos")) {
-			errors.state(request, entity.getCargaTrabajoMinutos().equals(entity.getCargaTrabajo() * 60), "cargaTrabajoMinutos", "manager.task.form.error.minutes");
+		if (!errors.hasErrors("cargaTrabajoMinutos") && entity.getCargaTrabajoMinutos() != null) {
+			errors.state(request, entity.getCargaTrabajoMinutos() >= 1 && entity.getCargaTrabajoMinutos() <= 59, "cargaTrabajoMinutos", "manager.task.form.error.minutes");
 		}
 
 		if (!errors.hasErrors("descripcion")) {
@@ -155,8 +160,8 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		return Spamword.isSpam(texto, cs2, t);
 	}
 
-	private Integer hoursBetween(final Date i, final Date f) {
-		final Long l = (f.getTime() - i.getTime()) / (60 * 60 * 1000);
+	private Integer minutesBetween(final Date i, final Date f) {
+		final Long l = (f.getTime() - i.getTime()) / (60 * 1000);
 		return l.intValue();
 	}
 }
