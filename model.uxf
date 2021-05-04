@@ -4,185 +4,37 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>175</x>
-      <y>378</y>
-      <w>238</w>
-      <h>140</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;Entity&gt;&gt;
-Job
---
-+ reference: String {Unique, NotBlank, Length(5, 60)}
-+ title: String {NotBlank}
-+ deadline: String {TimeStamp}
-+ salary: Money
-+ score: double {Range(0, 100), Digits(integer=2, fraction=2)}
-+ description: String {NotBlank}
-+ moreInfo: String {Url}
-+ finalMode: boolean
-+ / isAvailable: boolean</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>441</x>
-      <y>378</y>
-      <w>147</w>
-      <h>63</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;Role&gt;&gt;
-Employer
---
-+ company: String {NotBlank}
-+ sector: String {NotBlank}</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>602</x>
-      <y>378</y>
-      <w>154</w>
-      <h>63</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;Role&gt;&gt;
-Worker
---
-+ skills: String {NotBull}
-+ qualifications: String {NotNull}</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>245</x>
-      <y>602</y>
-      <w>154</w>
-      <h>105</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;Entity&gt;&gt;
-Application
---
-+ reference: String {Unique}
-+ moment: Date {Timestamp}
-+ status: ApplicationStatus
-+ statement: String {NotBlank}
-+ skills: String {NotBlank}
-+ qualifications: String {NotBlank}
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>392</x>
-      <y>434</y>
-      <w>315</w>
-      <h>238</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-m1=*
-m2=1
-made by &gt;</panel_attributes>
-    <additional_attributes>10.0;310.0;420.0;310.0;420.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>301</x>
-      <y>511</y>
-      <w>56</w>
-      <h>105</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-m1=*
-m2=1
-About ^</panel_attributes>
-    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>406</x>
-      <y>434</y>
-      <w>147</w>
-      <h>63</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-m1=*
-m2=1
-Offered by &gt;</panel_attributes>
-    <additional_attributes>10.0;60.0;180.0;60.0;180.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>0</x>
-      <y>455</y>
-      <w>140</w>
-      <h>49</h>
-    </coordinates>
-    <panel_attributes>A job is available if it's 
-in final mode and its deadline 
-hasn't elapsed.
-bg=blue</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>133</x>
-      <y>476</y>
-      <w>56</w>
-      <h>28</h>
-    </coordinates>
-    <panel_attributes>lt=..
-</panel_attributes>
-    <additional_attributes>10.0;20.0;60.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>798</x>
-      <y>406</y>
-      <w>147</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;Enum&gt;&gt;
-ApplicationStatus
---
-+ PENDING
-+ ACCEPTED
-+ REJECTED
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>756</x>
+      <x>973</x>
       <y>518</y>
-      <w>245</w>
-      <h>112</h>
+      <w>266</w>
+      <h>210</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 Dashboard
 --
-+ averageNumberOfJobsPerEmployer: double
-+ averageNumberOfApplicationsPerWorker: double
-+ avegageNumberOfApplicationsPerEmployer: double
-+ ratioOfPendingApplications: double
-+ ratioOfAcceptedApplications: double
-+ ratioOfRejectedApplications: double
++ numberOfTaskPublic: Integer
++ numberOfTaskPrivate: Integer
++ numberOfTaskFinished: Integer
++ numberOfTaskNotFinished: Integer
++ workloadAverage: Double
++ workloadMin: Integer
++ workloadMax: Integer
++ workloadDeviation: Double
++ startPeriodAverage: Double
++ startPeriodDeviation: Double
++ finalPeriodDeviation: Double
++ finalPeriodAverage: Double
++ startPeriodMin: Date
++ finalPeriodMin: Date
++ startPeriodMax: Date
++ finalPeriodMax: Date
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>518</x>
+      <x>735</x>
       <y>280</y>
       <w>168</w>
       <h>42</h>
@@ -194,31 +46,9 @@ bg=yellow</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>511</x>
-      <y>315</y>
-      <w>98</w>
-      <h>77</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>120.0;10.0;10.0;90.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>588</x>
-      <y>315</y>
-      <w>105</w>
-      <h>77</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;130.0;90.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>735</x>
+      <x>952</x>
       <y>294</y>
       <w>70</w>
       <h>21</h>
@@ -232,7 +62,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>735</x>
+      <x>952</x>
       <y>266</y>
       <w>70</w>
       <h>21</h>
@@ -246,7 +76,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>735</x>
+      <x>952</x>
       <y>322</y>
       <w>70</w>
       <h>21</h>
@@ -260,7 +90,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>679</x>
+      <x>896</x>
       <y>273</y>
       <w>70</w>
       <h>42</h>
@@ -271,7 +101,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>679</x>
+      <x>896</x>
       <y>294</y>
       <w>70</w>
       <h>21</h>
@@ -282,7 +112,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>679</x>
+      <x>896</x>
       <y>294</y>
       <w>70</w>
       <h>49</h>
@@ -293,8 +123,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>770</x>
-      <y>658</y>
+      <x>1015</x>
+      <y>742</y>
       <w>161</w>
       <h>77</h>
     </coordinates>
@@ -309,7 +139,7 @@ SimpleClass
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>238</x>
+      <x>455</x>
       <y>182</y>
       <w>21</w>
       <h>42</h>
@@ -321,7 +151,7 @@ SimpleClass
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>168</x>
+      <x>385</x>
       <y>210</y>
       <w>154</w>
       <h>84</h>
@@ -341,7 +171,7 @@ bg=orange
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>168</x>
+      <x>385</x>
       <y>147</y>
       <w>168</w>
       <h>42</h>
@@ -354,24 +184,7 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>7</x>
-      <y>210</y>
-      <w>154</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;Datatype&gt;&gt;
-Money
---
-+ amount: double {Digits(10, 2)}
-+ currentcy: String {NotBlank}
-
-bg=yellow</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>357</x>
+      <x>574</x>
       <y>154</y>
       <w>273</w>
       <h>98</h>
@@ -389,7 +202,7 @@ Shout
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>364</x>
+      <x>581</x>
       <y>0</y>
       <w>329</w>
       <h>133</h>
@@ -411,7 +224,7 @@ Task
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>735</x>
+      <x>952</x>
       <y>231</y>
       <w>70</w>
       <h>21</h>
@@ -425,7 +238,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>679</x>
+      <x>896</x>
       <y>238</y>
       <w>70</w>
       <h>77</h>
@@ -436,7 +249,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>686</x>
+      <x>903</x>
       <y>77</y>
       <w>280</w>
       <h>182</h>
@@ -446,5 +259,33 @@ m1=*
 m2=1
 Created by &gt;</panel_attributes>
     <additional_attributes>10.0;10.0;300.0;10.0;300.0;230.0;170.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1218</x>
+      <y>84</y>
+      <w>119</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Spamword
+--
++ word: String {NotNull}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1218</x>
+      <y>189</y>
+      <w>126</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Treshold
+--
++ umbral: Double {NotNull}</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
