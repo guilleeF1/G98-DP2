@@ -15,12 +15,12 @@
 	<acme:form-url code="manager.task.form.label.enlace" path="enlace"/>
 	
 	<jstl:if test="${readonly == 'false'}">
-	<acme:form-submit test="${command == 'show'}" code="manager.task.form.button.update" action="/manager/task/update"/>
-	<acme:form-submit test="${command == 'show'}" code="manager.task.form.button.delete" action="/manager/task/delete"/>
+	<acme:form-submit test="${command == 'show'}" code="manager.task.form.button.update" action="/Acme-Planner/manager/task/update"/>
+	<acme:form-submit test="${command == 'show'}" code="manager.task.form.button.delete" action="/Acme-Planner/manager/task/delete"/>
 	</jstl:if>
-	<acme:form-submit test="${command == 'create'}" code="manager.task.form.button.create" action="/manager/task/create"/>
-	<acme:form-submit test="${command == 'update'}" code="manager.task.form.button.update" action="/manager/task/update"/>
-	<acme:form-submit test="${command == 'delete'}" code="manager.task.form.button.delete" action="/manager/task/delete"/>
+	<acme:form-submit test="${command == 'create'}" code="manager.task.form.button.create" action="/Acme-Planner/manager/task/create"/>
+	<acme:form-submit test="${command == 'update'}" code="manager.task.form.button.update" action="/Acme-Planner/manager/task/update"/>
+	<acme:form-submit test="${command == 'delete'}" code="manager.task.form.button.delete" action="/Acme-Planner/manager/task/delete"/>
   	<acme:form-return code="manager.task.form.button.return"/>
 </acme:form>
 
