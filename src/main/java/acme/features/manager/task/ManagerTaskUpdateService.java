@@ -150,7 +150,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		l.addAll(ct);
 		final Treshold t = l.get(0);
 
-		return Spamword.isSpam(texto, cs2, t);
+		return Spamword.isSpam(texto.toLowerCase(), cs2, t);
 	}
 
 	private Integer minutesBetween(final Date i, final Date f) {
