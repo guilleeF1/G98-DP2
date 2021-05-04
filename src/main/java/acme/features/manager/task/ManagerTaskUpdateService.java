@@ -1,7 +1,9 @@
+
 package acme.features.manager.task;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,119 +23,143 @@ import acme.framework.services.AbstractUpdateService;
 
 @Service
 public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, Task> {
-	
+
 	// Internal state ---------------------------------------------------------
 
-		@Autowired
-		protected ManagerTaskRepository repository;
-		@Autowired
-		protected AdministratorSpamwordRepository	spamRepository;
-		@Autowired
-		protected AdministratorTresholdRepository	tresholdRepository;
+	@Autowired
+	protected ManagerTaskRepository				repository;
+	@Autowired
+	protected AdministratorSpamwordRepository	spamRepository;
+	@Autowired
+	protected AdministratorTresholdRepository	tresholdRepository;
 
-		// AbstractListService<Employer, Job> -------------------------------------
+	// AbstractListService<Employer, Job> -------------------------------------
 
 
-		@Override
-		public boolean authorise(final Request<Task> request) {
-			assert request != null;
+	@Override
+	public boolean authorise(final Request<Task> request) {
+		assert request != null;
 
-			boolean result;
-			int taskId;
-			Task task;
-			Manager manager;
-			Principal principal;
+		boolean result;
+		int taskId;
+		Task task;
+		Manager manager;
+		Principal principal;
 
-			taskId = request.getModel().getInteger("id");
-			task = this.repository.findOneTaskById(taskId);
-			manager = task.getManager();
-			principal = request.getPrincipal();
-			result = manager.getUserAccount().getId() == principal.getAccountId();
+		taskId = request.getModel().getInteger("id");
+		task = this.repository.findOneTaskById(taskId);
+		manager = task.getManager();
+		principal = request.getPrincipal();
+		result = manager.getUserAccount().getId() == principal.getAccountId();
 
-			return result;
+		return result;
+	}
+
+	@Override
+	public void validate(final Request<Task> request, final Task entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		if (!errors.hasErrors("titulo")) {
+			final String descripcion = entity.getDescripcion();
+
+			errors.state(request, !descripcion.trim().isEmpty() && descripcion.length() <= 499, "descripcion", "anonymous.task.form.error.length");
 		}
 
-		@Override
-		public void validate(final Request<Task> request, final Task entity, final Errors errors) {
-			assert request != null;
-			assert entity != null;
-			assert errors != null;
+		if (!errors.hasErrors("titulo")) {
+			final String titulo = entity.getTitulo();
 
-			if (!errors.hasErrors("titulo")) {
-				final String descripcion = entity.getDescripcion();
-				
-				errors.state(request, !descripcion.trim().isEmpty() && descripcion.length()<=499, "descripcion", "anonymous.task.form.error.length");
-			}
-
-			if (!errors.hasErrors("titulo")) {
-				final String titulo = entity.getTitulo();
-				
-				errors.state(request, !titulo.trim().isEmpty() && titulo.length()<=79, "titulo", "anonymous.task.form.error.length");
-			}	
-			
-			if (!errors.hasErrors("descripcion")) {
-				errors.state(request, !this.isSpam(entity.getDescripcion()), "descripcion", "manager.task.form.error.description-spam");
-			}
-			
-			if (!errors.hasErrors("titulo")) {
-				errors.state(request, !this.isSpam(entity.getTitulo()), "titulo", "manager.task.form.error.title-spam");
-			}
+			errors.state(request, !titulo.trim().isEmpty() && titulo.length() <= 79, "titulo", "anonymous.task.form.error.length");
 		}
 
-		@Override
-		public void bind(final Request<Task> request, final Task entity, final Errors errors) {
-			assert request != null;
-			assert entity != null;
-			assert errors != null;
-
-			request.bind(entity, errors);
+		if (!errors.hasErrors("periodoEjecucionFinal")) {
+			errors.state(request, entity.getPeriodoEjecucionInicio().before(entity.getPeriodoEjecucionFinal()), "periodoEjecucionFinal", "anonymous.task.form.error.invalid-final");
 		}
 
-		@Override
-		public void unbind(final Request<Task> request, final Task entity, final Model model) {
-			assert request != null;
-			assert entity != null;
-			assert model != null;
-
-			request.unbind(entity, model, "publica", "titulo", "periodoEjecucionInicio", "periodoEjecucionFinal");
-			request.unbind(entity, model, "cargaTrabajo", "descripcion", "enlace", "finalMode");
+		if (!errors.hasErrors("periodoEjecucionInicio")) {
+			final Date d = new Date(System.currentTimeMillis());
+			errors.state(request, entity.getPeriodoEjecucionInicio().after(d), "periodoEjecucionInicio", "anonymous.task.form.error.past");
 		}
 
-		@Override
-		public Task findOne(final Request<Task> request) {
-			assert request != null;
-
-			Task result;
-			int id;
-
-			id = request.getModel().getInteger("id");
-			result = this.repository.findOneTaskById(id);
-
-			return result;
+		if (!errors.hasErrors("cargaTrabajo")) {
+			errors.state(request, entity.getCargaTrabajo() < 0, "cargaTrabajo", "manager.task.form.error.negative");
 		}
 
-		@Override
-		public void update(final Request<Task> request, final Task entity) {
-			assert request != null;
-			assert entity != null;
-
-			this.repository.save(entity);
+		if (!errors.hasErrors("cargaTrabajo")) {
+			errors.state(request, entity.getCargaTrabajo() <= (this.hoursBetween(entity.getPeriodoEjecucionInicio(), entity.getPeriodoEjecucionFinal())), "cargaTrabajo", "manager.task.form.error.equals");
 		}
-		
 
-		
-		private Boolean isSpam(final String texto) {
-			
-			final Collection<Spamword> cs = this.spamRepository.findMany();
-			final List<Spamword> cs2 = new ArrayList<>();
-			cs2.addAll(cs);
-			
-			final Collection<Treshold> ct = this.tresholdRepository.findMany();
-			final List<Treshold> l = new ArrayList<>();
-			l.addAll(ct);
-			final Treshold t = l.get(0);
-
-			return Spamword.isSpam(texto, cs2, t);
+		if (!errors.hasErrors("cargaTrabajoMinutos")) {
+			errors.state(request, entity.getCargaTrabajoMinutos().equals(entity.getCargaTrabajo() * 60), "cargaTrabajoMinutos", "manager.task.form.error.minutes");
 		}
+
+		if (!errors.hasErrors("descripcion")) {
+			errors.state(request, !this.isSpam(entity.getDescripcion()), "descripcion", "manager.task.form.error.description-spam");
+		}
+
+		if (!errors.hasErrors("titulo")) {
+			errors.state(request, !this.isSpam(entity.getTitulo()), "titulo", "manager.task.form.error.title-spam");
+		}
+	}
+
+	@Override
+	public void bind(final Request<Task> request, final Task entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		request.bind(entity, errors);
+	}
+
+	@Override
+	public void unbind(final Request<Task> request, final Task entity, final Model model) {
+		assert request != null;
+		assert entity != null;
+		assert model != null;
+
+		request.unbind(entity, model, "publica", "titulo", "periodoEjecucionInicio", "periodoEjecucionFinal");
+		request.unbind(entity, model, "cargaTrabajo", "descripcion", "enlace", "finalMode");
+	}
+
+	@Override
+	public Task findOne(final Request<Task> request) {
+		assert request != null;
+
+		Task result;
+		int id;
+
+		id = request.getModel().getInteger("id");
+		result = this.repository.findOneTaskById(id);
+
+		return result;
+	}
+
+	@Override
+	public void update(final Request<Task> request, final Task entity) {
+		assert request != null;
+		assert entity != null;
+
+		this.repository.save(entity);
+	}
+
+	private Boolean isSpam(final String texto) {
+
+		final Collection<Spamword> cs = this.spamRepository.findMany();
+		final List<Spamword> cs2 = new ArrayList<>();
+		cs2.addAll(cs);
+
+		final Collection<Treshold> ct = this.tresholdRepository.findMany();
+		final List<Treshold> l = new ArrayList<>();
+		l.addAll(ct);
+		final Treshold t = l.get(0);
+
+		return Spamword.isSpam(texto, cs2, t);
+	}
+
+	private Integer hoursBetween(final Date i, final Date f) {
+		final Long l = (f.getTime() - i.getTime()) / (60 * 60 * 1000);
+		return l.intValue();
+	}
 
 }

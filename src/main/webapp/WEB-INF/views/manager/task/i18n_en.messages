@@ -47,5 +47,8 @@ manager.task.form.button.create = Create
 manager.task.form.button.return = Return
 
 manager.task.form.error.length = The length isn't correct
+manager.task.form.error.negative = The workload value must be greater than 0
+manager.task.form.error.equals = The workload value must make sense given the start and ending dates
+manager.task.form.error.minutes = The workload value in minutes must coincide with the workload value expresed in hours
 manager.task.form.error.title-spam = The title contains spam
 manager.task.form.error.description-spam = The description contains spam
