@@ -3,7 +3,7 @@ package acme.entities.spamword;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 import acme.entities.treshold.Treshold;
 import acme.framework.entities.DomainEntity;
@@ -18,7 +18,7 @@ public class Spamword extends DomainEntity {
 	protected static final long serialVersionUID = 1L;
 	
 
-	@NotNull
+	@NotBlank
 	protected String word;
 	
 
