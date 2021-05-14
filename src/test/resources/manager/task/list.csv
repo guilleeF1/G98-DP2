@@ -1,0 +1,4 @@
+recordIndex,publica,titulo,periodoEjecucionInicial,periodoEjecucionFinal,cargaTrabajo,cargaTrabajoMinutos,descripcion,enlace
+0,false,Implementacion entidad task,2021/09/13 10:39,2021/09/13 16:23,1,,implementar task con sus atributos,https://stackoverflow.com/
+1,false,Implementacion entidad shout,2021/07/18 18:56,2021/07/18 22:23,2,,implementar shout con sus atributos,http://happybirthday.com
+2,true,Implementacion entidad announcement,2021/11/03 05:07,2021/11/03 12:07,7,,implementar announcement con sus atributos,https://stackoverflow.com/

@@ -110,10 +110,10 @@
 	
 	<bean id="task01" class="acme.entities.tasks.Task">
 		<property name="publica" value="false"/>
-		<property name="titulo" value="Implementación entidad task"/>
+		<property name="titulo" value="Implementacion entidad task"/>
 		<property name="periodoEjecucionInicio" value="2021/09/13 10:39"/>
 		<property name="periodoEjecucionFinal" value="2021/09/13 16:23"/>
-		<property name="cargaTrabajo" value="6"/>
+		<property name="cargaTrabajo" value="1"/>
 		<property name="descripcion" value="implementar task con sus atributos"/>
 		<property name="enlace" value="https://stackoverflow.com/"/>	
 		<property name="manager" ref="managerManager"/>
@@ -121,10 +121,10 @@
 	
 	<bean id="task02" class="acme.entities.tasks.Task">
 		<property name="publica" value="false"/>
-		<property name="titulo" value="Implementación entidad shout"/>
+		<property name="titulo" value="Implementacion entidad shout"/>
 		<property name="periodoEjecucionInicio" value="2021/07/18 18:56"/>
 		<property name="periodoEjecucionFinal" value="2021/07/18 22:23"/>
-		<property name="cargaTrabajo" value="4"/>
+		<property name="cargaTrabajo" value="2"/>
 		<property name="descripcion" value="implementar shout con sus atributos"/>
 		<property name="enlace" value="http://happybirthday.com"/>
 		<property name="manager" ref="managerManager"/>
@@ -132,7 +132,7 @@
 	
 	<bean id="task03" class="acme.entities.tasks.Task">
 		<property name="publica" value="true"/>
-		<property name="titulo" value="Implementación entidad announcement"/>
+		<property name="titulo" value="Implementacion entidad announcement"/>
 		<property name="periodoEjecucionInicio" value="2021/11/03 05:07"/>
 		<property name="periodoEjecucionFinal" value="2021/11/03 12:07"/>
 		<property name="cargaTrabajo" value="7"/>
@@ -143,7 +143,7 @@
 	
 	<bean id="task04" class="acme.entities.tasks.Task">
 		<property name="publica" value="true"/>
-		<property name="titulo" value="Implementación entidad employer"/>
+		<property name="titulo" value="Implementacion entidad employer"/>
 		<property name="periodoEjecucionInicio" value="2021/12/24 01:18"/>
 		<property name="periodoEjecucionFinal" value="2021/12/24 02:18"/>
 		<property name="cargaTrabajo" value="1"/>
@@ -188,7 +188,7 @@
 	
 		<bean id="task15" class="acme.entities.tasks.Task">
 		<property name="publica" value="true"/>
-		<property name="titulo" value="Configuración tarjeta sonido"/>
+		<property name="titulo" value="Configuracion tarjeta sonido"/>
 		<property name="periodoEjecucionInicio" value="2018/12/21 01:45"/>
 		<property name="periodoEjecucionFinal" value="2018/12/21 02:45"/>
 		<property name="cargaTrabajo" value="2"/>
@@ -199,7 +199,7 @@
 	
 			<bean id="task16" class="acme.entities.tasks.Task">
 		<property name="publica" value="true"/>
-		<property name="titulo" value="Implementación recursividad"/>
+		<property name="titulo" value="Implementacion recursividad"/>
 		<property name="periodoEjecucionInicio" value="2018/11/22 01:45"/>
 		<property name="periodoEjecucionFinal" value="2018/11/23 02:45"/>
 		<property name="cargaTrabajo" value="4"/>
@@ -280,7 +280,7 @@
 	
 		<bean id="task12" class="acme.entities.tasks.Task">
 		<property name="publica" value="true"/>
-		<property name="titulo" value="Desing et le testing lá"/>
+		<property name="titulo" value="Desing et le testing la"/>
 		<property name="periodoEjecucionInicio" value="2021/7/10 01:30"/>
 		<property name="periodoEjecucionFinal" value="2021/7/10 04:30"/>
 		<property name="cargaTrabajo" value="4"/>
