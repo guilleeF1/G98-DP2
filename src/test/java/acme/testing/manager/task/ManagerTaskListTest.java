@@ -12,10 +12,6 @@
 
 package acme.testing.manager.task;
 
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
-
 import acme.testing.AcmePlannerTest;
 
 public class ManagerTaskListTest extends AcmePlannerTest {
@@ -24,9 +20,7 @@ public class ManagerTaskListTest extends AcmePlannerTest {
 	
 	// Test cases -------------------------------------------------------------
 	
-	@ParameterizedTest
-	@CsvFileSource(resources = "/manager/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
-	@Order(10)	
+	
 	public void list(final int recordIndex, final String publica, final String titulo, final String periodoEjecucionInicio,
 		final String periodoEjecucionFinal, final String cargaTrabajo, final String cargaTrabajoMinutos, 
 		final String descripcion, final String enlace) {		

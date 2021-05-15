@@ -13,7 +13,7 @@ public class ManagerTaskCreateTest extends AcmePlannerTest {
 		// Test cases -------------------------------------------------------------
 		
 		@ParameterizedTest
-		@CsvFileSource(resources = "/manager/task/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+		@CsvFileSource(resources = "/manager/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 		@Order(10)	
 		public void create(final int recordIndex, final String publica, final String titulo, final String periodoEjecucionInicio,
 			final String periodoEjecucionFinal, final String cargaTrabajo, final String cargaTrabajoMinutos, 
@@ -25,7 +25,12 @@ public class ManagerTaskCreateTest extends AcmePlannerTest {
 //			super.checkColumnHasValue(recordIndex, 0, publica);
 
 //			super.clickOnListingRecord(recordIndex);
-			super.fillInputBoxIn("publica", publica);
+			if (publica.equals("true")) {
+				super.fillInputBoxIn("publica", "true");
+			}
+			else {
+				super.fillInputBoxIn("publica", "false");
+			}
 			super.fillInputBoxIn("titulo", titulo);
 			super.fillInputBoxIn("periodoEjecucionInicio", periodoEjecucionInicio);
 			super.fillInputBoxIn("periodoEjecucionFinal", periodoEjecucionFinal);
