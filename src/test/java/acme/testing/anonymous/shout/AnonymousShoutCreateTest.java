@@ -1,7 +1,5 @@
 package acme.testing.anonymous.shout;
 
-import java.util.Date;
-
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -17,47 +15,39 @@ public class AnonymousShoutCreateTest extends AcmePlannerTest {
 		@ParameterizedTest
 		@CsvFileSource(resources = "/anonymous/shout/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 		@Order(10)
-		public void createShoutWithAdministratorPositive(final Date moment, final String author, final String text, final String info) {
+		public void createShoutWithAnonymousPositive(final int recordIndex, final String moment, final String author, final String text) {
+			super.clickOnMenu("Anonymous", "Shout!");
 
-			super.clickOnMenu("Anonymous", "Create a shout");
-
-			super.fillInputBoxIn("moment", moment.toString());
+			super.fillInputBoxIn("moment", moment);
 			super.fillInputBoxIn("author", author);
 			super.fillInputBoxIn("text", text);
-			super.fillInputBoxIn("info", info);
-			
-			super.clickOnSubmitButton("Create");
+			super.clickOnSubmitButton("Shout!");
 
-			super.clickOnMenu("Administrator", "Shouts");
+			super.clickOnMenu("Anonymous", "List shouts");		
 			
-			//final ZoneId zona = ZoneId.systemDefault();
-			//final Date fechaAhora = Date.from(LocalDate.now().atStartOfDay(zona).toInstant());
+			super.checkColumnHasValue(recordIndex, 0, moment);
+			super.checkColumnHasValue(recordIndex, 1, author);
+			super.checkColumnHasValue(recordIndex, 2, text);
 			
-			//super.checkColumnHasValue(moment.toString(), moment.before(fechaAhora));
-
-			super.checkInputBoxHasValue("moment", moment.toString());
-			super.checkInputBoxHasValue("author", author);
+			super.clickOnListingRecord(recordIndex);
+			
+			super.checkInputBoxHasValue("moment", moment);
+			super.checkInputBoxHasValue("author", author);		
 			super.checkInputBoxHasValue("text", text);
-			super.checkInputBoxHasValue("info", info);
-			super.signOut();
 		}
 		
 		@ParameterizedTest
 		@CsvFileSource(resources = "/anonymous/shout/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 		@Order(20)
-		public void createShoutWithAdministratorNegative(final Date moment, final String author, final String text, final String info) {
+		public void createShoutWithAnonymousNegative(final int recordIndex, final String moment, final String author, final String text) {
+			super.clickOnMenu("Anonymous", "Shout!");
 
-			super.clickOnMenu("Anonymous", "Create a shout");
-
-			super.checkInputBoxHasValue("moment", moment.toString());
-			super.checkInputBoxHasValue("author", author);
-			super.checkInputBoxHasValue("text", text);
-			super.checkInputBoxHasValue("info", info);
-			super.clickOnSubmitButton("Create");
+			super.fillInputBoxIn("moment", moment);
+			super.fillInputBoxIn("author", author);
+			super.fillInputBoxIn("text", text);
+			super.clickOnSubmitButton("Shout!");
 
 			super.checkErrorsExist();
-
-			super.signOut();
 		}
 
 		// Ancillary methods ------------------------------------------------------
