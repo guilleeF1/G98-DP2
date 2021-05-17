@@ -23,13 +23,11 @@ public class AdministratorTresholdShowService implements AbstractShowService<Adm
 
 	// AbstractShowService<Administrator, SpamWordTreshold> interface --------------
 
+
 	@Override
 	public boolean authorise(final Request<Treshold> request) {
 		assert request != null;
-		
-		final boolean result = true;
-		
-		return result;
+		return true;
 	}
 
 	@Override
@@ -38,8 +36,7 @@ public class AdministratorTresholdShowService implements AbstractShowService<Adm
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, 
-			"umbral");
+		request.unbind(entity, model, "umbral");
 
 	}
 
@@ -48,12 +45,11 @@ public class AdministratorTresholdShowService implements AbstractShowService<Adm
 		assert request != null;
 
 		Treshold result;
-		final List<Treshold> s = new ArrayList<Treshold>(); 
+		final List<Treshold> s = new ArrayList<Treshold>();
 		s.addAll(this.repository.findMany());
-		
+
 		result = s.get(0);
 
 		return result;
 	}
 }
-
