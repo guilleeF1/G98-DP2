@@ -65,5 +65,34 @@ public class ManagerTaskCreateTest extends AcmePlannerTest {
 			super.signOut();
 		}
 		
+		@ParameterizedTest
+		@CsvFileSource(resources = "/manager/task/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+		@Order(20)	
+		public void createNegative(final int recordIndex, final String publica, final String titulo, final String periodoEjecucionInicio,
+			final String periodoEjecucionFinal, final String cargaTrabajo, final String cargaTrabajoMinutos, 
+			final String descripcion, final String enlace) {		
+			super.signIn("manager1", "manager1");
+			
+			super.clickOnMenu("Manager", "Create a task");	
+
+//			super.checkColumnHasValue(recordIndex, 0, publica);
+
+//			super.clickOnListingRecord(recordIndex);
+			
+			super.fillInputBoxIn("titulo", titulo);
+			super.fillInputBoxIn("periodoEjecucionInicio", periodoEjecucionInicio);
+			super.fillInputBoxIn("periodoEjecucionFinal", periodoEjecucionFinal);
+			super.fillInputBoxIn("cargaTrabajo", cargaTrabajo);
+			super.fillInputBoxIn("cargaTrabajoMinutos", cargaTrabajoMinutos);
+			super.fillInputBoxIn("descripcion", descripcion);
+			super.fillInputBoxIn("enlace", enlace);
+			
+			super.clickOnSubmitButton("Create");
+
+			super.checkErrorsExist();
+			
+			super.signOut();
+		}
+		
 		// Ancillary methods ------------------------------------------------------
 }
