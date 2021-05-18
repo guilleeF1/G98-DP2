@@ -66,7 +66,7 @@ public class ManagerTaskCreateTest extends AcmePlannerTest {
 		}
 		
 		@ParameterizedTest
-		@CsvFileSource(resources = "/manager/task/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+		@CsvFileSource(resources = "/manager/task/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 		@Order(20)	
 		public void createNegative(final int recordIndex, final String publica, final String titulo, final String periodoEjecucionInicio,
 			final String periodoEjecucionFinal, final String cargaTrabajo, final String cargaTrabajoMinutos, 
