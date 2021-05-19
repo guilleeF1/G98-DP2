@@ -52,10 +52,8 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		assert model != null;
 
 		request.unbind(entity, model, //
-			"numberOfTaskPublic", "numberOfTaskPrivate",
-			"numberOfTaskFinished","numberOfTaskNotFinished", "workloadAverage","workloadMin", "workloadMax",
-			"workloadDeviation", "startPeriodAverage", "finalPeriodAverage", "startPeriodMin", "finalPeriodMin",
-			"startPeriodMax", "finalPeriodMax", "startPeriodDeviation","finalPeriodDeviation");
+			"numberOfTaskPublic", "numberOfTaskPrivate", "numberOfTaskFinished", "numberOfTaskNotFinished", "workloadAverage", "workloadMin", "workloadMax", "workloadDeviation", "startPeriodAverage", "finalPeriodAverage", "startPeriodMin",
+			"finalPeriodMin", "startPeriodMax", "finalPeriodMax", "startPeriodDeviation", "finalPeriodDeviation");
 	}
 
 	@Override
@@ -80,8 +78,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Date finalPeriodMax;
 		Double startPeriodDeviation;
 		Double finalPeriodDeviation;
-		
-		
+
 		numberOfTaskPublic = this.repository.countTaskPublic();
 		numberOfTaskPrivate = this.repository.countTaskPrivate();
 		numberOfTaskFinished = this.repository.countTaskFinished(today);
@@ -98,13 +95,17 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		finalPeriodMax = this.repository.finalPeriodMax();
 		final Collection<Date> periodosI = this.repository.getStartPeriod();
 		final List<Integer> pI = new ArrayList<>();
-		for(final Date d: periodosI) {
-			pI.add(d.getHours());
+		for (final Date d : periodosI) {
+			final Calendar c = Calendar.getInstance();
+			c.setTime(d);
+			pI.add(c.get(Calendar.HOUR));
 		}
 		final Collection<Date> periodosF = this.repository.getFinalPeriod();
 		final List<Integer> pF = new ArrayList<>();
-		for(final Date d: periodosF) {
-			pF.add(d.getHours());
+		for (final Date d : periodosF) {
+			final Calendar c = Calendar.getInstance();
+			c.setTime(d);
+			pF.add(c.get(Calendar.HOUR));
 		}
 		startPeriodDeviation = AdministratorDashboardShowService.calculateSD(pI);
 		finalPeriodDeviation = AdministratorDashboardShowService.calculateSD(pF);
@@ -118,8 +119,8 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setWorkloadMax(workloadMax);
 		result.setWorkloadMin(workloadMin);
 		result.setWorkloadDeviation(workloadDeviation);
-		result.setStartPeriodAverage(startPeriodAverage/120000);
-		result.setFinalPeriodAverage(finalPeriodAverage/120000);
+		result.setStartPeriodAverage(startPeriodAverage / 120000);
+		result.setFinalPeriodAverage(finalPeriodAverage / 120000);
 		result.setFinalPeriodMax(finalPeriodMax);
 		result.setFinalPeriodMin(finalPeriodMin);
 		result.setStartPeriodMax(startPeriodMax);
@@ -129,25 +130,22 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		return result;
 	}
-	
-	 private static double calculateSD(final Collection<Integer> integer)
-	    {
-	        double sum = 0.0, standardDeviation = 0.0;
-	        final int length = integer.size();
 
-	        for(final Integer num : integer) {
-	            sum += num;
-	        }
+	private static double calculateSD(final Collection<Integer> integer) {
+		double sum = 0.0, standardDeviation = 0.0;
+		final int length = integer.size();
 
-	        final double mean = sum/length;
+		for (final Integer num : integer) {
+			sum += num;
+		}
 
-	        for(final Integer num: integer) {
-	            standardDeviation += Math.pow(num - mean, 2);
-	        }
+		final double mean = sum / length;
 
-	        return Math.sqrt(standardDeviation/length);
-	    }
-	 
-	
+		for (final Integer num : integer) {
+			standardDeviation += Math.pow(num - mean, 2);
+		}
+
+		return Math.sqrt(standardDeviation / length);
+	}
 
 }
