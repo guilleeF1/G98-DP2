@@ -12,6 +12,10 @@
 
 package acme.testing.manager.task;
 
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+
 import acme.testing.AcmePlannerTest;
 
 public class ManagerTaskUpdateTest extends AcmePlannerTest {
@@ -20,6 +24,8 @@ public class ManagerTaskUpdateTest extends AcmePlannerTest {
 	
 	// Test cases -------------------------------------------------------------
 	
+	// Prueba de actualización de todos los atributos de una task correctamente 
+	//entrando en la api logueándose como Manager.
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)	
@@ -65,6 +71,15 @@ public class ManagerTaskUpdateTest extends AcmePlannerTest {
 		super.signOut();
 	}
 	
+	//Como resultado esta prueba muestra la task con sus atributos actualizados correctamente tal 
+	//y como aparece en csv indicado en la url de resources actualizando sus atributos en la lista de todas los tasks.
+	
+	//-------------------------------------------------------------------------------------------------------------------------------------
+	
+	// Prueba de la actualización de todos los atributos de una task entrando en la api logueándose como Manager con los atributos no actualizados correctamente 
+	//puesto que el título debe de tener como máximo 79 carácteres, 
+	//el periodo de ejecución inicial debe de ser anterior al periodo de ejecución final 
+	//y la carga de trabajo no debe de ser negativa.
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)	
@@ -93,6 +108,11 @@ public class ManagerTaskUpdateTest extends AcmePlannerTest {
 		
 		super.signOut();
 	}
+	
+	//Como resultado esta prueba no muestra los atributos actualizados de la task correctamente tal y como aparece en csv indicado en la url 
+	//de resources en la lista de todos las tasks a causa de este error de validación en estos atributos
+			
+	//------------------------------------------------------------------------------------------------------
 	
 	// Ancillary methods ------------------------------------------------------
 

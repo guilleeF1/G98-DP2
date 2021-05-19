@@ -12,10 +12,6 @@
 
 package acme.testing.manager.task;
 
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
-import org.springframework.core.annotation.Order;
-
 import acme.testing.AcmePlannerTest;
 
 public class ManagerTaskListTest extends AcmePlannerTest {
@@ -24,7 +20,8 @@ public class ManagerTaskListTest extends AcmePlannerTest {
 	
 	// Test cases -------------------------------------------------------------
 	
-	
+	// Prueba de comprobación de que se pueda obtener la lista de todas
+	//las tasks correctamente entrando en la api logueándose como Manager
 	public void list(final int recordIndex, final String publica, final String titulo, final String periodoEjecucionInicio,
 		final String periodoEjecucionFinal, final String cargaTrabajo, final String cargaTrabajoMinutos, 
 		final String descripcion, final String enlace) {		
@@ -53,6 +50,9 @@ public class ManagerTaskListTest extends AcmePlannerTest {
 		
 		super.signOut();
 	}
+	//Como resultado esta prueba muestra la lista de todas las tasks tal y como aparece en el csv de la url indicada en resources incluyendo las tasks que se hayan creado correctamente
+	
+	//-----------------------------------------------------------------------------------------------------------------
 	
 	// Ancillary methods ------------------------------------------------------
 

@@ -24,6 +24,7 @@ public class AuthenticatedTaskListTest extends AcmePlannerTest {
 	
 	// Test cases -------------------------------------------------------------
 	
+	// Prueba de comprobación de que se pueda obtener la lista de todas las tasks finalizadas correctamente entrando en la api logueándose como cualquier usuario
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)	
@@ -54,6 +55,8 @@ public class AuthenticatedTaskListTest extends AcmePlannerTest {
 		
 		super.signOut();
 	}
+	
+	//Como resultado esta prueba muestra la lista de todas las tasks finalizadas tal y como aparece en el csv de la url indicada en resources
 	
 	// Ancillary methods ------------------------------------------------------
 
