@@ -1,5 +1,5 @@
-recordIndex,moment,author,text
-8,2021/04/27 17:30,Coyote,"Hello, I'm happy"
-9,2021/07/20 11:30,José Mota,Play tennis
-10,2021/02/15 19:30,Pablo,to eat,THB 300.00,0.02,,Lorem ipsum sit dolor amet.
-11,2021/09/05 05:30,Juanito,This is very interesting,THB 300.25,0.01,,Lorem ipsum sit dolor amet.
+recordIndex,author,text
+8,Coyote,"Hello, I'm happy"
+9,José Mota,Play tennis
+10,Pablo,to eat
+11,Juanito,This is very interesting

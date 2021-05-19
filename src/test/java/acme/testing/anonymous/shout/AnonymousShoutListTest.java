@@ -34,12 +34,7 @@ public class AnonymousShoutListTest extends AcmePlannerTest {
 			super.checkColumnHasValue(recordIndex, 0, moment);
 			super.checkColumnHasValue(recordIndex, 1, author);
 			super.checkColumnHasValue(recordIndex, 2, text);
-			
-			super.clickOnListingRecord(recordIndex);
-			
-			super.checkInputBoxHasValue("moment", moment);
-			super.checkInputBoxHasValue("author", author);		
-			super.checkInputBoxHasValue("text", text);
+
 		}
 		
 		// Ancillary methods ------------------------------------------------------
