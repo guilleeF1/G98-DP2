@@ -151,5 +151,5 @@
 			<acme:print value="${finalPeriodDeviation}"/>
 		</td>
 	</tr>
-	
+		
 </table>
