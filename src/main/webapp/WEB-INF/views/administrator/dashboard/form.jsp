@@ -25,7 +25,7 @@
 	</caption>	
 	<tr>
 		<th scope="row">
-			Total number of public tasks
+			<acme:form-textbox code="administrator.dashboard.label.public" path="numberOfTaskPublic" readonly="true"/>
 		</th>
 		<td>
 			<acme:print value="${numberOfTaskPublic}"/>
@@ -33,7 +33,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			Total number of private tasks
+			<acme:form-textbox code="administrator.dashboard.label.private" path="numberOfTaskPrivate" readonly="true"/>
 		</th>
 		<td>
 			<acme:print value="${numberOfTaskPrivate}"/>
@@ -41,7 +41,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			Total number of finished tasks
+			<acme:form-textbox code="administrator.dashboard.label.finished" path="numberOfTaskFinished" readonly="true"/>
 		</th>
 		<td>
 			<acme:print value="${numberOfTaskFinished}"/>
@@ -49,7 +49,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			Total number of not finished tasks
+			<acme:form-textbox code="administrator.dashboard.label.unfinished" path="numberOfTaskNotFinished" readonly="true"/>
 		</th>
 		<td>
 			<acme:print value="${numberOfTaskNotFinished}"/>
@@ -57,7 +57,7 @@
 	</tr>	
 		<tr>
 		<th scope="row">
-			Workload Average
+			<acme:form-textbox code="administrator.dashboard.label.average" path="workloadAverage" readonly="true"/>
 		</th>
 		<td>
 			<acme:print value="${workloadAverage}"/>
@@ -65,15 +65,7 @@
 	</tr>	
 	<tr>
 		<th scope="row">
-			Workload Max
-		</th>
-		<td>
-			<acme:print value="${workloadMin}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			Workload Min
+			<acme:form-textbox code="administrator.dashboard.label.max" path="workloadMax" readonly="true"/>
 		</th>
 		<td>
 			<acme:print value="${workloadMax}"/>
@@ -81,7 +73,15 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			Workload Deviation
+			<acme:form-textbox code="administrator.dashboard.label.min" path="workloadMin" readonly="true"/>
+		</th>
+		<td>
+			<acme:print value="${workloadMin}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:form-textbox code="administrator.dashboard.label.deviation" path="workloadDeviation" readonly="true"/>
 		</th>
 		<td>
 			<acme:print value="${workloadDeviation}"/>
@@ -89,7 +89,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			Start Period Average
+			<acme:form-textbox code="administrator.dashboard.label.startaverage" path="startPeriodAverage" readonly="true"/>
 		</th>
 		<td>
 			<acme:print value="${startPeriodAverage}"/>
@@ -97,7 +97,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			Final Period Average
+			<acme:form-textbox code="administrator.dashboard.label.finalaverage" path="finalPeriodAverage" readonly="true"/>
 		</th>
 		<td>
 			<acme:print value="${finalPeriodAverage}"/>
@@ -105,7 +105,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			Start Period Min
+			<acme:form-textbox code="administrator.dashboard.label.startmin" path="startPeriodMin" readonly="true"/>
 		</th>
 		<td>
 			<acme:print value="${startPeriodMin}"/>
@@ -113,7 +113,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			Final Period Min
+			<acme:form-textbox code="administrator.dashboard.label.finalmin" path="finalPeriodMin" readonly="true"/>
 		</th>
 		<td>
 			<acme:print value="${finalPeriodMin}"/>
@@ -121,7 +121,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			Start Period Max
+			<acme:form-textbox code="administrator.dashboard.label.startmax" path="startPeriodMax" readonly="true"/>
 		</th>
 		<td>
 			<acme:print value="${startPeriodMax}"/>
@@ -129,7 +129,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			Final Period Max
+			<acme:form-textbox code="administrator.dashboard.label.finalmax" path="finalPeriodMax" readonly="true"/>
 		</th>
 		<td>
 			<acme:print value="${finalPeriodMax}"/>
@@ -137,7 +137,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			Start Period Deviation
+			<acme:form-textbox code="administrator.dashboard.label.startdev" path="startPeriodDeviation" readonly="true"/>
 		</th>
 		<td>
 			<acme:print value="${startPeriodDeviation}"/>
@@ -145,7 +145,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			Final Period Deviation
+			<acme:form-textbox code="administrator.dashboard.label.finaldev" path="finalPeriodDeviation" readonly="true"/>
 		</th>
 		<td>
 			<acme:print value="${finalPeriodDeviation}"/>
@@ -153,4 +153,3 @@
 	</tr>
 	
 </table>
-
