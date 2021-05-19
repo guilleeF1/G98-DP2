@@ -1,6 +1,7 @@
 package acme.testing.manager.task;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -48,5 +49,18 @@ public class ManagerTaskDeleteTest extends AcmePlannerTest {
 		
 		super.signOut();
 	}
+	
+	//Se testea que un usuario sin permisos de manager intente borrar una tarea y que, a consecuencia, salte un panic error
+	@Test
+	@Order(11)
+	public void deleteNegative() {		
+		super.signIn("user1", "user1");
+		
+		super.navigate("Acme-Planner/manager/task/delete","id=273");
+		
+		super.checkPanicExists();
+		
+		super.signOut();
+	} 
 
 }

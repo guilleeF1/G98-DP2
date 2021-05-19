@@ -41,6 +41,15 @@ public abstract class AcmeTest extends AbstractTest {
 		locator = By.xpath(String.format("//button[@type='submit' and normalize-space()='%s']", label));
 		assert super.exists(locator) : String.format("Cannot find button '%s'", label);
 	}
+	
+	protected void checkButtonNotExists(final String label) {
+		assert !StringHelper.isBlank(label);
+
+		By locator;
+
+		locator = By.xpath(String.format("//button[@type='submit' and normalize-space()='%s']", label));
+		assert !super.exists(locator) : String.format("Button '%s' found, it shouldn't be here", label);
+	}
 
 	protected void checkAlertExists(final boolean success) {
 		By locator;
@@ -52,11 +61,17 @@ public abstract class AcmeTest extends AbstractTest {
 	}
 
 	protected void checkPanicExists() {
-		assert false;
+		By locator;
+
+		locator = By.xpath("//h1[normalize-space() = 'Unexpected error']");
+		assert super.exists(locator) : "Action didn't result in panic";		
 	}
 
 	protected void checkNotPanicExists() {
-		assert false;
+		By locator;
+
+		locator = By.xpath("h1[normalize-space() = 'Unexpected error'");
+		assert !super.exists(locator) : "Action resulted in panic";
 	}
 
 	protected void checkErrorsExist() {
@@ -199,6 +214,7 @@ public abstract class AcmeTest extends AbstractTest {
 		return !contents.equals(value) ;
 	}
 
+	
 	// Form-filling methods ---------------------------------------------------
 
 	protected void fillInputBoxIn(final String name, final String value) {
