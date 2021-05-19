@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.testing.manager.task;
+package acme.testing.anonymous.task;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -18,27 +18,27 @@ import org.springframework.core.annotation.Order;
 
 import acme.testing.AcmePlannerTest;
 
-public class ManagerTaskListTest extends AcmePlannerTest {
+public class AnonymousTaskListTest extends AcmePlannerTest {
 
 	// Lifecycle management ---------------------------------------------------
 	
 	// Test cases -------------------------------------------------------------
 	
-	
+	@ParameterizedTest
+	@CsvFileSource(resources = "/anonymous/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@Order(10)	
 	public void list(final int recordIndex, final String publica, final String titulo, final String periodoEjecucionInicio,
 		final String periodoEjecucionFinal, final String cargaTrabajo, final String cargaTrabajoMinutos, 
-		final String descripcion, final String enlace) {		
-		super.signIn("manager1", "manager1");
+		final String descripcion, final String enlace) {
 		
-		super.clickOnMenu("Manager", "My tasks");		
+		super.clickOnMenu("Anonymous", "List tasks");		
 		
-		super.checkColumnHasValue(recordIndex, 0, publica);
-		super.checkColumnHasValue(recordIndex, 1, titulo);
-		super.checkColumnHasValue(recordIndex, 2, periodoEjecucionInicio);
-		super.checkColumnHasValue(recordIndex, 3, periodoEjecucionFinal);
-		super.checkColumnHasValue(recordIndex, 4, cargaTrabajo);
-		super.checkColumnHasValue(recordIndex, 5, descripcion);
-		super.checkColumnHasValue(recordIndex, 6, enlace);
+		super.checkColumnHasValue(recordIndex, 0, titulo);
+		super.checkColumnHasValue(recordIndex, 1, periodoEjecucionInicio);
+		super.checkColumnHasValue(recordIndex, 2, periodoEjecucionFinal);
+		super.checkColumnHasValue(recordIndex, 3, cargaTrabajo);
+		super.checkColumnHasValue(recordIndex, 4, descripcion);
+		super.checkColumnHasValue(recordIndex, 5, enlace);
 		
 		super.clickOnListingRecord(recordIndex);
 		
@@ -50,8 +50,6 @@ public class ManagerTaskListTest extends AcmePlannerTest {
 		super.checkInputBoxHasValue("cargaTrabajoMinutos", cargaTrabajoMinutos);
 		super.checkInputBoxHasValue("descripcion", descripcion);
 		super.checkInputBoxHasValue("enlace", enlace);
-		
-		super.signOut();
 	}
 	
 	// Ancillary methods ------------------------------------------------------

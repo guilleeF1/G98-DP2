@@ -311,6 +311,30 @@
 		<property name="manager" ref="manager2Manager"/>
 	</bean>
 	
+	<!-- User -->
+	
+	<bean name="userAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="user1" />
+		<property name="password" value="user1" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="User" />
+				<property name="surname" value="User.com" />
+				<property name="email" value="user@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="userAuthenticated" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="userAuthenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="userAccount" />
+	</bean>
+	
 	<!-- Manager -->
 	
 	<bean name="managerUserAccount" class="acme.framework.entities.UserAccount">
