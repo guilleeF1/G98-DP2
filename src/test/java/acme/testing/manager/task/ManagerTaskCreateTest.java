@@ -11,7 +11,10 @@ public class ManagerTaskCreateTest extends AcmePlannerTest {
 	// Lifecycle management ---------------------------------------------------
 	
 		// Test cases -------------------------------------------------------------
-		
+	
+		// Prueba de creación de task con sus atributos añadidos correctamente 
+		//entrando en la api logueándose como Manager.
+  
 		@ParameterizedTest
 		@CsvFileSource(resources = "/manager/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 		@Order(10)	
@@ -65,6 +68,16 @@ public class ManagerTaskCreateTest extends AcmePlannerTest {
 			super.signOut();
 		}
 		
+		//Como resultado esta prueba muestra la task creada correctamente tal 
+		//y como aparece en csv indicado en la url de resources añadiendola en la lista de todas los tasks.
+		
+		//-------------------------------------------------------------------------------------------------------------------------------------
+				
+		// Prueba de creación de task entrando en la api logueándose como Manager con los atributos no añadidos correctamente 
+		//puesto que el título debe de tener como máximo 79 carácteres, 
+		//el periodo de ejecución inicial debe de ser anterior al periodo de ejecución final 
+		//y la carga de trabajo no debe de ser negativa.
+		
 		@ParameterizedTest
 		@CsvFileSource(resources = "/manager/task/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 		@Order(20)	
@@ -93,6 +106,11 @@ public class ManagerTaskCreateTest extends AcmePlannerTest {
 			
 			super.signOut();
 		}
+		
+		//Como resultado esta prueba no muestra la task creada correctamente tal y como aparece en csv indicado en la url 
+		//de resources en la lista de todos las tasks a causa de este error de validación en estos atributos
+		
+		//------------------------------------------------------------------------------------------------------
 		
 		// Ancillary methods ------------------------------------------------------
 }

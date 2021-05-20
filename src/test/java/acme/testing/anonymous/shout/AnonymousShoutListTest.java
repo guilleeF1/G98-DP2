@@ -24,6 +24,7 @@ public class AnonymousShoutListTest extends AcmePlannerTest {
 	
 		// Test cases -------------------------------------------------------------
 		
+		// Prueba de comprobación de que se pueda obtener la lista de todos los shouts correctamente entrando en la api sin loguearse (Anónimo)
 		@ParameterizedTest
 		@CsvFileSource(resources = "/anonymous/shout/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 		@Order(10)	
@@ -36,6 +37,11 @@ public class AnonymousShoutListTest extends AcmePlannerTest {
 			super.checkColumnHasValue(recordIndex, 2, text);
 
 		}
+		
+		//Como resultado esta prueba muestra la lista de todos los shouts tal y como aparece en el csv de la url indicada en resources incluyendo los shouts que se hayan creado correctamente
+		
+		//------------------------------------------------------------------------------------------------------
+
 		
 		// Ancillary methods ------------------------------------------------------
 

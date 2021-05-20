@@ -10,6 +10,8 @@ import acme.testing.AcmePlannerTest;
 
 public class ManagerTaskDeleteTest extends AcmePlannerTest {
 	
+	// Prueba de eliminación de una task 
+	//entrando en la api logueándose como Manager.
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/delete.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
@@ -50,6 +52,9 @@ public class ManagerTaskDeleteTest extends AcmePlannerTest {
 		super.signOut();
 	}
 	
+	//Como resultado esta prueba muestra la task eliminada correctamente tal 
+	//y como aparece en csv indicado en la url de resources eliminando dicha task de la lista de todas los tasks.
+  
 	//Se testea que un usuario sin permisos de manager intente borrar una tarea y que, a consecuencia, salte un panic error
 	@Test
 	@Order(11)

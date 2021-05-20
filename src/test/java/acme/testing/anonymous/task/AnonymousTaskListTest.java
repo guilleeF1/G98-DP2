@@ -24,6 +24,7 @@ public class AnonymousTaskListTest extends AcmePlannerTest {
 	
 	// Test cases -------------------------------------------------------------
 	
+	// Prueba de comprobación de que se pueda obtener la lista de todas las tasks correctamente entrando en la api sin loguearse (Anónimo)
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)	
@@ -51,6 +52,10 @@ public class AnonymousTaskListTest extends AcmePlannerTest {
 		super.checkInputBoxHasValue("descripcion", descripcion);
 		super.checkInputBoxHasValue("enlace", enlace);
 	}
+	
+	//Como resultado esta prueba muestra la lista de todas las tasks tal y como aparece en el csv de la url indicada en resources incluyendo las tasks que se hayan creado correctamente
+	
+	//------------------------------------------------------------------------------------------------------
 	
 	// Ancillary methods ------------------------------------------------------
 
