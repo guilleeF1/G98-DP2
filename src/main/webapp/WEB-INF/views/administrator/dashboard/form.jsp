@@ -11,7 +11,6 @@
 --%>
 
 <%@page language="java"%>
-
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
@@ -25,7 +24,7 @@
 	</caption>	
 	<tr>
 		<th scope="row">
-			<acme:form-textbox code="administrator.dashboard.label.public" path="numberOfTaskPublic" readonly="true"/>
+			<acme:message code="administrator.dashboard.label.public"/>
 		</th>
 		<td>
 			<acme:print value="${numberOfTaskPublic}"/>
@@ -33,7 +32,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:form-textbox code="administrator.dashboard.label.private" path="numberOfTaskPrivate" readonly="true"/>
+			<acme:message code="administrator.dashboard.label.private"/>
 		</th>
 		<td>
 			<acme:print value="${numberOfTaskPrivate}"/>
@@ -41,7 +40,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:form-textbox code="administrator.dashboard.label.finished" path="numberOfTaskFinished" readonly="true"/>
+			<acme:message code="administrator.dashboard.label.finished"/>
 		</th>
 		<td>
 			<acme:print value="${numberOfTaskFinished}"/>
@@ -49,7 +48,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:form-textbox code="administrator.dashboard.label.unfinished" path="numberOfTaskNotFinished" readonly="true"/>
+			<acme:message code="administrator.dashboard.label.unfinished"/>
 		</th>
 		<td>
 			<acme:print value="${numberOfTaskNotFinished}"/>
@@ -57,7 +56,7 @@
 	</tr>	
 		<tr>
 		<th scope="row">
-			<acme:form-textbox code="administrator.dashboard.label.average" path="workloadAverage" readonly="true"/>
+			<acme:message code="administrator.dashboard.label.average"/>
 		</th>
 		<td>
 			<acme:print value="${workloadAverage}"/>
@@ -65,7 +64,7 @@
 	</tr>	
 	<tr>
 		<th scope="row">
-			<acme:form-textbox code="administrator.dashboard.label.max" path="workloadMax" readonly="true"/>
+			<acme:message code="administrator.dashboard.label.max"/>
 		</th>
 		<td>
 			<acme:print value="${workloadMax}"/>
@@ -73,7 +72,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:form-textbox code="administrator.dashboard.label.min" path="workloadMin" readonly="true"/>
+			<acme:message code="administrator.dashboard.label.min"/>
 		</th>
 		<td>
 			<acme:print value="${workloadMin}"/>
@@ -81,7 +80,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:form-textbox code="administrator.dashboard.label.deviation" path="workloadDeviation" readonly="true"/>
+			<acme:message code="administrator.dashboard.label.deviation"/>
 		</th>
 		<td>
 			<acme:print value="${workloadDeviation}"/>
@@ -89,7 +88,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:form-textbox code="administrator.dashboard.label.startaverage" path="startPeriodAverage" readonly="true"/>
+			<acme:message code="administrator.dashboard.label.startaverage"/>
 		</th>
 		<td>
 			<acme:print value="${startPeriodAverage}"/>
@@ -97,7 +96,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:form-textbox code="administrator.dashboard.label.finalaverage" path="finalPeriodAverage" readonly="true"/>
+			<acme:message code="administrator.dashboard.label.finalaverage"/>
 		</th>
 		<td>
 			<acme:print value="${finalPeriodAverage}"/>
@@ -105,7 +104,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:form-textbox code="administrator.dashboard.label.startmin" path="startPeriodMin" readonly="true"/>
+			<acme:message code="administrator.dashboard.label.startmin"/>
 		</th>
 		<td>
 			<acme:print value="${startPeriodMin}"/>
@@ -113,7 +112,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:form-textbox code="administrator.dashboard.label.finalmin" path="finalPeriodMin" readonly="true"/>
+			<acme:message code="administrator.dashboard.label.finalmin"/>
 		</th>
 		<td>
 			<acme:print value="${finalPeriodMin}"/>
@@ -121,7 +120,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:form-textbox code="administrator.dashboard.label.startmax" path="startPeriodMax" readonly="true"/>
+			<acme:message code="administrator.dashboard.label.startmax"/>
 		</th>
 		<td>
 			<acme:print value="${startPeriodMax}"/>
@@ -129,7 +128,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:form-textbox code="administrator.dashboard.label.finalmax" path="finalPeriodMax" readonly="true"/>
+			<acme:message code="administrator.dashboard.label.finalmax"/>
 		</th>
 		<td>
 			<acme:print value="${finalPeriodMax}"/>
@@ -137,7 +136,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:form-textbox code="administrator.dashboard.label.startdev" path="startPeriodDeviation" readonly="true"/>
+			<acme:message code="administrator.dashboard.label.startdev"/>
 		</th>
 		<td>
 			<acme:print value="${startPeriodDeviation}"/>
@@ -145,7 +144,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:form-textbox code="administrator.dashboard.label.finaldev" path="finalPeriodDeviation" readonly="true"/>
+			<acme:message code="administrator.dashboard.label.finaldev"/>
 		</th>
 		<td>
 			<acme:print value="${finalPeriodDeviation}"/>
