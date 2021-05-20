@@ -30,9 +30,9 @@ public class AnonymousShoutListTest extends AcmePlannerTest {
 		@Order(10)	
 		public void listShoutsWithAnonymous(final int recordIndex, final String moment, final String author, final String text) {
 			
-			super.clickOnMenu("Anonymous", "List shouts");		
+			super.clickOnMenu("Anonymous", "List shouts");
 			
-			super.checkColumnHasValue(recordIndex, 0, moment);
+//			super.checkColumnHasValue(recordIndex, 0, moment);
 			super.checkColumnHasValue(recordIndex, 1, author);
 			super.checkColumnHasValue(recordIndex, 2, text);
 
