@@ -21,6 +21,7 @@ public class SignUpTest extends AcmePlannerTest {
 
 	// Test cases -------------------------------------------------------------
 
+	//Prueba de registrarse en la app con todos los atributos rellenados correctamente
 	@ParameterizedTest
 	@CsvFileSource(resources = "/sign-up/positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
@@ -29,6 +30,23 @@ public class SignUpTest extends AcmePlannerTest {
 		super.signIn(username, password);
 		super.signOut();
 	}
+	//Como resultado obtenemos la creación de una nueva cuenta correctamente para registrarnos en la app.
+	
+	//----------------------------------------------------------------------------------------------------------------
+	
+	//Prueba de registrarse en la app con varios errores en los atributos a rellenar en el formulario ya que name, 
+	//surname y email no pueden estar vacios y el email debe de tener su formato correctamente.
+	@ParameterizedTest
+	@CsvFileSource(resources = "/sign-up/negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@Order(10)
+	public void negativeSignUp(final String username, final String password, final String name, final String surname, final String email) {
+		super.signUp(username, password, name, surname, email);
+		super.signIn(username, password);
+		super.signOut();
+	}
+	//Como resultado obtenemos errores de validaciones puesto que no se han rellenado correctamente estos atributos citados anteriormente
+	
+	//-------------------------------------------------------------------------------------------------------------
 
 	// Ancillary methods ------------------------------------------------------
 	
