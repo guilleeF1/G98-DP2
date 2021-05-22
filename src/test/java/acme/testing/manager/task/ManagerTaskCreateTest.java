@@ -1,6 +1,7 @@
 package acme.testing.manager.task;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -112,5 +113,17 @@ public class ManagerTaskCreateTest extends AcmePlannerTest {
 		
 		//------------------------------------------------------------------------------------------------------
 		
-		// Ancillary methods ------------------------------------------------------
+		//En este test comprobamos que, un usuario sin permisos de manager, no puede crear tareas
+		@Test
+		@Order(11)
+		public void createNegative2() {		
+			super.signIn("user1", "user1");
+			
+			super.navigate("Acme-Planner/manager/task/update","");
+			
+			super.checkPanicExists();
+			
+			super.signOut();
+		} 
+		//al acceder el usuario a una funcionalidad para la que no tiene permisos, se espera un panic.
 }

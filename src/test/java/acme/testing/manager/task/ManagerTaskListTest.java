@@ -12,6 +12,10 @@
 
 package acme.testing.manager.task;
 
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import org.springframework.core.annotation.Order;
+
 import acme.testing.AcmePlannerTest;
 
 public class ManagerTaskListTest extends AcmePlannerTest {
@@ -20,6 +24,9 @@ public class ManagerTaskListTest extends AcmePlannerTest {
 	
 	// Test cases -------------------------------------------------------------
 	
+	@ParameterizedTest
+	@CsvFileSource(resources = "/manager/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@Order(20)
 	// Prueba de comprobación de que se pueda obtener la lista de todas
 	//las tasks correctamente entrando en la api logueándose como Manager
 	public void list(final int recordIndex, final String publica, final String titulo, final String periodoEjecucionInicio,
@@ -50,10 +57,36 @@ public class ManagerTaskListTest extends AcmePlannerTest {
 		
 		super.signOut();
 	}
-	//Como resultado esta prueba muestra la lista de todas las tasks tal y como aparece en el csv de la url indicada en resources incluyendo las tasks que se hayan creado correctamente
-	
 	//-----------------------------------------------------------------------------------------------------------------
 	
-	// Ancillary methods ------------------------------------------------------
+	@ParameterizedTest
+	@CsvFileSource(resources = "/manager/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@Order(20)
+	// Prueba de comprobación de que un manager no puede visualizar las tareas de otro manager
+	//Comprobamos que la lista de tareas que puede ver manager 2 no coinciden con las que puede ver manager1, que son las que pasamos por el csv
+	public void listNegativeOtherManager(final int recordIndex, final String publica, final String titulo, final String periodoEjecucionInicio,
+		final String periodoEjecucionFinal, final String cargaTrabajo, final String cargaTrabajoMinutos, 
+		final String descripcion, final String enlace) {		
+		super.signIn("manager2", "manager2");
+		
+		super.clickOnMenu("Manager", "My tasks");		
+		
+		assert super.checkColumnHasNoValue(recordIndex, 0, publica) ||
+		super.checkColumnHasNoValue(recordIndex, 1, titulo) ||
+		super.checkColumnHasNoValue(recordIndex, 2, periodoEjecucionInicio) ||
+		super.checkColumnHasNoValue(recordIndex, 3, periodoEjecucionFinal) ||
+		super.checkColumnHasNoValue(recordIndex, 4, cargaTrabajo) ||
+		super.checkColumnHasNoValue(recordIndex, 5, descripcion) ||
+		super.checkColumnHasNoValue(recordIndex, 6, enlace);
+		
+		
+		super.signOut();
+	}
+	
+	
+	//Como resultado esta prueba muestra la lista de todas las tasks tal y como aparece en el csv de la url indicada en resources incluyendo las tasks que se hayan creado correctamente
+	
+	
+	
 
 }
