@@ -9,7 +9,7 @@ import acme.testing.AcmePlannerTest;
 public class AdministratorSpamWordUpdateTest extends AcmePlannerTest {
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/updateSpamWord/positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/administrator/updateSpamWord/positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positiveUpdateSpamWord(final int recordIndex, final String word) {
 		
@@ -28,7 +28,7 @@ public class AdministratorSpamWordUpdateTest extends AcmePlannerTest {
 	}
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/updateSpamWord/negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/administrator/updateSpamWord/negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void negativeUpdateSpamWord(final int recordIndex, final String word) {
 		
