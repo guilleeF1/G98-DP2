@@ -25,9 +25,6 @@ public class ManagerTaskListTest extends AcmePlannerTest {
 	
 	// Test cases -------------------------------------------------------------
 	
-	@ParameterizedTest
-	@CsvFileSource(resources = "/manager/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
-	@Order(20)
 	// Prueba de comprobación de que se pueda obtener la lista de todas
 	//las tasks correctamente entrando en la api logueándose como Manager
 	@ParameterizedTest
