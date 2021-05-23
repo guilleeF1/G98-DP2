@@ -28,8 +28,7 @@ public class SignInTest extends AcmePlannerTest {
 		@CsvFileSource(resources = "/sign-in/negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 		@Order(10)
 		public void negativeSignIn(final String username, final String password) {
-			super.signIn(username, password);
-			super.signOut();
+			super.signInNegative(username, password);
 		}
 		//Como resultado de la prueba de logueo obtenemos un error de inicio de 
 		//sesión ya que dicho usuario no está registrado en la app.

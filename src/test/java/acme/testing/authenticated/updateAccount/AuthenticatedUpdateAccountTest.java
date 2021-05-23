@@ -12,20 +12,22 @@ public class AuthenticatedUpdateAccountTest extends AcmePlannerTest {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/account/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)	
-	public void updatePositiveAccount(final String username, final String password, final String confirmation, 
-		final String name, final String surname, final String email) {		
+	public void updatePositiveAccount(final String name, final String surname, final String email) {		
 		super.signIn("manager1", "manager1");
 		
 		super.clickOnMenu("Account", "General data");	
 		
-		super.fillInputBoxIn("username", username);
-		super.fillInputBoxIn("password", password);
-		super.fillInputBoxIn("confirmation", confirmation);
-		super.fillInputBoxIn("name", name);
-		super.fillInputBoxIn("surname", surname);
-		super.fillInputBoxIn("email", email);
+		super.fillInputBoxIn("identity.name", name);
+		super.fillInputBoxIn("identity.surname", surname);
+		super.fillInputBoxIn("identity.email", email);
 		
 		super.clickOnSubmitButton("Update");
+		
+		super.clickOnMenu("Account", "General data");	
+
+		super.checkInputBoxHasValue("identity.name", name);
+		super.checkInputBoxHasValue("identity.surname", surname);
+		super.checkInputBoxHasValue("identity.email", email);
 		
 		super.signOut();
 	}
@@ -38,20 +40,18 @@ public class AuthenticatedUpdateAccountTest extends AcmePlannerTest {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/account/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)	
-	public void updateNegativeAccount(final int recordIndex, final String username, final String password, final String confirmation, 
-		final String name, final String surname, final String email) {		
+	public void updateNegativeAccount(final String name, final String surname, final String email) {		
 		super.signIn("manager1", "manager1");
 		
 		super.clickOnMenu("Account", "General data");	
 		
-		super.fillInputBoxIn("username", username);
-		super.fillInputBoxIn("password", password);
-		super.fillInputBoxIn("confirmation", confirmation);
-		super.fillInputBoxIn("name", name);
-		super.fillInputBoxIn("surname", surname);
-		super.fillInputBoxIn("email", email);
+		super.fillInputBoxIn("identity.name", name);
+		super.fillInputBoxIn("identity.surname", surname);
+		super.fillInputBoxIn("identity.email", email);
 		
 		super.clickOnSubmitButton("Update");
+
+		super.checkErrorsExist();
 		
 		super.signOut();
 	}
