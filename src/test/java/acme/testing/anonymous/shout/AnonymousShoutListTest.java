@@ -13,6 +13,7 @@
 package acme.testing.anonymous.shout;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -42,8 +43,35 @@ public class AnonymousShoutListTest extends AcmePlannerTest {
 		
 		//------------------------------------------------------------------------------------------------------
 
+		//Este test comprueba que un usuario registrado no puede acceder a shout, ya que es una funcionalidad de anónimo.
+		@Test
+		@Order(10)
+		public void listShoutNegative() {		
+			super.signIn("user1", "user1");	
+			
+			super.navigate("/anonymous/shout/list","");
+			
+			super.checkPanicExists();
+			
+			super.signOut();
+		}
+		//Como resultado, se generará un error de tipo Panic, ya que estamos accediendo a una funcionalidad para la que no tenemos los permisos adecuados
 		
-		// Ancillary methods ------------------------------------------------------
+		//------------------------------------------------------------------------------------------------------
+		
+		//Este test comprueba que tampoco los admin pueden acceder a la funcionalidad shout.
+				@Test
+				@Order(10)
+				public void listShoutNegative2() {		
+					super.signIn("administrator", "administrator");	
+					
+					super.navigate("/anonymous/shout/list","");
+					
+					super.checkPanicExists();
+					
+					super.signOut();
+				}
+				//Como resultado, se generará un error de tipo Panic, ya que estamos accediendo a una funcionalidad para la que no tenemos los permisos adecuados
 
 
 }
