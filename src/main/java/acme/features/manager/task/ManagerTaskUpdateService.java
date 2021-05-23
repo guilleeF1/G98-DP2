@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
 import acme.entities.roles.Manager;
 import acme.entities.spamword.Spamword;
 import acme.entities.tasks.Task;
-import acme.entities.treshold.Treshold;
+import acme.entities.threshold.Threshold;
 import acme.features.administrator.spamword.AdministratorSpamwordRepository;
-import acme.features.administrator.treshold.AdministratorTresholdRepository;
+import acme.features.administrator.threshold.AdministratorThresholdRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -31,7 +31,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 	@Autowired
 	protected AdministratorSpamwordRepository	spamRepository;
 	@Autowired
-	protected AdministratorTresholdRepository	tresholdRepository;
+	protected AdministratorThresholdRepository	thresholdRepository;
 
 	// AbstractListService<Employer, Job> -------------------------------------
 
@@ -145,10 +145,10 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		final List<Spamword> cs2 = new ArrayList<>();
 		cs2.addAll(cs);
 
-		final Collection<Treshold> ct = this.tresholdRepository.findMany();
-		final List<Treshold> l = new ArrayList<>();
+		final Collection<Threshold> ct = this.thresholdRepository.findMany();
+		final List<Threshold> l = new ArrayList<>();
 		l.addAll(ct);
-		final Treshold t = l.get(0);
+		final Threshold t = l.get(0);
 
 		return Spamword.isSpam(texto.toLowerCase(), cs2, t);
 	}

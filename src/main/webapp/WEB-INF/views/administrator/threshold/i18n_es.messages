@@ -8,6 +8,6 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.treshold.form.label.umbral = Treshold:
-administrator.treshold.form.button.update = Update
-administrator.treshold.form.button.return = Volver
+administrator.threshold.form.label.umbral = Umbral:
+administrator.threshold.form.button.update = Actualizar
+administrator.threshold.form.button.return = Volver

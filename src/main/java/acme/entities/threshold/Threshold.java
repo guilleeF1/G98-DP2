@@ -1,4 +1,4 @@
-package acme.entities.treshold;
+package acme.entities.threshold;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
@@ -10,7 +10,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Treshold extends DomainEntity {
+public class Threshold extends DomainEntity {
 
 	protected static final long	serialVersionUID = 1L;
 
