@@ -9,15 +9,15 @@ import acme.testing.AcmePlannerTest;
 public class AdministratorThresholdListTest extends AcmePlannerTest {
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/administrator/threshold/list.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/administrator/threshold/show.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void listSpamWord(final int recordIndex, final String word) {
+	public void listSpamWord(final int recordIndex, final String umbral) {
 		
 		super.signIn("administrator", "administrator");
+		
 		super.clickOnMenu("Administrator", "Spam threshold");
 		
-		super.checkColumnHasValue(recordIndex, 0, word);
-		
+		super.checkInputBoxHasValue("umbral", umbral);		
 		this.signOut();
 	}
 }
