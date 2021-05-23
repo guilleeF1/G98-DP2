@@ -187,6 +187,50 @@ public abstract class AcmeTest extends AbstractTest {
 		assert contents.equals(value) : String.format("Expected value '%s' in attribute %d of record %d, but found '"+ contents + "'", expectedValue, attributeIndex, recordIndex, value);
 	}
 	
+	protected void checkTaskOrder() {
+		int recordIndex = 0;
+		final int attributeIndex = 4;
+		// expectedValue is nullable
+
+		List<WebElement> row;
+		WebElement attribute, toggle;
+		String contents = "";
+		Integer lastWorkload = Integer.MAX_VALUE;
+		Boolean b = true;
+
+		try {
+			while (true) {
+				row = this.getListingRecord(recordIndex);
+				assert attributeIndex + 1 < row.size() : String.format("Attribute %d in record %d is out of range", attributeIndex, recordIndex);
+				attribute = row.get(attributeIndex + 1);
+				if (attribute.isDisplayed())
+					contents = attribute.getText();
+				else {
+					toggle = row.get(0);
+					toggle.click();
+					contents = (String) this.executor.executeScript("return arguments[0].innerText;", attribute);
+					toggle.click();
+				}
+				contents = (contents == null ? "" : contents.trim());
+				if (Integer.parseInt(contents) < lastWorkload) {
+					lastWorkload = Integer.parseInt(contents);
+				}
+				else {
+					b = false;
+					break;
+				}
+				recordIndex += 1;
+			}
+			
+		}
+		catch (final Exception e) {
+			
+		}
+
+
+		assert b : String.format("The list is not well ordered, " + lastWorkload + " is smaller than " + contents);
+	}
+	
 	protected Boolean checkColumnHasNoValue(final int recordIndex, final int attributeIndex, final String expectedValue) {
 		assert recordIndex >= 0;
 		assert attributeIndex >= 0;
