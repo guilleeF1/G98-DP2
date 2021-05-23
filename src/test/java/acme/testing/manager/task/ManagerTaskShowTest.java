@@ -46,19 +46,36 @@ public class ManagerTaskShowTest extends AcmePlannerTest{
 			super.signOut();
 		}
 		
-		//Comprueba que un manager no puede mostrar los detalles de una tarea que ha creado otro manager distinto
+		//Comprueba que un anónimo no puede acceder a la vista de detalles de una tarea
+				@Test
+				@Order(11)
+				public void showNegative() {		
+					
+					super.navigate("Acme-Planner/manager/task/show","id=273");
+					
+					super.checkPanicExists();
+					
+				} 
+		//A consecuencia, saltará un error Panic, ya que no se tienen los permisos necesarios para mostrar los detalles de la tarea
+		
+		
+		
+		//Comprueba que un manager no puede, desde la vista de detalles de una tarea, ver los botones para editar o borrar una tarea de otro manager. 
 		//la tarea 273 fue creada por manager1
 		@Test
 		@Order(11)
-		public void deleteNegative2() {		
+		public void showNegative2() {		
 			super.signIn("manager2", "manager2");
 			
 			super.navigate("Acme-Planner/manager/task/show","id=273");
 			
-			super.checkPanicExists();
+			super.checkButtonNotExists("Delete");
+			
+			super.checkButtonNotExists("Update");
 			
 			super.signOut();
+			
 		} 
-		//A consecuencia, saltará un error Panic, ya que el manager 2 no tiene permisos sobre la task 273 
+		//
 
 }
