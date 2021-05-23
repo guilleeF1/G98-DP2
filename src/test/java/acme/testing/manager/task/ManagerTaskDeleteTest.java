@@ -67,5 +67,20 @@ public class ManagerTaskDeleteTest extends AcmePlannerTest {
 		
 		super.signOut();
 	} 
+	
+	
+	//Comprueba que un manager no puede borrar las tareas que ha creado otro manager distinto
+	@Test
+	@Order(11)
+	public void deleteNegative2() {		
+		super.signIn("manager2", "manager2");
+		
+		super.navigate("Acme-Planner/manager/task/delete","id=273");
+		
+		super.checkPanicExists();
+		
+		super.signOut();
+	} 
+	//A consecuencia, saltará un error Panic, ya que el manager 2 no tiene permisos sobre la task 273 (que pertenece al manager 1)
 
 }

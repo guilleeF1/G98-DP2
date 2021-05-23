@@ -12,6 +12,7 @@
 
 package acme.testing.authenticated.task;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.core.annotation.Order;
@@ -58,6 +59,32 @@ public class AuthenticatedTaskListTest extends AcmePlannerTest {
 	
 	//Como resultado esta prueba muestra la lista de todas las tasks finalizadas tal y como aparece en el csv de la url indicada en resources
 	
-	// Ancillary methods ------------------------------------------------------
+	//---------------------------------------------------------------------------------------------------------
+	
+	//Este test comprueba que un usuario con rol de administrador no puede acceder a la lista de tareas que tienen los usuarios registrados (authenticated)
+	@Test
+	@Order(10)
+	public void listAuthenticatedTaskNegative() {		
+		super.signIn("administrator", "administrator");	
+		
+		super.navigate("/authenticated/task/list-finished","");
+		
+		super.checkPanicExists();
+		
+		super.signOut();
+	}
+	//Como resultado, se generará un error de tipo Panic, ya que estamos accediendo a una funcionalidad para la que no tenemos los permisos adecuados
+	
+	//Este test comprueba que los usuarios sin registrar no pueden acceder a la lista de tareas que tienen los usuarios registrados(authenticated)
+		@Test
+		@Order(10)
+		public void listAuthenticatedTaskNegative2() {		
+			
+			super.navigate("/authenticated/task/list-finished","");
+			
+			super.checkPanicExists();
+			
+		}
+		//Como resultado, se generará un error de tipo Panic, ya que estamos accediendo a una funcionalidad para la que no tenemos los permisos adecuados
 
 }
