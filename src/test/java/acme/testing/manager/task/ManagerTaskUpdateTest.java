@@ -12,6 +12,7 @@
 
 package acme.testing.manager.task;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.core.annotation.Order;
@@ -114,7 +115,18 @@ public class ManagerTaskUpdateTest extends AcmePlannerTest {
 			
 	//------------------------------------------------------------------------------------------------------
 	
-	// Ancillary methods ------------------------------------------------------
-
+	//Prueba para comprobar que un manager (manager2) no puede actualizar una tarea de otro manager (manager1)
+	@Test
+	@Order(11)
+	public void updateNegative2() {		
+		super.signIn("manager2", "manager2");
+		
+		super.navigate("Acme-Planner/manager/task/update","id=273");
+		
+		super.checkPanicExists();
+		
+		super.signOut();
+	} 
+	//Como resultado, como el manager ha accedido a las tareas de otro manager, se generará un panic error
 
 }
