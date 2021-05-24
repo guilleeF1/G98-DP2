@@ -65,8 +65,23 @@ public class AuthenticatedTaskListTest extends AcmePlannerTest {
 	}
 	
 	//Como resultado esta prueba muestra la lista de todas las tasks finalizadas tal y como aparece en el csv de la url indicada en resources
+
+	// Aquí comprobamos que las tareas se listan por su workload
+	@Test
+	@Order(30)	
+	public void order() {
+		super.signIn("user1", "user1");
+		
+		super.clickOnMenu("Authenticated", "List finished tasks");			
+		
+		super.checkTaskOrder();
+		
+		super.signOut();
+	}
 	
-	//---------------------------------------------------------------------------------------------------------
+	// El resultado es un boolean que nos indica si al recorrer las entradas, sus workloads estaban ordenados correctamente
+	
+	// Ancillary methods ------------------------------------------------------
 	
 	//Este test comprueba que un usuario con rol de administrador no puede acceder a la lista de tareas que tienen los usuarios registrados (authenticated)
 	@Test
