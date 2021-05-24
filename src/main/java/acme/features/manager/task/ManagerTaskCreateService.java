@@ -73,8 +73,6 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		result = new Task();
 		result.setPublica(true);
 		result.setTitulo("Titulo");
-		result.setPeriodoEjecucionInicio(inicio);
-		result.setPeriodoEjecucionFinal(fin);
 		result.setCargaTrabajo(1);
 		result.setDescripcion("Descripcion");
 		result.setEnlace("https://clockify.me/tracker");
