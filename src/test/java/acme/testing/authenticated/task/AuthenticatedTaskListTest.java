@@ -12,9 +12,16 @@
 
 package acme.testing.authenticated.task;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.openqa.selenium.WebElement;
 import org.springframework.core.annotation.Order;
 
 import acme.testing.AcmePlannerTest;
@@ -101,5 +108,26 @@ public class AuthenticatedTaskListTest extends AcmePlannerTest {
 			
 		}
 		//Como resultado, se generará un error de tipo Panic, ya que estamos accediendo a una funcionalidad para la que no tenemos los permisos adecuados
-
+		
+		
+		@ParameterizedTest
+		@CsvFileSource(resources = "/authenticated/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
+		@Order(10)
+		public void listAuthenticatedTaskPublicAndFinished(final int recordIndex, final String publica, final String titulo, final String periodoEjecucionInicio,
+			final String periodoEjecucionFinal, final String cargaTrabajo, final String cargaTrabajoMinutos, 
+			final String descripcion, final String enlace) throws ParseException {		
+			super.signIn("user1", "user1");	
+			super.clickOnMenu("Authenticated", "List finished tasks");		
+			
+			List<WebElement> row;
+			row = super.getListingRecord(recordIndex);
+			final DateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+			final Date date = format.parse(row.get(2).getText());  // Fecha de finalización de la tarea en cuestión
+			final Date fecha = new Date(); // Fecha actual
+			assert fecha.after(date);
+			
+			super.clickOnListingRecord(recordIndex);
+			super.checkInputBoxHasValue("publica", "true");
+			super.signOut();
+		}
 }
