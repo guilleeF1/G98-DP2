@@ -40,17 +40,4 @@ public class AdministratorThresholdUpdateTest extends AcmePlannerTest {
 		
 		this.signOut();
 	}
-//	
-//	@Test
-//	@CsvFileSource( encoding = "utf-8", numLinesToSkip = 1)
-//	@Order(10)
-//	public void negativeListThreeshold(final int recordIndex, final String umbral) {
-//		
-//		super.signIn("manager1", "manager1");
-//		super.clickOnMenu("Administrator", "Spam threshold");		
-//		super.navigate("/administrator/threshold/update","");
-//        super.checkPanicExists();
-//		
-//		this.signOut();
-//	}
 }
