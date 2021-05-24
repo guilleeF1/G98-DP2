@@ -10,20 +10,20 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator.treshold;
+package acme.features.administrator.threshold;
 
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.treshold.Treshold;
+import acme.entities.threshold.Threshold;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AdministratorTresholdRepository extends AbstractRepository {
+public interface AdministratorThresholdRepository extends AbstractRepository {
 
-	@Query("select s from Treshold s")
-	Collection<Treshold> findMany();
+	@Query("select s from Threshold s")
+	Collection<Threshold> findMany();
 
 }

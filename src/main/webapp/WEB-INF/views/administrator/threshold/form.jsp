@@ -16,8 +16,8 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="administrator.treshold.form.label.umbral" path="umbral"/>
+	<acme:form-textbox code="administrator.threshold.form.label.umbral" path="umbral"/>
 	
-	<acme:form-submit code="administrator.treshold.form.button.update" action="/administrator/treshold/update"/>
-  	<acme:form-return code="administrator.treshold.form.button.return"/>
+	<acme:form-submit code="administrator.threshold.form.button.update" action="/administrator/threshold/update"/>
+  	<acme:form-return code="administrator.threshold.form.button.return"/>
 </acme:form>

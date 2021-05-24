@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 
-import acme.entities.treshold.Treshold;
+import acme.entities.threshold.Threshold;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,7 +23,7 @@ public class Spamword extends DomainEntity {
 	
 
 	
-	public static Boolean isSpam(final String texto, final List<Spamword> spamwords, final Treshold treshold) {
+	public static Boolean isSpam(final String texto, final List<Spamword> spamwords, final Threshold threshold) {
 		Integer n = 0;
 		for (final Spamword s : spamwords) {
 			if (!s.getWord().replaceAll("\\s","").isEmpty()) {
@@ -31,7 +31,7 @@ public class Spamword extends DomainEntity {
 			}
 		}
 
-		return n != 0 && treshold.getUmbral() >= texto.replaceAll("\\s","").length() / n;
+		return n != 0 && threshold.getUmbral() >= texto.replaceAll("\\s","").length() / n;
 	}
 	
 	private static Integer numberOfTimesContained(final String text, final String s) {

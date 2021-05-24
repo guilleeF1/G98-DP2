@@ -18,8 +18,8 @@
 
 <tiles-definitions>
 
-	<definition name="administrator/treshold/form" extends="master">
-		<put-attribute name="body" type="template" value="../administrator/treshold/form.jsp" />
+	<definition name="administrator/threshold/form" extends="master">
+		<put-attribute name="body" type="template" value="../administrator/threshold/form.jsp" />
 	</definition>
 
 </tiles-definitions>

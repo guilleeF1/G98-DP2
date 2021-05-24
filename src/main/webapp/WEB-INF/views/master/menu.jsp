@@ -38,7 +38,7 @@
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-suboption code="master.menu.administrator.spamword" action="/administrator/spamword/list"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.administrator.treshold" action="/administrator/treshold/show"/>
+			<acme:menu-suboption code="master.menu.administrator.threshold" action="/administrator/threshold/show"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/master/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/master/populate-sample"/>
