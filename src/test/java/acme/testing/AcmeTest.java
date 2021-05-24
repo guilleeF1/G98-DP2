@@ -355,7 +355,7 @@ public abstract class AcmeTest extends AbstractTest {
 
 		pageIndex = recordIndex / 5;
 		rowIndex = 1 + recordIndex % 5;
-
+		
 		listLocator = By.id("list");
 		list = super.locateOne(listLocator);
 		lengthLocator = By.xpath("//select[@name='list_length']/option[@value='5']");

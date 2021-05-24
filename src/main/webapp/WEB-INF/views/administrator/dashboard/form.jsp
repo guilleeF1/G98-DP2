@@ -18,7 +18,7 @@
 	<acme:message code="administrator.dashboard.form.title.general-indicators"/>
 </h2>
 
-<table class="table table-sm">
+<table class="table table-sm" id="values">
 	<caption>
 		<acme:message code="administrator.dashboard.form.title.general-indicators"/>
 	</caption>	
@@ -26,7 +26,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.public"/>
 		</th>
-		<td>
+		<td id="0">
 			<acme:print value="${numberOfTaskPublic}"/>
 		</td>
 	</tr>
@@ -34,7 +34,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.private"/>
 		</th>
-		<td>
+		<td id="1">
 			<acme:print value="${numberOfTaskPrivate}"/>
 		</td>
 	</tr>
@@ -42,7 +42,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.finished"/>
 		</th>
-		<td>
+		<td id="2">
 			<acme:print value="${numberOfTaskFinished}"/>
 		</td>
 	</tr>
@@ -50,7 +50,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.unfinished"/>
 		</th>
-		<td>
+		<td id="3">
 			<acme:print value="${numberOfTaskNotFinished}"/>
 		</td>
 	</tr>	
@@ -58,7 +58,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.average"/>
 		</th>
-		<td>
+		<td id="4">
 			<acme:print value="${workloadAverage}"/>
 		</td>
 	</tr>	
@@ -66,7 +66,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.max"/>
 		</th>
-		<td>
+		<td id="5">
 			<acme:print value="${workloadMax}"/>
 		</td>
 	</tr>
@@ -74,7 +74,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.min"/>
 		</th>
-		<td>
+		<td id="6">
 			<acme:print value="${workloadMin}"/>
 		</td>
 	</tr>
@@ -82,7 +82,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.deviation"/>
 		</th>
-		<td>
+		<td id="7">
 			<acme:print value="${workloadDeviation}"/>
 		</td>
 	</tr>
@@ -90,7 +90,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.startaverage"/>
 		</th>
-		<td>
+		<td id="8">
 			<acme:print value="${startPeriodAverage}"/>
 		</td>
 	</tr>
@@ -98,7 +98,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.finalaverage"/>
 		</th>
-		<td>
+		<td id="9">
 			<acme:print value="${finalPeriodAverage}"/>
 		</td>
 	</tr>
@@ -106,7 +106,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.startmin"/>
 		</th>
-		<td>
+		<td id="10">
 			<acme:print value="${startPeriodMin}"/>
 		</td>
 	</tr>
@@ -114,7 +114,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.finalmin"/>
 		</th>
-		<td>
+		<td id="11">
 			<acme:print value="${finalPeriodMin}"/>
 		</td>
 	</tr>
@@ -122,7 +122,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.startmax"/>
 		</th>
-		<td>
+		<td id="12">
 			<acme:print value="${startPeriodMax}"/>
 		</td>
 	</tr>
@@ -130,7 +130,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.finalmax"/>
 		</th>
-		<td>
+		<td id="13">
 			<acme:print value="${finalPeriodMax}"/>
 		</td>
 	</tr>
@@ -138,7 +138,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.startdev"/>
 		</th>
-		<td>
+		<td id="14">
 			<acme:print value="${startPeriodDeviation}"/>
 		</td>
 	</tr>
@@ -146,7 +146,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.finaldev"/>
 		</th>
-		<td>
+		<td id="15">
 			<acme:print value="${finalPeriodDeviation}"/>
 		</td>
 	</tr>
