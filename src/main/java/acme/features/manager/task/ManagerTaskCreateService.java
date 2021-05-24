@@ -114,7 +114,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 			errors.state(request, entity.getCargaTrabajo() > 0, "cargaTrabajo", "manager.task.form.error.negative");
 		}
 
-		if (!errors.hasErrors("cargaTrabajo")) {
+		if (!errors.hasErrors("cargaTrabajo") && entity.getPeriodoEjecucionFinal()!=null  && entity.getPeriodoEjecucionInicio()!=null ) {
 			if (entity.getCargaTrabajoMinutos() != null) {
 				errors.state(request, entity.getCargaTrabajo() * 60 + entity.getCargaTrabajoMinutos() <= (this.minutesBetween(entity.getPeriodoEjecucionInicio(), entity.getPeriodoEjecucionFinal())), "cargaTrabajo", "manager.task.form.error.equals");
 			}
