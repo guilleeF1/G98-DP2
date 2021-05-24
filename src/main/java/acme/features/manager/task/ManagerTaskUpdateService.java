@@ -78,16 +78,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		}
 
 		if (!errors.hasErrors("cargaTrabajo")) {
-			if (entity.getCargaTrabajoMinutos() != null) {
-				errors.state(request, entity.getCargaTrabajo() * 60 + entity.getCargaTrabajoMinutos() <= (this.minutesBetween(entity.getPeriodoEjecucionInicio(), entity.getPeriodoEjecucionFinal())), "cargaTrabajo", "manager.task.form.error.equals");
-			}
-			else {
-				errors.state(request, entity.getCargaTrabajo() * 60 <= (this.minutesBetween(entity.getPeriodoEjecucionInicio(), entity.getPeriodoEjecucionFinal())), "cargaTrabajo", "manager.task.form.error.equals");
-			}
-		}
-
-		if (!errors.hasErrors("cargaTrabajoMinutos") && entity.getCargaTrabajoMinutos() != null) {
-			errors.state(request, entity.getCargaTrabajoMinutos() >= 1 && entity.getCargaTrabajoMinutos() <= 59, "cargaTrabajoMinutos", "manager.task.form.error.minutes");
+			errors.state(request, entity.getCargaTrabajo() * 60 <= (this.minutesBetween(entity.getPeriodoEjecucionInicio(), entity.getPeriodoEjecucionFinal())), "cargaTrabajo", "manager.task.form.error.equals");
 		}
 
 		if (!errors.hasErrors("descripcion")) {

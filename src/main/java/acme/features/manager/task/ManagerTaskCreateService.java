@@ -75,7 +75,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		result.setTitulo("Titulo");
 		result.setPeriodoEjecucionInicio(inicio);
 		result.setPeriodoEjecucionFinal(fin);
-		result.setCargaTrabajo(1);
+		result.setCargaTrabajo(1.);
 		result.setDescripcion("Descripcion");
 		result.setEnlace("https://clockify.me/tracker");
 
@@ -117,16 +117,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		}
 
 		if (!errors.hasErrors("cargaTrabajo")) {
-			if (entity.getCargaTrabajoMinutos() != null) {
-				errors.state(request, entity.getCargaTrabajo() * 60 + entity.getCargaTrabajoMinutos() <= (this.minutesBetween(entity.getPeriodoEjecucionInicio(), entity.getPeriodoEjecucionFinal())), "cargaTrabajo", "manager.task.form.error.equals");
-			}
-			else {
-				errors.state(request, entity.getCargaTrabajo() * 60 <= (this.minutesBetween(entity.getPeriodoEjecucionInicio(), entity.getPeriodoEjecucionFinal())), "cargaTrabajo", "manager.task.form.error.equals");
-			}
-		}
-
-		if (!errors.hasErrors("cargaTrabajoMinutos") && entity.getCargaTrabajoMinutos() != null) {
-			errors.state(request, entity.getCargaTrabajoMinutos() >= 1 && entity.getCargaTrabajoMinutos() <= 59, "cargaTrabajoMinutos", "manager.task.form.error.minutes");
+			errors.state(request, entity.getCargaTrabajo() * 60 <= (this.minutesBetween(entity.getPeriodoEjecucionInicio(), entity.getPeriodoEjecucionFinal())), "cargaTrabajo", "manager.task.form.error.equals");
 		}
 
 		if (!errors.hasErrors("descripcion")) {

@@ -31,7 +31,7 @@ public class ManagerTaskUpdateTest extends AcmePlannerTest {
 	@CsvFileSource(resources = "/manager/task/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)	
 	public void updatePositive(final int recordIndex, final String publica, final String titulo, final String periodoEjecucionInicio,
-		final String periodoEjecucionFinal, final String cargaTrabajo, final String cargaTrabajoMinutos, 
+		final String periodoEjecucionFinal, final String cargaTrabajo, 
 		final String descripcion, final String enlace) {		
 		super.signIn("manager1", "manager1");
 		
@@ -65,7 +65,6 @@ public class ManagerTaskUpdateTest extends AcmePlannerTest {
 		super.checkInputBoxHasValue("periodoEjecucionInicio", periodoEjecucionInicio);
 		super.checkInputBoxHasValue("periodoEjecucionFinal", periodoEjecucionFinal);
 		super.checkInputBoxHasValue("cargaTrabajo", cargaTrabajo);
-		super.checkInputBoxHasValue("cargaTrabajoMinutos", cargaTrabajoMinutos);
 		super.checkInputBoxHasValue("descripcion", descripcion);
 		super.checkInputBoxHasValue("enlace", enlace);
 		
@@ -85,7 +84,7 @@ public class ManagerTaskUpdateTest extends AcmePlannerTest {
 	@CsvFileSource(resources = "/manager/task/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)	
 	public void updateNegative(final int recordIndex, final String publica, final String titulo, final String periodoEjecucionInicio,
-		final String periodoEjecucionFinal, final String cargaTrabajo, final String cargaTrabajoMinutos, 
+		final String periodoEjecucionFinal, final String cargaTrabajo, 
 		final String descripcion, final String enlace) {		
 		super.signIn("manager1", "manager1");
 		
@@ -99,7 +98,6 @@ public class ManagerTaskUpdateTest extends AcmePlannerTest {
 		super.fillInputBoxIn("periodoEjecucionInicio", periodoEjecucionInicio);
 		super.fillInputBoxIn("periodoEjecucionFinal", periodoEjecucionFinal);
 		super.fillInputBoxIn("cargaTrabajo", cargaTrabajo);
-		super.fillInputBoxIn("cargaTrabajoMinutos", cargaTrabajoMinutos);
 		super.fillInputBoxIn("descripcion", descripcion);
 		super.fillInputBoxIn("enlace", enlace);
 		

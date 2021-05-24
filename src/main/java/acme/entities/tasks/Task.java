@@ -43,9 +43,7 @@ public class Task extends DomainEntity {
 	protected Date periodoEjecucionFinal;
 	
 	@NotNull
-	protected Integer cargaTrabajo;
-	
-	protected Integer cargaTrabajoMinutos;
+	protected Double cargaTrabajo;
 	
 	@NotBlank
 	@Length(min = 1, max = 499)
