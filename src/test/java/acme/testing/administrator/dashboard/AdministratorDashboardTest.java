@@ -9,7 +9,7 @@ import org.openqa.selenium.By;
 import acme.testing.AcmePlannerTest;
 
 public class AdministratorDashboardTest extends AcmePlannerTest {
-	
+	//En esta prueba comprobamos que los valores visibles en el dashboard son los esperamos, para verificar que los administradores pueden acceder a esta vista
 	@ParameterizedTest
 	@CsvFileSource(resources = "/administrator/dashboard/values.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
@@ -28,7 +28,9 @@ public class AdministratorDashboardTest extends AcmePlannerTest {
 		
 		this.signOut();
 	}
+	//Se espera que todos los valores del dashboard coincidan con los del csv
 	
+	//Verificamos que un usuario no administrador no pueda acceder al dashboard
 	@Test
     @Order(10)
     public void dashboardNegative() {
@@ -38,5 +40,5 @@ public class AdministratorDashboardTest extends AcmePlannerTest {
         super.checkPanicExists();
 
     }
-	
+	//Esperamos que haya un panic a raíz de esta acción
 }

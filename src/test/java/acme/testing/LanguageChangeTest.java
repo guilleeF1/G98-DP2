@@ -5,7 +5,7 @@ import org.springframework.core.annotation.Order;
 
 public class LanguageChangeTest extends AcmePlannerTest {
 	
-	// Prueba de comprobación de que se pueda obtener la lista de todas las tasks finalizadas correctamente entrando en la api logueándose como cualquier usuario
+	// Prueba de comprobación de que el idioma de la página cambia correctamente
 		@Test
 		@Order(10)	
 		public void changeLanguage() {		
@@ -18,4 +18,5 @@ public class LanguageChangeTest extends AcmePlannerTest {
 			
 		}
 
+	// Se espera que "Entrar" se haya traducido a "Sign in"
 }
