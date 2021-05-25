@@ -11,3 +11,5 @@
 administrator.threshold.form.label.umbral = Umbral:
 administrator.threshold.form.button.update = Actualizar
 administrator.threshold.form.button.return = Volver
+
+administrator.spamWordTreshold.form.error.size = mayor umbral= 100,  menor umbral= 0

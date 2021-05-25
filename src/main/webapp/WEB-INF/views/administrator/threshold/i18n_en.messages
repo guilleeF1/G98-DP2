@@ -9,5 +9,7 @@
 # they accept any liabilities with respect to them.
 
 administrator.threshold.form.label.umbral = Threshold:
-administrator.threshold.form.button.update = Update
-administrator.threshold.form.button.return = Volver
+administrator.treshold.form.button.update = Update
+administrator.treshold.form.button.return = Return
+
+administrator.spamWordTreshold.form.error.size = Max threshold= 100,  Min threshold= 0
