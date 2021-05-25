@@ -73,8 +73,6 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		result = new Task();
 		result.setPublica(true);
 		result.setTitulo("Titulo");
-		result.setPeriodoEjecucionInicio(inicio);
-		result.setPeriodoEjecucionFinal(fin);
 		result.setCargaTrabajo(1.);
 		result.setDescripcion("Descripcion");
 		result.setEnlace("https://clockify.me/tracker");
@@ -116,7 +114,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 			errors.state(request, entity.getCargaTrabajo() > 0, "cargaTrabajo", "manager.task.form.error.negative");
 		}
 
-		if (!errors.hasErrors("cargaTrabajo")) {
+		if (!errors.hasErrors("cargaTrabajo") && entity.getPeriodoEjecucionFinal()!=null  && entity.getPeriodoEjecucionInicio()!=null ) {
 			errors.state(request, entity.getCargaTrabajo() * 60 <= (this.minutesBetween(entity.getPeriodoEjecucionInicio(), entity.getPeriodoEjecucionFinal())), "cargaTrabajo", "manager.task.form.error.equals");
 		}
 
