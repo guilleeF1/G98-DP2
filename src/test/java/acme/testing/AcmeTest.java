@@ -222,8 +222,6 @@ public abstract class AcmeTest extends AbstractTest {
 			final Calendar cal= Calendar.getInstance();
 			cal.add(Calendar.MONTH, -1);
 			final Date oneMonthAgo= cal.getTime();
-			System.out.println(date);
-			System.out.println(oneMonthAgo);
 			assert date.after(oneMonthAgo) : contents + " is older than a month from today.";
 		} catch (final ParseException e) {
 			e.printStackTrace();
