@@ -40,9 +40,7 @@ public class SignUpTest extends AcmePlannerTest {
 	@CsvFileSource(resources = "/sign-up/negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void negativeSignUp(final String username, final String password, final String name, final String surname, final String email) {
-		super.signUp(username, password, name, surname, email);
-		super.signIn(username, password);
-		super.signOut();
+		super.signUpNegative(username, password, name, surname, email);
 	}
 	//Como resultado obtenemos errores de validaciones puesto que no se han rellenado correctamente estos atributos citados anteriormente
 	

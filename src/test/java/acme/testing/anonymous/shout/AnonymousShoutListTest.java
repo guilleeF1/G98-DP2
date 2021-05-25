@@ -33,7 +33,7 @@ public class AnonymousShoutListTest extends AcmePlannerTest {
 			
 			super.clickOnMenu("Anonymous", "List shouts");
 			
-//			super.checkColumnHasValue(recordIndex, 0, moment);
+			super.checkColumnHasValue(recordIndex, 0, moment);
 			super.checkColumnHasValue(recordIndex, 1, author);
 			super.checkColumnHasValue(recordIndex, 2, text);
 
@@ -45,7 +45,7 @@ public class AnonymousShoutListTest extends AcmePlannerTest {
 
 		//Este test comprueba que un usuario registrado no puede acceder a shout, ya que es una funcionalidad de anónimo.
 		@Test
-		@Order(10)
+		@Order(20)
 		public void listShoutNegative() {		
 			super.signIn("user1", "user1");	
 			
@@ -60,18 +60,29 @@ public class AnonymousShoutListTest extends AcmePlannerTest {
 		//------------------------------------------------------------------------------------------------------
 		
 		//Este test comprueba que tampoco los admin pueden acceder a la funcionalidad shout.
-				@Test
-				@Order(10)
-				public void listShoutNegative2() {		
-					super.signIn("administrator", "administrator");	
-					
-					super.navigate("/anonymous/shout/list","");
-					
-					super.checkPanicExists();
-					
-					super.signOut();
-				}
+		@Test
+		@Order(30)
+		public void listShoutNegative2() {		
+			super.signIn("administrator", "administrator");	
+			
+			super.navigate("/anonymous/shout/list","");
+			
+			super.checkPanicExists();
+			
+			super.signOut();
+		}
 				//Como resultado, se generará un error de tipo Panic, ya que estamos accediendo a una funcionalidad para la que no tenemos los permisos adecuados
 
+		
+		//Este test verifica que todos los shouts que haya en esta lista no sean más antiguos que un mes. Se usará el record index del archivo csv para recorrer la lista
 
+		@ParameterizedTest
+		@CsvFileSource(resources = "/anonymous/shout/list.csv", encoding = "utf-8", numLinesToSkip = 1)
+		@Order(40)
+		public void listShoutNotOlderThanOneMonth(final int recordIndex) {
+			super.clickOnMenu("Anonymous", "List shouts");
+			
+			super.checkMoment(recordIndex);
+		}
+		// Debe devolver que todas las fechas recorridas son de posteriores a hace un mes
 }

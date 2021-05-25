@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
 import acme.entities.roles.Manager;
 import acme.entities.spamword.Spamword;
 import acme.entities.tasks.Task;
-import acme.entities.treshold.Treshold;
+import acme.entities.threshold.Threshold;
 import acme.features.administrator.spamword.AdministratorSpamwordRepository;
-import acme.features.administrator.treshold.AdministratorTresholdRepository;
+import acme.features.administrator.threshold.AdministratorThresholdRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -31,7 +31,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 	@Autowired
 	protected AdministratorSpamwordRepository	spamRepository;
 	@Autowired
-	protected AdministratorTresholdRepository	tresholdRepository;
+	protected AdministratorThresholdRepository	thresholdRepository;
 
 
 	@Override
@@ -73,9 +73,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		result = new Task();
 		result.setPublica(true);
 		result.setTitulo("Titulo");
-		result.setPeriodoEjecucionInicio(inicio);
-		result.setPeriodoEjecucionFinal(fin);
-		result.setCargaTrabajo(1);
+		result.setCargaTrabajo(1.);
 		result.setDescripcion("Descripcion");
 		result.setEnlace("https://clockify.me/tracker");
 
@@ -116,17 +114,8 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 			errors.state(request, entity.getCargaTrabajo() > 0, "cargaTrabajo", "manager.task.form.error.negative");
 		}
 
-		if (!errors.hasErrors("cargaTrabajo")) {
-			if (entity.getCargaTrabajoMinutos() != null) {
-				errors.state(request, entity.getCargaTrabajo() * 60 + entity.getCargaTrabajoMinutos() <= (this.minutesBetween(entity.getPeriodoEjecucionInicio(), entity.getPeriodoEjecucionFinal())), "cargaTrabajo", "manager.task.form.error.equals");
-			}
-			else {
-				errors.state(request, entity.getCargaTrabajo() * 60 <= (this.minutesBetween(entity.getPeriodoEjecucionInicio(), entity.getPeriodoEjecucionFinal())), "cargaTrabajo", "manager.task.form.error.equals");
-			}
-		}
-
-		if (!errors.hasErrors("cargaTrabajoMinutos") && entity.getCargaTrabajoMinutos() != null) {
-			errors.state(request, entity.getCargaTrabajoMinutos() >= 1 && entity.getCargaTrabajoMinutos() <= 59, "cargaTrabajoMinutos", "manager.task.form.error.minutes");
+		if (!errors.hasErrors("cargaTrabajo") && entity.getPeriodoEjecucionFinal()!=null  && entity.getPeriodoEjecucionInicio()!=null ) {
+			errors.state(request, entity.getCargaTrabajo() * 60 <= (this.minutesBetween(entity.getPeriodoEjecucionInicio(), entity.getPeriodoEjecucionFinal())), "cargaTrabajo", "manager.task.form.error.equals");
 		}
 
 		if (!errors.hasErrors("descripcion")) {
@@ -152,10 +141,10 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		final List<Spamword> cs2 = new ArrayList<>();
 		cs2.addAll(cs);
 
-		final Collection<Treshold> ct = this.tresholdRepository.findMany();
-		final List<Treshold> l = new ArrayList<>();
+		final Collection<Threshold> ct = this.thresholdRepository.findMany();
+		final List<Threshold> l = new ArrayList<>();
 		l.addAll(ct);
-		final Treshold t = l.get(0);
+		final Threshold t = l.get(0);
 
 		return Spamword.isSpam(texto.toLowerCase(), cs2, t);
 	}

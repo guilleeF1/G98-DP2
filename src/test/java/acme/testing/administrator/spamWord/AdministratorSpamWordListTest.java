@@ -12,7 +12,7 @@ public class AdministratorSpamWordListTest extends AcmePlannerTest {
 	//Este test prueba que un administrador logueado pueda listar correctamente la lista de palabras que se consideran spam
 	//Para ello, se comprueba la coincidencia spamword con la primera palabra.
 	@ParameterizedTest
-	@CsvFileSource(resources = "/updateSpamWord/list.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/administrator/updateSpamWord/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void listSpamWord(final int recordIndex, final String word) {
 		

@@ -31,7 +31,7 @@ public class ManagerTaskListTest extends AcmePlannerTest {
 	@CsvFileSource(resources = "/manager/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void list(final int recordIndex, final String publica, final String titulo, final String periodoEjecucionInicio,
-		final String periodoEjecucionFinal, final String cargaTrabajo, final String cargaTrabajoMinutos, 
+		final String periodoEjecucionFinal, final String cargaTrabajo, 
 		final String descripcion, final String enlace) {		
 		super.signIn("manager1", "manager1");
 		
@@ -52,7 +52,6 @@ public class ManagerTaskListTest extends AcmePlannerTest {
 		super.checkInputBoxHasValue("periodoEjecucionInicio", periodoEjecucionInicio);
 		super.checkInputBoxHasValue("periodoEjecucionFinal", periodoEjecucionFinal);
 		super.checkInputBoxHasValue("cargaTrabajo", cargaTrabajo);
-		super.checkInputBoxHasValue("cargaTrabajoMinutos", cargaTrabajoMinutos);
 		super.checkInputBoxHasValue("descripcion", descripcion);
 		super.checkInputBoxHasValue("enlace", enlace);
 		
@@ -66,7 +65,7 @@ public class ManagerTaskListTest extends AcmePlannerTest {
 	// Prueba de comprobación de que un manager no puede visualizar las tareas de otro manager
 	//Comprobamos que la lista de tareas que puede ver manager 2 no coinciden con las que puede ver manager1, que son las que pasamos por el csv
 	public void listNegativeOtherManager(final int recordIndex, final String publica, final String titulo, final String periodoEjecucionInicio,
-		final String periodoEjecucionFinal, final String cargaTrabajo, final String cargaTrabajoMinutos, 
+		final String periodoEjecucionFinal, final String cargaTrabajo, 
 		final String descripcion, final String enlace) {		
 		super.signIn("manager2", "manager2");
 		

@@ -12,8 +12,17 @@
 
 package acme.testing.anonymous.task;
 
+import org.junit.jupiter.api.Test;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.openqa.selenium.WebElement;
 import org.springframework.core.annotation.Order;
 
 import acme.testing.AcmePlannerTest;
@@ -53,7 +62,39 @@ public class AnonymousTaskListTest extends AcmePlannerTest {
 		super.checkInputBoxHasValue("enlace", enlace);
 	}
 	
+	@ParameterizedTest
+	@CsvFileSource(resources = "/anonymous/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@Order(10)
+	public void listAnonymousTaskPublicAndFinished(final int recordIndex, final String publica, final String titulo, final String periodoEjecucionInicio,
+		final String periodoEjecucionFinal, final String cargaTrabajo, final String cargaTrabajoMinutos, 
+		final String descripcion, final String enlace) throws ParseException {		
+		
+		super.clickOnMenu("Anonymous", "List tasks");		
+		
+		List<WebElement> row;
+		row = super.getListingRecord(recordIndex);
+		final DateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+		final Date date = format.parse(row.get(2).getText());  // Fecha de finalización de la tarea en cuestión
+		final Date fecha = new Date(); // Fecha actual
+		assert fecha.before(date);
+		
+		super.clickOnListingRecord(recordIndex);
+		super.checkInputBoxHasValue("publica", "true");
+	}
 	//Como resultado esta prueba muestra la lista de todas las tasks tal y como aparece en el csv de la url indicada en resources incluyendo las tasks que se hayan creado correctamente
+	
+
+	// Aquí comprobamos que las tareas se listan por su workload
+	@Test
+	@Order(30)	
+	public void order() {
+
+		super.clickOnMenu("Anonymous", "List tasks");	
+		
+		super.checkTaskOrder();
+	}
+	
+	// El resultado es un boolean que nos indica si al recorrer las entradas, sus workloads estaban ordenados correctamente
 	
 	//------------------------------------------------------------------------------------------------------
 	

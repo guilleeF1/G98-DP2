@@ -9,8 +9,7 @@
 	<acme:form-textbox code="manager.task.form.label.titulo" path="titulo"/>
 	<acme:form-moment code="manager.task.form.label.periodoEjecucionInicio" path="periodoEjecucionInicio"/>
 	<acme:form-moment code="manager.task.form.label.periodoEjecucionFinal" path="periodoEjecucionFinal"/>
-	<acme:form-double code="manager.task.form.label.cargaTrabajo" path="cargaTrabajo"/>
-	<acme:form-integer code="authenticated.task.form.label.cargaTrabajoMinutos" path="cargaTrabajoMinutos"/>
+	<acme:form-moment code="manager.task.form.label.cargaTrabajo" path="cargaTrabajo"/>
 	<acme:form-textarea code="manager.task.form.label.descripcion" path="descripcion"/>
 	<acme:form-url code="manager.task.form.label.enlace" path="enlace"/>
 	

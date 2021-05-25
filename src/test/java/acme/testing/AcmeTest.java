@@ -12,6 +12,11 @@
 
 package acme.testing;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.internal.util.StringHelper;
@@ -157,7 +162,7 @@ public abstract class AcmeTest extends AbstractTest {
 		contents = (contents == null ? "" : contents.trim());
 		value = (expectedValue != null ? expectedValue.trim() : "");
 
-		assert contents.equals(value) : String.format("Expected value '%s' in input box '%s', but '%s' was found", expectedValue, name, value);
+		assert contents.equals(value) : "Expected value " + expectedValue + " in input box " + name + ", but " + contents + " was found";
 	}
 
 	protected void checkColumnHasValue(final int recordIndex, final int attributeIndex, final String expectedValue) {
@@ -185,6 +190,87 @@ public abstract class AcmeTest extends AbstractTest {
 		value = (expectedValue != null ? expectedValue.trim() : "");
 
 		assert contents.equals(value) : String.format("Expected value '%s' in attribute %d of record %d, but found '"+ contents + "'", expectedValue, attributeIndex, recordIndex, value);
+	}
+
+	protected void checkMoment(final int recordIndex) {
+		assert recordIndex >= 0;
+		final int attributeIndex = 0;
+		// expectedValue is nullable
+
+		List<WebElement> row;
+		WebElement attribute, toggle;
+		String contents;
+
+		row = this.getListingRecord(recordIndex);
+		assert attributeIndex + 1 < row.size() : String.format("Attribute %d in record %d is out of range", attributeIndex, recordIndex);
+		attribute = row.get(attributeIndex + 1);
+		if (attribute.isDisplayed())
+			contents = attribute.getText();
+		else {
+			toggle = row.get(0);
+			toggle.click();
+			contents = (String) this.executor.executeScript("return arguments[0].innerText;", attribute);
+			toggle.click();
+		}
+
+		contents = (contents == null ? "" : contents.trim());
+		
+		final DateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+		Date date;
+		try {
+			date = format.parse(contents);
+			final Calendar cal= Calendar.getInstance();
+			cal.add(Calendar.MONTH, -1);
+			final Date oneMonthAgo= cal.getTime();
+			assert date.after(oneMonthAgo) : contents + " is older than a month from today.";
+		} catch (final ParseException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	protected void checkTaskOrder() {
+		int recordIndex = 0;
+		final int attributeIndex = 4;
+		// expectedValue is nullable
+
+		List<WebElement> row;
+		WebElement attribute, toggle;
+		String contents = "";
+		Integer lastWorkload = Integer.MAX_VALUE;
+		Boolean b = true;
+
+		try {
+			while (true) {
+				row = this.getListingRecord(recordIndex);
+				assert attributeIndex + 1 < row.size() : String.format("Attribute %d in record %d is out of range", attributeIndex, recordIndex);
+				attribute = row.get(attributeIndex + 1);
+				if (attribute.isDisplayed())
+					contents = attribute.getText();
+				else {
+					toggle = row.get(0);
+					toggle.click();
+					contents = (String) this.executor.executeScript("return arguments[0].innerText;", attribute);
+					toggle.click();
+				}
+				contents = (contents == null ? "" : contents.trim());
+				if (Integer.parseInt(contents) < lastWorkload) {
+					lastWorkload = Integer.parseInt(contents);
+				}
+				else {
+					b = false;
+					break;
+				}
+				recordIndex += 1;
+			}
+			
+		}
+		catch (final Exception e) {
+			
+		}
+
+
+		assert b : String.format("The list is not well ordered, " + lastWorkload + " is smaller than " + contents);
 	}
 	
 	protected Boolean checkColumnHasNoValue(final int recordIndex, final int attributeIndex, final String expectedValue) {
@@ -355,7 +441,7 @@ public abstract class AcmeTest extends AbstractTest {
 
 		pageIndex = recordIndex / 5;
 		rowIndex = 1 + recordIndex % 5;
-
+		
 		listLocator = By.id("list");
 		list = super.locateOne(listLocator);
 		lengthLocator = By.xpath("//select[@name='list_length']/option[@value='5']");
