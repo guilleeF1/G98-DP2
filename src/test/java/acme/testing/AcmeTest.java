@@ -1,7 +1,7 @@
 /*
  * AcmeTest.java
  *
- * Copyright (C) 2021 Mary Design-Testing and John Design-Testing.
+ * Copyright (C) 2012-2021 Rafael Corchuelo.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -12,11 +12,6 @@
 
 package acme.testing;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import org.hibernate.internal.util.StringHelper;
@@ -45,15 +40,6 @@ public abstract class AcmeTest extends AbstractTest {
 
 		locator = By.xpath(String.format("//button[@type='submit' and normalize-space()='%s']", label));
 		assert super.exists(locator) : String.format("Cannot find button '%s'", label);
-	}
-	
-	protected void checkButtonNotExists(final String label) {
-		assert !StringHelper.isBlank(label);
-
-		By locator;
-
-		locator = By.xpath(String.format("//button[@type='submit' and normalize-space()='%s']", label));
-		assert !super.exists(locator) : String.format("Button '%s' found, it shouldn't be here", label);
 	}
 
 	protected void checkAlertExists(final boolean success) {
@@ -94,7 +80,7 @@ public abstract class AcmeTest extends AbstractTest {
 		String xpath;
 		By locator;
 
-		xpath = String.format("//div[@class='form-group'][input[@id='%s'] and div[@class='text-danger']]", name);
+		xpath = String.format("//div[@class='form-group'][.//*[@id='%s'] and .//div[@class='text-danger']]", name);
 		locator = By.xpath(xpath);
 		assert super.exists(locator) : String.format("No errors found in input box '%s'", name);
 	}
@@ -114,7 +100,7 @@ public abstract class AcmeTest extends AbstractTest {
 		String xpath;
 		By inputGroupLocator;
 
-		xpath = String.format("//div[@class='form-group'][input[@id='%s'] and div[@class='text-danger']]", name);
+		xpath = String.format("//div[@class='form-group'][.//*[@id='%s'] and .//div[@class='text-danger']]", name);
 		inputGroupLocator = By.xpath(xpath);
 		assert !super.exists(inputGroupLocator) : String.format("Unexpected errors in input box '%s'", name);
 	}
@@ -162,7 +148,7 @@ public abstract class AcmeTest extends AbstractTest {
 		contents = (contents == null ? "" : contents.trim());
 		value = (expectedValue != null ? expectedValue.trim() : "");
 
-		assert contents.equals(value) : "Expected value " + expectedValue + " in input box " + name + ", but " + contents + " was found";
+		assert contents.equals(value) : String.format("Expected value '%s' in input box '%s', but '%s' was found", value, name, contents);
 	}
 
 	protected void checkColumnHasValue(final int recordIndex, final int attributeIndex, final String expectedValue) {
@@ -182,125 +168,16 @@ public abstract class AcmeTest extends AbstractTest {
 		else {
 			toggle = row.get(0);
 			toggle.click();
-			contents = (String) this.executor.executeScript("return arguments[0].innerText;", attribute);
+			contents = (String) super.executor.executeScript("return arguments[0].innerText;", attribute);
 			toggle.click();
 		}
 
 		contents = (contents == null ? "" : contents.trim());
 		value = (expectedValue != null ? expectedValue.trim() : "");
 
-		assert contents.equals(value) : String.format("Expected value '%s' in attribute %d of record %d, but found '"+ contents + "'", expectedValue, attributeIndex, recordIndex, value);
+		assert contents.equals(value) : String.format("Expected value '%s' in attribute %d of record %d, but found '%s'", value, attributeIndex, recordIndex, contents);
 	}
 
-	protected void checkMoment(final int recordIndex) {
-		assert recordIndex >= 0;
-		final int attributeIndex = 0;
-		// expectedValue is nullable
-
-		List<WebElement> row;
-		WebElement attribute, toggle;
-		String contents;
-
-		row = this.getListingRecord(recordIndex);
-		assert attributeIndex + 1 < row.size() : String.format("Attribute %d in record %d is out of range", attributeIndex, recordIndex);
-		attribute = row.get(attributeIndex + 1);
-		if (attribute.isDisplayed())
-			contents = attribute.getText();
-		else {
-			toggle = row.get(0);
-			toggle.click();
-			contents = (String) this.executor.executeScript("return arguments[0].innerText;", attribute);
-			toggle.click();
-		}
-
-		contents = (contents == null ? "" : contents.trim());
-		
-		final DateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm");
-		Date date;
-		try {
-			date = format.parse(contents);
-			final Calendar cal= Calendar.getInstance();
-			cal.add(Calendar.MONTH, -1);
-			final Date oneMonthAgo= cal.getTime();
-			assert date.after(oneMonthAgo) : contents + " is older than a month from today.";
-		} catch (final ParseException e) {
-			e.printStackTrace();
-		}
-
-	}
-	
-	protected void checkTaskOrder() {
-		int recordIndex = 0;
-		final int attributeIndex = 4;
-		// expectedValue is nullable
-
-		List<WebElement> row;
-		WebElement attribute, toggle;
-		String contents = "";
-		Integer lastWorkload = Integer.MAX_VALUE;
-		Boolean b = true;
-
-		try {
-			while (true) {
-				row = this.getListingRecord(recordIndex);
-				assert attributeIndex + 1 < row.size() : String.format("Attribute %d in record %d is out of range", attributeIndex, recordIndex);
-				attribute = row.get(attributeIndex + 1);
-				if (attribute.isDisplayed())
-					contents = attribute.getText();
-				else {
-					toggle = row.get(0);
-					toggle.click();
-					contents = (String) this.executor.executeScript("return arguments[0].innerText;", attribute);
-					toggle.click();
-				}
-				contents = (contents == null ? "" : contents.trim());
-				if (Integer.parseInt(contents) < lastWorkload) {
-					lastWorkload = Integer.parseInt(contents);
-				}
-				else {
-					b = false;
-					break;
-				}
-				recordIndex += 1;
-			}
-			
-		}
-		catch (final Exception e) {
-			
-		}
-
-
-		assert b : String.format("The list is not well ordered, " + lastWorkload + " is smaller than " + contents);
-	}
-	
-	protected Boolean checkColumnHasNoValue(final int recordIndex, final int attributeIndex, final String expectedValue) {
-		assert recordIndex >= 0;
-		assert attributeIndex >= 0;
-		// expectedValue is nullable
-
-		List<WebElement> row;
-		WebElement attribute, toggle;
-		String contents, value;
-
-		row = this.getListingRecord(recordIndex);
-		assert attributeIndex + 1 < row.size() : String.format("Attribute %d in record %d is out of range", attributeIndex, recordIndex);
-		attribute = row.get(attributeIndex + 1);
-		if (attribute.isDisplayed())
-			contents = attribute.getText();
-		else { 
-			toggle = row.get(0);
-			toggle.click();
-			contents = (String) this.executor.executeScript("return arguments[0].innerText;", attribute);
-			toggle.click();
-		}
- 
-		contents = (contents == null ? "" : contents.trim());
-		value = (expectedValue != null ? expectedValue.trim() : "");
-
-		return !contents.equals(value) ;
-	}
-
-	
 	// Form-filling methods ---------------------------------------------------
 
 	protected void fillInputBoxIn(final String name, final String value) {
@@ -328,12 +205,12 @@ public abstract class AcmeTest extends AbstractTest {
 			case "hidden":
 				proxyXpath = String.format("//input[@name='%s$proxy' and @type='checkbox']", name);
 				proxyLocator = By.xpath(proxyXpath);
-				assert value == null || value == "true" || value == "false" : String.format("Input box '%s' cannot be set to '%s'", name, value);
+				assert value == null || value.equals("true") || value.equals("false") : String.format("Input box '%s' cannot be set to '%s'", name, value);
 				assert super.exists(proxyLocator) : String.format("Cannot find proxy for input box '%s'", name);
 				inputProxy = super.locateOne(proxyLocator);
-				if (inputProxy.getAttribute("checked") != null && (value == null || value == "false"))
+				if (inputProxy.getAttribute("checked") != null && (value == null || value.equals("false")))
 					inputProxy.click();
-				else if (inputProxy.getAttribute("checked") == null && value == "true")
+				else if (inputProxy.getAttribute("checked") == null && value.equals("true"))
 					inputProxy.click();
 				break;
 			default:
@@ -371,7 +248,7 @@ public abstract class AcmeTest extends AbstractTest {
 			}
 		} catch (final Throwable oops) {
 			// INFO: Can silently ignore the exception here.
-			// INFO+ Sometimes, the toggle get's unexpectedly stale.
+			// INFO+ Sometimes, the toggle gets stale unexpectedly.
 		}
 
 		headerLocator = By.xpath(String.format("//div[@id='mainMenu']/ul/li/a[normalize-space()='%s']", header));
@@ -382,7 +259,7 @@ public abstract class AcmeTest extends AbstractTest {
 				super.clickAndGo(headerLocator);
 			} catch (final Throwable oops) {
 				// INFO: Can silently ignore the exception here.
-				// INFO+ Sometimes, the toggle get's unexpectedly stale
+				// INFO+ Sometimes, the toggle gets stale unexpectedly
 				// INFO+ and that has an impact on the main menu.
 			} 
 			optionLocator = By.xpath(String.format("//div[@id='mainMenu']/ul/li[a[normalize-space()='%s']]/div[contains(@class, 'dropdown-menu')]/a[normalize-space()='%s']", header, option));
@@ -441,7 +318,7 @@ public abstract class AcmeTest extends AbstractTest {
 
 		pageIndex = recordIndex / 5;
 		rowIndex = 1 + recordIndex % 5;
-		
+
 		listLocator = By.id("list");
 		list = super.locateOne(listLocator);
 		lengthLocator = By.xpath("//select[@name='list_length']/option[@value='5']");
