@@ -125,6 +125,7 @@ public abstract class AbstractTest {
 	@BeforeAll
 	protected void beforeAll() {
 		this.options = new FirefoxOptions();
+		this.headless=true;
 		this.options.setHeadless(this.headless);
 		this.options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 		this.options.setAcceptInsecureCerts(true);
@@ -313,13 +314,13 @@ public abstract class AbstractTest {
 	}
 
 	protected void navigate(final String path, final String query) {
-		assert this.isSimplePath(path);
+		//assert this.isSimplePath(path);
 		assert this.isSimpleQuery(query);
 
 		this.navigate(() -> {
 			String url;
 
-			url = String.format("%s%s%s%s", this.baseUrl, path, this.contextQuery, query);
+			url = String.format("%s/%s?%s&%s", this.baseUrl, path, this.contextQuery, query);
 			this.driver.get(url);
 			this.longSleep();
 		});
