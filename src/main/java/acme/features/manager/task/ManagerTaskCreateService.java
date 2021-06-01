@@ -64,11 +64,9 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		assert request != null;
 
 		Task result;
-		Date inicio;
-		Date fin;
+		
 
-		inicio = new Date(System.currentTimeMillis() - 1);
-		fin = new Date(System.currentTimeMillis() - 1);
+	
 
 		result = new Task();
 		result.setPublica(true);

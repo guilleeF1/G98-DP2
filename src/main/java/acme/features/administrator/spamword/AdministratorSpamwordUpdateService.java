@@ -39,6 +39,7 @@ public class AdministratorSpamwordUpdateService implements AbstractUpdateService
 		@Override
 		public void unbind(final Request<Spamword> request, final Spamword entity, final Model model) {
 			
+			//There is nothing to unbind in this service 
 		}
 
 		@Override
