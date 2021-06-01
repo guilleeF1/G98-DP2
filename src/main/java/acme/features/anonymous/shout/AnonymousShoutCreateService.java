@@ -60,6 +60,8 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert errors != null;
 
 		request.bind(entity, errors);
+		request.bind(entity.getEntidadExamen(), errors);
+		request.bind(entity.getEntidadExamen().getMoneyAttribute(), errors);
 	}
 
 	@Override
@@ -68,7 +70,9 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "author", "text", "info");
+		request.unbind(entity, model, "author", "text", "moment");
+		request.unbind(entity.getEntidadExamen(), model, "momentAttribute","timeAttribute","isFlag");
+		request.unbind(entity.getEntidadExamen().getMoneyAttribute(), model, "amount","currency");
 	}
 
 	@Override
@@ -95,12 +99,21 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert entity != null;
 		assert errors != null;
 
+		//me falta parte de la validaciónS
 		if (!errors.hasErrors("author")) {
 			errors.state(request, !this.isSpam(entity.getAuthor()), "author", "anonymous.shout.form.error.spam");
 		}
 
 		if (!errors.hasErrors("text")) {
 			errors.state(request, !this.isSpam(entity.getText()), "text", "anonymous.shout.form.error.spam");
+		}
+		if (!errors.hasErrors("currency")) {
+			final String currency = entity.getEntidadExamen().getMoneyAttribute().getCurrency();
+			errors.state(request, !currency.trim().isEmpty() && (currency.contains("EUR") || currency.contains("DOLLARS")), "currency", "anonymous.shout.form.error.currency");
+		}
+		if (!errors.hasErrors("amount")) {
+			final Double amount = entity.getEntidadExamen().getMoneyAttribute().getAmount();
+			errors.state(request, amount>0 , "currency", "anonymous.shout.form.error.positive");
 		}
 	}
 

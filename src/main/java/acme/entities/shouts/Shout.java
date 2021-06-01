@@ -3,6 +3,7 @@ package acme.entities.shouts;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
@@ -12,6 +13,7 @@ import javax.validation.constraints.Past;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.entidadExamen.EntidadExamen;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -39,6 +41,9 @@ public class Shout extends DomainEntity {
 	
 	@URL
 	protected String info;
+	
+	@OneToOne
+	protected EntidadExamen entidadExamen;
 	
 	
 	
