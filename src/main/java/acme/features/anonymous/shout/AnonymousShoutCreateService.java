@@ -122,12 +122,14 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		}
 		if (!errors.hasErrors("amount")) {
 			final Double amount = entity.getEntidadExamen().getMoneyAttribute().getAmount();
-			errors.state(request, amount!=null && amount>0   , "currency", "anonymous.shout.form.error.positive");
+			errors.state(request, amount!=null && amount>0   , "amount", "anonymous.shout.form.error.positive");
 		}
 		if (!errors.hasErrors("timeAttribute")) {
-			final Date timeAttribute = entity.getEntidadExamen().getTimeAttribute();
-			final List<Date> times = this.repository.findtimeAttribute();
-			errors.state(request, !(times.contains(timeAttribute)) && timeAttribute!=null , "timeAttribute", "anonymous.shout.form.error.duplicatedtime");
+			final String timeAttribute = entity.getEntidadExamen().getTimeAttribute(); 
+			final List<String> timelist = this.repository.findtimeAttribute();
+			final String pattern = "^\\d{4}\\/(0?[1-9]|1[012])\\/(0?[1-9]|[12][0-9]|3[01])$";
+			errors.state(request, !(timelist.contains(timeAttribute)) && timeAttribute!=null , "timeAttribute", "anonymous.shout.form.error.duplicatedtime");
+			errors.state(request, timeAttribute.matches(pattern) , "timeAttribute", "anonymous.shout.form.error.pattern");
 		}
 		
 		if (!errors.hasErrors("isFlag")) {

@@ -28,3 +28,4 @@ anonymous.shout.list.label.currency = Currency
 anonymous.shout.form.error.currency = Currency not valid. Only USD or EUR
 anonymous.shout.form.error.positive = Amount must be positive
 anonymous.shout.form.error.duplicatedtime = This attribute can't be duplicated from an existing one
+anonymous.shout.form.error.pattern = Attribute must match pattern yyyy/mm/dd

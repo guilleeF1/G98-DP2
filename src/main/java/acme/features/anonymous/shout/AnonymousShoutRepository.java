@@ -32,6 +32,6 @@ public interface AnonymousShoutRepository extends AbstractRepository {
 	Collection<Shout> findRecentShouts(Date limitetiempo);
 	
 	@Query("select s.timeAttribute from EntidadExamen s")
-	List<Date> findtimeAttribute();
+	List<String> findtimeAttribute();
 
 }

@@ -22,14 +22,13 @@ public class EntidadExamen extends DomainEntity {
 	private static final long serialVersionUID = 1L;
 	
 	
-	@Temporal(TemporalType.TIMESTAMP) //patrón de fecha ¿con fecha o no?
+	
+	
+	
 	@NotNull
 	@Column(unique = true)
-	protected Date timeAttribute;
+	protected String timeAttribute;
 	
-	//@MatchesPattern(value = "")
-	//To match a date in mm/dd/yyyy format, rearrange the regular expression to ^(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d$. 
-	//For dd-mm-yyyy format, use ^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$
 	
 	@Temporal(TemporalType.TIMESTAMP) //patrón de fecha, para moments
 	@NotNull

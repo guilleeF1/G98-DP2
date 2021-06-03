@@ -28,3 +28,4 @@ anonymous.shout.list.label.currency = Moneda
 anonymous.shout.form.error.currency = Moneda debe ser EUR o USD
 anonymous.shout.form.error.positive = Cantidad debe ser positiva
 anonymous.shout.form.error.duplicatedtime = El tiempo no puede estar duplicado
+anonymous.shout.form.error.pattern = El atributo debe adherirse al patrón yyyy/mm/dd
