@@ -150,5 +150,53 @@
 			<acme:print value="${finalPeriodDeviation}"/>
 		</td>
 	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.label.flaggedRatio"/>
+		</th>
+		<td>
+			<acme:print value="${flaggedRatio}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.label.outdatedInformationsheetsRatio"/>
+		</th>
+		<td>
+			<acme:print value="${outdatedInformationsheetsRatio}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.label.moneyEuroAverage"/>
+		</th>
+		<td>
+			<acme:print value="${moneyEuroAverage}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.label.moneyDollarAverage"/>
+		</th>
+		<td>
+			<acme:print value="${moneyDollarAverage}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.label.moneyEuroDeviation"/>
+		</th>
+		<td>
+			<acme:print value="${moneyEuroDeviation}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.label.moneyDollarDeviation"/>
+		</th>
+		<td>
+			<acme:print value="${moneyDollarDeviation}"/>
+		</td>
+	</tr>
 	
 </table>

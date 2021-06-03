@@ -26,20 +26,23 @@
 		<property name="author" value="John Doe"/>
 		<property name="text" value="I'm happy!"/>
 		<property name="info"><null/></property>	
+		<property name="informationsheet" ref="informationsheet01"/>
 	</bean>
 	
 	<bean id="shout02" class="acme.entities.shouts.Shout">
 		<property name="moment" value="2019/08/09 15:55"/>
 		<property name="author" value="Jane Doe"/>
 		<property name="text" value="I'm the master of my room!"/>
-		<property name="info" value="http://www.example.org"/>		
+		<property name="info" value="http://www.example.org"/>	
+		<property name="informationsheet" ref="informationsheet02"/>	
 	</bean>
 	
 	<bean id="shout03" class="acme.entities.shouts.Shout">
 		<property name="moment" value="2020/09/07 00:00"/>
 		<property name="author" value="Foo Bar"/>
 		<property name="text" value="Just turning 50!"/>
-		<property name="info" value="http://happybirthday.com"/>		
+		<property name="info" value="http://happybirthday.com"/>	
+		<property name="informationsheet" ref="informationsheet03"/>	
 	</bean>
 	
 	<bean id="shout04" class="acme.entities.shouts.Shout">
@@ -47,6 +50,7 @@
 		<property name="text" value="Woa! This app's so cool!"/>
 		<property name="moment" value="2021/04/13 12:30"/>
 		<property name="info" value="http://www.sample-app.com"/>
+		<property name="informationsheet" ref="informationsheet04"/>
 	</bean>
 	
 	<bean id="shout05" class="acme.entities.shouts.Shout">
@@ -54,56 +58,163 @@
 		<property name="text" value="Good Morning, lord's creatures!"/>
 		<property name="moment" value="2021/04/20 12:30"/>
 		<property name="info" value="http://www.sample-app.com"/>
+		<property name="informationsheet" ref="informationsheet05"/>
 	</bean>
 	
 	<bean id="shout06" class="acme.entities.shouts.Shout">
 		<property name="author" value="indevelopers"/>
 		<property name="text" value="Please, no mean comments on our web!"/>
-		<property name="moment" value="2021/05/24 12:30"/>
+		<property name="moment" value="2021/04/26 12:30"/>
 		<property name="info" value="http://www.sample-app.com"/>
+		<property name="informationsheet" ref="informationsheet06"/>
 	</bean>
 	
 		<bean id="shout07" class="acme.entities.shouts.Shout">
 		<property name="author" value="Github geek"/>
 		<property name="text" value="Sonarcloud knows best"/>
-		<property name="moment" value="2021/05/24 12:30"/>
+		<property name="moment" value="2021/04/27 12:30"/>
 		<property name="info" value="http://www.sample-app.com"/>
+		<property name="informationsheet" ref="informationsheet07"/>
 	</bean>
 	
 		<bean id="shout08" class="acme.entities.shouts.Shout">
 		<property name="author" value="Asunción Pereira Adolfo"/>
 		<property name="text" value="Hi, i'm new!"/>
-		<property name="moment" value="2021/05/24 12:30"/>
+		<property name="moment" value="2021/04/28 12:30"/>
 		<property name="info" value="http://www.sample-app.com"/>
+		<property name="informationsheet" ref="informationsheet08"/>
 	</bean>
 	
 	<bean id="shout09" class="acme.entities.shouts.Shout">
 		<property name="author" value="Twitch prime"/>
 		<property name="text" value="Cool features!"/>
-		<property name="moment" value="2021/05/24 12:30"/>
+		<property name="moment" value="2021/04/29 12:30"/>
 		<property name="info" value="http://www.sample-app.com"/>
+		<property name="informationsheet" ref="informationsheet09"/>
 	</bean>
 	
 	<bean id="shout10" class="acme.entities.shouts.Shout">
 		<property name="author" value="The PSM Gang"/>
 		<property name="text" value="Have you heard about octave?"/>
-		<property name="moment" value="2021/05/24 11:30"/>
+		<property name="moment" value="2021/05/01 11:30"/>
 		<property name="info" value="http://www.sample-app.com"/>
+		<property name="informationsheet" ref="informationsheet10"/>
 	</bean>
 	
 	<bean id="shout11" class="acme.entities.shouts.Shout">
 		<property name="author" value="Astrazeneca"/>
 		<property name="text" value="Go, vaccines, go!"/>
-		<property name="moment" value="2021/05/24 11:35"/>
+		<property name="moment" value="2021/05/01 11:35"/>
 		<property name="info" value="http://www.sample-app.com"/>
+		<property name="informationsheet" ref="informationsheet11"/>
 	</bean>
 	
 	<bean id="shout12" class="acme.entities.shouts.Shout">
 		<property name="author" value="Coyote"/>
 		<property name="text" value="So acme has a webpage..."/>
-		<property name="moment" value="2021/05/24 11:35"/>
+		<property name="moment" value="2021/04/25 11:35"/>
 		<property name="info" value="http://www.sample-app.com"/>
+		<property name="informationsheet" ref="informationsheet12"/>
 	</bean>
+	
+	<!-- Informationsheets -->
+	
+	<bean id="informationsheet01" class="acme.entities.informationsheets.Informationsheet">
+		<property name="date" value="2021/04/10 19:39"/>
+		<property name="moment" value="2021/04/10 19:39"/>
+		<property name="money" value="12"/>
+		<property name="currency" value="euro"/>
+		<property name="flag" value="true"/>	
+	</bean>
+	
+	<bean id="informationsheet02" class="acme.entities.informationsheets.Informationsheet">
+		<property name="date" value="2022/04/10 19:39"/>
+		<property name="moment" value="2021/04/10 19:39"/>
+		<property name="money" value="12"/>
+		<property name="currency" value="dollar"/>
+		<property name="flag" value="true"/>	
+	</bean>
+	
+	<bean id="informationsheet03" class="acme.entities.informationsheets.Informationsheet">
+		<property name="date" value="2022/04/10 19:39"/>
+		<property name="moment" value="2021/04/10 19:39"/>
+		<property name="money" value="12"/>
+		<property name="currency" value="euro"/>
+		<property name="flag" value="false"/>	
+	</bean>
+	
+	<bean id="informationsheet04" class="acme.entities.informationsheets.Informationsheet">
+		<property name="date" value="2021/04/10 19:39"/>
+		<property name="moment" value="2021/04/10 19:39"/>
+		<property name="money" value="12"/>
+		<property name="currency" value="dollar"/>
+		<property name="flag" value="false"/>	
+	</bean>
+	
+	<bean id="informationsheet05" class="acme.entities.informationsheets.Informationsheet">
+		<property name="date" value="2022/04/10 19:39"/>
+		<property name="moment" value="2021/04/10 19:39"/>
+		<property name="money" value="12"/>
+		<property name="currency" value="euro"/>
+		<property name="flag" value="true"/>	
+	</bean>
+	
+	<bean id="informationsheet06" class="acme.entities.informationsheets.Informationsheet">
+		<property name="date" value="2022/04/10 19:39"/>
+		<property name="moment" value="2021/04/10 19:39"/>
+		<property name="money" value="24"/>
+		<property name="currency" value="dollar"/>
+		<property name="flag" value="true"/>	
+	</bean>
+	
+	<bean id="informationsheet07" class="acme.entities.informationsheets.Informationsheet">
+		<property name="date" value="2022/04/10 19:39"/>
+		<property name="moment" value="2021/04/10 19:39"/>
+		<property name="money" value="2"/>
+		<property name="currency" value="euro"/>
+		<property name="flag" value="false"/>	
+	</bean>
+	
+	<bean id="informationsheet08" class="acme.entities.informationsheets.Informationsheet">
+		<property name="date" value="2021/04/10 19:39"/>
+		<property name="moment" value="2021/04/10 19:39"/>
+		<property name="money" value="12"/>
+		<property name="currency" value="dollar"/>
+		<property name="flag" value="true"/>	
+	</bean>
+	
+	<bean id="informationsheet09" class="acme.entities.informationsheets.Informationsheet">
+		<property name="date" value="2022/04/10 19:39"/>
+		<property name="moment" value="2021/04/10 19:39"/>
+		<property name="money" value="12"/>
+		<property name="currency" value="dollar"/>
+		<property name="flag" value="true"/>	
+	</bean>
+	
+	<bean id="informationsheet10" class="acme.entities.informationsheets.Informationsheet">
+		<property name="date" value="2021/04/10 19:39"/>
+		<property name="moment" value="2021/04/10 19:39"/>
+		<property name="money" value="12"/>
+		<property name="currency" value="euro"/>
+		<property name="flag" value="false"/>	
+	</bean>
+	
+	<bean id="informationsheet11" class="acme.entities.informationsheets.Informationsheet">
+		<property name="date" value="2022/04/10 19:39"/>
+		<property name="moment" value="2021/04/10 19:39"/>
+		<property name="money" value="12"/>
+		<property name="currency" value="euro"/>
+		<property name="flag" value="true"/>	
+	</bean>
+	
+	<bean id="informationsheet12" class="acme.entities.informationsheets.Informationsheet">
+		<property name="date" value="2022/04/10 19:39"/>
+		<property name="moment" value="2021/04/10 19:39"/>
+		<property name="money" value="13"/>
+		<property name="currency" value="dollar"/>
+		<property name="flag" value="false"/>	
+	</bean>
+	
 	<!-- Tasks -->
 	
 	<!--             tareas para probar los filtros                   -->
@@ -113,7 +224,7 @@
 		<property name="titulo" value="Implementacion entidad task"/>
 		<property name="periodoEjecucionInicio" value="2021/09/13 10:39"/>
 		<property name="periodoEjecucionFinal" value="2021/09/13 16:23"/>
-		<property name="cargaTrabajo" value="1."/>
+		<property name="cargaTrabajo" value="1"/>
 		<property name="descripcion" value="implementar task con sus atributos"/>
 		<property name="enlace" value="https://stackoverflow.com/"/>	
 		<property name="manager" ref="managerManager"/>
@@ -124,7 +235,7 @@
 		<property name="titulo" value="Implementacion entidad shout"/>
 		<property name="periodoEjecucionInicio" value="2021/07/18 18:56"/>
 		<property name="periodoEjecucionFinal" value="2021/07/18 22:23"/>
-		<property name="cargaTrabajo" value="2."/>
+		<property name="cargaTrabajo" value="2"/>
 		<property name="descripcion" value="implementar shout con sus atributos"/>
 		<property name="enlace" value="http://happybirthday.com"/>
 		<property name="manager" ref="managerManager"/>
@@ -135,7 +246,7 @@
 		<property name="titulo" value="Implementacion entidad announcement"/>
 		<property name="periodoEjecucionInicio" value="2021/11/03 05:07"/>
 		<property name="periodoEjecucionFinal" value="2021/11/03 12:07"/>
-		<property name="cargaTrabajo" value="7."/>
+		<property name="cargaTrabajo" value="7"/>
 		<property name="descripcion" value="implementar announcement con sus atributos"/>
 		<property name="enlace" value="https://stackoverflow.com/"/>	
 		<property name="manager" ref="managerManager"/>
@@ -146,7 +257,7 @@
 		<property name="titulo" value="Implementacion entidad employer"/>
 		<property name="periodoEjecucionInicio" value="2021/12/24 01:18"/>
 		<property name="periodoEjecucionFinal" value="2021/12/24 02:18"/>
-		<property name="cargaTrabajo" value="1."/>
+		<property name="cargaTrabajo" value="1"/>
 		<property name="descripcion" value="implementar employer con sus atributos"/>
 		<property name="enlace" value="https://stackoverflow.com/"/>	
 		<property name="manager" ref="managerManager"/>
@@ -157,7 +268,7 @@
 		<property name="titulo" value="Tarea que no debe ni anon ni aunth"/>
 		<property name="periodoEjecucionInicio" value="2020/12/20 01:18"/>
 		<property name="periodoEjecucionFinal" value="2020/12/24 02:18"/>
-		<property name="cargaTrabajo" value="5."/>
+		<property name="cargaTrabajo" value="5"/>
 		<property name="descripcion" value="es una tarea pasada"/>
 		<property name="enlace" value="https://stackoverflow.com/"/>		
 		<property name="manager" ref="manager2Manager"/>
@@ -169,7 +280,7 @@
 		<property name="titulo" value="Tarea antigua 2"/>
 		<property name="periodoEjecucionInicio" value="2018/12/20 01:18"/>
 		<property name="periodoEjecucionFinal" value="2018/12/24 02:18"/>
-		<property name="cargaTrabajo" value="4."/>
+		<property name="cargaTrabajo" value="4"/>
 		<property name="descripcion" value="es una tarea pasada 2"/>
 		<property name="enlace" value="https://stackoverflow.com/"/>	
 		<property name="manager" ref="manager2Manager"/>
@@ -180,7 +291,7 @@
 		<property name="titulo" value="Tarea antigua pub 2"/>
 		<property name="periodoEjecucionInicio" value="2018/12/21 01:45"/>
 		<property name="periodoEjecucionFinal" value="2018/12/24 02:18"/>
-		<property name="cargaTrabajo" value="5."/>
+		<property name="cargaTrabajo" value="5"/>
 		<property name="descripcion" value="es una tarea pasada y pública"/>
 		<property name="enlace" value="https://stackoverflow.com/"/>	
 		<property name="manager" ref="manager2Manager"/>
@@ -191,7 +302,7 @@
 		<property name="titulo" value="Configuracion tarjeta sonido"/>
 		<property name="periodoEjecucionInicio" value="2018/12/21 01:45"/>
 		<property name="periodoEjecucionFinal" value="2018/12/21 02:45"/>
-		<property name="cargaTrabajo" value="2."/>
+		<property name="cargaTrabajo" value="2"/>
 		<property name="descripcion" value="Revisar tarjeta sonido del pc-com-27"/>
 		<property name="enlace" value="https://stackoverflow.com/"/>	
 		<property name="manager" ref="manager2Manager"/>
@@ -202,7 +313,7 @@
 		<property name="titulo" value="Implementacion recursividad"/>
 		<property name="periodoEjecucionInicio" value="2018/11/22 01:45"/>
 		<property name="periodoEjecucionFinal" value="2018/11/23 02:45"/>
-		<property name="cargaTrabajo" value="4."/>
+		<property name="cargaTrabajo" value="4"/>
 		<property name="descripcion" value="Implementar algoritmo recursivo final"/>
 		<property name="enlace" value="https://stackoverflow.com/"/>	
 		<property name="manager" ref="manager2Manager"/>
@@ -213,7 +324,7 @@
 		<property name="titulo" value="Sprint 2 planning"/>
 	    <property name="periodoEjecucionInicio" value="2018/11/21 01:45"/>
 		<property name="periodoEjecucionFinal" value="2018/11/22 02:45"/>
-		<property name="cargaTrabajo" value="5."/>
+		<property name="cargaTrabajo" value="5"/>
 		<property name="descripcion" value="Estimate workloads for new tasks"/>
 		<property name="enlace" value="https://stackoverflow.com/"/>	
 		<property name="manager" ref="manager2Manager"/>
@@ -225,7 +336,7 @@
 		<property name="titulo" value="Code fixing"/>
 	    <property name="periodoEjecucionInicio" value="2018/11/20 01:45"/>
 		<property name="periodoEjecucionFinal" value="2018/11/21 02:45"/>
-		<property name="cargaTrabajo" value="6."/>
+		<property name="cargaTrabajo" value="6"/>
 		<property name="descripcion" value="There's a bug in line 1024 that we need to solve now"/>
 		<property name="enlace" value="https://stackoverflow.com/"/>	
 		<property name="manager" ref="manager2Manager"/>
@@ -239,7 +350,7 @@
 		<property name="titulo" value="Preparar el entregable de ISPP"/>
 		<property name="periodoEjecucionInicio" value="2021/11/07 02:30"/>
 		<property name="periodoEjecucionFinal" value="2021/11/07 04:30"/>
-		<property name="cargaTrabajo" value="5."/>
+		<property name="cargaTrabajo" value="5"/>
 		<property name="descripcion" value="Documentar el modelo de dominio"/>
 		<property name="enlace" value="https://github.com/"></property>	
 		<property name="manager" ref="manager2Manager"/>
@@ -250,7 +361,7 @@
 		<property name="titulo" value="Funcionalidad 27 parte 2"/>
 		<property name="periodoEjecucionInicio" value="2021/11/27 02:30"/>
 		<property name="periodoEjecucionFinal" value="2021/11/28 04:30"/>
-		<property name="cargaTrabajo" value="3."/>
+		<property name="cargaTrabajo" value="3"/>
 		<property name="descripcion" value="Añadir botón de carrito"/>
 		<property name="enlace" value="https://github.com/"></property>	
 		<property name="manager" ref="manager2Manager"/>
@@ -261,7 +372,7 @@
 		<property name="titulo" value="Spanish localization for our program"/>
 		<property name="periodoEjecucionInicio" value="2021/10/10 02:30"/>
 		<property name="periodoEjecucionFinal" value="2021/11/10 02:30"/>
-		<property name="cargaTrabajo" value="6."/>
+		<property name="cargaTrabajo" value="6"/>
 		<property name="descripcion" value="Translate all text-boxes and adapt them"/>
 		<property name="enlace" value="https://www.wordreference.com/"></property>	
 		<property name="manager" ref="manager2Manager"/>
@@ -272,7 +383,7 @@
 		<property name="titulo" value="Deployment of our project!"/>
 		<property name="periodoEjecucionInicio" value="2021/8/10 01:30"/>
 		<property name="periodoEjecucionFinal" value="2021/8/10 04:30"/>
-		<property name="cargaTrabajo" value="7."/>
+		<property name="cargaTrabajo" value="7"/>
 		<property name="descripcion" value="We need to deploy our project in Clevercloud"/>
 		<property name="enlace" value="https://www.wordreference.com/"></property>	
 		<property name="manager" ref="manager2Manager"/>
@@ -283,7 +394,7 @@
 		<property name="titulo" value="Desing et le testing la"/>
 		<property name="periodoEjecucionInicio" value="2021/7/10 01:30"/>
 		<property name="periodoEjecucionFinal" value="2021/7/10 04:30"/>
-		<property name="cargaTrabajo" value="4."/>
+		<property name="cargaTrabajo" value="4"/>
 		<property name="descripcion" value="analyser la structure mvc"/>
 		<property name="enlace" value="https://www.wordreference.com/"></property>	
 		<property name="manager" ref="manager2Manager"/>
@@ -294,7 +405,7 @@
 		<property name="titulo" value="oppgaveenhet testoppgave"/>
 		<property name="periodoEjecucionInicio" value="2021/7/11 01:30"/>
 		<property name="periodoEjecucionFinal" value="2021/7/11 04:30"/>
-		<property name="cargaTrabajo" value="4."/>
+		<property name="cargaTrabajo" value="4"/>
 		<property name="descripcion" value="legg til enhetstest til enheten Oppgave"/>
 		<property name="enlace" value="https://www.wordreference.com/"></property>	
 		<property name="manager" ref="manager2Manager"/>
@@ -305,7 +416,7 @@
 		<property name="titulo" value="Lorem ipsum dolor sit amet"/>
 		<property name="periodoEjecucionInicio" value="2021/7/11 02:30"/>
 		<property name="periodoEjecucionFinal" value="2021/7/11 04:30"/>
-		<property name="cargaTrabajo" value="4."/>
+		<property name="cargaTrabajo" value="4"/>
 		<property name="descripcion" value="consectetur adipiscing elit, sed do eiusmod"/>
 		<property name="enlace" value="https://www.lipsum.com/"></property>	
 		<property name="manager" ref="manager2Manager"/>

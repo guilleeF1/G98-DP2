@@ -1,20 +1,15 @@
-package acme.entities.shouts;
+package acme.entities.informationsheets;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.URL;
-
-import acme.entities.informationsheets.Informationsheet;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,29 +17,26 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Shout extends DomainEntity {
+public class Informationsheet extends DomainEntity {
 	
 	protected static final long serialVersionUID = 1L;
 	
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	protected Date date;
+
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	@NotNull
 	protected Date moment;
 	
-
-	@Length(min = 5, max = 25)
+	@Min(value = 0)
+	@NotNull
+	protected Double money;
+	
 	@NotBlank
-	protected String author;
+	protected String currency;
 	
-	@Length(max = 100)
-	@NotBlank
-	protected String text;
-	
-	@URL
-	protected String info;
-	
-	@Valid
-	@OneToOne//(optional = false)
-	protected Informationsheet informationsheet;
+	protected Boolean flag;
 	
 }

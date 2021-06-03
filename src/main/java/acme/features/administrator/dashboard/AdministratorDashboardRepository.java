@@ -72,4 +72,6 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select max(t.periodoEjecucionFinal) from Task t")
 	Date finalPeriodMax();
 
+	@Query("select avg(t.money) from Informationsheet t where t.currency = ?1")
+	Double getMoneyAverage(String currency);
 }

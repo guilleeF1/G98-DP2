@@ -11,6 +11,12 @@
 anonymous.shout.form.label.author = Autor:
 anonymous.shout.form.label.text = Texto:
 anonymous.shout.form.label.text = Información:
+anonymous.shout.form.label.informationsheet.date = Fecha:
+anonymous.shout.form.label.informationsheet.money = Dinero:
+anonymous.shout.form.label.informationsheet.currency = Moneda:
+anonymous.shout.form.label.informationsheet.euro = Euro
+anonymous.shout.form.label.informationsheet.dollar = Dollar
+anonymous.shout.form.label.informationsheet.flag = Bandera:
 anonymous.shout.form.button.create = Gritar
 anonymous.shout.form.button.return = Volver
 
@@ -19,3 +25,7 @@ anonymous.shout.form.error.spam = El texto contiene spam
 anonymous.shout.list.label.moment = Momento
 anonymous.shout.list.label.author = Autor
 anonymous.shout.list.label.text = Texto
+anonymous.shout.list.label.informationsheet.date = Información fecha
+anonymous.shout.list.label.informationsheet.moment = Información momento
+anonymous.shout.list.label.informationsheet.money = Información dinero
+anonymous.shout.list.label.informationsheet.flag = Información bandera

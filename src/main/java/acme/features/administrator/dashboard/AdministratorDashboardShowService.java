@@ -21,6 +21,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.features.anonymous.shout.AnonymousShoutRepository;
 import acme.forms.Dashboard;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -34,6 +35,9 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 	@Autowired
 	protected AdministratorDashboardRepository repository;
+	
+	@Autowired
+	protected AnonymousShoutRepository shoutRepository;
 
 	// AbstractShowService<Administrator, Dashboard> interface ----------------
 
@@ -53,7 +57,9 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		request.unbind(entity, model, //
 			"numberOfTaskPublic", "numberOfTaskPrivate", "numberOfTaskFinished", "numberOfTaskNotFinished", "workloadAverage", "workloadMin", "workloadMax", "workloadDeviation", "startPeriodAverage", "finalPeriodAverage", "startPeriodMin",
-			"finalPeriodMin", "startPeriodMax", "finalPeriodMax", "startPeriodDeviation", "finalPeriodDeviation");
+			"finalPeriodMin", "startPeriodMax", "finalPeriodMax", "startPeriodDeviation", "finalPeriodDeviation",
+			"flaggedRatio", "outdatedInformationsheetsRatio", "moneyEuroAverage", "moneyDollarAverage",
+			"moneyEuroDeviation", "moneyDollarDeviation");
 	}
 
 	@Override
@@ -78,6 +84,12 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Date finalPeriodMax;
 		Double startPeriodDeviation;
 		Double finalPeriodDeviation;
+		Double flaggedRatio;
+		Double outdatedInformationsheets;
+		Double moneyEuroAverage;
+		Double moneyDollarAverage;
+		Double moneyEuroDeviation;
+		Double moneyDollarDeviation;
 
 		numberOfTaskPublic = this.repository.countTaskPublic();
 		numberOfTaskPrivate = this.repository.countTaskPrivate();
@@ -109,6 +121,21 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		}
 		startPeriodDeviation = AdministratorDashboardShowService.calculateSD(pI);
 		finalPeriodDeviation = AdministratorDashboardShowService.calculateSD(pF);
+		flaggedRatio = ((double) this.shoutRepository.findFlaggedInformationsheets().size()) /
+			((double) this.shoutRepository.findAllInformationsheets().size());
+		
+		Date moment;
+		moment = new Date(System.currentTimeMillis() - 1);
+		
+		outdatedInformationsheets = ((double) this.shoutRepository.findOutdatedInformationsheets(moment).size()) /
+			((double) this.shoutRepository.findAllInformationsheets().size());
+
+		moneyEuroAverage = this.repository.getMoneyAverage("euro");
+		moneyDollarAverage = this.repository.getMoneyAverage("dollar");
+		
+		moneyEuroDeviation = AdministratorDashboardShowService.calculateSDDouble(this.shoutRepository.getMoneyFromInformationsheetByCurrency("euro"));
+		
+		moneyDollarDeviation = AdministratorDashboardShowService.calculateSDDouble(this.shoutRepository.getMoneyFromInformationsheetByCurrency("dollar"));
 
 		result = new Dashboard();
 		result.setNumberOfTaskPublic(numberOfTaskPublic);
@@ -127,6 +154,12 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setStartPeriodMin(startPeriodMin);
 		result.setFinalPeriodDeviation(finalPeriodDeviation);
 		result.setStartPeriodDeviation(startPeriodDeviation);
+		result.setFlaggedRatio(flaggedRatio);
+		result.setOutdatedInformationsheetsRatio(outdatedInformationsheets);
+		result.setMoneyEuroAverage(moneyEuroAverage);
+		result.setMoneyDollarAverage(moneyDollarAverage);
+		result.setMoneyEuroDeviation(moneyEuroDeviation);
+		result.setMoneyDollarDeviation(moneyDollarDeviation);
 
 		return result;
 	}
@@ -142,6 +175,23 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		final double mean = sum / length;
 
 		for (final Integer num : integer) {
+			standardDeviation += Math.pow(num - mean, 2);
+		}
+
+		return Math.sqrt(standardDeviation / length);
+	}
+
+	private static double calculateSDDouble(final Collection<Double> ls) {
+		double sum = 0.0, standardDeviation = 0.0;
+		final int length = ls.size();
+
+		for (final Double num : ls) {
+			sum += num;
+		}
+
+		final double mean = sum / length;
+
+		for (final Double num : ls) {
 			standardDeviation += Math.pow(num - mean, 2);
 		}
 
