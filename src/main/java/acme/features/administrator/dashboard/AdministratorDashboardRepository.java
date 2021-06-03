@@ -35,8 +35,11 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	Integer countShoutWithXXX();
 	
 	//c) the average and the standard deviation of the XXX grouped by currency
-	@Query("select t.moneyAttribute.amount from EntidadExamen t GROUP BY t.moneyAttribute.currency")
-	Collection<Double> getCurrency();
+	@Query("select t.moneyAttribute.amount from EntidadExamen t where t.moneyAttribute.currency = ?1")
+	Collection<Double> getCurrencyEur(String eur);
+	
+	@Query("select t.moneyAttribute.amount from EntidadExamen t where t.moneyAttribute.currency = ?1")
+	Collection<Double> getCurrencyUsd(String usd);
 	
 	
 	@Query("select count(t) from Task t where t.publica = TRUE")

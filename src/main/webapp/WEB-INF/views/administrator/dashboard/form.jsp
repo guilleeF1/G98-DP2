@@ -43,12 +43,21 @@
 	
 		<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.label.currencyDeviation"/>
+			<acme:message code="administrator.dashboard.label.currencyDeviation.eur"/>
 		</th>
 		<td id="18">
-			<acme:print value="${currencyDeviation}"/>
+			<acme:print value="${currencyDeviationEur}"/>
 		</td>
-	</tr>	
+	</tr>
+	
+		<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.label.currencyDeviation.dollar"/>
+		</th>
+		<td id="18">
+			<acme:print value="${currencyDeviationUsd}"/>
+		</td>
+	</tr>		
 	
 	
 	

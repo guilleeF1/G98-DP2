@@ -27,7 +27,7 @@
 		<property name="momentAttribute" value="2021/05/24 11:37"/>
 		<property name="moneyAttribute">
 			<bean class="acme.framework.datatypes.Money">
-					<property name="amount" value="30"/>
+					<property name="amount" value="20"/>
 					<property name="currency" value="EUR"/>		
 			</bean>
 		</property>
@@ -40,7 +40,7 @@
 		<property name="moneyAttribute">
 			<bean class="acme.framework.datatypes.Money">
 					<property name="amount" value="33"/>
-					<property name="currency" value="EUR"/>		
+					<property name="currency" value="USD"/>		
 			</bean>
 		</property>
 		<property name="isFlag" value="true"/>
@@ -51,7 +51,7 @@
 		<property name="momentAttribute" value="2021/05/24 11:37"/>
 		<property name="moneyAttribute">
 			<bean class="acme.framework.datatypes.Money">
-					<property name="amount" value="33"/>
+					<property name="amount" value="50"/>
 					<property name="currency" value="EUR"/>		
 			</bean>
 		</property>
@@ -63,8 +63,8 @@
 		<property name="momentAttribute" value="2021/05/24 11:37"/>
 		<property name="moneyAttribute">
 			<bean class="acme.framework.datatypes.Money">
-					<property name="amount" value="33"/>
-					<property name="currency" value="EUR"/>		
+					<property name="amount" value="30"/>
+					<property name="currency" value="USD"/>		
 			</bean>
 		</property>
 		<property name="isFlag" value="true"/>
@@ -87,8 +87,8 @@
 		<property name="momentAttribute" value="2021/05/24 11:37"/>
 		<property name="moneyAttribute">
 			<bean class="acme.framework.datatypes.Money">
-					<property name="amount" value="33"/>
-					<property name="currency" value="EUR"/>		
+					<property name="amount" value="45"/>
+					<property name="currency" value="USD"/>		
 			</bean>
 		</property>
 		<property name="isFlag" value="true"/>
@@ -123,7 +123,7 @@
 		<property name="momentAttribute" value="2021/05/24 11:37"/>
 		<property name="moneyAttribute">
 			<bean class="acme.framework.datatypes.Money">
-					<property name="amount" value="33"/>
+					<property name="amount" value="200"/>
 					<property name="currency" value="EUR"/>		
 			</bean>
 		</property>
@@ -136,8 +136,8 @@
 		<property name="momentAttribute" value="2021/05/24 11:37"/>
 		<property name="moneyAttribute">
 			<bean class="acme.framework.datatypes.Money">
-					<property name="amount" value="33"/>
-					<property name="currency" value="EUR"/>		
+					<property name="amount" value="10"/>
+					<property name="currency" value="USD"/>		
 			</bean>
 		</property>
 		<property name="isFlag" value="true"/>
@@ -148,7 +148,7 @@
 		<property name="momentAttribute" value="2021/05/24 11:37"/>
 		<property name="moneyAttribute">
 			<bean class="acme.framework.datatypes.Money">
-					<property name="amount" value="33"/>
+					<property name="amount" value="60"/>
 					<property name="currency" value="EUR"/>		
 			</bean>
 		</property>
