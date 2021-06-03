@@ -17,13 +17,16 @@
 
 <acme:list readonly="true">
 	<acme:list-column code="anonymous.shout.list.label.moment" path="moment" width="20%"/>
-	<acme:list-column code="anonymous.shout.list.label.author" path="author" width="20%"/>
-	<acme:list-column code="anonymous.shout.list.label.text" path="text" width="20%"/>
+	<acme:list-column code="anonymous.shout.list.label.author" path="author" width="10%"/>
+	<acme:list-column code="anonymous.shout.list.label.text" path="text" width="10%"/>
+	
+	
 	<acme:list-column code="anonymous.shout.list.label.momentAttribute" path="momentAttribute" width="10%"/>
 	<acme:list-column code="anonymous.shout.list.label.timeAttribute" path="timeAttribute" width="10%"/>
 	<acme:list-column code="anonymous.shout.list.label.isFlag" path="isFlag" width="10%"/>
 	<acme:list-column code="anonymous.shout.list.label.amount" path="amount" width="10%"/>
 	<acme:list-column code="anonymous.shout.list.label.currency" path="currency" width="10%"/>
+
 
 </acme:list>
 

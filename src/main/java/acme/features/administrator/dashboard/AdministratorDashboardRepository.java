@@ -23,6 +23,21 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AdministratorDashboardRepository extends AbstractRepository {
 
+	@Query("select count(s) from Shout s")//cantidad de shouts, para hacer los ratios
+	Integer countShout();
+	
+	//a) the ratio of shouts whose XXX were flagged as XXX
+	@Query("select count(e) from EntidadExamen e where e.isFlag = TRUE")//como es one to one, vale así xd
+	Integer countShoutFlagged();
+	
+	//b) the ratio of shouts whose XXX have XXX
+	@Query("select count(e) from EntidadExamen e where e.isFlag = TRUE")//como es one to one, vale así xd
+	Integer countShoutWithXXX();
+	
+	//c) the average and the standard deviation of the XXX grouped by currency
+	@Query("select t.moneyAttribute.amount from EntidadExamen t GROUP BY t.moneyAttribute.currency")
+	Collection<Double> getCurrency();
+	
 	
 	@Query("select count(t) from Task t where t.publica = TRUE")
 	Integer countTaskPublic();

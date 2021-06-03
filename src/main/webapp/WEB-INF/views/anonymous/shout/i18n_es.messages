@@ -24,3 +24,7 @@ anonymous.shout.list.label.timeAttribute = Tiempo
 anonymous.shout.list.label.isFlag = esFlag
 anonymous.shout.list.label.amount = Cantidad
 anonymous.shout.list.label.currency = Moneda
+
+anonymous.shout.form.error.currency = Moneda debe ser EUR o USD
+anonymous.shout.form.error.positive = Cantidad debe ser positiva
+anonymous.shout.form.error.duplicatedtime = El tiempo no puede estar duplicado

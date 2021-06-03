@@ -78,7 +78,17 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Date finalPeriodMax;
 		Double startPeriodDeviation;
 		Double finalPeriodDeviation;
+		Double flaggedRatio;
+		Double xxxRatio;
+		Double currencyDeviation;
 
+		flaggedRatio= this.repository.countShoutFlagged() /(double)this.repository.countShout();
+		xxxRatio= this.repository.countShoutWithXXX() /(double)this.repository.countShout();
+		final Collection<Double> currencys= this.repository.getCurrency();
+		currencyDeviation = AdministratorDashboardShowService.calculateSDDoubles(currencys);
+		
+		
+		
 		numberOfTaskPublic = this.repository.countTaskPublic();
 		numberOfTaskPrivate = this.repository.countTaskPrivate();
 		numberOfTaskFinished = this.repository.countTaskFinished(today);
@@ -111,6 +121,12 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		finalPeriodDeviation = AdministratorDashboardShowService.calculateSD(pF);
 
 		result = new Dashboard();
+		
+		result.setFlaggedRatio(flaggedRatio);
+		result.setXxxRatio(xxxRatio);
+		result.setCurrencyDeviation(currencyDeviation);
+		
+		
 		result.setNumberOfTaskPublic(numberOfTaskPublic);
 		result.setNumberOfTaskPrivate(numberOfTaskPrivate);
 		result.setNumberOfTaskFinished(numberOfTaskFinished);
@@ -127,6 +143,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setStartPeriodMin(startPeriodMin);
 		result.setFinalPeriodDeviation(finalPeriodDeviation);
 		result.setStartPeriodDeviation(startPeriodDeviation);
+		
 
 		return result;
 	}
@@ -146,6 +163,23 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		}
 
 		return Math.sqrt(standardDeviation / length);
+	}
+	
+	private static double calculateSDDoubles(final Collection<Double> lista) {
+		double sum = 0.0, standardDeviation = 0.0;
+		final int tam = lista.size();
+
+		for (final Double num : lista) {
+			sum += num;
+		}
+
+		final double mean = sum / tam;
+
+		for (final Double num : lista) {
+			standardDeviation += Math.pow(num - mean, 2);
+		}
+
+		return Math.sqrt(standardDeviation / tam);
 	}
 
 }

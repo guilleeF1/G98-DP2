@@ -20,6 +20,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.entidadExamen.EntidadExamen;
 import acme.entities.shouts.Shout;
 import acme.entities.spamword.Spamword;
 import acme.entities.threshold.Threshold;
@@ -28,6 +29,7 @@ import acme.features.administrator.threshold.AdministratorThresholdRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.entities.Anonymous;
 import acme.framework.services.AbstractCreateService;
 
@@ -62,6 +64,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		request.bind(entity, errors);
 		request.bind(entity.getEntidadExamen(), errors);
 		request.bind(entity.getEntidadExamen().getMoneyAttribute(), errors);
+
 	}
 
 	@Override
@@ -73,6 +76,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		request.unbind(entity, model, "author", "text", "moment");
 		request.unbind(entity.getEntidadExamen(), model, "momentAttribute","timeAttribute","isFlag");
 		request.unbind(entity.getEntidadExamen().getMoneyAttribute(), model, "amount","currency");
+
 	}
 
 	@Override
@@ -89,6 +93,11 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		result.setText("Lorem ipsum!");
 		result.setMoment(moment);
 		result.setInfo("http://example.org");
+		result.setEntidadExamen(new EntidadExamen());
+		result.getEntidadExamen().setIsFlag(true);
+		result.getEntidadExamen().setMoneyAttribute(new Money());
+
+		
 
 		return result;
 	}
@@ -108,12 +117,22 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 			errors.state(request, !this.isSpam(entity.getText()), "text", "anonymous.shout.form.error.spam");
 		}
 		if (!errors.hasErrors("currency")) {
-			final String currency = entity.getEntidadExamen().getMoneyAttribute().getCurrency();
-			errors.state(request, !currency.trim().isEmpty() && (currency.contains("EUR") || currency.contains("DOLLARS")), "currency", "anonymous.shout.form.error.currency");
+			final String currency = entity.getEntidadExamen().getMoneyAttribute().getCurrency().toLowerCase();
+			errors.state(request, !currency.trim().isEmpty() && (currency.equals("eur") || currency.equals("usd")) && currency!=null , "currency", "anonymous.shout.form.error.currency");
 		}
 		if (!errors.hasErrors("amount")) {
 			final Double amount = entity.getEntidadExamen().getMoneyAttribute().getAmount();
-			errors.state(request, amount>0 , "currency", "anonymous.shout.form.error.positive");
+			errors.state(request, amount!=null && amount>0   , "currency", "anonymous.shout.form.error.positive");
+		}
+		if (!errors.hasErrors("timeAttribute")) {
+			final Date timeAttribute = entity.getEntidadExamen().getTimeAttribute();
+			final List<Date> times = this.repository.findtimeAttribute();
+			errors.state(request, !(times.contains(timeAttribute)) && timeAttribute!=null , "timeAttribute", "anonymous.shout.form.error.duplicatedtime");
+		}
+		
+		if (!errors.hasErrors("isFlag")) {
+			final Boolean isFlag = entity.getEntidadExamen().getIsFlag();
+			errors.state(request, isFlag!=null , "currency", "anonymous.shout.form.error.null");
 		}
 	}
 
@@ -126,6 +145,9 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
 		moment = new Date(System.currentTimeMillis() - 1);
 		entity.setMoment(moment);
+		
+		entity.getEntidadExamen().setMomentAttribute(moment);
+		this.repository.save(entity.getEntidadExamen());
 		this.repository.save(entity);
 	}
 	

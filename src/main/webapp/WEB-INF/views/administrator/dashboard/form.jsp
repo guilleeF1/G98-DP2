@@ -22,6 +22,37 @@
 	<caption>
 		<acme:message code="administrator.dashboard.form.title.general-indicators"/>
 	</caption>	
+	
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.label.flaggedRatio"/>
+		</th>
+		<td id="16">
+			<acme:print value="${flaggedRatio}"/>
+		</td>
+	</tr>	
+	
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.label.xxxRatio"/>
+		</th>
+		<td id="17">
+			<acme:print value="${xxxRatio}"/>
+		</td>
+	</tr>	
+	
+		<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.label.currencyDeviation"/>
+		</th>
+		<td id="18">
+			<acme:print value="${currencyDeviation}"/>
+		</td>
+	</tr>	
+	
+	
+	
+	
 	<tr>
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.public"/>

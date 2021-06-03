@@ -24,3 +24,7 @@ anonymous.shout.list.label.timeAttribute = Time
 anonymous.shout.list.label.isFlag = isFlag
 anonymous.shout.list.label.amount = Amount
 anonymous.shout.list.label.currency = Currency
+
+anonymous.shout.form.error.currency = Currency not valid. Only USD or EUR
+anonymous.shout.form.error.positive = Amount must be positive
+anonymous.shout.form.error.duplicatedtime = This attribute can't be duplicated from an existing one
