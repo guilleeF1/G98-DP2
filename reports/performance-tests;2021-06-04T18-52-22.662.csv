@@ -1,0 +1,18 @@
+timestamp,test-class,test-method,time,description,result
+2021-06-04 18:52:39.1,acme.testing.administrator.dashboard.AdministratorDashboardTest,dashboardNegative,470,"dashboardNegative()",OK
+2021-06-04 18:52:43.673,acme.testing.administrator.dashboard.AdministratorDashboardTest,checkDashboard,4182,"[1] recordIndex=0, value=15",OK
+2021-06-04 18:52:47.974,acme.testing.administrator.dashboard.AdministratorDashboardTest,checkDashboard,4061,"[2] recordIndex=1, value=3",OK
+2021-06-04 18:52:52.203,acme.testing.administrator.dashboard.AdministratorDashboardTest,checkDashboard,4007,"[3] recordIndex=2, value=7",OK
+2021-06-04 18:52:56.444,acme.testing.administrator.dashboard.AdministratorDashboardTest,checkDashboard,4004,"[4] recordIndex=3, value=11",OK
+2021-06-04 18:53:00.729,acme.testing.administrator.dashboard.AdministratorDashboardTest,checkDashboard,4048,"[5] recordIndex=4, value=4.17",OK
+2021-06-04 18:53:05.045,acme.testing.administrator.dashboard.AdministratorDashboardTest,checkDashboard,4095,"[6] recordIndex=5, value=7",OK
+2021-06-04 18:53:09.291,acme.testing.administrator.dashboard.AdministratorDashboardTest,checkDashboard,4025,"[7] recordIndex=6, value=1",OK
+2021-06-04 18:53:13.55,acme.testing.administrator.dashboard.AdministratorDashboardTest,checkDashboard,4026,"[8] recordIndex=7, value=2.00",OK
+2021-06-04 18:53:17.848,acme.testing.administrator.dashboard.AdministratorDashboardTest,checkDashboard,4074,"[9] recordIndex=8, value=168,337,216.23",OK
+2021-06-04 18:53:22.074,acme.testing.administrator.dashboard.AdministratorDashboardTest,checkDashboard,4007,"[10] recordIndex=9, value=168,337,270.71",OK
+2021-06-04 18:53:26.53,acme.testing.administrator.dashboard.AdministratorDashboardTest,checkDashboard,4235,"[11] recordIndex=10, value=2018/11/20 01:45",OK
+2021-06-04 18:53:30.843,acme.testing.administrator.dashboard.AdministratorDashboardTest,checkDashboard,4082,"[12] recordIndex=11, value=2018/11/21 02:45",OK
+2021-06-04 18:53:35.129,acme.testing.administrator.dashboard.AdministratorDashboardTest,checkDashboard,4064,"[13] recordIndex=12, value=2021/12/24 01:18",OK
+2021-06-04 18:53:39.389,acme.testing.administrator.dashboard.AdministratorDashboardTest,checkDashboard,4031,"[14] recordIndex=13, value=2021/12/24 02:18",OK
+2021-06-04 18:53:43.677,acme.testing.administrator.dashboard.AdministratorDashboardTest,checkDashboard,4070,"[15] recordIndex=14, value=2.35",OK
+2021-06-04 18:53:47.948,acme.testing.administrator.dashboard.AdministratorDashboardTest,checkDashboard,4050,"[16] recordIndex=15, value=2.02",OK

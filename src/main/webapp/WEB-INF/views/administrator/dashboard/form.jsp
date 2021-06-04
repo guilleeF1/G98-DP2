@@ -154,7 +154,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.flaggedRatio"/>
 		</th>
-		<td>
+		<td id="16">
 			<acme:print value="${flaggedRatio}"/>
 		</td>
 	</tr>
@@ -162,7 +162,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.outdatedInformationsheetsRatio"/>
 		</th>
-		<td>
+		<td id="17">
 			<acme:print value="${outdatedInformationsheetsRatio}"/>
 		</td>
 	</tr>
@@ -170,7 +170,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.moneyEuroAverage"/>
 		</th>
-		<td>
+		<td id="18">
 			<acme:print value="${moneyEuroAverage}"/>
 		</td>
 	</tr>
@@ -178,7 +178,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.moneyDollarAverage"/>
 		</th>
-		<td>
+		<td id="19">
 			<acme:print value="${moneyDollarAverage}"/>
 		</td>
 	</tr>
@@ -186,7 +186,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.moneyEuroDeviation"/>
 		</th>
-		<td>
+		<td id="20">
 			<acme:print value="${moneyEuroDeviation}"/>
 		</td>
 	</tr>
@@ -194,7 +194,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.moneyDollarDeviation"/>
 		</th>
-		<td>
+		<td id="21">
 			<acme:print value="${moneyDollarDeviation}"/>
 		</td>
 	</tr>
