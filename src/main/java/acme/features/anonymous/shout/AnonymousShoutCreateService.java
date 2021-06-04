@@ -12,6 +12,7 @@
 
 package acme.features.anonymous.shout;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -71,7 +72,6 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert model != null;
 
 		request.unbind(entity, model, "author", "text", "info");
-		request.unbind(entity.getInformationsheet(), model, "date", "money", "currency", "flag");
 	}
 
 	@Override
@@ -89,12 +89,8 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		result.setMoment(moment);
 		result.setInfo("http://example.org");
 		result.setInformationsheet(new Informationsheet());
-
-		result.getInformationsheet().setDate(moment);
+		
 		result.getInformationsheet().setMoment(moment);
-		result.getInformationsheet().setMoney(5.0);
-		result.getInformationsheet().setCurrency("euro");
-		result.getInformationsheet().setFlag(false);
 
 		return result;
 	}
@@ -111,6 +107,25 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
 		if (!errors.hasErrors("text")) {
 			errors.state(request, !this.isSpam(entity.getText()), "text", "anonymous.shout.form.error.spam");
+		}
+		
+		if(!errors.hasErrors("date")) {
+			errors.state(request, entity.getInformationsheet().getDate().matches
+				("^\\d{4}\\/(0?[1-9]|1[012])\\/(0?[1-9]|[12][0-9]|3[01])$"), 
+				"date", "anonymous.shout.form.error.dateExpresion");
+		}
+		
+		if(!errors.hasErrors("currency")) {
+			errors.state(request, entity.getInformationsheet().getCurrency().equals("euro") || 
+				entity.getInformationsheet().getCurrency().equals("dollar"), 
+				"currency", "anonymous.shout.form.error.currency");
+		}
+		
+		if(!errors.hasErrors("money")) {
+			errors.state(request, entity.getInformationsheet().getMoney() >= 0, 
+				"money", "anonymous.shout.form.error.min");
+			errors.state(request, BigDecimal.valueOf(entity.getInformationsheet().getMoney()).scale() <= 2, 
+				"money", "anonymous.shout.form.error.twoDecimals");
 		}
 	}
 

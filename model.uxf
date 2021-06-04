@@ -4,10 +4,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>672</x>
-      <y>640</y>
+      <x>440</x>
+      <y>416</y>
       <w>304</w>
-      <h>240</h>
+      <h>304</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 Dashboard
@@ -28,14 +28,18 @@ Dashboard
 + finalPeriodMin: Date
 + startPeriodMax: Date
 + finalPeriodMax: Date
-</panel_attributes>
++ flaggedRatio: Double
++ moneyEuroAverage: Double
++ moneyDollarAverage: Double
++ moneyEuroDeviation: Double
++ moneyDollarDeviation: Double</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>400</x>
-      <y>368</y>
+      <x>480</x>
+      <y>336</y>
       <w>192</w>
       <h>48</h>
     </coordinates>
@@ -48,8 +52,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
-      <y>384</y>
+      <x>728</x>
+      <y>352</y>
       <w>80</w>
       <h>24</h>
     </coordinates>
@@ -62,8 +66,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
-      <y>352</y>
+      <x>728</x>
+      <y>320</y>
       <w>80</w>
       <h>24</h>
     </coordinates>
@@ -76,8 +80,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
-      <y>416</y>
+      <x>728</x>
+      <y>384</y>
       <w>80</w>
       <h>24</h>
     </coordinates>
@@ -90,8 +94,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>584</x>
-      <y>360</y>
+      <x>664</x>
+      <y>328</y>
       <w>80</w>
       <h>48</h>
     </coordinates>
@@ -101,8 +105,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>584</x>
-      <y>384</y>
+      <x>664</x>
+      <y>352</y>
       <w>80</w>
       <h>24</h>
     </coordinates>
@@ -112,8 +116,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>584</x>
-      <y>384</y>
+      <x>664</x>
+      <y>352</y>
       <w>80</w>
       <h>56</h>
     </coordinates>
@@ -123,8 +127,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>720</x>
-      <y>896</y>
+      <x>792</x>
+      <y>512</y>
       <w>184</w>
       <h>88</h>
     </coordinates>
@@ -139,8 +143,8 @@ SimpleClass
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>80</x>
-      <y>256</y>
+      <x>160</x>
+      <y>224</y>
       <w>24</w>
       <h>48</h>
     </coordinates>
@@ -151,8 +155,8 @@ SimpleClass
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>288</y>
+      <x>80</x>
+      <y>256</y>
       <w>176</w>
       <h>96</h>
     </coordinates>
@@ -171,8 +175,8 @@ bg=orange
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>0</x>
-      <y>216</y>
+      <x>80</x>
+      <y>184</y>
       <w>192</w>
       <h>48</h>
     </coordinates>
@@ -184,10 +188,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>216</x>
-      <y>224</y>
+      <x>304</x>
+      <y>184</y>
       <w>312</w>
-      <h>112</h>
+      <h>88</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Shout
@@ -202,8 +206,8 @@ Shout
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>224</x>
-      <y>48</y>
+      <x>304</x>
+      <y>16</y>
       <w>376</w>
       <h>152</h>
     </coordinates>
@@ -223,8 +227,8 @@ Task
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
-      <y>312</y>
+      <x>728</x>
+      <y>280</y>
       <w>80</w>
       <h>24</h>
     </coordinates>
@@ -237,8 +241,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>584</x>
-      <y>320</y>
+      <x>664</x>
+      <y>288</y>
       <w>80</w>
       <h>88</h>
     </coordinates>
@@ -248,8 +252,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>592</x>
-      <y>136</y>
+      <x>672</x>
+      <y>104</y>
       <w>320</w>
       <h>208</h>
     </coordinates>
@@ -262,8 +266,8 @@ Created by &gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>952</x>
-      <y>144</y>
+      <x>1032</x>
+      <y>112</y>
       <w>136</w>
       <h>64</h>
     </coordinates>
@@ -276,8 +280,8 @@ Spamword
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>952</x>
-      <y>264</y>
+      <x>1032</x>
+      <y>232</y>
       <w>144</w>
       <h>56</h>
     </coordinates>
@@ -285,6 +289,59 @@ Spamword
 Threshold
 --
 + umbral: Double {NotNull}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>88</x>
+      <y>392</y>
+      <w>312</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Informationsheet
+--
++ date: String {NotNull, Column(unique = true)}
++ moment: Date {NotNull, Temporal(TIMESTAMP), Past}
++ money: Double {NotNull}
++ currency: String {NotBlank}
++ flag</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>232</x>
+      <y>264</y>
+      <w>240</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;160.0;10.0;130.0;280.0;130.0;280.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>456</x>
+      <y>272</y>
+      <w>32</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>1
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>224</x>
+      <y>368</y>
+      <w>32</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>1
+style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

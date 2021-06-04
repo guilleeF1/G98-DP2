@@ -58,7 +58,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		request.unbind(entity, model, //
 			"numberOfTaskPublic", "numberOfTaskPrivate", "numberOfTaskFinished", "numberOfTaskNotFinished", "workloadAverage", "workloadMin", "workloadMax", "workloadDeviation", "startPeriodAverage", "finalPeriodAverage", "startPeriodMin",
 			"finalPeriodMin", "startPeriodMax", "finalPeriodMax", "startPeriodDeviation", "finalPeriodDeviation",
-			"flaggedRatio", "outdatedInformationsheetsRatio", "moneyEuroAverage", "moneyDollarAverage",
+			"flaggedRatio", /*"outdatedInformationsheetsRatio",*/ "moneyEuroAverage", "moneyDollarAverage",
 			"moneyEuroDeviation", "moneyDollarDeviation");
 	}
 
@@ -85,7 +85,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double startPeriodDeviation;
 		Double finalPeriodDeviation;
 		Double flaggedRatio;
-		Double outdatedInformationsheets;
+//		Double outdatedInformationsheets;
 		Double moneyEuroAverage;
 		Double moneyDollarAverage;
 		Double moneyEuroDeviation;
@@ -127,8 +127,8 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Date moment;
 		moment = new Date(System.currentTimeMillis() - 1);
 		
-		outdatedInformationsheets = ((double) this.shoutRepository.findOutdatedInformationsheets(moment).size()) /
-			((double) this.shoutRepository.findAllInformationsheets().size());
+//		outdatedInformationsheets = ((double) this.shoutRepository.findOutdatedInformationsheets(moment).size()) /
+//			((double) this.shoutRepository.findAllInformationsheets().size());
 
 		moneyEuroAverage = this.repository.getMoneyAverage("euro");
 		moneyDollarAverage = this.repository.getMoneyAverage("dollar");
@@ -155,7 +155,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setFinalPeriodDeviation(finalPeriodDeviation);
 		result.setStartPeriodDeviation(startPeriodDeviation);
 		result.setFlaggedRatio(flaggedRatio);
-		result.setOutdatedInformationsheetsRatio(outdatedInformationsheets);
+//		result.setOutdatedInformationsheetsRatio(outdatedInformationsheets);
 		result.setMoneyEuroAverage(moneyEuroAverage);
 		result.setMoneyDollarAverage(moneyDollarAverage);
 		result.setMoneyEuroDeviation(moneyEuroDeviation);

@@ -29,3 +29,8 @@ anonymous.shout.list.label.informationsheet.date = Información fecha
 anonymous.shout.list.label.informationsheet.moment = Información momento
 anonymous.shout.list.label.informationsheet.money = Información dinero
 anonymous.shout.list.label.informationsheet.flag = Información bandera
+
+anonymous.shout.form.error.dateExpresion = La fecha debe ser expresada como "aaaa/mm/dd"
+anonymous.shout.form.error.currency = La moneda debe ser "euro" o "dollar"
+anonymous.shout.form.error.twoDecimals = El valor no debe contener más de dos cifras en la parte decimal
+anonymous.shout.form.error.min = El valor debe ser no negativo
