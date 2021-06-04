@@ -54,7 +54,7 @@
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.currencyDeviation.dollar"/>
 		</th>
-		<td id="18">
+		<td id="19">
 			<acme:print value="${currencyDeviationUsd}"/>
 		</td>
 	</tr>		
