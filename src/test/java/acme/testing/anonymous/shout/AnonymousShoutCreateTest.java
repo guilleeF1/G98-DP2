@@ -16,11 +16,16 @@ public class AnonymousShoutCreateTest extends AcmePlannerTest {
 		@ParameterizedTest
 		@CsvFileSource(resources = "/anonymous/shout/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 		@Order(10)
-		public void createShoutWithAnonymousPositive(final int recordIndex, final String author, final String text) {
+		public void createShoutWithAnonymousPositive(final int recordIndex, final String author, final String text,
+			final String date, final String money, final String currency, final String flag) {
 			super.clickOnMenu("Anonymous", "Shout!");
 
 			super.fillInputBoxIn("author", author);
 			super.fillInputBoxIn("text", text);
+			super.fillInputBoxIn("date", date);
+			super.fillInputBoxIn("money", money);
+			super.fillInputBoxIn("currency", currency);
+			super.fillInputBoxIn("flag", flag);
 			super.clickOnSubmitButton("Shout!");
 
 			super.clickOnMenu("Anonymous", "List shouts");		
@@ -37,11 +42,16 @@ public class AnonymousShoutCreateTest extends AcmePlannerTest {
 		@ParameterizedTest
 		@CsvFileSource(resources = "/anonymous/shout/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 		@Order(20)
-		public void createShoutWithAnonymousNegative(final int recordIndex, final String author, final String text) {
+		public void createShoutWithAnonymousNegative(final int recordIndex, final String author, final String text,
+			final String date, final String money, final String currency, final String flag) {
 			super.clickOnMenu("Anonymous", "Shout!");
 
 			super.fillInputBoxIn("author", author);
 			super.fillInputBoxIn("text", text);
+			super.fillInputBoxIn("date", date);
+			super.fillInputBoxIn("money", money);
+			super.fillInputBoxIn("currency", currency);
+			super.fillInputBoxIn("flag", flag);
 			super.clickOnSubmitButton("Shout!");
 
 			super.checkErrorsExist();

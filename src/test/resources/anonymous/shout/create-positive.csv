@@ -1,5 +1,5 @@
-recordIndex,author,text
-7,Coyote,"Hello, I'm happy"
-8,José Mota,Play tennis
-9,Pablo,to eat
-10,Juanito,This is very interesting
+recordIndex,author,text,date,money,currency,flag
+7,Coyote,"Hello, I'm happy",2020/04/04,12,euro,true
+8,José Mota,Play tennis,2030/01/6,12.91,dollar,false
+9,Pablo,to eat,1999/02/27,0.1,euro,true
+10,Juanito,This is very interesting,2020/05/01,0,dollar,false
