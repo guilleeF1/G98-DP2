@@ -32,5 +32,7 @@ anonymous.shout.list.label.informationsheet.flag = Información bandera
 
 anonymous.shout.form.error.dateExpresion = La fecha debe ser expresada como "aaaa/mm/dd"
 anonymous.shout.form.error.currency = La moneda debe ser "euro" o "dollar"
+anonymous.shout.form.error.unique = El XXX debe ser único
 anonymous.shout.form.error.twoDecimals = El valor no debe contener más de dos cifras en la parte decimal
 anonymous.shout.form.error.min = El valor debe ser no negativo
+anonymous.shout.form.error.moneyisnull = Este campo no puede estar vacío

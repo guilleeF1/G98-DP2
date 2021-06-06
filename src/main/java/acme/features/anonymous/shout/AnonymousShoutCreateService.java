@@ -113,6 +113,8 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 			errors.state(request, entity.getInformationsheet().getDate().matches
 				("^\\d{4}\\/(0?[1-9]|1[012])\\/(0?[1-9]|[12][0-9]|3[01])$"), 
 				"date", "anonymous.shout.form.error.dateExpresion");
+			errors.state(request, this.isUnique(entity.getInformationsheet().getDate()), "date",
+				"anonymous.shout.form.error.unique");
 		}
 		
 		if(!errors.hasErrors("currency")) {
@@ -121,7 +123,11 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 				"currency", "anonymous.shout.form.error.currency");
 		}
 		
-		if(!errors.hasErrors("money")) {
+		if (entity.getInformationsheet().getMoney() == null) {
+			errors.state(request, false, "money", "anonymous.shout.form.error.moneyisnull");
+		}
+		
+		if(entity.getInformationsheet().getMoney() != null && !errors.hasErrors("money")) {
 			errors.state(request, entity.getInformationsheet().getMoney() >= 0, 
 				"money", "anonymous.shout.form.error.min");
 			errors.state(request, BigDecimal.valueOf(entity.getInformationsheet().getMoney()).scale() <= 2, 
@@ -143,9 +149,18 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		this.repository.save(entity);
 	}
 	
-	
-	
-	
+	private Boolean isUnique(final String unique) {
+		final List<Informationsheet> ls = new ArrayList<Informationsheet>();
+		ls.addAll(this.repository.findAllInformationsheets());
+		Boolean b = false;
+		for (final Informationsheet i : ls) {
+			b = unique.equals(i.getDate());
+			if (b) {
+				break;
+			}
+		}
+		return !b;
+	}
 	
 	private Boolean isSpam(final String texto) {
 		

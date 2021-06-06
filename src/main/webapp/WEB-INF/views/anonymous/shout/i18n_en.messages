@@ -32,5 +32,7 @@ anonymous.shout.list.label.informationsheet.flag = Information sheet flag
 
 anonymous.shout.form.error.dateExpresion = The date must be expressed as "yyyy/mm/dd"
 anonymous.shout.form.error.currency = The currency can only be "euro" or "dollar"
+anonymous.shout.form.error.unique = The selected XXX must be unique
 anonymous.shout.form.error.twoDecimals = The value must have no more than two digits in the decimal part
 anonymous.shout.form.error.min = The value must be a non-negative number
+anonymous.shout.form.error.moneyisnull = This cannot be empty

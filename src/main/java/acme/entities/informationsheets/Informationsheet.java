@@ -21,7 +21,7 @@ public class Informationsheet extends DomainEntity {
 	
 	protected static final long serialVersionUID = 1L;
 	
-	@NotNull
+	@NotBlank
 	@Column(unique = true)
 	protected String date;
 
@@ -35,7 +35,8 @@ public class Informationsheet extends DomainEntity {
 	
 	@NotBlank
 	protected String currency;
-	
+
+	@NotNull
 	protected Boolean flag;
 	
 }
