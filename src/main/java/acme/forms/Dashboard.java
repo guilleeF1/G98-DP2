@@ -27,7 +27,10 @@ public class Dashboard implements Serializable {
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-
+	
+	Double                      ratioFlag;
+	Double                      avgCurrency;
+	Double                      dsvCurrency;
 	Integer						numberOfTaskPublic;
 	Integer						numberOfTaskPrivate;
 	Integer						numberOfTaskFinished;

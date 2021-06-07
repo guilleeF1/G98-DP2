@@ -52,7 +52,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		assert model != null;
 
 		request.unbind(entity, model, //
-			"numberOfTaskPublic", "numberOfTaskPrivate", "numberOfTaskFinished", "numberOfTaskNotFinished", "workloadAverage", "workloadMin", "workloadMax", "workloadDeviation", "startPeriodAverage", "finalPeriodAverage", "startPeriodMin",
+			"ratioFlag","avgCurrency","dsvCurrency","numberOfTaskPublic", "numberOfTaskPrivate", "numberOfTaskFinished", "numberOfTaskNotFinished", "workloadAverage", "workloadMin", "workloadMax", "workloadDeviation", "startPeriodAverage", "finalPeriodAverage", "startPeriodMin",
 			"finalPeriodMin", "startPeriodMax", "finalPeriodMax", "startPeriodDeviation", "finalPeriodDeviation");
 	}
 
@@ -62,6 +62,9 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		final Date today = Calendar.getInstance().getTime();
 
 		Dashboard result;
+		Double ratioFlag;
+		Double avgCurrency;
+		final Double dsvCurrency;
 		Integer numberOfTaskPublic;
 		Integer numberOfTaskPrivate;
 		Integer numberOfTaskFinished;
@@ -79,6 +82,9 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double startPeriodDeviation;
 		Double finalPeriodDeviation;
 
+		ratioFlag = this.repository.numberOfShoutFlagged()/this.repository.countTasks();
+		avgCurrency = this.repository.averageSameCurrency("euro");
+		dsvCurrency = AdministratorDashboardShowService.calculateSDDouble(this.repository.collectionSameCurrency("euro"));
 		numberOfTaskPublic = this.repository.countTaskPublic();
 		numberOfTaskPrivate = this.repository.countTaskPrivate();
 		numberOfTaskFinished = this.repository.countTaskFinished(today);
@@ -109,8 +115,13 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		}
 		startPeriodDeviation = AdministratorDashboardShowService.calculateSD(pI);
 		finalPeriodDeviation = AdministratorDashboardShowService.calculateSD(pF);
-
+		System.out.println("-----------------------"+dsvCurrency);
+	
+		
 		result = new Dashboard();
+		result.setRatioFlag(ratioFlag);
+		result.setAvgCurrency(avgCurrency);
+		result.setDsvCurrency(dsvCurrency);
 		result.setNumberOfTaskPublic(numberOfTaskPublic);
 		result.setNumberOfTaskPrivate(numberOfTaskPrivate);
 		result.setNumberOfTaskFinished(numberOfTaskFinished);
@@ -147,5 +158,23 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		return Math.sqrt(standardDeviation / length);
 	}
+	
+	private static double calculateSDDouble(final Collection<Double> doubles) {
+		double sum = 0.0, standardDeviation = 0.0;
+		final int length = doubles.size();
+
+		for (final Double num : doubles) {
+			sum += num;
+		}
+
+		final double mean = sum / length;
+
+		for (final Double num : doubles) {
+			standardDeviation += Math.pow(num - mean, 2);
+		}
+
+		return Math.sqrt(standardDeviation / length);
+	}
+	
 
 }

@@ -11,6 +11,10 @@
 anonymous.shout.form.label.author = Autor:
 anonymous.shout.form.label.text = Texto:
 anonymous.shout.form.label.text = Información:
+anonymous.shout.form.label.shoutMoment = Fecha Shout:
+anonymous.shout.form.label.bool = Bool:
+anonymous.shout.form.label.amount = Cantidad:
+anonymous.shout.form.label.currency = Moneda:
 anonymous.shout.form.button.create = Gritar
 anonymous.shout.form.button.return = Volver
 

@@ -20,6 +20,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.infoSheets.InfoSheet;
 import acme.entities.shouts.Shout;
 import acme.entities.spamword.Spamword;
 import acme.entities.threshold.Threshold;
@@ -28,6 +29,7 @@ import acme.features.administrator.threshold.AdministratorThresholdRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.entities.Anonymous;
 import acme.framework.services.AbstractCreateService;
 
@@ -60,6 +62,8 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert errors != null;
 
 		request.bind(entity, errors);
+		request.bind(entity.getInfoSheet(), errors);
+		request.bind(entity.getInfoSheet().getMoney(), errors);
 	}
 
 	@Override
@@ -69,6 +73,8 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert model != null;
 
 		request.unbind(entity, model, "author", "text", "info");
+		request.unbind(entity.getInfoSheet(), model, "moment", "shoutMoment","bool");
+		request.unbind(entity.getInfoSheet().getMoney(), model, "amount","currency");
 	}
 
 	@Override
@@ -79,13 +85,20 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		Date moment;
 
 		moment = new Date(System.currentTimeMillis() - 1);
-
+		final InfoSheet info = new InfoSheet();
+		final Money money = new Money();
 		result = new Shout();
 		result.setAuthor("John Doe");
 		result.setText("Lorem ipsum!");
 		result.setMoment(moment);
 		result.setInfo("http://example.org");
-
+		info.setBool(true);
+		info.setMoment(moment);
+		info.setShoutMoment(moment);
+		money.setAmount(2.);
+		money.setCurrency("euro");
+		info.setMoney(money);
+		result.setInfoSheet(info);
 		return result;
 	}
 
@@ -113,6 +126,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
 		moment = new Date(System.currentTimeMillis() - 1);
 		entity.setMoment(moment);
+		this.repository.save(entity.getInfoSheet());// En caso de que te pidan la fecha en ese momento pues no se muestra en la vista de creacion y se agrega aqui
 		this.repository.save(entity);
 	}
 	
