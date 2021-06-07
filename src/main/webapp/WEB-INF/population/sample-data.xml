@@ -22,88 +22,39 @@
 	<!-- Shouts -->
 	
 	<bean id="shout01" class="acme.entities.shouts.Shout">
-		<property name="moment" value="2021/04/10 19:39"/>
+		<property name="moment" value="2020/04/10 19:39"/>
 		<property name="author" value="John Doe"/>
 		<property name="text" value="I'm happy!"/>
-		<property name="info"><null/></property>	
+		<property name="info"><null/></property>		
+		<property name="infoSheet" ref="info_sheet01"/>
 	</bean>
 	
 	<bean id="shout02" class="acme.entities.shouts.Shout">
-		<property name="moment" value="2019/08/09 15:55"/>
-		<property name="author" value="Jane Doe"/>
-		<property name="text" value="I'm the master of my room!"/>
-		<property name="info" value="http://www.example.org"/>		
+		<property name="moment" value="2021/05/30 19:39"/>
+		<property name="author" value="Prueba"/>
+		<property name="text" value="I'm happy!"/>
+		<property name="info"><null/></property>		
+		<property name="infoSheet" ref="info_sheet02"/>
 	</bean>
 	
-	<bean id="shout03" class="acme.entities.shouts.Shout">
-		<property name="moment" value="2020/09/07 00:00"/>
-		<property name="author" value="Foo Bar"/>
-		<property name="text" value="Just turning 50!"/>
-		<property name="info" value="http://happybirthday.com"/>		
+	<!-- InfoSheet -->
+	
+	<bean id="info_sheet01" class="acme.entities.shouts.InfoSheet">
+		<property name="date" value="10/10/2020"/>
+		<property name="moment" value="2020/04/10 19:39"/>
+		<property name="flag" value="false"/>	
+		<property name="amount" value="10.52"/>
+		<property name="currency" value="€"/>
 	</bean>
 	
-	<bean id="shout04" class="acme.entities.shouts.Shout">
-		<property name="author" value="Leslie Design-Testing"/>
-		<property name="text" value="Woa! This app's so cool!"/>
-		<property name="moment" value="2021/04/13 12:30"/>
-		<property name="info" value="http://www.sample-app.com"/>
+	<bean id="info_sheet02" class="acme.entities.shouts.InfoSheet">
+		<property name="date" value="11/10/2020"/>
+		<property name="moment" value="2021/05/30 19:39"/>
+		<property name="flag" value="false"/>	
+		<property name="amount" value="10.52"/>
+		<property name="currency" value="€"/>
 	</bean>
 	
-	<bean id="shout05" class="acme.entities.shouts.Shout">
-		<property name="author" value="ElRubOMG"/>
-		<property name="text" value="Good Morning, lord's creatures!"/>
-		<property name="moment" value="2021/04/20 12:30"/>
-		<property name="info" value="http://www.sample-app.com"/>
-	</bean>
-	
-	<bean id="shout06" class="acme.entities.shouts.Shout">
-		<property name="author" value="indevelopers"/>
-		<property name="text" value="Please, no mean comments on our web!"/>
-		<property name="moment" value="2021/05/24 12:30"/>
-		<property name="info" value="http://www.sample-app.com"/>
-	</bean>
-	
-		<bean id="shout07" class="acme.entities.shouts.Shout">
-		<property name="author" value="Github geek"/>
-		<property name="text" value="Sonarcloud knows best"/>
-		<property name="moment" value="2021/05/24 12:30"/>
-		<property name="info" value="http://www.sample-app.com"/>
-	</bean>
-	
-		<bean id="shout08" class="acme.entities.shouts.Shout">
-		<property name="author" value="Asunción Pereira Adolfo"/>
-		<property name="text" value="Hi, i'm new!"/>
-		<property name="moment" value="2021/05/24 12:30"/>
-		<property name="info" value="http://www.sample-app.com"/>
-	</bean>
-	
-	<bean id="shout09" class="acme.entities.shouts.Shout">
-		<property name="author" value="Twitch prime"/>
-		<property name="text" value="Cool features!"/>
-		<property name="moment" value="2021/05/24 12:30"/>
-		<property name="info" value="http://www.sample-app.com"/>
-	</bean>
-	
-	<bean id="shout10" class="acme.entities.shouts.Shout">
-		<property name="author" value="The PSM Gang"/>
-		<property name="text" value="Have you heard about octave?"/>
-		<property name="moment" value="2021/05/24 11:30"/>
-		<property name="info" value="http://www.sample-app.com"/>
-	</bean>
-	
-	<bean id="shout11" class="acme.entities.shouts.Shout">
-		<property name="author" value="Astrazeneca"/>
-		<property name="text" value="Go, vaccines, go!"/>
-		<property name="moment" value="2021/05/24 11:35"/>
-		<property name="info" value="http://www.sample-app.com"/>
-	</bean>
-	
-	<bean id="shout12" class="acme.entities.shouts.Shout">
-		<property name="author" value="Coyote"/>
-		<property name="text" value="So acme has a webpage..."/>
-		<property name="moment" value="2021/05/24 11:35"/>
-		<property name="info" value="http://www.sample-app.com"/>
-	</bean>
 	<!-- Tasks -->
 	
 	<!--             tareas para probar los filtros                   -->

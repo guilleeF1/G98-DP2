@@ -2,17 +2,13 @@ package acme.entities.shouts;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.URL;
 
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
@@ -21,32 +17,25 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Shout extends DomainEntity {
+public class InfoSheet extends DomainEntity {
 	
 	protected static final long serialVersionUID = 1L;
+	
+	@Column(unique = true)
+	@NotNull
+	protected String date;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	@NotNull
 	protected Date moment;
 	
-
-	@Length(min = 5, max = 25)
-	@NotBlank
-	protected String author;
+	@NotNull
+	protected Boolean flag;
 	
-	@Length(max = 100)
-	@NotBlank
-	protected String text;
+	@NotNull
+	protected Double amount;
 	
-	@URL
-	protected String info;
-
-
-	// Relationships ----------------------------------------------------------
-
-
-	@Valid
-	@OneToOne(optional = false)
-	protected InfoSheet infoSheet;
+	@NotBlank
+	protected String currency;
 }

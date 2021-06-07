@@ -18,6 +18,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.shouts.InfoSheet;
 import acme.entities.shouts.Shout;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -49,6 +50,14 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 		assert model != null;
 
 		request.unbind(entity, model, "author", "text", "moment");
+		
+		final InfoSheet infoSheet = entity.getInfoSheet();
+		if (infoSheet != null) {
+			model.setAttribute("infosheet.date", infoSheet.getDate());
+			model.setAttribute("infosheet.moment", infoSheet.getMoment());
+			model.setAttribute("infosheet.money", infoSheet.getAmount().toString() + " " + infoSheet.getCurrency());
+			model.setAttribute("infosheet.flag", infoSheet.getFlag());
+		}
 	}
 
 	@Override

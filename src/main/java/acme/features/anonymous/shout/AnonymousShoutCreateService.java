@@ -12,6 +12,7 @@
 
 package acme.features.anonymous.shout;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -20,6 +21,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.shouts.InfoSheet;
 import acme.entities.shouts.Shout;
 import acme.entities.spamword.Spamword;
 import acme.entities.threshold.Threshold;
@@ -60,6 +62,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert errors != null;
 
 		request.bind(entity, errors);
+		request.bind(entity.getInfoSheet()	, errors);
 	}
 
 	@Override
@@ -85,6 +88,9 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		result.setText("Lorem ipsum!");
 		result.setMoment(moment);
 		result.setInfo("http://example.org");
+		result.setInfoSheet(new InfoSheet());
+		
+		result.getInfoSheet().setMoment(moment);
 
 		return result;
 	}
@@ -102,6 +108,26 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		if (!errors.hasErrors("text")) {
 			errors.state(request, !this.isSpam(entity.getText()), "text", "anonymous.shout.form.error.spam");
 		}
+		
+		if(!errors.hasErrors("date")) {
+			errors.state(request, entity.getInfoSheet().getDate().matches
+				("^([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}$"), 
+				"date", "anonymous.shout.form.error.dateExpresion");
+		}
+		
+		if(!errors.hasErrors("currency")) {
+			errors.state(request, entity.getInfoSheet().getCurrency().equals("dollar") || entity.getInfoSheet().getCurrency().equals("euro"), "currency", "anonymous.shout.form.error.currency");
+		}
+		
+		if(!errors.hasErrors("amount")) {
+			if(entity.getInfoSheet().getAmount() == null) {
+				errors.state(request, false, "amount", "anonymous.shout.form.error.moneynull");
+			}else {
+				errors.state(request, entity.getInfoSheet().getAmount() >= 0, "amount", "anonymous.shout.form.error.min");
+				errors.state(request, BigDecimal.valueOf(entity.getInfoSheet().getAmount()).scale() <= 2, "amount", "anonymous.shout.form.error.twoDecimals");
+			}
+			
+		}
 	}
 
 	@Override
@@ -113,6 +139,8 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
 		moment = new Date(System.currentTimeMillis() - 1);
 		entity.setMoment(moment);
+		entity.getInfoSheet().setMoment(moment);
+		this.repository.save(entity.getInfoSheet());
 		this.repository.save(entity);
 	}
 	

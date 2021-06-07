@@ -20,6 +20,16 @@
 	<acme:form-textarea code="anonymous.shout.form.label.text" path="text"/>
 	<acme:form-textbox code="anonymous.shout.form.label.info" path="info"/>
 	
+	<acme:form-textbox code="anonymous.shout.form.label.infosheet.date" path="date"/>
+	<acme:form-double code="anonymous.shout.form.label.infosheet.money" path="amount"/>
+	<acme:form-select code="anonymous.shout.form.label.infosheet.currency" path="currency">
+		<acme:form-option code="anonymous.shout.form.label.infosheet.euro" value="euro"/>
+		<acme:form-option code="anonymous.shout.form.label.infosheet.dollar" value="dollar"/>
+	</acme:form-select>
+	<acme:form-checkbox code="anonymous.shout.form.label.infosheet.flag" path="flag"/>
+	
+	
+	
 	<acme:form-submit code="anonymous.shout.form.button.create" action="/anonymous/shout/create"/>
   	<acme:form-return code="anonymous.shout.form.button.return"/>
 </acme:form>

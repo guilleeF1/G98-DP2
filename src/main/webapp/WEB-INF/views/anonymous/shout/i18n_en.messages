@@ -11,6 +11,12 @@
 anonymous.shout.form.label.author = Author:
 anonymous.shout.form.label.text = Text:
 anonymous.shout.form.label.info = Info:
+anonymous.shout.form.label.infosheet.date = Information sheet date:
+anonymous.shout.form.label.infosheet.money = Information sheet money:
+anonymous.shout.form.label.infosheet.currency = Information sheet currency:
+anonymous.shout.form.label.infosheet.euro = euro
+anonymous.shout.form.label.infosheet.dollar = dollar
+anonymous.shout.form.label.infosheet.flag = Information sheet flag:
 anonymous.shout.form.button.create = Shout!
 anonymous.shout.form.button.return = Return
 
@@ -19,3 +25,13 @@ anonymous.shout.form.error.spam = The text contains spam
 anonymous.shout.list.label.moment = Moment
 anonymous.shout.list.label.author = Author
 anonymous.shout.list.label.text = Text
+anonymous.shout.list.label.infosheet.date = Information sheet date
+anonymous.shout.list.label.infosheet.moment = Information sheet moment
+anonymous.shout.list.label.infosheet.money = Information sheet money
+anonymous.shout.list.label.infosheet.flag = Information sheet flag
+
+anonymous.shout.form.error.dateExpresion = The date must be expressed as "dd/mm/yyyy"
+anonymous.shout.form.error.currency = The currency can only be euro or dollar
+anonymous.shout.form.error.twoDecimals = The can't have more than two digits decimals
+anonymous.shout.form.error.min = The value can't be negative
+anonymous.shout.form.error.moneynull = Empty amount
