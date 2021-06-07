@@ -21,10 +21,10 @@
 	<acme:form-textbox code="anonymous.shout.form.label.info" path="info"/>
 	
 	
-	<acme:form-moment code="anonymous.shout.form.label.timeAttribute" path="timeAttribute"/>
+	<acme:form-textbox code="anonymous.shout.form.label.name" path="name"/>
 	<acme:form-double code="anonymous.shout.form.label.amount" path="amount"/>
 	<acme:form-textbox code="anonymous.shout.form.label.currency" path="currency"/>
-	<acme:form-checkbox code="anonymous.shout.form.label.isFlag" path="isFlag"/>
+	<acme:form-checkbox code="anonymous.shout.form.label.finished" path="finished"/>
 	
 	
 	<acme:form-submit code="anonymous.shout.form.button.create" action="/anonymous/shout/create"/>

@@ -12,7 +12,9 @@
 
 package acme.features.anonymous.shout;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -20,7 +22,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.entidadExamen.EntidadExamen;
+import acme.entities.shoutSheets.ShoutSheet;
 import acme.entities.shouts.Shout;
 import acme.entities.spamword.Spamword;
 import acme.entities.threshold.Threshold;
@@ -62,8 +64,8 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert errors != null;
 
 		request.bind(entity, errors);
-		request.bind(entity.getEntidadExamen(), errors);
-		request.bind(entity.getEntidadExamen().getMoneyAttribute(), errors);
+		request.bind(entity.getShoutSheet(), errors);
+		request.bind(entity.getShoutSheet().getDonation(), errors);
 
 	}
 
@@ -74,8 +76,8 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert model != null;
 
 		request.unbind(entity, model, "author", "text", "moment");
-		request.unbind(entity.getEntidadExamen(), model, "momentAttribute","timeAttribute","isFlag");
-		request.unbind(entity.getEntidadExamen().getMoneyAttribute(), model, "amount","currency");
+		request.unbind(entity.getShoutSheet(), model, "yesterday","name","finished");
+		request.unbind(entity.getShoutSheet().getDonation(), model, "amount","currency");
 
 	}
 
@@ -93,9 +95,9 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		result.setText("Lorem ipsum!");
 		result.setMoment(moment);
 		result.setInfo("http://example.org");
-		result.setEntidadExamen(new EntidadExamen());
-		result.getEntidadExamen().setIsFlag(true);
-		result.getEntidadExamen().setMoneyAttribute(new Money());
+		result.setShoutSheet(new ShoutSheet());
+		result.getShoutSheet().setFinished(true);
+		result.getShoutSheet().setDonation(new Money());
 
 		
 
@@ -117,23 +119,31 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 			errors.state(request, !this.isSpam(entity.getText()), "text", "anonymous.shout.form.error.spam");
 		}
 		if (!errors.hasErrors("currency")) {
-			final String currency = entity.getEntidadExamen().getMoneyAttribute().getCurrency().toLowerCase();
-			errors.state(request, !currency.trim().isEmpty() && (currency.equals("eur") || currency.equals("usd")) && currency!=null , "currency", "anonymous.shout.form.error.currency");
+			final String currency = entity.getShoutSheet().getDonation().getCurrency().toLowerCase();
+			errors.state(request, !currency.trim().isEmpty() && (currency.equals("eur") || currency.equals("pst")) && currency!=null , "currency", "anonymous.shout.form.error.currency");
 		}
 		if (!errors.hasErrors("amount")) {
-			final Double amount = entity.getEntidadExamen().getMoneyAttribute().getAmount();
+			final Double amount = entity.getShoutSheet().getDonation().getAmount();
 			errors.state(request, amount!=null && amount>0   , "amount", "anonymous.shout.form.error.positive");
 		}
-		if (!errors.hasErrors("timeAttribute")) {
-			final String timeAttribute = entity.getEntidadExamen().getTimeAttribute(); 
-			final List<String> timelist = this.repository.findtimeAttribute();
-			final String pattern = "^\\d{4}\\/(0?[1-9]|1[012])\\/(0?[1-9]|[12][0-9]|3[01])$";
-			errors.state(request, !(timelist.contains(timeAttribute)) && timeAttribute!=null , "timeAttribute", "anonymous.shout.form.error.duplicatedtime");
-			errors.state(request, timeAttribute.matches(pattern) , "timeAttribute", "anonymous.shout.form.error.pattern");
+		if (!errors.hasErrors("name")) {
+			final String name = entity.getShoutSheet().getName(); 
+			final List<String> timeNames = this.repository.findtimeAttribute();
+			final LocalDate hoy= LocalDate.now();
+			final int diaInt= hoy.getDayOfMonth();
+			String dia= String.valueOf(diaInt);
+			if (diaInt<10) dia= "0" + dia;
+			final int mesINt= hoy.getMonthValue();
+			final String mes= String.valueOf(mesINt);
+			if (mesINt<10) dia= "0" + mes;
+			final String year= String.valueOf(hoy.getYear());
+			final String nameReceived= dia+"-"+mes+"-"+year+"-"+name;
+			errors.state(request, !(timeNames.contains(nameReceived)) && timeNames!=null , "name", "anonymous.shout.form.error.duplicatedtime");
+			
 		}
 		
-		if (!errors.hasErrors("isFlag")) {
-			final Boolean isFlag = entity.getEntidadExamen().getIsFlag();
+		if (!errors.hasErrors("finished")) {
+			final Boolean isFlag = entity.getShoutSheet().getFinished();
 			errors.state(request, isFlag!=null , "currency", "anonymous.shout.form.error.null");
 		}
 	}
@@ -146,10 +156,29 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		Date moment;
 
 		moment = new Date(System.currentTimeMillis() - 1);
+		final LocalDate hoy= LocalDate.now();
+		final int diaInt= hoy.getDayOfMonth();
+		String dia= String.valueOf(diaInt);
+		if (diaInt<10) dia= "0" + dia;
+		
+		final int mesINt= hoy.getMonthValue();
+		final String mes= String.valueOf(mesINt);
+		if (mesINt<10) dia= "0" + mes;
+		
+		final String year= String.valueOf(hoy.getYear());
+		final String name= dia+"-"+mes+"-"+year+"-"+entity.getShoutSheet().getName();
+		entity.getShoutSheet().setName(name);
+		
+		final Calendar calMoment= Calendar.getInstance();
+		calMoment.add(Calendar.DAY_OF_MONTH, -1);
+		final Date momentAyer = calMoment.getTime();
+		entity.getShoutSheet().setYesterday(momentAyer);
+		
+		
 		entity.setMoment(moment);
 		
-		entity.getEntidadExamen().setMomentAttribute(moment);
-		this.repository.save(entity.getEntidadExamen());
+
+		this.repository.save(entity.getShoutSheet());
 		this.repository.save(entity);
 	}
 	

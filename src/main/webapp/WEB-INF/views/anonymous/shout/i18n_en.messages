@@ -19,13 +19,13 @@ anonymous.shout.form.error.spam = The text contains spam
 anonymous.shout.list.label.moment = Moment
 anonymous.shout.list.label.author = Author
 anonymous.shout.list.label.text = Text
-anonymous.shout.list.label.momentAttribute = Moment
-anonymous.shout.list.label.timeAttribute = Time
-anonymous.shout.list.label.isFlag = isFlag
+anonymous.shout.list.label.momentAttribute = yesterday
+anonymous.shout.list.label.timeAttribute = name
+anonymous.shout.list.label.isFlag = finished
 anonymous.shout.list.label.amount = Amount
 anonymous.shout.list.label.currency = Currency
 
-anonymous.shout.form.error.currency = Currency not valid. Only USD or EUR
+anonymous.shout.form.error.currency = Currency not valid. Only PST or EUR
 anonymous.shout.form.error.positive = Amount must be positive
 anonymous.shout.form.error.duplicatedtime = This attribute can't be duplicated from an existing one
 anonymous.shout.form.error.pattern = Attribute must match pattern yyyy/mm/dd

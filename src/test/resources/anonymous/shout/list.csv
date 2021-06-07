@@ -1,8 +1,8 @@
-recordIndex,moment,author,text,timeAttribute,isFlag,amount,currency,
-0,2021/05/24 11:30,The PSM Gang,Have you heard about octave?,2021/05/22,true,50.00,EUR
-1,2021/05/24 11:35,Astrazeneca,"Go, vaccines, go!",2021/05/23,true,33.00,USD
-2,2021/05/24 11:35,Coyote,So acme has a webpage...,2021/05/24,true,20.00,EUR
-3,2021/05/24 12:30,indevelopers,"Please, no mean comments on our web!",2021/05/18,true,33.00,EUR
-4,2021/05/24 12:30,Github geek,Sonarcloud knows best,2021/05/19,true,45.00,USD
-5,2021/05/24 12:30,Asunción Pereira Adolfo,"Hi, i'm new!",2021/05/20,true,33.00,EUR
-6,2021/05/24 12:30,Twitch prime,Cool features!,2021/05/21,true,30.00,USD
+recordIndex,moment,author,text,name,finished,amount,currency,
+0,2021/05/24 11:30,The PSM Gang,Have you heard about octave?,02-06-2021-aaanda,true,50.00,EUR
+1,2021/05/24 11:35,Astrazeneca,"Go, vaccines, go!",02-06-2021-aaanda,true,33.00,PST
+2,2021/05/24 11:35,Coyote,So acme has a webpage...,02-06-2021-aaaaaaaa,true,20.00,EUR
+3,2021/05/24 12:30,indevelopers,"Please, no mean comments on our web!",02-06-2021-aaaaaaaa,true,33.00,EUR
+4,2021/05/24 12:30,Github geek,Sonarcloud knows best,02-06-2021-aaaap,true,45.00,PST
+5,2021/05/24 12:30,Asunción Pereira Adolfo,"Hi, i'm new!",02-06-2021-equisde,true,33.00,EUR
+6,2021/05/24 12:30,Cool features!,02-06-2021-tuspadentro,02-06-2021-tuspadentro,true,30.00,PST

@@ -34,7 +34,7 @@ administrator.dashboard.label.finalmax = Periodo Final Máximo
 administrator.dashboard.label.startdev = Desviación del Periodo Inicial
 administrator.dashboard.label.finaldev = Desviación del Periodo Final
 
-administrator.dashboard.label.xxxRatio = Ratio de los gritos con xxx en xxx
-administrator.dashboard.label.flaggedRatio = Ratio de los shouts con bandera
-administrator.dashboard.label.currencyDeviation.eur = Desviación de los shouts en euros
-administrator.dashboard.label.currencyDeviation.dollar = Deviación de los shouts en dólares
+administrator.dashboard.label.donationRatio = Ratio of Shouts donación mayor de 10
+administrator.dashboard.label.flaggedRatio = Ratio of ShoutSheets terminadas
+administrator.dashboard.label.currencyDeviation.eur = Desviación gritos euros
+administrator.dashboard.label.currencyDeviation.dollar = Desviación gritos dólares

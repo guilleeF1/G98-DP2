@@ -45,7 +45,7 @@ public class Dashboard implements Serializable {
 	Date 						startPeriodMax;
 	Date 						finalPeriodMax;
 	Double                      flaggedRatio;
-	Double                      xxxRatio;
+	Double                      donationRatio;
 	Double                      currencyDeviationEur;
 	Double                      currencyDeviationUsd;
 

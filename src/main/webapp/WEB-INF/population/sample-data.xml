@@ -19,140 +19,140 @@
 
 	<import resource="classpath:/WEB-INF/population/conversion-service.xml"/>
 	
-	<!-- EntidadExamen -->
+	<!-- ShoutSheet -->
 	
 		
-		<bean id="entidadExamen1" class="acme.entities.entidadExamen.EntidadExamen">
-		<property name="timeAttribute" value="2021/05/24"/>
-		<property name="momentAttribute" value="2021/05/24 11:37"/>
-		<property name="moneyAttribute">
+		<bean id="shoutSheet1" class="acme.entities.shoutSheets.ShoutSheet">
+		<property name="name" value="02-06-2021-aaaaaaaa"/>
+		<property name="yesterday" value="2021/05/24 11:37"/>
+		<property name="donation">
 			<bean class="acme.framework.datatypes.Money">
 					<property name="amount" value="20"/>
 					<property name="currency" value="EUR"/>		
 			</bean>
 		</property>
-		<property name="isFlag" value="true"/>
+		<property name="finished" value="true"/>
 		</bean>
 		
-		<bean id="entidadExamen2" class="acme.entities.entidadExamen.EntidadExamen">
-		<property name="timeAttribute" value="2021/05/23"/>
-		<property name="momentAttribute" value="2021/05/24 11:37"/>
-		<property name="moneyAttribute">
+		<bean id="shoutSheet2" class="acme.entities.shoutSheets.ShoutSheet">
+		<property name="name" value="02-06-2021-abbbb"/>
+		<property name="yesterday" value="2021/05/24 11:37"/>
+		<property name="donation">
 			<bean class="acme.framework.datatypes.Money">
 					<property name="amount" value="33"/>
-					<property name="currency" value="USD"/>		
+					<property name="currency" value="PST"/>		
 			</bean>
 		</property>
-		<property name="isFlag" value="true"/>
+		<property name="finished" value="true"/>
 		</bean>
 	
-		<bean id="entidadExamen3" class="acme.entities.entidadExamen.EntidadExamen">
-		<property name="timeAttribute" value="2021/05/22"/>
-		<property name="momentAttribute" value="2021/05/24 11:37"/>
-		<property name="moneyAttribute">
+		<bean id="shoutSheet3" class="acme.entities.shoutSheets.ShoutSheet">
+		<property name="name" value="02-06-2021-aaanda"/>
+		<property name="yesterday" value="2021/05/24 11:37"/>
+		<property name="donation">
 			<bean class="acme.framework.datatypes.Money">
 					<property name="amount" value="50"/>
 					<property name="currency" value="EUR"/>		
 			</bean>
 		</property>
-		<property name="isFlag" value="true"/>
+		<property name="finished" value="true"/>
 		</bean>
 		
-		<bean id="entidadExamen4" class="acme.entities.entidadExamen.EntidadExamen">
-		<property name="timeAttribute" value="2021/05/21"/>
-		<property name="momentAttribute" value="2021/05/24 11:37"/>
-		<property name="moneyAttribute">
+		<bean id="shoutSheet4" class="acme.entities.shoutSheets.ShoutSheet">
+		<property name="name" value="02-06-2021-tuspadentro"/>
+		<property name="yesterday" value="2021/05/24 11:37"/>
+		<property name="donation">
 			<bean class="acme.framework.datatypes.Money">
 					<property name="amount" value="30"/>
-					<property name="currency" value="USD"/>		
+					<property name="currency" value="PST"/>		
 			</bean>
 		</property>
-		<property name="isFlag" value="true"/>
+		<property name="finished" value="true"/>
 		</bean>
 		
-			<bean id="entidadExamen5" class="acme.entities.entidadExamen.EntidadExamen">
-		<property name="timeAttribute" value="2021/05/20"/>
-		<property name="momentAttribute" value="2021/05/24 11:37"/>
-		<property name="moneyAttribute">
+			<bean id="shoutSheet5" class="acme.entities.shoutSheets.ShoutSheet">
+		<property name="name" value="02-06-2021-equisde"/>
+		<property name="yesterday" value="2021/05/24 11:37"/>
+		<property name="donation">
 			<bean class="acme.framework.datatypes.Money">
 					<property name="amount" value="33"/>
 					<property name="currency" value="EUR"/>		
 			</bean>
 		</property>
-		<property name="isFlag" value="true"/>
+		<property name="finished" value="true"/>
 		</bean>
 		
-				<bean id="entidadExamen6" class="acme.entities.entidadExamen.EntidadExamen">
-		<property name="timeAttribute" value="2021/05/19"/>
-		<property name="momentAttribute" value="2021/05/24 11:37"/>
-		<property name="moneyAttribute">
+				<bean id="shoutSheet6" class="acme.entities.shoutSheets.ShoutSheet">
+		<property name="name" value="02-06-2021-aaaap"/>
+		<property name="yesterday" value="2021/05/24 11:37"/>
+		<property name="donation">
 			<bean class="acme.framework.datatypes.Money">
 					<property name="amount" value="45"/>
-					<property name="currency" value="USD"/>		
+					<property name="currency" value="PST"/>		
 			</bean>
 		</property>
-		<property name="isFlag" value="true"/>
+		<property name="finished" value="true"/>
 		</bean>
 		
-				<bean id="entidadExamen7" class="acme.entities.entidadExamen.EntidadExamen">
-		<property name="timeAttribute" value="2021/05/18"/>
-		<property name="momentAttribute" value="2021/05/24 11:37"/>
-		<property name="moneyAttribute">
+				<bean id="shoutSheet7" class="acme.entities.shoutSheets.ShoutSheet">
+		<property name="name" value="02-06-2021-apainfor"/>
+		<property name="yesterday" value="2021/05/24 11:37"/>
+		<property name="donation">
 			<bean class="acme.framework.datatypes.Money">
 					<property name="amount" value="33"/>
 					<property name="currency" value="EUR"/>		
 			</bean>
 		</property>
-		<property name="isFlag" value="true"/>
+		<property name="finished" value="true"/>
 		</bean>
 	
-			<bean id="entidadExamen8" class="acme.entities.entidadExamen.EntidadExamen">
-		<property name="timeAttribute" value="2021/05/17"/>
-		<property name="momentAttribute" value="2021/05/24 11:37"/>
-		<property name="moneyAttribute">
+			<bean id="shoutSheet8" class="acme.entities.shoutSheets.ShoutSheet">
+		<property name="name" value="02-06-2021-pizza"/>
+		<property name="yesterday" value="2021/05/24 11:37"/>
+		<property name="donation">
 			<bean class="acme.framework.datatypes.Money">
 					<property name="amount" value="33"/>
 					<property name="currency" value="EUR"/>		
 			</bean>
 		</property>
-		<property name="isFlag" value="true"/>
+		<property name="finished" value="true"/>
 		</bean>
 		
-			<bean id="entidadExamen9" class="acme.entities.entidadExamen.EntidadExamen">
-		<property name="timeAttribute" value="2021/05/16"/>
-		<property name="momentAttribute" value="2021/05/24 11:37"/>
-		<property name="moneyAttribute">
+			<bean id="shoutSheet9" class="acme.entities.shoutSheets.ShoutSheet">
+		<property name="name" value="02-06-2021-pepper"/>
+		<property name="yesterday" value="2021/05/24 11:37"/>
+		<property name="donation">
 			<bean class="acme.framework.datatypes.Money">
 					<property name="amount" value="200"/>
 					<property name="currency" value="EUR"/>		
 			</bean>
 		</property>
-		<property name="isFlag" value="true"/>
+		<property name="finished" value="true"/>
 		</bean>
 		
 			
-			<bean id="entidadExamen10" class="acme.entities.entidadExamen.EntidadExamen">
-		<property name="timeAttribute" value="2021/05/15"/>
-		<property name="momentAttribute" value="2021/05/24 11:37"/>
-		<property name="moneyAttribute">
+			<bean id="shoutSheet10" class="acme.entities.shoutSheets.ShoutSheet">
+		<property name="name" value="02-06-2021-salty"/>
+		<property name="yesterday" value="2021/05/24 11:37"/>
+		<property name="donation">
 			<bean class="acme.framework.datatypes.Money">
 					<property name="amount" value="10"/>
-					<property name="currency" value="USD"/>		
+					<property name="currency" value="PST"/>		
 			</bean>
 		</property>
-		<property name="isFlag" value="true"/>
+		<property name="finished" value="true"/>
 		</bean>
 	
-		<bean id="entidadExamen11" class="acme.entities.entidadExamen.EntidadExamen">
-		<property name="timeAttribute" value="2021/05/14"/>
-		<property name="momentAttribute" value="2021/05/24 11:37"/>
-		<property name="moneyAttribute">
+		<bean id="shoutSheet11" class="acme.entities.shoutSheets.ShoutSheet">
+		<property name="name" value="02-06-2021-mimi"/>
+		<property name="yesterday" value="2021/05/24 11:37"/>
+		<property name="donation">
 			<bean class="acme.framework.datatypes.Money">
 					<property name="amount" value="60"/>
 					<property name="currency" value="EUR"/>		
 			</bean>
 		</property>
-		<property name="isFlag" value="true"/>
+		<property name="finished" value="true"/>
 		</bean>
 	<!-- Shouts -->
 	
@@ -175,7 +175,7 @@
 		<property name="author" value="Foo Bar"/>
 		<property name="text" value="Just turning 50!"/>
 		<property name="info" value="http://happybirthday.com"/>
-		<property name="entidadExamen" ref="entidadExamen10"/>		
+		<property name="shoutSheet" ref="shoutSheet10"/>		
 	</bean>
 	
 	<bean id="shout04" class="acme.entities.shouts.Shout">
@@ -183,7 +183,7 @@
 		<property name="text" value="Woa! This app's so cool!"/>
 		<property name="moment" value="2021/04/13 12:30"/>
 		<property name="info" value="http://www.sample-app.com"/>
-		<property name="entidadExamen" ref="entidadExamen9"/>
+		<property name="shoutSheet" ref="shoutSheet9"/>
 	</bean>
 	
 	<bean id="shout05" class="acme.entities.shouts.Shout">
@@ -191,7 +191,7 @@
 		<property name="text" value="Good Morning, lord's creatures!"/>
 		<property name="moment" value="2021/04/20 12:30"/>
 		<property name="info" value="http://www.sample-app.com"/>
-		<property name="entidadExamen" ref="entidadExamen8"/>
+		<property name="shoutSheet" ref="shoutSheet8"/>
 	</bean>
 	
 	<bean id="shout06" class="acme.entities.shouts.Shout">
@@ -199,7 +199,7 @@
 		<property name="text" value="Please, no mean comments on our web!"/>
 		<property name="moment" value="2021/05/24 12:30"/>
 		<property name="info" value="http://www.sample-app.com"/>
-		<property name="entidadExamen" ref="entidadExamen7"/>
+		<property name="shoutSheet" ref="shoutSheet7"/>
 	</bean>
 	
 		<bean id="shout07" class="acme.entities.shouts.Shout">
@@ -207,7 +207,7 @@
 		<property name="text" value="Sonarcloud knows best"/>
 		<property name="moment" value="2021/05/24 12:30"/>
 		<property name="info" value="http://www.sample-app.com"/>
-		<property name="entidadExamen" ref="entidadExamen6"/>
+		<property name="shoutSheet" ref="shoutSheet6"/>
 	</bean>
 	
 		<bean id="shout08" class="acme.entities.shouts.Shout">
@@ -215,7 +215,7 @@
 		<property name="text" value="Hi, i'm new!"/>
 		<property name="moment" value="2021/05/24 12:30"/>
 		<property name="info" value="http://www.sample-app.com"/>
-		<property name="entidadExamen" ref="entidadExamen5"/>
+		<property name="shoutSheet" ref="shoutSheet5"/>
 	</bean>
 	
 	<bean id="shout09" class="acme.entities.shouts.Shout">
@@ -223,7 +223,7 @@
 		<property name="text" value="Cool features!"/>
 		<property name="moment" value="2021/05/24 12:30"/>
 		<property name="info" value="http://www.sample-app.com"/>
-		<property name="entidadExamen" ref="entidadExamen4"/>
+		<property name="shoutSheet" ref="shoutSheet4"/>
 	</bean>
 	
 	<bean id="shout10" class="acme.entities.shouts.Shout">
@@ -231,7 +231,7 @@
 		<property name="text" value="Have you heard about octave?"/>
 		<property name="moment" value="2021/05/24 11:30"/>
 		<property name="info" value="http://www.sample-app.com"/>
-		<property name="entidadExamen" ref="entidadExamen3"/>
+		<property name="shoutSheet" ref="shoutSheet3"/>
 	</bean>
 	
 	<bean id="shout11" class="acme.entities.shouts.Shout">
@@ -239,7 +239,7 @@
 		<property name="text" value="Go, vaccines, go!"/>
 		<property name="moment" value="2021/05/24 11:35"/>
 		<property name="info" value="http://www.sample-app.com"/>
-		<property name="entidadExamen" ref="entidadExamen2"/>
+		<property name="shoutSheet" ref="shoutSheet2"/>
 	</bean>
 	
 	<bean id="shout12" class="acme.entities.shouts.Shout">
@@ -247,7 +247,7 @@
 		<property name="text" value="So acme has a webpage..."/>
 		<property name="moment" value="2021/05/24 11:35"/>
 		<property name="info" value="http://www.sample-app.com"/>
-		<property name="entidadExamen" ref="entidadExamen1"/>
+		<property name="shoutSheet" ref="shoutSheet1"/>
 	</bean>
 	<!-- Tasks -->
 	

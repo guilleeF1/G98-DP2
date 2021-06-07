@@ -34,10 +34,10 @@
 	
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.label.xxxRatio"/>
+			<acme:message code="administrator.dashboard.label.donationRatio"/>
 		</th>
 		<td id="17">
-			<acme:print value="${xxxRatio}"/>
+			<acme:print value="${donationRatio}"/>
 		</td>
 	</tr>	
 	

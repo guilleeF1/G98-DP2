@@ -53,7 +53,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		request.unbind(entity, model, //
 			"numberOfTaskPublic", "numberOfTaskPrivate", "numberOfTaskFinished", "numberOfTaskNotFinished", "workloadAverage", "workloadMin", "workloadMax", "workloadDeviation", "startPeriodAverage", "finalPeriodAverage", "startPeriodMin",
-			"finalPeriodMin", "startPeriodMax", "finalPeriodMax", "startPeriodDeviation", "finalPeriodDeviation","flaggedRatio","xxxRatio","currencyDeviationEur","currencyDeviationUsd");
+			"finalPeriodMin", "startPeriodMax", "finalPeriodMax", "startPeriodDeviation", "finalPeriodDeviation","flaggedRatio","donationRatio","currencyDeviationEur","currencyDeviationUsd");
 	}
 
 	@Override
@@ -84,10 +84,10 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double currencyDeviationUsd;
 
 		flaggedRatio= this.repository.countShoutFlagged() /(double)this.repository.countShout();
-		xxxRatio= this.repository.countShoutWithXXX() /(double)this.repository.countShout();
+		xxxRatio= this.repository.countShoutWith10() /(double)this.repository.countShout();
 		final Collection<Double> currencyEu= this.repository.getCurrencyEur("EUR");
 		currencyDeviationEur = AdministratorDashboardShowService.calculateSDDoubles(currencyEu);
-		final Collection<Double> currencyUs= this.repository.getCurrencyUsd("USD");
+		final Collection<Double> currencyUs= this.repository.getCurrencyUsd("PST");
 		currencyDeviationUsd = AdministratorDashboardShowService.calculateSDDoubles(currencyUs);
 		
 		
@@ -126,7 +126,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result = new Dashboard();
 		
 		result.setFlaggedRatio(flaggedRatio);
-		result.setXxxRatio(xxxRatio);
+		result.setDonationRatio(xxxRatio);
 		result.setCurrencyDeviationEur(currencyDeviationEur);
 		result.setCurrencyDeviationUsd(currencyDeviationUsd);
 		

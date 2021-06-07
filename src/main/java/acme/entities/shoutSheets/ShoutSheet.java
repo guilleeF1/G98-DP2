@@ -1,4 +1,4 @@
-package acme.entities.entidadExamen;
+package acme.entities.shoutSheets;
 
 
 import java.util.Date;
@@ -17,7 +17,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class EntidadExamen extends DomainEntity {
+public class ShoutSheet extends DomainEntity {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -27,18 +27,18 @@ public class EntidadExamen extends DomainEntity {
 	
 	@NotNull
 	@Column(unique = true)
-	protected String timeAttribute;
+	protected String name;
 	
 	
 	@Temporal(TemporalType.TIMESTAMP) //patrón de fecha, para moments
 	@NotNull
-	protected Date momentAttribute;
+	protected Date yesterday;
 	
 	@NotNull
-	protected Money moneyAttribute; //tributo dinero
+	protected Money donation; //tributo dinero
 	
 	@NotNull
-	protected Boolean isFlag;
+	protected Boolean finished;
 	
 	
 	

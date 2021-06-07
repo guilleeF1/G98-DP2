@@ -301,12 +301,12 @@ Threshold
       <h>112</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
-EntidadExamen
+ShoutSheet
 --
-+ timeAttribute: String {NotNull, Unique}
-+ momentAttribute: Date {NotNull, Temporal(TIMESTAMP)}
-+ moneyAttribute: Money {@NotNull}
-+ isFlag: Boolean {@NotNull}
++ name: String {NotNull, Unique}
++ yesterday: Date {NotNull, Temporal(TIMESTAMP)}
++ donation: Money {@NotNull}
++ finished: Boolean {@NotNull}
 
 bg=magenta
 fg=black</panel_attributes>

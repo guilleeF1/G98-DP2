@@ -34,7 +34,7 @@ administrator.dashboard.label.finalmax = Final Period Max
 administrator.dashboard.label.startdev = Start Period Deviation
 administrator.dashboard.label.finaldev = Final Period Deviation
 
-administrator.dashboard.label.xxxRatio = Ratio of Shouts with xxx in xxx
-administrator.dashboard.label.flaggedRatio = Ratio of Shouts flagged
+administrator.dashboard.label.donationRatio = Ratio of Shouts with donation greater than 10
+administrator.dashboard.label.flaggedRatio = Ratio of Shouts finished
 administrator.dashboard.label.currencyDeviation.eur = Deviation of shouts in euros
 administrator.dashboard.label.currencyDeviation.dollar = Deviation of shouts in dollars

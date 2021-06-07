@@ -27,18 +27,18 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	Integer countShout();
 	
 	//a) the ratio of shouts whose XXX were flagged as XXX
-	@Query("select count(e) from EntidadExamen e where e.isFlag = TRUE")//como es one to one, vale así xd
+	@Query("select count(e) from ShoutSheet e where e.finished = TRUE")//como es one to one, vale así xd
 	Integer countShoutFlagged();
 	
 	//b) the ratio of shouts whose XXX have XXX
-	@Query("select count(e) from EntidadExamen e where e.isFlag = TRUE")//como es one to one, vale así xd
-	Integer countShoutWithXXX();
+	@Query("select count(e) from ShoutSheet e where e.donation.amount > 10")//como es one to one, vale así xd
+	Integer countShoutWith10();
 	
 	//c) the average and the standard deviation of the XXX grouped by currency
-	@Query("select t.moneyAttribute.amount from EntidadExamen t where t.moneyAttribute.currency = ?1")
+	@Query("select t.donation.amount from ShoutSheet t where t.donation.currency = ?1")
 	Collection<Double> getCurrencyEur(String eur);
 	
-	@Query("select t.moneyAttribute.amount from EntidadExamen t where t.moneyAttribute.currency = ?1")
+	@Query("select t.donation.amount from ShoutSheet t where t.donation.currency = ?1")
 	Collection<Double> getCurrencyUsd(String usd);
 	
 	
