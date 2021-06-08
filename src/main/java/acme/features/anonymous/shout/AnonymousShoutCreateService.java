@@ -113,6 +113,8 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 			errors.state(request, entity.getInfoSheet().getDate().matches
 				("^([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}$"), 
 				"date", "anonymous.shout.form.error.dateExpresion");
+			errors.state(request, this.isUnique(entity.getInfoSheet().getDate()), "date",
+				"anonymous.shout.form.error.unique");
 		}
 		
 		if(!errors.hasErrors("currency")) {
@@ -142,6 +144,19 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		entity.getInfoSheet().setMoment(moment);
 		this.repository.save(entity.getInfoSheet());
 		this.repository.save(entity);
+	}
+	
+	private Boolean isUnique(final String unique) {
+		final List<InfoSheet> ls = new ArrayList<InfoSheet>();
+		ls.addAll(this.repository.findAllInformationsheets());
+		Boolean b = false;
+		for (final InfoSheet i : ls) {
+			b = unique.equals(i.getDate());
+			if (b) {
+				break;
+			}
+		}
+		return !b;
 	}
 	
 	

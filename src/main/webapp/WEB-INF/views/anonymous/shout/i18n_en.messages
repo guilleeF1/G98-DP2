@@ -31,6 +31,7 @@ anonymous.shout.list.label.infosheet.money = Information sheet money
 anonymous.shout.list.label.infosheet.flag = Information sheet flag
 
 anonymous.shout.form.error.dateExpresion = The date must be expressed as "dd/mm/yyyy"
+anonymous.shout.form.error.unique = There's already a shout with that date
 anonymous.shout.form.error.currency = The currency can only be euro or dollar
 anonymous.shout.form.error.twoDecimals = The can't have more than two digits decimals
 anonymous.shout.form.error.min = The value can't be negative

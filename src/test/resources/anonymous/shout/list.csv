@@ -1,8 +1,2 @@
-recordIndex,moment,author,text
-0,2021/05/24 11:30,The PSM Gang,Have you heard about octave?
-1,2021/05/24 11:35,Astrazeneca,"Go, vaccines, go!"
-2,2021/05/24 11:35,Coyote,So acme has a webpage...
-3,2021/05/24 12:30,indevelopers,"Please, no mean comments on our web!"
-4,2021/05/24 12:30,Github geek,Sonarcloud knows best
-5,2021/05/24 12:30,Asunción Pereira Adolfo,"Hi, i'm new!"
-6,2021/05/24 12:30,Twitch prime,Cool features!
+recordIndex,moment,author,text,Information sheet date,Information sheet moment,Information sheet money,Information sheet flag
+0,2021/05/30 19:39,Prueba,I'm happy!,11/10/2020,2021/05/30 19:39,10.52 dollar,false
