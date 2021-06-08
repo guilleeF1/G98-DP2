@@ -53,7 +53,8 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		request.unbind(entity, model, //
 			"numberOfTaskPublic", "numberOfTaskPrivate", "numberOfTaskFinished", "numberOfTaskNotFinished", "workloadAverage", "workloadMin", "workloadMax", "workloadDeviation", "startPeriodAverage", "finalPeriodAverage", "startPeriodMin",
-			"finalPeriodMin", "startPeriodMax", "finalPeriodMax", "startPeriodDeviation", "finalPeriodDeviation");
+			"finalPeriodMin", "startPeriodMax", "finalPeriodMax", "startPeriodDeviation", "finalPeriodDeviation",
+			"flagRatio", "euroAverage", "dollarAverage", "euroDeviation", "dollarDeviation"/*, "nose"*/);
 	}
 
 	@Override
@@ -62,6 +63,14 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		final Date today = Calendar.getInstance().getTime();
 
 		Dashboard result;
+		
+		Double flagRatio;
+//		Double nose;
+		Double euroAverage;
+		Double dollarAverage;
+		Double euroDeviation;
+		Double dollarDeviation;
+		
 		Integer numberOfTaskPublic;
 		Integer numberOfTaskPrivate;
 		Integer numberOfTaskFinished;
@@ -79,6 +88,13 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double startPeriodDeviation;
 		Double finalPeriodDeviation;
 
+		flagRatio = this.repository.countInfoSheetTrue()/(this.repository.countInfoSheetTrue() + this.repository.countInfoSheetFalse()); 
+//		nose = ;
+		euroAverage = this.repository.currencyAverage("euro");
+		dollarAverage = this.repository.currencyAverage("dollar");
+		euroDeviation = AdministratorDashboardShowService.doubleSD(this.repository.getMoneyCurrency("euro"));
+		dollarDeviation = AdministratorDashboardShowService.doubleSD(this.repository.getMoneyCurrency("dollar"));
+		
 		numberOfTaskPublic = this.repository.countTaskPublic();
 		numberOfTaskPrivate = this.repository.countTaskPrivate();
 		numberOfTaskFinished = this.repository.countTaskFinished(today);
@@ -111,6 +127,14 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		finalPeriodDeviation = AdministratorDashboardShowService.calculateSD(pF);
 
 		result = new Dashboard();
+		
+		result.setFlagRatio(flagRatio);
+//		result.setNose(nose);
+		result.setEuroAverage(euroAverage);
+		result.setDollarAverage(dollarAverage);
+		result.setEuroDeviation(euroDeviation);
+		result.setDollarDeviation(dollarDeviation);
+		
 		result.setNumberOfTaskPublic(numberOfTaskPublic);
 		result.setNumberOfTaskPrivate(numberOfTaskPrivate);
 		result.setNumberOfTaskFinished(numberOfTaskFinished);
@@ -142,6 +166,23 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		final double mean = sum / length;
 
 		for (final Integer num : integer) {
+			standardDeviation += Math.pow(num - mean, 2);
+		}
+
+		return Math.sqrt(standardDeviation / length);
+	}
+	
+	private static double doubleSD(final Collection<Double> nums) {
+		double sum = 0.0, standardDeviation = 0.0;
+		final int length = nums.size();
+
+		for (final Double num : nums) {
+			sum += num;
+		}
+
+		final double mean = sum / length;
+
+		for (final Double num : nums) {
 			standardDeviation += Math.pow(num - mean, 2);
 		}
 

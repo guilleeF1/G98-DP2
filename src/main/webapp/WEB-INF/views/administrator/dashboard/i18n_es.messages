@@ -17,6 +17,14 @@ administrator.dashboard.form.label.average-number-applications-employer = Númer
 
 administrator.dashboard.form.title.application-statuses = Estado de las solicitudes
 
+administrator.dashboard.label.flagRatio = Ratio de shouts con flag positiva
+administrator.dashboard.label.nose = nose
+administrator.dashboard.label.euroAverage = Dinero medio de los gritos con euros
+administrator.dashboard.label.dollarAverage = Dinero medio de los gritos con dólares
+administrator.dashboard.label.euroDeviation = Desviación típica del dinero de los gritos con euros
+administrator.dashboard.label.dollarDeviation = Desviación típica del dinero de los gritos con dólares
+
+
 administrator.dashboard.label.public = Número total de tareas públicas
 administrator.dashboard.label.private = Número total de tareas privadas
 administrator.dashboard.label.finished = Número total de tareas terminadas

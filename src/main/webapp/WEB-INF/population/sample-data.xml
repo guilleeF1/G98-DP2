@@ -44,7 +44,7 @@
 		<property name="moment" value="2020/04/10 19:39"/>
 		<property name="flag" value="false"/>	
 		<property name="amount" value="10.52"/>
-		<property name="currency" value="€"/>
+		<property name="currency" value="euro"/>
 	</bean>
 	
 	<bean id="info_sheet02" class="acme.entities.shouts.InfoSheet">
@@ -52,7 +52,7 @@
 		<property name="moment" value="2021/05/30 19:39"/>
 		<property name="flag" value="false"/>	
 		<property name="amount" value="10.52"/>
-		<property name="currency" value="€"/>
+		<property name="currency" value="dollar"/>
 	</bean>
 	
 	<!-- Tasks -->

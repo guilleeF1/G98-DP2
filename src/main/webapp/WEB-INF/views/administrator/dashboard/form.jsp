@@ -21,7 +21,7 @@
 <table class="table table-sm" id="values">
 	<caption>
 		<acme:message code="administrator.dashboard.form.title.general-indicators"/>
-	</caption>	
+	</caption>
 	<tr>
 		<th scope="row">
 			<acme:message code="administrator.dashboard.label.public"/>
@@ -150,5 +150,58 @@
 			<acme:print value="${finalPeriodDeviation}"/>
 		</td>
 	</tr>
+	
+	
+			
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.label.flagRatio"/>
+		</th>
+		<td id="16">
+			<acme:print value="${flagRatio}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.label.euroAverage"/>
+		</th>
+		<td id="17">
+			<acme:print value="${euroAverage}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.label.dollarAverage"/>
+		</th>
+		<td id="18">
+			<acme:print value="${dollarAverage}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.label.euroDeviation"/>
+		</th>
+		<td id="19">
+			<acme:print value="${euroDeviation}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.label.dollarDeviation"/>
+		</th>
+		<td id="20">
+			<acme:print value="${dollarDeviation}"/>
+		</td>
+	</tr>
+	<%--	
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.label.nose"/>
+		</th>
+		<td id="21">
+			<acme:print value="${nose}"/>
+		</td>
+	</tr>
+	--%>
 	
 </table>

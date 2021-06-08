@@ -20,7 +20,7 @@
 	<acme:form-textarea code="anonymous.shout.form.label.text" path="text"/>
 	<acme:form-textbox code="anonymous.shout.form.label.info" path="info"/>
 	
-	<acme:form-textbox code="anonymous.shout.form.label.infosheet.date" path="date"/>
+	<acme:form-textbox code="anonymous.shout.form.label.infosheet.date" path="date" placeholder="dd/mm/yyyy"/>
 	<acme:form-double code="anonymous.shout.form.label.infosheet.money" path="amount"/>
 	<acme:form-select code="anonymous.shout.form.label.infosheet.currency" path="currency">
 		<acme:form-option code="anonymous.shout.form.label.infosheet.euro" value="euro"/>

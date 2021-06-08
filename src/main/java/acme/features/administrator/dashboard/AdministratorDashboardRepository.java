@@ -23,6 +23,19 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AdministratorDashboardRepository extends AbstractRepository {
 
+	@Query("select count(s) from InfoSheet s where s.flag = TRUE")
+	Double countInfoSheetTrue();
+	
+	@Query("select count(s) from InfoSheet s where s.flag = FALSE")
+	Double countInfoSheetFalse();
+	
+	@Query("select avg(s.amount) from InfoSheet s where s.currency = ?1")
+	Double currencyAverage(String currency);
+	
+	@Query("select s.amount from InfoSheet s where s.currency = ?1")
+	Collection<Double> getMoneyCurrency(String currency);
+	
+	
 	
 	@Query("select count(t) from Task t where t.publica = TRUE")
 	Integer countTaskPublic();
