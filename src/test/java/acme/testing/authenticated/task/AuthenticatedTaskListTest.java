@@ -57,7 +57,6 @@ public class AuthenticatedTaskListTest extends AcmePlannerTest {
 		super.checkInputBoxHasValue("periodoEjecucionInicio", periodoEjecucionInicio);
 		super.checkInputBoxHasValue("periodoEjecucionFinal", periodoEjecucionFinal);
 		super.checkInputBoxHasValue("cargaTrabajo", cargaTrabajo);
-		super.checkInputBoxHasValue("cargaTrabajoMinutos", cargaTrabajoMinutos);
 		super.checkInputBoxHasValue("descripcion", descripcion);
 		super.checkInputBoxHasValue("enlace", enlace);
 		

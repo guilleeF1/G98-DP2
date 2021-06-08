@@ -12,14 +12,13 @@
 
 package acme.testing.anonymous.task;
 
-import org.junit.jupiter.api.Test;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.WebElement;
@@ -57,7 +56,6 @@ public class AnonymousTaskListTest extends AcmePlannerTest {
 		super.checkInputBoxHasValue("periodoEjecucionInicio", periodoEjecucionInicio);
 		super.checkInputBoxHasValue("periodoEjecucionFinal", periodoEjecucionFinal);
 		super.checkInputBoxHasValue("cargaTrabajo", cargaTrabajo);
-		super.checkInputBoxHasValue("cargaTrabajoMinutos", cargaTrabajoMinutos);
 		super.checkInputBoxHasValue("descripcion", descripcion);
 		super.checkInputBoxHasValue("enlace", enlace);
 	}
