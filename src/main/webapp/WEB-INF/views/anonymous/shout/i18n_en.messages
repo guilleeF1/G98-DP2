@@ -35,4 +35,5 @@ anonymous.shout.form.error.currency = The currency can only be "euro" or "dollar
 anonymous.shout.form.error.unique = The selected XXX must be unique
 anonymous.shout.form.error.twoDecimals = The value must have no more than two digits in the decimal part
 anonymous.shout.form.error.min = The value must be a non-negative number
-anonymous.shout.form.error.moneyisnull = This cannot be empty
+anonymous.shout.form.error.null = This cannot be empty
+anonymous.shout.form.error.notToday = This is not today's date

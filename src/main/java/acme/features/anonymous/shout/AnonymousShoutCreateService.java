@@ -13,6 +13,7 @@
 package acme.features.anonymous.shout;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -108,11 +109,13 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		if (!errors.hasErrors("text")) {
 			errors.state(request, !this.isSpam(entity.getText()), "text", "anonymous.shout.form.error.spam");
 		}
-		
 		if(!errors.hasErrors("date")) {
 			errors.state(request, entity.getInformationsheet().getDate().matches
 				("^\\d{4}\\/(0?[1-9]|1[012])\\/(0?[1-9]|[12][0-9]|3[01])$"), 
 				"date", "anonymous.shout.form.error.dateExpresion");
+			errors.state(request, entity.getInformationsheet().getDate().contains
+				(this.todayYear() + "/" + this.todayMonth() + "/" + this.todayDay()), 
+				"date", "anonymous.shout.form.error.notToday");
 			errors.state(request, this.isUnique(entity.getInformationsheet().getDate()), "date",
 				"anonymous.shout.form.error.unique");
 		}
@@ -124,7 +127,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		}
 		
 		if (entity.getInformationsheet().getMoney() == null) {
-			errors.state(request, false, "money", "anonymous.shout.form.error.moneyisnull");
+			errors.state(request, false, "money", "anonymous.shout.form.error.null");
 		}
 		
 		if(entity.getInformationsheet().getMoney() != null && !errors.hasErrors("money")) {
@@ -160,6 +163,31 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 			}
 		}
 		return !b;
+	}
+	
+	private String todayDay() {
+		final int i = LocalDate.now().getDayOfMonth();
+		if (i < 10) {
+			return "0" + i;
+		}
+		else {
+			return String.valueOf(i);
+		}
+	}
+	
+	private String todayMonth() {
+		final int i = LocalDate.now().getMonthValue();
+		if (i < 10) {
+			return "0" + i;
+		}
+		else {
+			return String.valueOf(i);
+		}
+	}
+	
+	private String todayYear() {
+		final int i = LocalDate.now().getYear();
+		return String.valueOf(i);
 	}
 	
 	private Boolean isSpam(final String texto) {
