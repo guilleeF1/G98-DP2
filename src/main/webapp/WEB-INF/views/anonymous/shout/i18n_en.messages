@@ -36,3 +36,4 @@ anonymous.shout.form.error.currency = The currency can only be euro or dollar
 anonymous.shout.form.error.twoDecimals = The can't have more than two digits decimals
 anonymous.shout.form.error.min = The value can't be negative
 anonymous.shout.form.error.moneynull = Empty amount
+anonymous.shout.form.error.notToday = It must contain today's date

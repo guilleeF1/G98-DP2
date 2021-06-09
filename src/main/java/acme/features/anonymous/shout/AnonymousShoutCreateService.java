@@ -13,6 +13,7 @@
 package acme.features.anonymous.shout;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -115,6 +116,9 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 				"date", "anonymous.shout.form.error.dateExpresion");
 			errors.state(request, this.isUnique(entity.getInfoSheet().getDate()), "date",
 				"anonymous.shout.form.error.unique");
+			errors.state(request, entity.getInfoSheet().getDate().contains
+				(this.todayYear() + "/" + this.todayMonth() + "/" + this.todayDay()), 
+				"date", "anonymous.shout.form.error.notToday");
 		}
 		
 		if(!errors.hasErrors("currency")) {
@@ -157,6 +161,31 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 			}
 		}
 		return !b;
+	}
+	
+	private String todayDay() {
+		final int i = LocalDate.now().getDayOfMonth();
+		if (i < 10) {
+			return "0" + i;
+		}
+		else {
+			return String.valueOf(i);
+		}
+	}
+	
+	private String todayMonth() {
+		final int i = LocalDate.now().getMonthValue();
+		if (i < 10) {
+			return "0" + i;
+		}
+		else {
+			return String.valueOf(i);
+		}
+	}
+	
+	private String todayYear() {
+		final int i = LocalDate.now().getYear();
+		return String.valueOf(i);
 	}
 	
 	
