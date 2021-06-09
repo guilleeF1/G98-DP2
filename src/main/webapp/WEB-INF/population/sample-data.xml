@@ -25,7 +25,7 @@
 		<property name="moment" value="2020/04/10 19:39"/>
 		<property name="author" value="John Doe"/>
 		<property name="text" value="I'm happy!"/>
-		<property name="info"><null/></property>		
+		<property name="info"><null/></property>
 		<property name="infoSheet" ref="info_sheet01"/>
 	</bean>
 	
