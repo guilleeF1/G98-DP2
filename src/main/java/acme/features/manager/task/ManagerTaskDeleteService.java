@@ -71,13 +71,15 @@ public class ManagerTaskDeleteService implements AbstractDeleteService<Manager, 
 
 		@Override
 		public void bind(final Request<Task> request, final Task entity, final Errors errors) {
-			// TODO Auto-generated method stub
+			
+			//There is nothing to bind in this service 
 			
 		}
 
 		@Override
 		public void unbind(final Request<Task> request, final Task entity, final Model model) {
-			// TODO Auto-generated method stub
+			
+			//There is nothing to unbind in this service 
 			
 		}
 	

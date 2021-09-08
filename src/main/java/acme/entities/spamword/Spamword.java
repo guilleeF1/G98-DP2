@@ -27,7 +27,7 @@ public class Spamword extends DomainEntity {
 		Integer n = 0;
 		for (final Spamword s : spamwords) {
 			if (!s.getWord().replaceAll("\\s","").isEmpty()) {
-				n += s.getWord().replaceAll("\\s","").length() * Spamword.numberOfTimesContained(texto.replaceAll("\\s",""), s.getWord().replaceAll("\\s",""));
+				n += s.getWord().replaceAll("\\s","").length() * Spamword.numberOfTimesContained(texto.replaceAll("\\s","").toLowerCase(), s.getWord().replaceAll("\\s","").toLowerCase());
 			}
 		}
 
