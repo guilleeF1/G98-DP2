@@ -17,6 +17,13 @@ administrator.dashboard.form.label.average-number-applications-employer = Averag
 
 administrator.dashboard.form.title.application-statuses = Application statuses
 
+administrator.dashboard.label.flagRatio = Ratio of shouts flagged as positive
+administrator.dashboard.label.nose = nose
+administrator.dashboard.label.euroAverage = Average money of shouts with euro
+administrator.dashboard.label.dollarAverage = Average money of shouts with dollar
+administrator.dashboard.label.euroDeviation = Standard deviation of the money of shouts with euro
+administrator.dashboard.label.dollarDeviation = Standard deviation of the money of shouts with dollar
+
 administrator.dashboard.label.public = Total number of public tasks
 administrator.dashboard.label.private = Total number of private tasks
 administrator.dashboard.label.finished = Total number of finished tasks

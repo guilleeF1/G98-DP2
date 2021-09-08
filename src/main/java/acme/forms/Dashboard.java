@@ -27,7 +27,7 @@ public class Dashboard implements Serializable {
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-
+	
 	Integer						numberOfTaskPublic;
 	Integer						numberOfTaskPrivate;
 	Integer						numberOfTaskFinished;
@@ -44,6 +44,13 @@ public class Dashboard implements Serializable {
 	Date 						finalPeriodMin;
 	Date 						startPeriodMax;
 	Date 						finalPeriodMax;
+
+	Double                      flagRatio;
+//	Double						nose;
+	Double						euroAverage;
+	Double						dollarAverage;
+	Double						euroDeviation;
+	Double						dollarDeviation;
 
 	// Derived attributes -----------------------------------------------------
 

@@ -16,17 +16,23 @@ public class AnonymousShoutCreateTest extends AcmePlannerTest {
 		@ParameterizedTest
 		@CsvFileSource(resources = "/anonymous/shout/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 		@Order(10)
-		public void createShoutWithAnonymousPositive(final int recordIndex, final String author, final String text) {
+		public void createShoutWithAnonymousPositive(final int recordIndex, final String author, final String text, final String infoSheetDate, final String infoSheetMoney, final String currency, final String flag) {
 			super.clickOnMenu("Anonymous", "Shout!");
 
 			super.fillInputBoxIn("author", author);
 			super.fillInputBoxIn("text", text);
+			super.fillInputBoxIn("date", infoSheetDate);
+			super.fillInputBoxIn("amount", infoSheetMoney);
+			super.fillInputBoxIn("currency", currency);
+			super.fillInputBoxIn("flag", flag);
 			super.clickOnSubmitButton("Shout!");
 
 			super.clickOnMenu("Anonymous", "List shouts");		
 			
 			super.checkColumnHasValue(recordIndex, 1, author);
 			super.checkColumnHasValue(recordIndex, 2, text);
+			super.checkColumnHasValue(recordIndex, 3, infoSheetDate);
+			super.checkColumnHasValue(recordIndex, 5, infoSheetMoney + " " + currency);
 		}
 		
 		//Como resultado esta prueba muestra el shout creado correctamente tal y como aparece en csv indicado en la url de resources añadiendolo en la lista de todos los shouts 
@@ -37,11 +43,13 @@ public class AnonymousShoutCreateTest extends AcmePlannerTest {
 		@ParameterizedTest
 		@CsvFileSource(resources = "/anonymous/shout/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 		@Order(20)
-		public void createShoutWithAnonymousNegative(final int recordIndex, final String author, final String text) {
+		public void createShoutWithAnonymousNegative(final int recordIndex, final String author, final String text, final String infoSheetDate, final String infoSheetMoney) {
 			super.clickOnMenu("Anonymous", "Shout!");
 
 			super.fillInputBoxIn("author", author);
 			super.fillInputBoxIn("text", text);
+			super.fillInputBoxIn("date", infoSheetDate);
+			super.fillInputBoxIn("amount", infoSheetMoney);
 			super.clickOnSubmitButton("Shout!");
 
 			super.checkErrorsExist();

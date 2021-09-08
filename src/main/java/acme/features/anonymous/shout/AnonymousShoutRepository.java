@@ -18,6 +18,7 @@ import java.util.Date;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.shouts.InfoSheet;
 import acme.entities.shouts.Shout;
 import acme.framework.repositories.AbstractRepository;
 
@@ -29,5 +30,14 @@ public interface AnonymousShoutRepository extends AbstractRepository {
 
 	@Query("select s from Shout s where s.moment >= ?1 ORDER BY s.moment")
 	Collection<Shout> findRecentShouts(Date limitetiempo);
+	
+	@Query("select s from InfoSheet s")
+	Collection<InfoSheet> findAllInformationsheets();
+	
+	@Query("select s from InfoSheet s where s.flag = TRUE")
+	Collection<InfoSheet> findFlaggedInformationsheets();
+	
+	@Query("select s from InfoSheet s where s.date >= ?1")
+	Collection<InfoSheet> findOutdatedInfoSheets(Date moment);
 
 }
