@@ -1,0 +1,35 @@
+# i18n_en.messages
+#
+# Copyright (C) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.dashboard.form.title.show = Dashboard
+
+administrator.dashboard.form.title.general-indicators = General indicators
+administrator.dashboard.form.label.average-number-jobs-employer =  Average number of jobs per employer
+administrator.dashboard.form.label.average-number-applications-worker =  Average number of applications per worker
+administrator.dashboard.form.label.average-number-applications-employer = Average number of applications per employer
+
+administrator.dashboard.form.title.application-statuses = Application statuses
+
+administrator.dashboard.label.public = Total number of public tasks
+administrator.dashboard.label.private = Total number of private tasks
+administrator.dashboard.label.finished = Total number of finished tasks
+administrator.dashboard.label.unfinished = Total number of not finished tasks
+administrator.dashboard.label.average = Workload Average
+administrator.dashboard.label.max = Workload Max
+administrator.dashboard.label.min = Workload Min
+administrator.dashboard.label.deviation = Workload Deviation
+administrator.dashboard.label.startaverage = Start Period Average
+administrator.dashboard.label.finalaverage = Final Period Average
+administrator.dashboard.label.startmin = Start Period Min
+administrator.dashboard.label.finalmin = Final Period Min
+administrator.dashboard.label.startmax = Start Period Max
+administrator.dashboard.label.finalmax = Final Period Max
+administrator.dashboard.label.startdev = Start Period Deviation
+administrator.dashboard.label.finaldev = Final Period Deviation

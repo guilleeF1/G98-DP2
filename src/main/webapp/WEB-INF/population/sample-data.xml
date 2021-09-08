@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+- sample-data.xml
+-
+- Copyright (C) 2012-2021 Rafael Corchuelo.
+-
+- In keeping with the traditional purpose of furthering education and research, it is
+- the policy of the copyright owner to permit non-commercial use and redistribution of
+- this software. It has been tested carefully, but it is not guaranteed for any particular
+- purposes.  The copyright owner does not offer any warranties or representations, nor do
+- they accept any liabilities with respect to them.
+-->
+
+<beans 
+	xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<import resource="classpath:/WEB-INF/population/conversion-service.xml"/>
+	
+	<!-- Shouts -->
+	
+	<bean id="shout01" class="acme.entities.shouts.Shout">
+		<property name="moment" value="2021/08/20 19:39"/>
+		<property name="author" value="John Doe"/>
+		<property name="text" value="I'm happy!"/>
+		<property name="info"><null/></property>	
+	</bean>
+	
+	<bean id="shout02" class="acme.entities.shouts.Shout">
+		<property name="moment" value="2019/08/09 15:55"/>
+		<property name="author" value="Jane Doe"/>
+		<property name="text" value="I'm the master of my room!"/>
+		<property name="info" value="http://www.example.org"/>		
+	</bean>
+	
+	<bean id="shout03" class="acme.entities.shouts.Shout">
+		<property name="moment" value="2021/09/01 00:00"/>
+		<property name="author" value="Foo Bar"/>
+		<property name="text" value="Just turning 50!"/>
+		<property name="info" value="http://happybirthday.com"/>		
+	</bean>
+	
+	<bean id="shout04" class="acme.entities.shouts.Shout">
+		<property name="author" value="Leslie Design-Testing"/>
+		<property name="text" value="Woa! This app's so cool!"/>
+		<property name="moment" value="2021/04/13 12:30"/>
+		<property name="info" value="http://www.sample-app.com"/>
+	</bean>
+	
+	<bean id="shout05" class="acme.entities.shouts.Shout">
+		<property name="author" value="ElRubOMG"/>
+		<property name="text" value="Good Morning, lord's creatures!"/>
+		<property name="moment" value="2021/04/20 12:30"/>
+		<property name="info" value="http://www.sample-app.com"/>
+	</bean>
+	
+	<bean id="shout06" class="acme.entities.shouts.Shout">
+		<property name="author" value="indevelopers"/>
+		<property name="text" value="Please, no mean comments on our web!"/>
+		<property name="moment" value="2021/05/24 12:30"/>
+		<property name="info" value="http://www.sample-app.com"/>
+	</bean>
+	
+		<bean id="shout07" class="acme.entities.shouts.Shout">
+		<property name="author" value="Github geek"/>
+		<property name="text" value="Sonarcloud knows best"/>
+		<property name="moment" value="2021/05/24 12:30"/>
+		<property name="info" value="http://www.sample-app.com"/>
+	</bean>
+	
+		<bean id="shout08" class="acme.entities.shouts.Shout">
+		<property name="author" value="Asunción Pereira Adolfo"/>
+		<property name="text" value="Hi, i'm new!"/>
+		<property name="moment" value="2021/05/24 12:30"/>
+		<property name="info" value="http://www.sample-app.com"/>
+	</bean>
+	
+	<bean id="shout09" class="acme.entities.shouts.Shout">
+		<property name="author" value="Twitch prime"/>
+		<property name="text" value="Cool features!"/>
+		<property name="moment" value="2021/05/24 12:30"/>
+		<property name="info" value="http://www.sample-app.com"/>
+	</bean>
+	
+	<bean id="shout10" class="acme.entities.shouts.Shout">
+		<property name="author" value="The PSM Gang"/>
+		<property name="text" value="Have you heard about octave?"/>
+		<property name="moment" value="2021/05/24 11:30"/>
+		<property name="info" value="http://www.sample-app.com"/>
+	</bean>
+	
+	<bean id="shout11" class="acme.entities.shouts.Shout">
+		<property name="author" value="Astrazeneca"/>
+		<property name="text" value="Go, vaccines, go!"/>
+		<property name="moment" value="2021/05/24 11:35"/>
+		<property name="info" value="http://www.sample-app.com"/>
+	</bean>
+	
+	<bean id="shout12" class="acme.entities.shouts.Shout">
+		<property name="author" value="Coyote"/>
+		<property name="text" value="So acme has a webpage..."/>
+		<property name="moment" value="2021/05/24 11:35"/>
+		<property name="info" value="http://www.sample-app.com"/>
+	</bean>
+	<!-- Tasks -->
+	
+	<!--             tareas para probar los filtros                   -->
+	
+	<bean id="task01" class="acme.entities.tasks.Task">
+		<property name="publica" value="false"/>
+		<property name="titulo" value="Implementacion entidad task"/>
+		<property name="periodoEjecucionInicio" value="2021/09/13 10:39"/>
+		<property name="periodoEjecucionFinal" value="2021/09/13 16:23"/>
+		<property name="cargaTrabajo" value="1."/>
+		<property name="descripcion" value="implementar task con sus atributos"/>
+		<property name="enlace" value="https://stackoverflow.com/"/>	
+		<property name="manager" ref="managerManager"/>
+	</bean>
+	
+	<bean id="task02" class="acme.entities.tasks.Task">
+		<property name="publica" value="false"/>
+		<property name="titulo" value="Implementacion entidad shout"/>
+		<property name="periodoEjecucionInicio" value="2021/07/18 18:56"/>
+		<property name="periodoEjecucionFinal" value="2021/07/18 22:23"/>
+		<property name="cargaTrabajo" value="2."/>
+		<property name="descripcion" value="implementar shout con sus atributos"/>
+		<property name="enlace" value="http://happybirthday.com"/>
+		<property name="manager" ref="managerManager"/>
+	</bean>
+	
+	<bean id="task03" class="acme.entities.tasks.Task">
+		<property name="publica" value="true"/>
+		<property name="titulo" value="Implementacion entidad announcement"/>
+		<property name="periodoEjecucionInicio" value="2021/11/03 05:07"/>
+		<property name="periodoEjecucionFinal" value="2021/11/03 12:07"/>
+		<property name="cargaTrabajo" value="7."/>
+		<property name="descripcion" value="implementar announcement con sus atributos"/>
+		<property name="enlace" value="https://stackoverflow.com/"/>	
+		<property name="manager" ref="managerManager"/>
+	</bean>
+	
+	<bean id="task04" class="acme.entities.tasks.Task">
+		<property name="publica" value="true"/>
+		<property name="titulo" value="Implementacion entidad employer"/>
+		<property name="periodoEjecucionInicio" value="2021/12/24 01:18"/>
+		<property name="periodoEjecucionFinal" value="2021/12/24 02:18"/>
+		<property name="cargaTrabajo" value="1."/>
+		<property name="descripcion" value="implementar employer con sus atributos"/>
+		<property name="enlace" value="https://stackoverflow.com/"/>	
+		<property name="manager" ref="managerManager"/>
+	</bean>
+	
+		<bean id="task05" class="acme.entities.tasks.Task">
+		<property name="publica" value="false"/>
+		<property name="titulo" value="Tarea que no debe ni anon ni aunth"/>
+		<property name="periodoEjecucionInicio" value="2020/12/20 01:18"/>
+		<property name="periodoEjecucionFinal" value="2020/12/24 02:18"/>
+		<property name="cargaTrabajo" value="5."/>
+		<property name="descripcion" value="es una tarea pasada"/>
+		<property name="enlace" value="https://stackoverflow.com/"/>		
+		<property name="manager" ref="manager2Manager"/>
+	</bean>	
+		
+	<!--              finished and public tasks                    -->
+			<bean id="task06" class="acme.entities.tasks.Task">
+		<property name="publica" value="true"/>
+		<property name="titulo" value="Tarea antigua 2"/>
+		<property name="periodoEjecucionInicio" value="2018/12/20 01:18"/>
+		<property name="periodoEjecucionFinal" value="2018/12/24 02:18"/>
+		<property name="cargaTrabajo" value="4."/>
+		<property name="descripcion" value="es una tarea pasada 2"/>
+		<property name="enlace" value="https://stackoverflow.com/"/>	
+		<property name="manager" ref="manager2Manager"/>
+	</bean>
+	
+	<bean id="task07" class="acme.entities.tasks.Task">
+		<property name="publica" value="true"/>
+		<property name="titulo" value="Tarea antigua pub 2"/>
+		<property name="periodoEjecucionInicio" value="2018/12/21 01:45"/>
+		<property name="periodoEjecucionFinal" value="2018/12/24 02:18"/>
+		<property name="cargaTrabajo" value="5."/>
+		<property name="descripcion" value="es una tarea pasada y pública"/>
+		<property name="enlace" value="https://stackoverflow.com/"/>	
+		<property name="manager" ref="manager2Manager"/>
+	</bean>
+	
+		<bean id="task15" class="acme.entities.tasks.Task">
+		<property name="publica" value="true"/>
+		<property name="titulo" value="Configuracion tarjeta sonido"/>
+		<property name="periodoEjecucionInicio" value="2018/12/21 01:45"/>
+		<property name="periodoEjecucionFinal" value="2018/12/21 02:45"/>
+		<property name="cargaTrabajo" value="2."/>
+		<property name="descripcion" value="Revisar tarjeta sonido del pc-com-27"/>
+		<property name="enlace" value="https://stackoverflow.com/"/>	
+		<property name="manager" ref="manager2Manager"/>
+	</bean>
+	
+			<bean id="task16" class="acme.entities.tasks.Task">
+		<property name="publica" value="true"/>
+		<property name="titulo" value="Implementacion recursividad"/>
+		<property name="periodoEjecucionInicio" value="2018/11/22 01:45"/>
+		<property name="periodoEjecucionFinal" value="2018/11/23 02:45"/>
+		<property name="cargaTrabajo" value="4."/>
+		<property name="descripcion" value="Implementar algoritmo recursivo final"/>
+		<property name="enlace" value="https://stackoverflow.com/"/>	
+		<property name="manager" ref="manager2Manager"/>
+	</bean>
+	
+			<bean id="task17" class="acme.entities.tasks.Task">
+		<property name="publica" value="true"/>
+		<property name="titulo" value="Sprint 2 planning"/>
+	    <property name="periodoEjecucionInicio" value="2018/11/21 01:45"/>
+		<property name="periodoEjecucionFinal" value="2018/11/22 02:45"/>
+		<property name="cargaTrabajo" value="5."/>
+		<property name="descripcion" value="Estimate workloads for new tasks"/>
+		<property name="enlace" value="https://stackoverflow.com/"/>	
+		<property name="manager" ref="manager2Manager"/>
+	</bean>
+	
+		
+			<bean id="task18" class="acme.entities.tasks.Task">
+		<property name="publica" value="true"/>
+		<property name="titulo" value="Code fixing"/>
+	    <property name="periodoEjecucionInicio" value="2018/11/20 01:45"/>
+		<property name="periodoEjecucionFinal" value="2018/11/21 02:45"/>
+		<property name="cargaTrabajo" value="6."/>
+		<property name="descripcion" value="There's a bug in line 1024 that we need to solve now"/>
+		<property name="enlace" value="https://stackoverflow.com/"/>	
+		<property name="manager" ref="manager2Manager"/>
+	</bean>
+	
+	
+		<!--            Unfinished and public tasks                    -->
+	
+	<bean id="task08" class="acme.entities.tasks.Task">
+		<property name="publica" value="true"/>
+		<property name="titulo" value="Preparar el entregable de ISPP"/>
+		<property name="periodoEjecucionInicio" value="2021/11/07 02:30"/>
+		<property name="periodoEjecucionFinal" value="2021/11/07 04:30"/>
+		<property name="cargaTrabajo" value="5."/>
+		<property name="descripcion" value="Documentar el modelo de dominio"/>
+		<property name="enlace" value="https://github.com/"></property>	
+		<property name="manager" ref="manager2Manager"/>
+	</bean>
+	
+	<bean id="task09" class="acme.entities.tasks.Task">
+		<property name="publica" value="true"/>
+		<property name="titulo" value="Funcionalidad 27 parte 2"/>
+		<property name="periodoEjecucionInicio" value="2021/11/27 02:30"/>
+		<property name="periodoEjecucionFinal" value="2021/11/28 04:30"/>
+		<property name="cargaTrabajo" value="3."/>
+		<property name="descripcion" value="Añadir botón de carrito"/>
+		<property name="enlace" value="https://github.com/"></property>	
+		<property name="manager" ref="manager2Manager"/>
+	</bean>
+	
+	<bean id="task10" class="acme.entities.tasks.Task">
+		<property name="publica" value="true"/>
+		<property name="titulo" value="Spanish localization for our program"/>
+		<property name="periodoEjecucionInicio" value="2021/10/10 02:30"/>
+		<property name="periodoEjecucionFinal" value="2021/11/10 02:30"/>
+		<property name="cargaTrabajo" value="6."/>
+		<property name="descripcion" value="Translate all text-boxes and adapt them"/>
+		<property name="enlace" value="https://www.wordreference.com/"></property>	
+		<property name="manager" ref="manager2Manager"/>
+	</bean>
+	
+	<bean id="task11" class="acme.entities.tasks.Task">
+		<property name="publica" value="true"/>
+		<property name="titulo" value="Deployment of our project!"/>
+		<property name="periodoEjecucionInicio" value="2021/8/10 01:30"/>
+		<property name="periodoEjecucionFinal" value="2021/8/10 04:30"/>
+		<property name="cargaTrabajo" value="7."/>
+		<property name="descripcion" value="We need to deploy our project in Clevercloud"/>
+		<property name="enlace" value="https://www.wordreference.com/"></property>	
+		<property name="manager" ref="manager2Manager"/>
+	</bean>
+	
+		<bean id="task12" class="acme.entities.tasks.Task">
+		<property name="publica" value="true"/>
+		<property name="titulo" value="Desing et le testing la"/>
+		<property name="periodoEjecucionInicio" value="2021/7/10 01:30"/>
+		<property name="periodoEjecucionFinal" value="2021/7/10 04:30"/>
+		<property name="cargaTrabajo" value="4."/>
+		<property name="descripcion" value="analyser la structure mvc"/>
+		<property name="enlace" value="https://www.wordreference.com/"></property>	
+		<property name="manager" ref="manager2Manager"/>
+	</bean>
+	
+			<bean id="task13" class="acme.entities.tasks.Task">
+		<property name="publica" value="true"/>
+		<property name="titulo" value="oppgaveenhet testoppgave"/>
+		<property name="periodoEjecucionInicio" value="2021/7/11 01:30"/>
+		<property name="periodoEjecucionFinal" value="2021/7/11 04:30"/>
+		<property name="cargaTrabajo" value="4."/>
+		<property name="descripcion" value="legg til enhetstest til enheten Oppgave"/>
+		<property name="enlace" value="https://www.wordreference.com/"></property>	
+		<property name="manager" ref="manager2Manager"/>
+	</bean>
+	
+			<bean id="task14" class="acme.entities.tasks.Task">
+		<property name="publica" value="true"/>
+		<property name="titulo" value="Lorem ipsum dolor sit amet"/>
+		<property name="periodoEjecucionInicio" value="2021/7/11 02:30"/>
+		<property name="periodoEjecucionFinal" value="2021/7/11 04:30"/>
+		<property name="cargaTrabajo" value="4."/>
+		<property name="descripcion" value="consectetur adipiscing elit, sed do eiusmod"/>
+		<property name="enlace" value="https://www.lipsum.com/"></property>	
+		<property name="manager" ref="manager2Manager"/>
+	</bean>
+	
+	<!-- User -->
+	
+	<bean name="userAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="user1" />
+		<property name="password" value="user1" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="User" />
+				<property name="surname" value="User.com" />
+				<property name="email" value="user@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="userAuthenticated" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="userAuthenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="userAccount" />
+	</bean>
+	
+	<!-- Manager -->
+	
+	<bean name="managerUserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="manager1" />
+		<property name="password" value="manager1" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Manager" />
+				<property name="surname" value="Manager.com" />
+				<property name="email" value="manager@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="managerManager" />
+				<ref bean="managerAuthenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="managerManager" class="acme.entities.roles.Manager">
+		<property name="userAccount" ref="managerUserAccount" />
+	</bean>
+	
+	<bean name="managerAuthenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="managerUserAccount" />
+	</bean>
+	
+	<bean name="manager2UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="manager2" />
+		<property name="password" value="manager2" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Manager" />
+				<property name="surname" value="Manager.com" />
+				<property name="email" value="manager@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="manager2Manager" />
+				<ref bean="manager2Authenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="manager2Manager" class="acme.entities.roles.Manager">
+		<property name="userAccount" ref="manager2UserAccount" />
+	</bean>
+	
+	<bean name="manager2Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="manager2UserAccount" />
+	</bean>
+</beans>
